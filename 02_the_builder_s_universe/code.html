@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Yash Khadgi — The Builder's Universe</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Geist:wght@100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-primary-container": "#493682",
+          "on-error": "#690005",
+          "background": "#111317",
+          "secondary-fixed-dim": "#62dcad",
+          "on-surface": "#e2e2e8",
+          "on-tertiary-fixed": "#001e2c",
+          "primary-fixed": "#e8ddff",
+          "on-surface-variant": "#cac4d2",
+          "tertiary-fixed-dim": "#7bd0ff",
+          "tertiary": "#8bd5ff",
+          "surface-bright": "#37393e",
+          "on-secondary-container": "#003121",
+          "inverse-surface": "#e2e2e8",
+          "surface-variant": "#333539",
+          "secondary-container": "#18a479",
+          "tertiary-fixed": "#c4e7ff",
+          "inverse-primary": "#64529f",
+          "outline": "#948f9b",
+          "outline-variant": "#484550",
+          "on-error-container": "#ffdad6",
+          "surface-tint": "#cdbdff",
+          "on-primary-fixed-variant": "#4c3a85",
+          "surface-container-highest": "#333539",
+          "secondary": "#62dcad",
+          "on-background": "#e2e2e8",
+          "surface-container": "#1e2024",
+          "on-tertiary-fixed-variant": "#004c69",
+          "on-tertiary-container": "#004964",
+          "on-primary": "#35216d",
+          "tertiary-container": "#36bcf7",
+          "surface-container-high": "#282a2e",
+          "surface-container-lowest": "#0c0e12",
+          "inverse-on-surface": "#2f3035",
+          "surface-container-low": "#1a1c20",
+          "on-tertiary": "#00354a",
+          "error-container": "#93000a",
+          "on-secondary-fixed-variant": "#00513a",
+          "surface": "#111317",
+          "on-secondary": "#003827",
+          "surface-dim": "#111317",
+          "primary-fixed-dim": "#cdbdff",
+          "secondary-fixed": "#80f9c8",
+          "error": "#ffb4ab",
+          "on-primary-fixed": "#200558",
+          "primary": "#d2c3ff",
+          "primary-container": "#b8a4f8",
+          "on-secondary-fixed": "#002115"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.5rem",
+          "margin": "4rem",
+          "margin-mobile": "1.25rem",
+          "space-lg": "1.75rem",
+          "space-3xl": "8rem",
+          "space-xs": "0.25rem",
+          "gutter": "1.5rem",
+          "space-2xl": "5rem",
+          "space-md": "1rem",
+          "gutter-mobile": "1rem",
+          "space-xl": "3rem",
+          "margin-tablet": "2rem"
+        },
+        "fontFamily": {
+          "headline-lg": [
+            "Bodoni Moda"
+          ],
+          "body-sm": [
+            "Geist"
+          ],
+          "body-lg": [
+            "Geist"
+          ],
+          "label-tag": [
+            "JetBrains Mono"
+          ],
+          "headline-md-mobile": [
+            "Bodoni Moda"
+          ],
+          "headline-md": [
+            "Bodoni Moda"
+          ],
+          "body-md": [
+            "Geist"
+          ],
+          "title-lg": [
+            "Geist"
+          ],
+          "label-caps": [
+            "JetBrains Mono"
+          ],
+          "display-xl-mobile": [
+            "Bodoni Moda"
+          ],
+          "code-inline": [
+            "JetBrains Mono"
+          ],
+          "title-md": [
+            "Geist"
+          ],
+          "headline-lg-mobile": [
+            "Bodoni Moda"
+          ],
+          "display-xl": [
+            "Bodoni Moda"
+          ]
+        },
+        "fontSize": {
+          "headline-lg": [
+            "48px",
+            {
+              "lineHeight": "56px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-sm": [
+            "13px",
+            {
+              "lineHeight": "20px",
+              "letterSpacing": "0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "17px",
+            {
+              "lineHeight": "28px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "label-tag": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.04em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-md-mobile": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "0em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-md": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "0em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-md": [
+            "15px",
+            {
+              "lineHeight": "24px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "title-lg": [
+            "22px",
+            {
+              "lineHeight": "30px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-caps": [
+            "11px",
+            {
+              "lineHeight": "14px",
+              "letterSpacing": "0.12em",
+              "fontWeight": "600"
+            }
+          ],
+          "display-xl-mobile": [
+            "42px",
+            {
+              "lineHeight": "48px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "code-inline": [
+            "13px",
+            {
+              "lineHeight": "18px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "title-md": [
+            "18px",
+            {
+              "lineHeight": "26px",
+              "letterSpacing": "-0.005em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg-mobile": [
+            "32px",
+            {
+              "lineHeight": "38px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "display-xl": [
+            "72px",
+            {
+              "lineHeight": "80px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 px-gutter-mobile md:px-gutter py-space-sm pointer-events-none"><div class="max-w-[1440px] mx-auto h-20 flex items-center justify-between gap-space-md pointer-events-auto"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="arrival" href="#"><div class="w-10 h-10 rounded-lg bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center shadow-[0_1px_8px_rgba(0,0,0,0.4)] group-hover:bg-surface-variant transition-colors"><span class="font-headline-md text-headline-md text-primary">YK</span></div><div class="hidden xl:flex flex-col"><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps tracking-widest text-on-surface">YASH KHADGI</span></div><span class="font-label-caps text-label-caps text-on-surface-variant text-[9px] tracking-wider">AVAILABLE FOR INNOVATIVE BUILDS • 2025/26</span></div></a></div><nav class="hidden lg:flex items-center p-space-xs rounded-full bg-surface-container-low/70 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.5)]" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(184,164,248,0.25)]"><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="arrival" href="#">01 ARRIVAL</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(184,164,248,0.25)]" data-path="universe" href="#">02 UNIVERSE</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="theater" href="#">03 THEATER</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="archives" href="#">04 ARCHIVES</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">05 ABOUT</a></nav><div class="flex items-center gap-space-sm"><button aria-label="Command Center" class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-high/60 backdrop-blur-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="font-code-inline text-code-inline text-[11px] font-semibold text-primary">⌘K</span><span class="hidden md:inline font-label-tag text-label-tag text-[11px]">COMMAND</span></button><button aria-label="Toggle Ambience Audio" class="w-9 h-9 rounded-lg bg-surface-container-high/60 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="material-symbols-outlined text-[18px]">graphic_eq</span></button><button aria-label="Toggle Theme Mode" class="w-9 h-9 rounded-lg bg-surface-container-high/60 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><a class="hidden sm:inline-flex items-center px-space-md py-space-xs rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps font-semibold shadow-[0_0_24px_rgba(184,164,248,0.3)] hover:brightness-110 transition-all" data-path="universe" href="#">EXPLORE</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(210,195,255,0.35)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full relative select-none">
+<!-- Top Universe Control Horizon -->
+<section class="w-full px-gutter-mobile md:px-gutter pt-space-md pb-space-lg flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b-0">
+<div class="flex flex-col max-w-2xl">
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-caps text-label-caps tracking-widest text-secondary uppercase">Spatial Dimension 02 // Autonomous Topology</span>
+<span class="text-outline text-[10px]">•</span>
+<span class="font-code-inline text-code-inline text-[11px] text-on-surface-variant">NODE CLUSTER V.4.8</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+        The Builder’s <span class="italic font-normal text-primary">Universe</span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs max-w-xl">
+        Interconnected digital architectures, intelligence pipelines, and physical-compute twins. Navigate planetary systems to inspect runtime telemetry, systems topology, and venture benchmarks.
+      </p>
+</div>
+<!-- Telemetry & Constellation Filter Bar -->
+<div class="flex flex-col items-start md:items-end gap-space-sm">
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-full shadow-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">COSMIC DRIFT</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-code-inline text-code-inline text-[11px] text-primary" id="coordinates-telemetry">X: 18.5204 | Y: 73.8567 | Z: 1.000</span>
+</div>
+<div class="flex flex-wrap gap-1.5 items-center max-w-lg justify-start md:justify-end" id="tech-filters">
+<button class="filter-chip active-chip px-space-sm py-1 rounded-full bg-primary text-on-primary font-label-tag text-label-tag transition-all shadow-sm" data-filter="all">
+          All Systems (12)
+        </button>
+<button class="filter-chip px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tag text-label-tag transition-all" data-filter="rag">
+          RAG &amp; AI/ML
+        </button>
+<button class="filter-chip px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tag text-label-tag transition-all" data-filter="backend">
+          Python / FastAPI
+        </button>
+<button class="filter-chip px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tag text-label-tag transition-all" data-filter="cloud">
+          AWS Cloud
+        </button>
+<button class="filter-chip px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tag text-label-tag transition-all" data-filter="fullstack">
+          React / Full-Stack
+        </button>
+<button class="filter-chip px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tag text-label-tag transition-all" data-filter="research">
+          Patents &amp; Research
+        </button>
+</div>
+</div>
+</section>
+<!-- Interactive 3D Spatial Canvas Viewport -->
+<div class="relative w-full h-[760px] lg:h-[840px] overflow-hidden bg-surface-container-lowest flex items-center justify-center cursor-grab active:cursor-grabbing" id="universe-stage">
+<!-- Deep Spatial Background Grid & Atmospheric Halos -->
+<div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(184,164,248,0.06),transparent_80%)]"></div>
+<div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-primary-container/5 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-secondary/5 blur-3xl pointer-events-none"></div>
+<!-- Vector Constellation Lines Surface Layer -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-10" id="constellation-canvas" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="link-grad-core" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#b8a4f8" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#62dcad" stop-opacity="0.1"></stop>
+</lineargradient>
+<lineargradient id="link-active" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#b8a4f8" stop-opacity="0.8"></stop>
+<stop offset="100%" stop-color="#62dcad" stop-opacity="0.7"></stop>
+</lineargradient>
+</defs>
+<!-- Coordinate lines are dynamically bound / synced via JS -->
+<g id="vector-links"></g>
+</svg>
+<!-- Parallax 3D Pivot Transform Container -->
+<div class="relative w-[1100px] h-[780px] transition-transform duration-300 ease-out flex items-center justify-center" id="spatial-field">
+<!-- Central Gravitational Core (Yash's Core Engine) -->
+<div class="absolute z-20 flex flex-col items-center justify-center group cursor-pointer" id="core-anchor">
+<!-- Concentric Orbital Wave Rings -->
+<div class="absolute w-[820px] h-[580px] rounded-[50%] border-0 bg-transparent shadow-[0_0_0_1px_rgba(202,196,210,0.07)] pointer-events-none animate-[spin_120s_linear_infinite]"></div>
+<div class="absolute w-[620px] h-[440px] rounded-[50%] border-0 bg-transparent shadow-[0_0_0_1px_rgba(184,164,248,0.12)] pointer-events-none animate-[spin_80s_linear_infinite_reverse]"></div>
+<div class="absolute w-[380px] h-[280px] rounded-[50%] border-0 bg-transparent shadow-[0_0_0_1px_rgba(98,220,173,0.14)] pointer-events-none"></div>
+<!-- Central Sun/Matrix Core Body -->
+<div class="relative w-24 h-24 rounded-full bg-surface-container flex flex-col items-center justify-center shadow-2xl transition-all duration-500 group-hover:scale-110">
+<div class="absolute inset-1 rounded-full bg-surface-container-high flex flex-col items-center justify-center">
+<span class="font-headline-md text-headline-md text-primary tracking-tighter">YK</span>
+<span class="font-label-caps text-label-caps text-[8px] text-secondary tracking-widest mt-0.5">NEXUS</span>
+</div>
+<span class="absolute -bottom-7 font-code-inline text-code-inline text-[10px] text-on-surface-variant bg-surface-container-low px-2 py-0.5 rounded-full whitespace-nowrap shadow-sm">
+            GRAVITATIONAL CORE
+          </span>
+</div>
+</div>
+<!-- PRIMARY PLANETARY NODES (Deep Flagship Ventures) -->
+<!-- Node 1: CustomerPulse -->
+<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="COMPLAINT INTELLIGENCE &amp; ENTERPRISE RAG" data-metrics="4.2x Faster Grievance Routing • 99.4% Extraction Acc." data-node="customerpulse" data-recognition="Top 2% Finalist • Smart India Hackathon" data-role="Lead Backend &amp; AI Architect" data-stack="FastAPI • LangChain • ChromaDB • Llama-3 • Docker" data-tags="rag backend cloud" data-title="CustomerPulse" style="top: 130px; left: 160px;">
+<div class="node-orb w-16 h-16 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[22px]">insights</span>
+</div>
+<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="mt-2 text-center pointer-events-none">
+<span class="font-title-md text-title-md text-on-surface font-semibold block">CustomerPulse</span>
+<span class="font-label-tag text-label-tag text-secondary text-[11px] block">RAG Grievance Hub</span>
+</div>
+</div>
+<!-- Node 2: MemoryLens -->
+<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="MULTIMODAL SEMANTIC RECALL ENGINE" data-metrics="Sub-80ms Vector Indexing • 10M+ Vector Scalability" data-node="memorylens" data-recognition="AWS AI for Bharat Special Honor" data-role="Principal Systems Engineer" data-stack="AWS Bedrock • OpenSearch • Python • CLIP • DynamoDB" data-tags="rag cloud backend" data-title="MemoryLens" style="top: 80px; right: 200px;">
+<div class="node-orb w-16 h-16 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[22px]">saved_search</span>
+</div>
+<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="mt-2 text-center pointer-events-none">
+<span class="font-title-md text-title-md text-on-surface font-semibold block">MemoryLens</span>
+<span class="font-label-tag text-label-tag text-tertiary text-[11px] block">AWS Semantic Search</span>
+</div>
+</div>
+<!-- Node 3: DocFlow -->
+<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="DOCUMENT PARSING &amp; OCR INFRASTRUCTURE" data-metrics="12,000 Pgs/Hr Processed • OCR 99.1% Confidence" data-node="docflow" data-recognition="IEEE NEXUS 2026 Proceedings Paper" data-role="Full-Stack Core Author" data-stack="FastAPI • React 19 • RabbitMQ • Redis • Tesseract OCR" data-tags="backend fullstack research" data-title="DocFlow Pipeline" style="top: 480px; left: 140px;">
+<div class="node-orb w-16 h-16 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
+<div class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[22px]">account_tree</span>
+</div>
+<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-tertiary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div class="mt-2 text-center pointer-events-none">
+<span class="font-title-md text-title-md text-on-surface font-semibold block">DocFlow</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant text-[11px] block">SaaS Parser // IEEE</span>
+</div>
+</div>
+<!-- Node 4: Lung Digital Twin -->
+<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="ONCOLOGY BIOMEDICAL SIMULATION ENGINE" data-metrics="3D Volumetric Mesh • Real-time Chemotherapy Drug Diffusion" data-node="lungtwin" data-recognition="Clinical Computational Biology Prototype" data-role="Deep-Tech Co-Researcher" data-stack="PyTorch • VTK Graphics • FastAPI • FEM Modeling • CUDA" data-tags="rag research backend" data-title="Lung Digital Twin" style="top: 460px; right: 150px;">
+<div class="node-orb w-16 h-16 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
+<div class="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[22px]">coronavirus</span>
+</div>
+<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-error ring-2 ring-surface-container-lowest animate-ping"></span>
+</div>
+<div class="mt-2 text-center pointer-events-none">
+<span class="font-title-md text-title-md text-on-surface font-semibold block">Lung Digital Twin</span>
+<span class="font-label-tag text-label-tag text-primary text-[11px] block">Oncology Simulator</span>
+</div>
+</div>
+<!-- Node 5: SkillForge -->
+<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="ENTERPRISE ADAPTIVE LEARNING SUITE" data-metrics="4,500+ Active Students • 99.98% High-Concurrency Uptime" data-node="skillforge" data-recognition="Institutional Production Deployment" data-role="Architect &amp; Full-Stack Lead" data-stack="Next.js • Node / NestJS • PostgreSQL • AWS ECS • Tailwind" data-tags="fullstack backend cloud" data-title="SkillForge" style="top: 320px; left: 80px;">
+<div class="node-orb w-14 h-14 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface text-[20px]">school</span>
+</div>
+</div>
+<div class="mt-2 text-center pointer-events-none">
+<span class="font-title-md text-title-md text-on-surface text-[15px] font-medium block">SkillForge</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant text-[10px] block">LMS System</span>
+</div>
+</div>
+<!-- Node 6: Agri Price Prediction -->
+<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="MULTI-VARIABLE COMMODITY PREDICTION" data-metrics="94.7% Forecasting Precision • Mandi Market Feed Stream" data-node="agripredict" data-recognition="Dual Patents Pending • IEEE Published" data-role="Primary Inventor &amp; Lead Author" data-stack="XGBoost • Bi-LSTM • Flask/FastAPI • Satellite Weather Ingestion" data-tags="research rag backend" data-title="Agri Market Forecasting" style="top: 290px; right: 70px;">
+<div class="node-orb w-14 h-14 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[20px]">psychology_alt</span>
+</div>
+</div>
+<div class="mt-2 text-center pointer-events-none">
+<span class="font-title-md text-title-md text-on-surface text-[15px] font-medium block">Agri Predictive</span>
+<span class="font-label-tag text-label-tag text-secondary text-[10px] block">Dual Patents • IEEE</span>
+</div>
+</div>
+<!-- SATELLITE & ASTEROID NODES (Specialized micro-systems & innovations) -->
+<!-- Satellite 1: MedMinder AI -->
+<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="PATIENT ADHERENCE COMPANION" data-metrics="92% Dosage Compliance Rate" data-node="medminder" data-recognition="Hackathon Innovation Award" data-role="Systems Architect" data-stack="Whisper AI • Gemini • React Native" data-tags="rag fullstack" data-title="MedMinder AI" style="top: 210px; left: 340px;">
+<div class="w-9 h-9 rounded-full bg-surface-container shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[14px]">medication</span>
+</div>
+<span class="font-code-inline text-code-inline text-[10px] text-on-surface-variant mt-1">MedMinder</span>
+</div>
+<!-- Satellite 2: BhashaYatra -->
+<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="INDIC MULTILINGUAL LOCALIZATION" data-metrics="Zero-Shot Cross-Lingual Translation" data-node="bhashayatra" data-recognition="12 Regional Indian Dialects Indexed" data-role="NLP Pipeline Engineer" data-stack="IndicTrans2 • FastAPI • Vector Index" data-tags="rag backend" data-title="BhashaYatra" style="top: 190px; right: 340px;">
+<div class="w-9 h-9 rounded-full bg-surface-container shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[14px]">translate</span>
+</div>
+<span class="font-code-inline text-code-inline text-[10px] text-on-surface-variant mt-1">BhashaYatra</span>
+</div>
+<!-- Satellite 3: TrendPulse -->
+<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="REAL-TIME FINANCIAL SENTIMENT" data-metrics="14k Tweets/min Processed" data-node="trendpulse" data-recognition="High-Frequency Streaming Daemon" data-role="Pipeline Engineer" data-stack="Apache Kafka • Python • AWS Lambda" data-tags="cloud backend fullstack" data-title="TrendPulse" style="top: 550px; left: 360px;">
+<div class="w-9 h-9 rounded-full bg-surface-container shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[14px]">trending_up</span>
+</div>
+<span class="font-code-inline text-code-inline text-[10px] text-on-surface-variant mt-1">TrendPulse</span>
+</div>
+<!-- Satellite 4: SIT EduBot -->
+<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="CAMPUS ACADEMIC TELEMETRY" data-metrics="Reduced Helpdesk Tickets by 76%" data-node="sitedubot" data-recognition="Used by 2,000+ Students Daily" data-role="Creator &amp; Sysadmin" data-stack="FastAPI • Telegram Core API • Pinecone" data-tags="rag backend" data-title="SIT EduBot" style="top: 540px; right: 350px;">
+<div class="w-9 h-9 rounded-full bg-surface-container shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface text-[14px]">smart_toy</span>
+</div>
+<span class="font-code-inline text-code-inline text-[10px] text-on-surface-variant mt-1">SIT EduBot</span>
+</div>
+<!-- Satellite 5: AI Air Smartboard -->
+<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="COMPUTER VISION AIR CANVAS" data-metrics="Zero Latency Hand-Gesture Tracking" data-node="airsmartboard" data-recognition="National Exhibition Finalist" data-role="Computer Vision Lead" data-stack="OpenCV • MediaPipe • Python • Canvas API" data-tags="research backend" data-title="AI Air Smartboard" style="top: 390px; left: 240px;">
+<div class="w-8 h-8 rounded-full bg-surface-container shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[13px]">draw</span>
+</div>
+<span class="font-code-inline text-code-inline text-[9px] text-on-surface-variant mt-1">Air Smartboard</span>
+</div>
+<!-- Satellite 6: SafarSathi -->
+<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="MULTILINGUAL TRAVEL COPILOT" data-metrics="Autonomous Itinerary Engine + Live Voice" data-node="safarsathi" data-recognition="Pre-Incubation Stage" data-role="Product Architect" data-stack="React Native • Agentic RAG • AWS Bedrock" data-tags="rag cloud fullstack" data-title="SafarSathi (In Dev)" style="top: 400px; right: 260px;">
+<div class="w-8 h-8 rounded-full bg-surface-container shadow-md flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[13px]">travel_explore</span>
+</div>
+<span class="font-code-inline text-code-inline text-[9px] text-primary mt-1">SafarSathi (Dev)</span>
+</div>
+</div>
+<!-- Mini Universe Radar & Viewport Controls (Bottom Right) -->
+<div class="absolute bottom-6 right-6 z-40 bg-surface-container/90 backdrop-blur-md p-3 rounded-xl shadow-2xl flex flex-col gap-2">
+<div class="flex items-center justify-between gap-4">
+<span class="font-label-caps text-label-caps text-[9px] text-on-surface-variant">MINI RADAR</span>
+<div class="flex items-center gap-1">
+<button class="w-6 h-6 rounded bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-variant transition-colors" id="zoom-in" title="Zoom In" type="button">
+<span class="material-symbols-outlined text-[14px]">add</span>
+</button>
+<button class="w-6 h-6 rounded bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-variant transition-colors" id="zoom-out" title="Zoom Out" type="button">
+<span class="material-symbols-outlined text-[14px]">remove</span>
+</button>
+<button class="w-6 h-6 rounded bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-variant transition-colors" id="zoom-reset" title="Reset View" type="button">
+<span class="material-symbols-outlined text-[14px]">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- Radar Screen Miniature -->
+<div class="relative w-36 h-24 bg-surface-container-lowest rounded-lg overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(98,220,173,0.1),transparent_70%)]"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div class="absolute w-20 h-14 rounded-full border-0 shadow-[0_0_0_1px_rgba(202,196,210,0.15)] pointer-events-none"></div>
+<div class="absolute w-2 h-2 rounded-full bg-primary" style="top: 20%; left: 24%;"></div>
+<div class="absolute w-2 h-2 rounded-full bg-tertiary" style="top: 15%; right: 28%;"></div>
+<div class="absolute w-2 h-2 rounded-full bg-secondary" style="bottom: 22%; left: 22%;"></div>
+<div class="absolute w-2 h-2 rounded-full bg-primary" style="bottom: 20%; right: 20%;"></div>
+<div class="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:10px_10px]"></div>
+</div>
+<div class="flex items-center justify-between font-code-inline text-code-inline text-[9px] text-on-surface-variant">
+<span>STATUS: ACTIVE</span>
+<span class="text-secondary">SYS_SYNCED</span>
+</div>
+</div>
+<!-- Spatial Legend (Bottom Left) -->
+<div class="absolute bottom-6 left-6 z-40 hidden md:flex items-center gap-4 bg-surface-container/90 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-xl">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary shadow-sm"></span>
+<span class="font-label-tag text-label-tag text-[11px] text-on-surface">Flagship Systems</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-tag text-label-tag text-[11px] text-on-surface">Research &amp; Patents</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-on-surface-variant"></span>
+<span class="font-label-tag text-label-tag text-[11px] text-on-surface-variant">Satellites / Micro-apps</span>
+</div>
+</div>
+<!-- FLOATING INSPECTION TELEMETRY HUD (Appears on Hover / Selection) -->
+<aside class="absolute z-50 pointer-events-auto transition-all duration-200 opacity-0 scale-95 translate-y-2 w-96 max-w-[calc(100vw-2rem)] bg-surface-container/95 backdrop-blur-xl p-space-md rounded-2xl shadow-[0_24px_48px_-12px_rgba(0,0,0,0.8)] hidden" id="telemetry-hud">
+<div class="flex items-center justify-between gap-space-xs mb-space-xs pb-space-xs border-b-0">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-[9px] text-secondary tracking-widest uppercase" id="hud-category">AI &amp; INTELLIGENCE</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1" id="close-hud" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[22px] leading-tight" id="hud-title">CustomerPulse</h3>
+<div class="my-space-xs bg-surface-container-high px-space-sm py-1.5 rounded-lg">
+<span class="font-label-caps text-label-caps text-[9px] text-on-surface-variant block">ROLE SPECIFICATION</span>
+<span class="font-body-md text-body-md text-primary font-medium text-[13px]" id="hud-role">Lead Backend &amp; AI Architect</span>
+</div>
+<div class="flex flex-col gap-1.5 my-space-sm">
+<div class="flex items-start gap-2 text-[12px]">
+<span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">verified</span>
+<span class="font-body-sm text-body-sm text-on-surface" id="hud-recognition">Top 2% Finalist • Smart India Hackathon</span>
+</div>
+<div class="flex items-start gap-2 text-[12px]">
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0 mt-0.5">speed</span>
+<span class="font-code-inline text-code-inline text-on-surface-variant text-[11px]" id="hud-metrics">4.2x Routing Speedup</span>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs">
+<span class="font-label-caps text-label-caps text-[9px] text-on-surface-variant block mb-1.5 tracking-wider">TECHNOLOGY STACK</span>
+<div class="flex flex-wrap gap-1" id="hud-stack">
+<!-- Stack chips injected via JS -->
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between gap-2">
+<a class="w-full text-center py-2 px-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-caps text-label-caps text-[11px] font-semibold hover:brightness-110 transition-all shadow-sm" data-path="theater" href="#">
+          LAUNCH PROJECT THEATER →
+        </a>
+</div>
+</aside>
+</div>
+<!-- Artifact Technical Matrix: Deep Dive Registry -->
+<section class="w-full px-gutter-mobile md:px-gutter py-space-2xl bg-surface-container-low/40">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-caps text-label-caps text-primary tracking-widest block mb-space-xs">REGISTRY ARCHITECTURE</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Planetary Telemetry &amp; System Artifacts</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+          A high-density technical index of autonomous software platforms, patented ML architectures, and medical compute simulations engineered by Yash Khadgi.
+        </p>
+</div>
+<!-- Bento Grid of Key Ecosystem Pillars -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Artifact Spec 1: Enterprise Complaints & Vector RAG -->
+<div class="bg-surface-container p-space-lg rounded-2xl flex flex-col justify-between shadow-md hover:bg-surface-container-high transition-colors">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-caps text-label-caps text-secondary text-[10px]">AI-RAG // PLATFORM</span>
+<span class="font-code-inline text-code-inline text-[11px] text-on-surface-variant">PRJ-01</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">CustomerPulse</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              High-throughput consumer complaint intelligence with autonomous categorization, automated priority deflection, and natural-language retrieval over enterprise databases.
+            </p>
+<div class="space-y-2 mb-space-md">
+<div class="flex justify-between text-[12px] font-code-inline">
+<span class="text-on-surface-variant">Inference Latency:</span>
+<span class="text-primary font-medium">&lt; 140ms p95</span>
+</div>
+<div class="flex justify-between text-[12px] font-code-inline">
+<span class="text-on-surface-variant">Benchmark:</span>
+<span class="text-secondary font-medium">Top 2% National SIH</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">FastAPI</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">LangChain</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">ChromaDB</span>
+</div>
+</div>
+<!-- Artifact Spec 2: Biomedical Twin & Oncology Simulator -->
+<div class="bg-surface-container p-space-lg rounded-2xl flex flex-col justify-between shadow-md hover:bg-surface-container-high transition-colors">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-caps text-label-caps text-primary text-[10px]">COMPUTATIONAL BIOLOGY</span>
+<span class="font-code-inline text-code-inline text-[11px] text-on-surface-variant">PRJ-02</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Lung Digital Twin</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Patient-specific respiratory tumor mechanics simulator. Integrates CT scan volumetric reconstruction with finite-element drug concentration tracking for clinical decisions.
+            </p>
+<div class="space-y-2 mb-space-md">
+<div class="flex justify-between text-[12px] font-code-inline">
+<span class="text-on-surface-variant">Resolution:</span>
+<span class="text-primary font-medium">0.5mm Voxel Grid</span>
+</div>
+<div class="flex justify-between text-[12px] font-code-inline">
+<span class="text-on-surface-variant">Simulation Math:</span>
+<span class="text-secondary font-medium">FEM Diffusion Eq.</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">PyTorch</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">VTK 3D</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">CUDA</span>
+</div>
+</div>
+<!-- Artifact Spec 3: Dual Patent Agriculture ML Pipeline -->
+<div class="bg-surface-container p-space-lg rounded-2xl flex flex-col justify-between shadow-md hover:bg-surface-container-high transition-colors">
+<div>
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-label-caps text-label-caps text-secondary text-[10px]">PATENTS &amp; IEEE</span>
+<span class="font-code-inline text-code-inline text-[11px] text-on-surface-variant">PRJ-03</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Agri Price Forecasting</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Multivariate deep learning framework combining climate sensor feeds, wholesale supply arrivals, and macroeconomic signals. Covered by two registered intellectual patents.
+            </p>
+<div class="space-y-2 mb-space-md">
+<div class="flex justify-between text-[12px] font-code-inline">
+<span class="text-on-surface-variant">IP Status:</span>
+<span class="text-secondary font-medium">2 Patents Registered</span>
+</div>
+<div class="flex justify-between text-[12px] font-code-inline">
+<span class="text-on-surface-variant">Published:</span>
+<span class="text-primary font-medium">IEEE Conference 2024</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-1.5 pt-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">Bi-LSTM</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">XGBoost</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">GeoPandas</span>
+</div>
+</div>
+</div>
+<!-- Live Orchestration Callout Banner -->
+<div class="w-full bg-surface-container-high rounded-2xl p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md shadow-xl">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">terminal</span>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface">Explore Deep Documentation &amp; Interactive Runtime</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Every node on this canvas possesses live test environments, architecture schemas, and production code repositories.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<a class="px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-caps text-label-caps font-semibold shadow-md hover:brightness-110 transition-all" data-path="theater" href="#">
+            ENTER THEATER (03)
+          </a>
+<a class="px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-caps text-label-caps hover:bg-surface-variant transition-all" data-path="archives" href="#">
+            VIEW CODE ARCHIVES
+          </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Client-Side Universe Mechanics Script -->
+<script>
+    (function initUniverse() {
+      const stage = document.getElementById('universe-stage');
+      const field = document.getElementById('spatial-field');
+      const hud = document.getElementById('telemetry-hud');
+      const closeHud = document.getElementById('close-hud');
+      const filterChips = document.querySelectorAll('.filter-chip');
+      const nodes = document.querySelectorAll('.celestial-node');
+      const vectorContainer = document.getElementById('vector-links');
+      const coordTelemetry = document.getElementById('coordinates-telemetry');
+      const coreAnchor = document.getElementById('core-anchor');
+
+      // Zoom Controls State
+      let zoomLevel = 1.0;
+      let rotX = 0;
+      let rotY = 0;
+
+      // Draw SVG Constellation Connections to Core & Neighbors
+      function renderConstellation() {
+        if (!vectorContainer || !coreAnchor) return;
+        const stageRect = stage.getBoundingClientRect();
+        const coreRect = coreAnchor.getBoundingClientRect();
+        const coreX = coreRect.left + coreRect.width / 2 - stageRect.left;
+        const coreY = coreRect.top + coreRect.height / 2 - stageRect.top;
+
+        let markup = '';
+        nodes.forEach(node => {
+          const rect = node.getBoundingClientRect();
+          const nodeX = rect.left + rect.width / 2 - stageRect.left;
+          const nodeY = rect.top + rect.height / 2 - stageRect.top;
+          
+          const isPrimary = node.classList.contains('primary-node');
+          const strokeWidth = isPrimary ? 1.5 : 0.75;
+          const strokeOpacity = isPrimary ? 0.28 : 0.12;
+
+          markup += `
+            <line x1="${coreX}" y1="${coreY}" x2="${nodeX}" y2="${nodeY}" 
+                  stroke="url(#link-grad-core)" stroke-width="${strokeWidth}" 
+                  stroke-opacity="${strokeOpacity}" stroke-dasharray="${isPrimary ? 'none' : '4,4'}" />
+          `;
+        });
+
+        vectorContainer.innerHTML = markup;
+      }
+
+      // Initial Draw + Resizing sync
+      setTimeout(renderConstellation, 100);
+      window.addEventListener('resize', renderConstellation);
+
+      // Interactive 3D Parallax Tilt on Cursor Move
+      stage.addEventListener('mousemove', (e) => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const rect = stage.getBoundingClientRect();
+        const normX = (e.clientX - rect.left) / rect.width - 0.5;
+        const normY = (e.clientY - rect.top) / rect.height - 0.5;
+
+        rotX = -normY * 16;
+        rotY = normX * 22;
+
+        field.style.transform = `scale(${zoomLevel}) perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        
+        // Dynamic Coordinate String
+        const posX = (18.5204 + normX * 0.04).toFixed(4);
+        const posY = (73.8567 + normY * 0.04).toFixed(4);
+        coordTelemetry.textContent = `X: ${posX} | Y: ${posY} | Z: ${zoomLevel.toFixed(3)}`;
+      });
+
+      stage.addEventListener('mouseleave', () => {
+        field.style.transform = `scale(${zoomLevel}) perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        coordTelemetry.textContent = `X: 18.5204 | Y: 73.8567 | Z: ${zoomLevel.toFixed(3)}`;
+      });
+
+      // Filter Logic (Illuminates / Dims Nodes & Constellation)
+      filterChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          filterChips.forEach(c => {
+            c.classList.remove('bg-primary', 'text-on-primary', 'active-chip');
+            c.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+          });
+
+          chip.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+          chip.classList.add('bg-primary', 'text-on-primary', 'active-chip');
+
+          const filter = chip.getAttribute('data-filter');
+
+          nodes.forEach(node => {
+            const tags = (node.getAttribute('data-tags') || '').split(' ');
+            if (filter === 'all' || tags.includes(filter)) {
+              node.style.opacity = '1';
+              node.style.filter = 'grayscale(0%) drop-shadow(0 0 16px rgba(184,164,248,0.35))';
+              node.style.transform = 'scale(1.04)';
+            } else {
+              node.style.opacity = '0.15';
+              node.style.filter = 'grayscale(100%)';
+              node.style.transform = 'scale(0.9)';
+            }
+          });
+        });
+      });
+
+      // Hover & Telemetry HUD Population
+      nodes.forEach(node => {
+        node.addEventListener('mouseenter', (e) => {
+          const title = node.getAttribute('data-title');
+          const category = node.getAttribute('data-category');
+          const role = node.getAttribute('data-role');
+          const recognition = node.getAttribute('data-recognition');
+          const metrics = node.getAttribute('data-metrics');
+          const stack = (node.getAttribute('data-stack') || '').split('•');
+
+          document.getElementById('hud-title').textContent = title;
+          document.getElementById('hud-category').textContent = category;
+          document.getElementById('hud-role').textContent = role;
+          document.getElementById('hud-recognition').textContent = recognition;
+          document.getElementById('hud-metrics').textContent = metrics;
+
+          const stackContainer = document.getElementById('hud-stack');
+          stackContainer.innerHTML = '';
+          stack.forEach(tech => {
+            if (tech.trim()) {
+              const span = document.createElement('span');
+              span.className = 'px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-code-inline text-[10px]';
+              span.textContent = tech.trim();
+              stackContainer.appendChild(span);
+            }
+          });
+
+          // Position HUD relative to Node
+          const nodeRect = node.getBoundingClientRect();
+          const stageRect = stage.getBoundingClientRect();
+          
+          let left = nodeRect.right - stageRect.left + 16;
+          let top = nodeRect.top - stageRect.top - 20;
+
+          // Screen constraint safety
+          if (left + 384 > stageRect.width) {
+            left = nodeRect.left - stageRect.left - 400;
+          }
+          if (left < 16) left = 16;
+          if (top < 16) top = 16;
+          if (top + 280 > stageRect.height) top = stageRect.height - 300;
+
+          hud.style.left = `${left}px`;
+          hud.style.top = `${top}px`;
+          hud.classList.remove('hidden');
+          setTimeout(() => {
+            hud.classList.remove('opacity-0', 'scale-95');
+            hud.classList.add('opacity-100', 'scale-100');
+          }, 10);
+        });
+      });
+
+      // Close Telemetry HUD
+      if (closeHud) {
+        closeHud.addEventListener('click', () => {
+          hud.classList.add('opacity-0', 'scale-95');
+          setTimeout(() => hud.classList.add('hidden'), 200);
+        });
+      }
+
+      // Radar Zoom Controls
+      document.getElementById('zoom-in')?.addEventListener('click', () => {
+        zoomLevel = Math.min(zoomLevel + 0.15, 1.4);
+        field.style.transform = `scale(${zoomLevel}) perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        renderConstellation();
+      });
+
+      document.getElementById('zoom-out')?.addEventListener('click', () => {
+        zoomLevel = Math.max(zoomLevel - 0.15, 0.7);
+        field.style.transform = `scale(${zoomLevel}) perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        renderConstellation();
+      });
+
+      document.getElementById('zoom-reset')?.addEventListener('click', () => {
+        zoomLevel = 1.0;
+        rotX = 0;
+        rotY = 0;
+        field.style.transform = `scale(1.0) perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        renderConstellation();
+      });
+
+    })();
+  </script>
+</div></main><aside class="fixed bottom-space-md left-gutter-mobile md:left-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)]"><span class="material-symbols-outlined text-secondary text-[16px] animate-pulse">sensors</span><div class="flex items-center gap-space-xs font-label-tag text-label-tag text-[11px] text-on-surface-variant"><span class="text-on-surface font-semibold">18°31'N 73°51'E</span><span class="opacity-40">•</span><span class="text-secondary font-medium">IST 02:44:19</span><span class="opacity-40">•</span><div class="flex items-center gap-[2px] h-3"><span class="w-[2px] h-2 bg-secondary/80 rounded-full animate-bounce"></span><span class="w-[2px] h-3 bg-secondary rounded-full animate-bounce [animation-delay:0.15s]"></span><span class="w-[2px] h-1.5 bg-secondary/60 rounded-full animate-bounce [animation-delay:0.3s]"></span></div></div></div></aside><aside class="fixed bottom-space-md right-gutter-mobile md:right-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)] group"><button class="font-label-caps text-label-caps text-[10px] text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" type="button">SKIP INTRO</button><div class="relative flex items-center justify-center w-7 h-7"><svg class="w-7 h-7 -rotate-90" viewbox="0 0 32 32"><circle class="text-surface-variant" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-width="2"></circle><circle class="text-primary" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-dasharray="81.68" stroke-dashoffset="54" stroke-width="2.5"></circle></svg><span class="absolute font-code-inline text-code-inline text-[9px] font-semibold text-on-surface">34%</span></div></div></aside><footer class="w-full bg-surface-container-lowest py-space-xl mt-space-2xl shadow-[0_-1px_16px_rgba(0,0,0,0.4)]"><div class="max-w-[1440px] mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md font-label-tag text-label-tag text-on-surface-variant"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-primary text-[20px]">YK</span><span>© 2025 Yash Khadgi. Architectural Cosmos &amp; Deep Systems.</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps text-[11px]"><span class="text-secondary">ONLINE / READY FOR VENTURES</span><span class="opacity-30">|</span><span class="text-on-surface-variant">LAT 18.5204° N • LON 73.8567° E</span></div></div></footer></body></html>

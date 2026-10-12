@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Yash Khadgi — The Builder's Universe</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Geist:wght@100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-primary-container": "#493682",
+          "on-error": "#690005",
+          "background": "#111317",
+          "secondary-fixed-dim": "#62dcad",
+          "on-surface": "#e2e2e8",
+          "on-tertiary-fixed": "#001e2c",
+          "primary-fixed": "#e8ddff",
+          "on-surface-variant": "#cac4d2",
+          "tertiary-fixed-dim": "#7bd0ff",
+          "tertiary": "#8bd5ff",
+          "surface-bright": "#37393e",
+          "on-secondary-container": "#003121",
+          "inverse-surface": "#e2e2e8",
+          "surface-variant": "#333539",
+          "secondary-container": "#18a479",
+          "tertiary-fixed": "#c4e7ff",
+          "inverse-primary": "#64529f",
+          "outline": "#948f9b",
+          "outline-variant": "#484550",
+          "on-error-container": "#ffdad6",
+          "surface-tint": "#cdbdff",
+          "on-primary-fixed-variant": "#4c3a85",
+          "surface-container-highest": "#333539",
+          "secondary": "#62dcad",
+          "on-background": "#e2e2e8",
+          "surface-container": "#1e2024",
+          "on-tertiary-fixed-variant": "#004c69",
+          "on-tertiary-container": "#004964",
+          "on-primary": "#35216d",
+          "tertiary-container": "#36bcf7",
+          "surface-container-high": "#282a2e",
+          "surface-container-lowest": "#0c0e12",
+          "inverse-on-surface": "#2f3035",
+          "surface-container-low": "#1a1c20",
+          "on-tertiary": "#00354a",
+          "error-container": "#93000a",
+          "on-secondary-fixed-variant": "#00513a",
+          "surface": "#111317",
+          "on-secondary": "#003827",
+          "surface-dim": "#111317",
+          "primary-fixed-dim": "#cdbdff",
+          "secondary-fixed": "#80f9c8",
+          "error": "#ffb4ab",
+          "on-primary-fixed": "#200558",
+          "primary": "#d2c3ff",
+          "primary-container": "#b8a4f8",
+          "on-secondary-fixed": "#002115"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.5rem",
+          "margin": "4rem",
+          "margin-mobile": "1.25rem",
+          "space-lg": "1.75rem",
+          "space-3xl": "8rem",
+          "space-xs": "0.25rem",
+          "gutter": "1.5rem",
+          "space-2xl": "5rem",
+          "space-md": "1rem",
+          "gutter-mobile": "1rem",
+          "space-xl": "3rem",
+          "margin-tablet": "2rem"
+        },
+        "fontFamily": {
+          "headline-lg": [
+            "Bodoni Moda"
+          ],
+          "body-sm": [
+            "Geist"
+          ],
+          "body-lg": [
+            "Geist"
+          ],
+          "label-tag": [
+            "JetBrains Mono"
+          ],
+          "headline-md-mobile": [
+            "Bodoni Moda"
+          ],
+          "headline-md": [
+            "Bodoni Moda"
+          ],
+          "body-md": [
+            "Geist"
+          ],
+          "title-lg": [
+            "Geist"
+          ],
+          "label-caps": [
+            "JetBrains Mono"
+          ],
+          "display-xl-mobile": [
+            "Bodoni Moda"
+          ],
+          "code-inline": [
+            "JetBrains Mono"
+          ],
+          "title-md": [
+            "Geist"
+          ],
+          "headline-lg-mobile": [
+            "Bodoni Moda"
+          ],
+          "display-xl": [
+            "Bodoni Moda"
+          ]
+        },
+        "fontSize": {
+          "headline-lg": [
+            "48px",
+            {
+              "lineHeight": "56px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-sm": [
+            "13px",
+            {
+              "lineHeight": "20px",
+              "letterSpacing": "0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "17px",
+            {
+              "lineHeight": "28px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "label-tag": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.04em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-md-mobile": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "0em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-md": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "0em",
+              "fontWeight": "500"
+            }
+          ],
+          "body-md": [
+            "15px",
+            {
+              "lineHeight": "24px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "title-lg": [
+            "22px",
+            {
+              "lineHeight": "30px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-caps": [
+            "11px",
+            {
+              "lineHeight": "14px",
+              "letterSpacing": "0.12em",
+              "fontWeight": "600"
+            }
+          ],
+          "display-xl-mobile": [
+            "42px",
+            {
+              "lineHeight": "48px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "code-inline": [
+            "13px",
+            {
+              "lineHeight": "18px",
+              "letterSpacing": "0em",
+              "fontWeight": "400"
+            }
+          ],
+          "title-md": [
+            "18px",
+            {
+              "lineHeight": "26px",
+              "letterSpacing": "-0.005em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg-mobile": [
+            "32px",
+            {
+              "lineHeight": "38px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "display-xl": [
+            "72px",
+            {
+              "lineHeight": "80px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 px-gutter-mobile md:px-gutter py-space-sm pointer-events-none"><div class="max-w-[1440px] mx-auto h-20 flex items-center justify-between gap-space-md pointer-events-auto"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="arrival" href="#"><div class="w-10 h-10 rounded-lg bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center shadow-[0_1px_8px_rgba(0,0,0,0.4)] group-hover:bg-surface-variant transition-colors"><span class="font-headline-md text-headline-md text-primary">YK</span></div><div class="hidden xl:flex flex-col"><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps tracking-widest text-on-surface">YASH KHADGI</span></div><span class="font-label-caps text-label-caps text-on-surface-variant text-[9px] tracking-wider">AVAILABLE FOR INNOVATIVE BUILDS • 2025/26</span></div></a></div><nav class="hidden lg:flex items-center p-space-xs rounded-full bg-surface-container-low/70 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.5)]" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(184,164,248,0.25)]"><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="arrival" href="#">01 ARRIVAL</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="universe" href="#">02 UNIVERSE</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(184,164,248,0.25)]" data-path="theater" href="#">03 THEATER</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="archives" href="#">04 ARCHIVES</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">05 ABOUT</a></nav><div class="flex items-center gap-space-sm"><button aria-label="Command Center" class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-high/60 backdrop-blur-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="font-code-inline text-code-inline text-[11px] font-semibold text-primary">⌘K</span><span class="hidden md:inline font-label-tag text-label-tag text-[11px]">COMMAND</span></button><button aria-label="Toggle Ambience Audio" class="w-9 h-9 rounded-lg bg-surface-container-high/60 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="material-symbols-outlined text-[18px]">graphic_eq</span></button><button aria-label="Toggle Theme Mode" class="w-9 h-9 rounded-lg bg-surface-container-high/60 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><a class="hidden sm:inline-flex items-center px-space-md py-space-xs rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps font-semibold shadow-[0_0_24px_rgba(184,164,248,0.3)] hover:brightness-110 transition-all" data-path="universe" href="#">EXPLORE</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(210,195,255,0.35)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<!-- THEATER HERO OVERVIEW STRIP -->
+<section class="relative w-full px-gutter-mobile md:px-gutter py-space-xl overflow-hidden">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
+<!-- Metatags and Theater Status -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(98,220,173,0.8)] animate-pulse"></span>
+<span class="font-label-caps text-label-caps tracking-widest text-secondary">STAGE 03 / PROJECT THEATER</span>
+<span class="font-label-tag text-label-tag text-outline">•</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">CURATED ARTIFACT EXHIBITION</span>
+</div>
+<div class="flex items-center gap-space-xs font-code-inline text-code-inline text-on-surface-variant bg-surface-container-high/60 backdrop-blur-md px-space-md py-space-xs rounded-full">
+<span>FPS: 60.0</span>
+<span class="opacity-40">|</span>
+<span class="text-tertiary">SPATIAL RENDER: ACTIVE</span>
+<span class="opacity-40">|</span>
+<span class="text-primary">ARCH: 2024-2025</span>
+</div>
+</div>
+<!-- Main Exhibition Headline -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
+<div class="max-w-3xl">
+<p class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-space-xs">Production Systems &amp; High-Order Reasoning</p>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Cinematic Project Theater</h1>
+</div>
+<!-- Spatial Stage Selector -->
+<div class="flex items-center gap-space-xs p-space-xs rounded-xl bg-surface-container-high/70 backdrop-blur-xl shadow-xl">
+<button class="stage-nav-btn active px-space-md py-space-xs rounded-lg font-label-tag text-label-tag transition-all bg-primary-container text-on-primary-container shadow-sm font-semibold flex items-center gap-space-xs" id="tab-stage-customerpulse" onclick="switchStage('stage-customerpulse')" type="button">
+<span>01</span>
+<span class="hidden sm:inline">CUSTOMER PULSE</span>
+</button>
+<button class="stage-nav-btn px-space-md py-space-xs rounded-lg font-label-tag text-label-tag transition-all text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/40 flex items-center gap-space-xs" id="tab-stage-memorylens" onclick="switchStage('stage-memorylens')" type="button">
+<span>02</span>
+<span class="hidden sm:inline">MEMORYLENS</span>
+</button>
+<button class="stage-nav-btn px-space-md py-space-xs rounded-lg font-label-tag text-label-tag transition-all text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/40 flex items-center gap-space-xs" id="tab-stage-rail" onclick="switchStage('stage-rail')" type="button">
+<span>03-04</span>
+<span class="hidden sm:inline">VAULT PREVIEW</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- ACT 1: CUSTOMERPULSE HERO LAUNCH STAGE      -->
+<!-- ========================================== -->
+<section class="stage-panel w-full px-gutter-mobile md:px-gutter py-space-xl" id="stage-customerpulse">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Left Narrative & Architectural Column (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-inline text-code-inline text-secondary bg-surface-container-high px-space-sm py-1 rounded-full">FINALIST • TOP 2% / 1,500+ TEAMS</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">FLAGSHIP ARCHITECTURE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-space-xs">
+            01 / CustomerPulse
+          </h2>
+<p class="font-title-md text-title-md text-primary mt-space-xs">
+            AI-Powered Complaint Intelligence Platform
+          </p>
+</div>
+<!-- Capability & Role Matrix -->
+<div class="flex flex-wrap gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-tag text-label-tag">AI/ML Architecture</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-tag text-label-tag">RAG Feedback Loop</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-tag text-label-tag">RBAC &amp; CRUD Control</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-secondary font-label-tag text-label-tag">Pinecone Vector Graph</span>
+</div>
+<!-- Narrative Breakdown -->
+<div class="flex flex-col gap-space-md text-on-surface-variant font-body-md text-body-md leading-relaxed">
+<p>
+            CustomerPulse fundamentally transforms fragmented enterprise grievance data into prioritized, self-healing diagnostic signals. Built under rigorous hackathon conditions, it autonomously triages unstructured user complaints, maps semantic similarity across multi-tenant vector indexes, and triggers real-time synthetic resolution recommendations.
+          </p>
+<p>
+            Engineered with a high-concurrency FastAPI backbone, LangChain reasoning pipelines, and real-time sentiment extraction, the platform compresses standard support triage cycle times from <span class="text-on-surface font-semibold">14 hours down to 420 milliseconds</span>.
+          </p>
+</div>
+<!-- Interactive Specs Bar -->
+<div class="grid grid-cols-3 gap-space-sm p-space-md rounded-xl bg-surface-container-high/50 backdrop-blur-md">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">Latency</span>
+<span class="font-title-lg text-title-lg text-secondary">&lt; 420ms</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">Cosine Vector Match</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">Accuracy</span>
+<span class="font-title-lg text-title-lg text-primary">98.4%</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">Intent Classification</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">Cohort</span>
+<span class="font-title-lg text-title-lg text-tertiary">Top 2%</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">1,500+ National Teams</span>
+</div>
+</div>
+<!-- Action Triggers -->
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<button class="px-space-lg py-space-sm rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps tracking-wider font-semibold shadow-[0_0_24px_rgba(184,164,248,0.35)] hover:brightness-110 transition-all flex items-center gap-space-xs" onclick="openModal('customerpulse-modal')" type="button">
+<span>EXPLORE FULL CASE STUDY</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<button class="px-space-md py-space-sm rounded-full bg-surface-container-high text-on-surface hover:text-primary transition-all font-label-caps text-label-caps flex items-center gap-space-xs" onclick="toggleDrawer()" type="button">
+<span class="material-symbols-outlined text-[16px]">account_tree</span>
+<span>SYSTEM GRAPH</span>
+</button>
+</div>
+</div>
+<!-- Right Visual Launch Stage Mockup & Radar Showcase (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Main Cinematic Display Container -->
+<div class="relative w-full rounded-2xl bg-surface-container-high/60 backdrop-blur-2xl p-space-md shadow-2xl overflow-hidden group">
+<!-- Glassmorphic Header of the Mockup -->
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-error/80"></span>
+<span class="w-3 h-3 rounded-full bg-surface-variant"></span>
+<span class="w-3 h-3 rounded-full bg-secondary/80"></span>
+<span class="font-code-inline text-code-inline text-on-surface-variant text-[11px] ml-space-xs">customerpulse.production.internal / telemetry-live</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-tag text-label-tag text-secondary text-[11px]">STREAM SYNCED</span>
+</div>
+</div>
+<!-- Editorial Mockup Imagery -->
+<div class="relative w-full h-[360px] md:h-[440px] rounded-xl overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Futuristic dark-mode executive AI telemetry dashboard showing high-dimensional customer complaint clustering, real-time sentiment stream diagrams, neural vector graphs in lavender and mint, glowing UI cards, and clean typography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxeOlXzOWwts8TZA9XzNYObL6FGmSk5b5OdseO0YxLnvif0-7mu98aeQhkk0bmr3wbbXeDhFCsZe9900FoY6zDGpNnYnCvITxANtApC6JQ7uvNfQRtbijr-uYntF7s1RaMTlqwA8TGQ7G54KtvaeBnOYZ4sXAcSS6d60TosUA1PNT3wMGfafbbC2mN8SZ_FsLGxqsfAi6E8nRX9L2yV9Hj0_pAyqxff3mWZ3w4mk8F"/>
+<!-- Floating Live Sentiment Triage Overlay -->
+<div class="absolute top-4 left-4 p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl max-w-xs shadow-xl flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary">INCIDENT #4902</span>
+<span class="font-code-inline text-code-inline text-[11px] text-primary">SCORE: 0.94 SIMILARITY</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface line-clamp-2">
+                "Multiple users reporting token invalidation upon high throughput RPC spikes across EU-West cluster."
+              </p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-tag text-label-tag text-on-surface-variant">Auto-Assigned: RAG Pipeline B</span>
+<span class="text-secondary font-code-inline text-[11px]">RESOLVED</span>
+</div>
+</div>
+<!-- Floating Vector Similarity Radar SVG Overlay -->
+<div class="absolute bottom-4 right-4 p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-xl flex flex-col gap-space-xs items-center">
+<span class="font-label-caps text-label-caps text-on-surface-variant">LIVE SENTIMENT RADAR</span>
+<!-- Radar Chart SVG -->
+<svg class="w-24 h-24" viewbox="0 0 100 100">
+<polygon class="text-surface-variant" fill="none" points="50,10 90,38 75,85 25,85 10,38" stroke="currentColor" stroke-width="1"></polygon>
+<polygon class="text-surface-variant" fill="none" points="50,25 78,45 68,75 32,75 22,45" stroke="currentColor" stroke-width="1"></polygon>
+<!-- Plotted Values -->
+<polygon class="text-primary" fill="rgba(184, 164, 248, 0.3)" points="50,18 84,40 62,80 28,70 18,44" stroke="currentColor" stroke-width="1.5"></polygon>
+<circle class="fill-primary" cx="50" cy="18" r="2.5"></circle>
+<circle class="fill-primary" cx="84" cy="40" r="2.5"></circle>
+<circle class="fill-secondary" cx="62" cy="80" r="2.5"></circle>
+<circle class="fill-secondary" cx="28" cy="70" r="2.5"></circle>
+<circle class="fill-primary" cx="18" cy="44" r="2.5"></circle>
+</svg>
+<span class="font-code-inline text-code-inline text-[10px] text-secondary">SENTIMENT INDEX: +0.72 NET</span>
+</div>
+</div>
+<!-- Bottom Live Stream Indicator Strip -->
+<div class="mt-space-sm pt-space-sm flex flex-wrap items-center justify-between gap-space-sm font-label-tag text-label-tag text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[16px]">database</span>
+<span>PINECONE HYBRID INDEX: 142k VECTOR EMBEDDINGS</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
+<span>VERIFIED PRODUCTION DRIFT: &lt; 0.02%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- ACT 2: MEMORYLENS HERO LAUNCH STAGE        -->
+<!-- ========================================== -->
+<section class="stage-panel w-full px-gutter-mobile md:px-gutter py-space-xl" id="stage-memorylens">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- Left Narrative Column (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-code-inline text-code-inline text-tertiary bg-surface-container-high px-space-sm py-1 rounded-full">AI FOR BHARAT • AWS STACK</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">PROTOTYPE SHOWCASE</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-space-xs">
+            02 / MemoryLens
+          </h2>
+<p class="font-title-md text-title-md text-tertiary mt-space-xs">
+            AI-Powered Multimodal Document &amp; Photo Search
+          </p>
+</div>
+<div class="flex flex-wrap gap-space-xs">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-tag text-label-tag">Team Lead &amp; Backend Architect</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-tag text-label-tag">Cross-Modal Embeddings</span>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-tertiary font-label-tag text-label-tag">AWS Rekognition &amp; S3</span>
+</div>
+<div class="flex flex-col gap-space-md text-on-surface-variant font-body-md text-body-md leading-relaxed">
+<p>
+            MemoryLens resolves the systemic barrier of searching unstructured personal archives—handwritten receipts, blurred identity cards, and contextual smartphone photos—using conversational natural language queries in vernacular and English dialects.
+          </p>
+<p>
+            Bridging vision-language alignment models with real-time vector indexes on AWS, users can execute searches such as <em>"Electrician invoice signed in Pune during monsoon 2023"</em> and receive the exact photographic crop alongside extracted JSON in sub-seconds.
+          </p>
+</div>
+<!-- Metric specs -->
+<div class="grid grid-cols-3 gap-space-sm p-space-md rounded-xl bg-surface-container-high/50 backdrop-blur-md">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">Retrieval</span>
+<span class="font-title-lg text-title-lg text-tertiary">&lt; 380ms</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">Cross-Modal Search</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">Modality</span>
+<span class="font-title-lg text-title-lg text-primary">Text + Img</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">Joint Embedding</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline uppercase">Throughput</span>
+<span class="font-title-lg text-title-lg text-secondary">500+ Req/s</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">Serverless Worker</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<button class="px-space-lg py-space-sm rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps tracking-wider font-semibold shadow-[0_0_24px_rgba(184,164,248,0.35)] hover:brightness-110 transition-all flex items-center gap-space-xs" onclick="openModal('memorylens-modal')" type="button">
+<span>INSPECT MULTIMODAL PIPELINE</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<a class="px-space-md py-space-sm rounded-full bg-surface-container-high text-on-surface hover:text-tertiary transition-all font-label-caps text-label-caps flex items-center gap-space-xs" href="#">
+<span class="material-symbols-outlined text-[16px]">terminal</span>
+<span>GITHUB REPO</span>
+</a>
+</div>
+</div>
+<!-- Right Visual Launch Stage - Multi-layered Stack (7 Cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="relative w-full rounded-2xl bg-surface-container-high/60 backdrop-blur-2xl p-space-md shadow-2xl overflow-hidden group">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-surface-variant"></span>
+<span class="w-3 h-3 rounded-full bg-tertiary/80"></span>
+<span class="w-3 h-3 rounded-full bg-primary/80"></span>
+<span class="font-code-inline text-code-inline text-on-surface-variant text-[11px] ml-space-xs">memorylens-cluster // crossmodal-index.faiss</span>
+</div>
+<span class="font-label-tag text-label-tag text-tertiary text-[11px]">AWS BEDROCK &amp; TITAN</span>
+</div>
+<div class="relative w-full h-[360px] md:h-[440px] rounded-xl overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Editorial visual of an advanced multimodal semantic document search interface showing side-by-side scanned archival paper documents, OCR bounding boxes, and photographic clusters linked by luminescent mint and cyan vectors in a clean dark studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4tVci4ipQmCRmRhBv_qjWBIJcfzy801Fe37OQ25p18VHF7E7rJ0UyP4nVPJkT06zgXtObLWF1HjsawKnfM8YArqKwM-m8NTrLM6KwhkSx5XFNN-aqf3jD2t-7NOISi4m1pLh2D2LhSX5_zh_Ckkwk4GhJvc8UF0tF1ymV7-AlSNqR-kztUK8MTmWS7ECHHZsOQZCX46XUwCY4aOk9Jz4g35zPNweu1UA2D8NT82pR"/>
+<!-- Visual Floating Cluster Matrix Pill -->
+<div class="absolute top-4 right-4 p-space-sm rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-xl flex flex-col gap-1 text-right">
+<span class="font-label-caps text-label-caps text-tertiary">SPATIAL EMBEDDING COORD</span>
+<span class="font-code-inline text-code-inline text-on-surface text-[11px]">X: 0.819 | Y: 0.442 | Z: 0.991</span>
+<span class="font-label-tag text-label-tag text-secondary text-[10px]">CLUSTER MATCH: 99.8% CERTAINTY</span>
+</div>
+<!-- Query Visual Card -->
+<div class="absolute bottom-4 left-4 p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-xl max-w-sm flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-primary">
+<span class="material-symbols-outlined text-[16px]">search</span>
+<span class="font-label-caps text-label-caps">SEMANTIC NATURAL QUERY</span>
+</div>
+<p class="font-code-inline text-code-inline text-[12px] text-on-surface">
+                &gt; "Signed clinic discharge report from Maharashtra hospital with handwritten doctor stamp"
+              </p>
+<div class="flex items-center justify-between text-[11px] font-label-tag text-on-surface-variant pt-1">
+<span>Retrieved: 3 Photos, 1 PDF</span>
+<span class="text-tertiary font-semibold">Matched in 294ms</span>
+</div>
+</div>
+</div>
+<!-- Bottom Meta Strip -->
+<div class="mt-space-sm pt-space-sm flex flex-wrap items-center justify-between gap-space-sm font-label-tag text-label-tag text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[16px]">memory</span>
+<span>ZERO-SHOT EMBEDDING EXTRACTION ACTIVE</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[16px]">cloud_done</span>
+<span>AWS REKOGNITION + OPENSEARCH PIPELINE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- ACT 3: SNEAK PEEK HORIZONTAL FILMSTRIP RAIL -->
+<!-- ========================================== -->
+<section class="stage-panel w-full px-gutter-mobile md:px-gutter py-space-xl" id="stage-rail">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-xl">
+<!-- Strip Title & Navigation Hint -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div>
+<span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase">LAB ARTIFACTS &amp; ACTIVE EXPLORATIONS</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-space-xs">
+            03 &amp; 04 / Digital Twins &amp; Automation
+          </h2>
+</div>
+<div class="flex items-center gap-space-sm font-label-tag text-label-tag text-on-surface-variant">
+<span>HORIZONTAL CINEMA REEL</span>
+<span class="material-symbols-outlined text-[18px]">swipe_right</span>
+</div>
+</div>
+<!-- Filmstrip Cards Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-xl">
+<!-- TEASER CARD 1: DOCFLOW -->
+<div class="flex flex-col rounded-2xl bg-surface-container-high/60 backdrop-blur-xl p-space-lg shadow-xl group">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-code-inline text-code-inline text-secondary bg-surface-container px-space-sm py-1 rounded-full">PROJECT 03 • AUTOMATION SAAS</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">PRIVATE ENTERPRISE ALPHA</span>
+</div>
+<div class="relative w-full h-64 rounded-xl overflow-hidden bg-surface-container-lowest mb-space-md">
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Modern high-density data pipeline interface showing automated document OCR workflows, optical parsing trees, API request rates, and clean dark glass aesthetics with mint status indicators." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWD9FhZFxq0aFAgluMW3dtBavKXmoE-vSYEj7tPgbcQjcXIlExekhmbnSMl9z0IPyjNNh6_aqodBttAuDyPfDD6E_Av4EZkAJJIcClN9IJhhvLJDIIPLD5FcsYD92hNU79Hdn4rV8zt6y6f1ZN_4hMh5I3PZhjpnODje5Q31m9BvpHTjsmtuSq1z4_hdWE1GsTCf7Ev0tj5yMP3jUgeYxoPpDPu0Q5VCa1nEp3_ZXn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 flex flex-col">
+<span class="font-label-caps text-label-caps text-secondary">ENTERPRISE SAAS</span>
+<span class="font-title-lg text-title-lg text-on-surface">DocFlow Core Engine</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+            Document processing automation suite transforming unstructured invoices, bank statements, and legal deeds into verified structured JSON schemas with human-in-the-loop review nodes.
+          </p>
+<div class="flex items-center justify-between pt-space-sm mt-auto">
+<div class="flex gap-space-xs">
+<span class="px-space-xs py-1 rounded bg-surface-container text-[11px] font-label-tag text-on-surface-variant">OCR Engine</span>
+<span class="px-space-xs py-1 rounded bg-surface-container text-[11px] font-label-tag text-on-surface-variant">Async Workers</span>
+</div>
+<button class="font-label-tag text-label-tag text-primary hover:text-secondary transition-colors flex items-center gap-1" onclick="openModal('docflow-modal')" type="button">
+<span>EXPLORE SPECS</span>
+<span class="material-symbols-outlined text-[16px]">north_east</span>
+</button>
+</div>
+</div>
+<!-- TEASER CARD 2: LUNG DIGITAL TWIN -->
+<div class="flex flex-col rounded-2xl bg-surface-container-high/60 backdrop-blur-xl p-space-lg shadow-xl group">
+<div class="flex items-center justify-between mb-space-md">
+<span class="font-code-inline text-code-inline text-primary bg-surface-container px-space-sm py-1 rounded-full">PROJECT 04 • HEALTHCARE &amp; BIO-SIM</span>
+<span class="font-label-tag text-label-tag text-on-surface-variant">ONCOLOGY RESEARCH</span>
+</div>
+<div class="relative w-full h-64 rounded-xl overflow-hidden bg-surface-container-lowest mb-space-md">
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="3D anatomical pulmonary digital twin visualization rendered in luminous neon lavender and cyan line work inside a dark volumetric medical diagnostic chamber with airflow and tumor nodule simulation tags." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDLX1JL7m0WO-jeP-q-_1uP9D8c48rhalcKRAlTsluJqi4eT_me2q-ckQBXFd7yD7mKFNjQmdWVUV6UOTZKBM7m5VXwRcXIDrZ1E6kCscleudqTd08-HziKeeq8Lg57ywWtpah0mEjsdqpnhPfVmB83gnQcywNsZUGbAeElqSsCCgupYfCpFMZtr6TIgaXf0qmhiYIXbCCaPu87dg987oQT1UmqeCECbuuYNC0c13v"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 flex flex-col">
+<span class="font-label-caps text-label-caps text-primary">COMPUTATIONAL ONCOLOGY</span>
+<span class="font-title-lg text-title-lg text-on-surface">Lung Digital Twin Simulator</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+            Physics-informed biological simulation predicting patient-specific respiratory airflow mechanics and targeted chemotherapy diffusion models using CT-derived mesh reconstructions.
+          </p>
+<div class="flex items-center justify-between pt-space-sm mt-auto">
+<div class="flex gap-space-xs">
+<span class="px-space-xs py-1 rounded bg-surface-container text-[11px] font-label-tag text-on-surface-variant">Bio-Mesh</span>
+<span class="px-space-xs py-1 rounded bg-surface-container text-[11px] font-label-tag text-on-surface-variant">Diffusion Solver</span>
+</div>
+<button class="font-label-tag text-label-tag text-primary hover:text-secondary transition-colors flex items-center gap-1" onclick="openModal('digitaltwin-modal')" type="button">
+<span>EXPLORE SIMULATION</span>
+<span class="material-symbols-outlined text-[16px]">north_east</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- MODAL: INTERACTIVE CASE STUDY DEEP DIVE    -->
+<!-- ========================================== -->
+<div class="fixed inset-0 z-50 hidden bg-surface-container-lowest/90 backdrop-blur-2xl flex items-center justify-center p-gutter-mobile md:p-gutter" id="project-modal">
+<div class="relative w-full max-w-4xl max-h-[921px] bg-surface-container-high rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+<!-- Modal Navigation Header -->
+<div class="flex items-center justify-between p-space-md bg-surface-container-highest/60 backdrop-blur-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">layers</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold" id="modal-title">CustomerPulse Case Study</span>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-variant flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" onclick="closeModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Tabs Switcher -->
+<div class="flex items-center px-space-md pt-space-xs gap-space-xs bg-surface-container-highest/30">
+<button class="modal-tab-btn active px-space-md py-space-xs font-label-tag text-label-tag text-primary bg-surface-container rounded-t-lg font-semibold" id="btn-tab-overview" onclick="setModalTab('tab-overview')" type="button">Overview</button>
+<button class="modal-tab-btn px-space-md py-space-xs font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface rounded-t-lg" id="btn-tab-problem" onclick="setModalTab('tab-problem')" type="button">Problem &amp; Solution</button>
+<button class="modal-tab-btn px-space-md py-space-xs font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface rounded-t-lg" id="btn-tab-arch" onclick="setModalTab('tab-arch')" type="button">Architecture Diagram</button>
+<button class="modal-tab-btn px-space-md py-space-xs font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface rounded-t-lg" id="btn-tab-specs" onclick="setModalTab('tab-specs')" type="button">Tech Specs &amp; Repo</button>
+</div>
+<!-- Modal Scrollable Content Container -->
+<div class="p-space-lg overflow-y-auto flex-1 flex flex-col gap-space-lg font-body-md text-body-md text-on-surface-variant">
+<!-- Tab 1: Overview Content -->
+<div class="modal-tab-content flex flex-col gap-space-md" id="content-tab-overview">
+<div class="p-space-md rounded-xl bg-surface-container">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-space-xs">Context &amp; Mandate</h4>
+<p>
+              In large-scale customer engagement workflows, customer support platforms drown under repetitive, low-context complaints. Support agents manually categorize issues, leading to operational bottlenecks, misassigned tickets, and delayed SLA resolution. CustomerPulse was designed to tackle this through state-of-the-art retrieval augmented intelligence.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container">
+<span class="font-label-caps text-label-caps text-secondary">METRIC FOCUS</span>
+<p class="font-headline-md text-headline-md text-on-surface mt-1">94% Time Reduction</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Achieved 94% reduction in manual ticket sorting across synthetic benchmark datasets.</p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container">
+<span class="font-label-caps text-label-caps text-primary">SECURITY &amp; AUTH</span>
+<p class="font-headline-md text-headline-md text-on-surface mt-1">Granular RBAC</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Role-Based Access Control protecting enterprise complaint data from cross-tenant pollution.</p>
+</div>
+</div>
+</div>
+<!-- Tab 2: Problem & Solution Content -->
+<div class="modal-tab-content hidden flex flex-col gap-space-md" id="content-tab-problem">
+<div class="p-space-md rounded-xl bg-surface-container">
+<span class="font-label-caps text-label-caps text-error">THE BOTTLENECK</span>
+<h4 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs">Unstructured Noise &amp; High Variance</h4>
+<p>
+              Standard keyword-matching systems fail when users describe the same underlying fault using completely disparate vocabularies. Furthermore, agents often draft inconsistent answers that conflict with product updates.
+            </p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container">
+<span class="font-label-caps text-label-caps text-secondary">THE SOLUTION</span>
+<h4 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs">Dense Vector Cosine Similarity &amp; LangChain Loops</h4>
+<p>
+              We established an end-to-end semantic embedding pipeline that normalizes vernacular text into dense mathematical representations. The pipeline maps new incoming complaints against historically validated fixes, synthesizing a verified solution draft instantly.
+            </p>
+</div>
+</div>
+<!-- Tab 3: Architecture Diagram Content -->
+<div class="modal-tab-content hidden flex flex-col gap-space-md" id="content-tab-arch">
+<div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-md">
+<span class="font-label-caps text-label-caps text-primary">DATA FLOW PIPELINE</span>
+<!-- Flow Diagram Visualization -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-space-sm p-space-md bg-surface-container-lowest rounded-xl">
+<div class="p-space-sm rounded bg-surface-container text-center w-full md:w-auto">
+<span class="font-label-caps text-label-caps text-tertiary">INGESTION</span>
+<p class="font-code-inline text-code-inline text-on-surface text-[12px]">FastAPI Gateway</p>
+</div>
+<span class="material-symbols-outlined text-outline">arrow_forward</span>
+<div class="p-space-sm rounded bg-surface-container text-center w-full md:w-auto">
+<span class="font-label-caps text-label-caps text-primary">EMBEDDING</span>
+<p class="font-code-inline text-code-inline text-on-surface text-[12px]">Text-Embedding-3</p>
+</div>
+<span class="material-symbols-outlined text-outline">arrow_forward</span>
+<div class="p-space-sm rounded bg-surface-container text-center w-full md:w-auto">
+<span class="font-label-caps text-label-caps text-secondary">INDEXING</span>
+<p class="font-code-inline text-code-inline text-on-surface text-[12px]">Pinecone Vector DB</p>
+</div>
+<span class="material-symbols-outlined text-outline">arrow_forward</span>
+<div class="p-space-sm rounded bg-surface-container text-center w-full md:w-auto">
+<span class="font-label-caps text-label-caps text-on-surface">SYNTHESIS</span>
+<p class="font-code-inline text-code-inline text-on-surface text-[12px]">LangChain LLM Loop</p>
+</div>
+</div>
+<p class="font-body-sm text-body-sm">
+              All transactions enforce strict zero-drift logging. Embeddings are stored with role-partitioned metadata namespaces to maintain enterprise security invariants.
+            </p>
+</div>
+</div>
+<!-- Tab 4: Tech Specs & Repo Content -->
+<div class="modal-tab-content hidden flex flex-col gap-space-md" id="content-tab-specs">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline">CORE BACKEND</span>
+<p class="font-code-inline text-code-inline text-on-surface">FastAPI / Python 3.11</p>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline">VECTOR STORE</span>
+<p class="font-code-inline text-code-inline text-on-surface">Pinecone Serverless</p>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline">ORCHESTRATION</span>
+<p class="font-code-inline text-code-inline text-on-surface">LangChain / LCEL</p>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container">
+<span class="font-label-caps text-label-caps text-outline">UI CLIENT</span>
+<p class="font-code-inline text-code-inline text-on-surface">React 18 / Tailwind</p>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">terminal</span>
+<div>
+<p class="font-title-md text-title-md text-on-surface">GitHub Source Repository</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Includes complete docker-compose environment &amp; sample datasets.</p>
+</div>
+</div>
+<a class="px-space-md py-space-xs rounded-full bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-tag text-label-tag transition-colors flex items-center gap-1" href="#">
+<span>VIEW REPO</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="p-space-md bg-surface-container-highest/60 backdrop-blur-md flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-outline">SYSTEM AUDIT STATUS: COMPLIANT</span>
+<button class="px-space-md py-space-xs rounded-full bg-surface-container hover:bg-surface-variant text-on-surface font-label-tag text-label-tag transition-colors" onclick="closeModal()" type="button">
+          DISMISS VIEW
+        </button>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- SLIDE-OUT DRAWER: INSPECT ARCHITECTURE     -->
+<!-- ========================================== -->
+<div class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-surface-container-lowest/95 backdrop-blur-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out p-space-lg flex flex-col justify-between shadow-2xl" id="arch-drawer">
+<div class="flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary">tune</span>
+<span class="font-title-md text-title-md text-on-surface font-semibold">Live System Graph</span>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" onclick="toggleDrawer()" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<div class="flex flex-col gap-space-md">
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Active microservices and neural inferencing latency breakdown across Yash Khadgi's distributed deployment matrix.
+        </p>
+<!-- Service Status 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface">CUSTOMER PULSE INGEST</span>
+<span class="font-code-inline text-code-inline text-secondary text-[11px]">OPTIMAL • 41ms</span>
+</div>
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-11/12 h-full bg-secondary"></div>
+</div>
+<span class="font-label-tag text-label-tag text-on-surface-variant text-[10px]">99.98% uptime across last 1,200 synthetic runs</span>
+</div>
+<!-- Service Status 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface">MEMORYLENS MULTIMODAL</span>
+<span class="font-code-inline text-code-inline text-tertiary text-[11px]">NOMINAL • 294ms</span>
+</div>
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-4/5 h-full bg-tertiary"></div>
+</div>
+<span class="font-label-tag text-label-tag text-on-surface-variant text-[10px]">Zero GPU cache misses detected</span>
+</div>
+<!-- Service Status 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-high flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface">DIGITAL TWIN SIM SOLVER</span>
+<span class="font-code-inline text-code-inline text-primary text-[11px]">STANDBY • LOCAL</span>
+</div>
+<div class="w-full h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-3/5 h-full bg-primary"></div>
+</div>
+<span class="font-label-tag text-label-tag text-on-surface-variant text-[10px]">CUDA compute nodes available</span>
+</div>
+</div>
+</div>
+<div class="pt-space-md flex flex-col gap-space-xs">
+<span class="font-label-caps text-label-caps text-outline text-[10px]">HOST REGION: AP-SOUTH-1 (MUMBAI)</span>
+<button class="w-full py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-tag text-label-tag transition-colors" onclick="toggleDrawer()" type="button">
+        CLOSE TELEMETRY PANEL
+      </button>
+</div>
+</div>
+<!-- SCRIPT FOR THEATER CONTROLS & MODALS -->
+<script>
+    function switchStage(stageId) {
+      // Toggle Stage view
+      document.querySelectorAll('.stage-panel').forEach(panel => {
+        if (panel.id === stageId) {
+          panel.classList.remove('hidden');
+        } else {
+          panel.classList.add('hidden');
+        }
+      });
+
+      // Update Nav Buttons
+      document.querySelectorAll('.stage-nav-btn').forEach(btn => {
+        btn.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-sm');
+        btn.classList.add('text-on-surface-variant');
+      });
+
+      const activeBtn = document.getElementById('tab-' + stageId);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-sm');
+        activeBtn.classList.remove('text-on-surface-variant');
+      }
+    }
+
+    function openModal(projectId) {
+      const modal = document.getElementById('project-modal');
+      const title = document.getElementById('modal-title');
+      
+      if (projectId === 'customerpulse-modal') {
+        title.innerText = 'CustomerPulse — Full Architectural Case Study';
+      } else if (projectId === 'memorylens-modal') {
+        title.innerText = 'MemoryLens — Multimodal Search Engine Spec';
+      } else if (projectId === 'docflow-modal') {
+        title.innerText = 'DocFlow — Document OCR Engine Blueprint';
+      } else if (projectId === 'digitaltwin-modal') {
+        title.innerText = 'Lung Digital Twin — Bio-Simulation Protocol';
+      }
+      
+      modal.classList.remove('hidden');
+      setModalTab('tab-overview');
+    }
+
+    function closeModal() {
+      document.getElementById('project-modal').classList.add('hidden');
+    }
+
+    function setModalTab(tabId) {
+      document.querySelectorAll('.modal-tab-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+      document.querySelectorAll('.modal-tab-btn').forEach(btn => {
+        btn.classList.remove('text-primary', 'bg-surface-container', 'font-semibold');
+        btn.classList.add('text-on-surface-variant');
+      });
+
+      const activeContent = document.getElementById('content-' + tabId);
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeContent) activeContent.classList.remove('hidden');
+      if (activeBtn) {
+        activeBtn.classList.add('text-primary', 'bg-surface-container', 'font-semibold');
+        activeBtn.classList.remove('text-on-surface-variant');
+      }
+    }
+
+    function toggleDrawer() {
+      const drawer = document.getElementById('arch-drawer');
+      if (drawer.classList.contains('translate-x-full')) {
+        drawer.classList.remove('translate-x-full');
+      } else {
+        drawer.classList.add('translate-x-full');
+      }
+    }
+  </script>
+</div></main><aside class="fixed bottom-space-md left-gutter-mobile md:left-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)]"><span class="material-symbols-outlined text-secondary text-[16px] animate-pulse">sensors</span><div class="flex items-center gap-space-xs font-label-tag text-label-tag text-[11px] text-on-surface-variant"><span class="text-on-surface font-semibold">18°31'N 73°51'E</span><span class="opacity-40">•</span><span class="text-secondary font-medium">IST 02:44:19</span><span class="opacity-40">•</span><div class="flex items-center gap-[2px] h-3"><span class="w-[2px] h-2 bg-secondary/80 rounded-full animate-bounce"></span><span class="w-[2px] h-3 bg-secondary rounded-full animate-bounce [animation-delay:0.15s]"></span><span class="w-[2px] h-1.5 bg-secondary/60 rounded-full animate-bounce [animation-delay:0.3s]"></span></div></div></div></aside><aside class="fixed bottom-space-md right-gutter-mobile md:right-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)] group"><button class="font-label-caps text-label-caps text-[10px] text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" type="button">SKIP INTRO</button><div class="relative flex items-center justify-center w-7 h-7"><svg class="w-7 h-7 -rotate-90" viewbox="0 0 32 32"><circle class="text-surface-variant" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-width="2"></circle><circle class="text-primary" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-dasharray="81.68" stroke-dashoffset="54" stroke-width="2.5"></circle></svg><span class="absolute font-code-inline text-code-inline text-[9px] font-semibold text-on-surface">34%</span></div></div></aside><footer class="w-full bg-surface-container-lowest py-space-xl mt-space-2xl shadow-[0_-1px_16px_rgba(0,0,0,0.4)]"><div class="max-w-[1440px] mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md font-label-tag text-label-tag text-on-surface-variant"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-primary text-[20px]">YK</span><span>© 2025 Yash Khadgi. Architectural Cosmos &amp; Deep Systems.</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps text-[11px]"><span class="text-secondary">ONLINE / READY FOR VENTURES</span><span class="opacity-30">|</span><span class="text-on-surface-variant">LAT 18.5204° N • LON 73.8567° E</span></div></div></footer></body></html>
