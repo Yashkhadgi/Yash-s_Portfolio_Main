@@ -236,7 +236,7 @@
     },
   }</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 px-gutter-mobile md:px-gutter py-space-sm pointer-events-none"><div class="max-w-[1440px] mx-auto h-20 flex items-center justify-between gap-space-md pointer-events-auto"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="arrival" href="#"><div class="w-10 h-10 rounded-lg bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center shadow-[0_1px_8px_rgba(0,0,0,0.4)] group-hover:bg-surface-variant transition-colors"><span class="font-headline-md text-headline-md text-primary">YK</span></div><div class="hidden xl:flex flex-col"><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps tracking-widest text-on-surface">YASH KHADGI</span></div><span class="font-label-caps text-label-caps text-on-surface-variant text-[9px] tracking-wider">AVAILABLE FOR INNOVATIVE BUILDS • 2025/26</span></div></a></div><nav class="hidden lg:flex items-center p-space-xs rounded-full bg-surface-container-low/70 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.5)]" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(184,164,248,0.25)]"><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="arrival" href="#">01 ARRIVAL</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(184,164,248,0.25)]" data-path="universe" href="#">02 UNIVERSE</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="theater" href="#">03 THEATER</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="archives" href="#">04 ARCHIVES</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">05 ABOUT</a></nav><div class="flex items-center gap-space-sm"><button aria-label="Command Center" class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-high/60 backdrop-blur-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="font-code-inline text-code-inline text-[11px] font-semibold text-primary">⌘K</span><span class="hidden md:inline font-label-tag text-label-tag text-[11px]">COMMAND</span></button><button aria-label="Toggle Ambience Audio" class="w-9 h-9 rounded-lg bg-surface-container-high/60 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="material-symbols-outlined text-[18px]">graphic_eq</span></button><button aria-label="Toggle Theme Mode" class="w-9 h-9 rounded-lg bg-surface-container-high/60 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><a class="hidden sm:inline-flex items-center px-space-md py-space-xs rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps font-semibold shadow-[0_0_24px_rgba(184,164,248,0.3)] hover:brightness-110 transition-all" data-path="universe" href="#">EXPLORE</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(210,195,255,0.35)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full relative select-none">
 <!-- Top Universe Control Horizon -->
-<section class="w-full px-gutter-mobile md:px-gutter pt-space-md pb-space-lg flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b-0">
+<section class="w-full px-gutter-mobile md:px-gutter pt-space-xl pb-space-lg flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b-0">
 <div class="flex flex-col max-w-2xl">
 <div class="flex items-center gap-space-xs mb-space-xs">
 <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
@@ -667,6 +667,60 @@
       let zoomLevel = 1.0;
       let rotX = 0;
       let rotY = 0;
+      let activeFilter = 'all';
+      let hoveredNode = null;
+      let userTiltUntil = 0;
+      let frozenOrbitTime = null;
+      let orbitStartTime = null;
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const fieldCenter = { x: 550, y: 390 };
+      const orbitStyle = document.createElement('style');
+      orbitStyle.textContent = `
+        #universe-stage{perspective:1400px}
+        #spatial-field{transform-style:preserve-3d;will-change:transform}
+        .celestial-node{will-change:left,top,transform,opacity,filter;transform-style:preserve-3d}
+        .celestial-node .node-orb,.celestial-node>div:first-child{box-shadow:0 22px 40px rgba(0,0,0,.48), inset -10px -12px 20px rgba(0,0,0,.25), inset 8px 8px 18px rgba(255,255,255,.04)}
+        .celestial-node.orbit-hidden{opacity:.14!important;filter:grayscale(100%) blur(.2px)!important}
+        .celestial-node.orbit-match{opacity:1!important;filter:grayscale(0%) drop-shadow(0 0 18px rgba(184,164,248,.38))!important}
+        .celestial-node.orbit-active .node-orb,.celestial-node.orbit-active>div:first-child{box-shadow:0 28px 70px rgba(195,178,255,.3),0 0 0 8px rgba(195,178,255,.08), inset -10px -12px 20px rgba(0,0,0,.2)}
+        .solar-orbit{position:absolute;left:50%;top:50%;border:1px solid rgba(195,178,255,.105);border-radius:50%;transform:translate(-50%,-50%) rotateX(62deg) rotateZ(-10deg);pointer-events:none;box-shadow:0 0 28px rgba(98,220,173,.025)}
+        .solar-orbit:nth-child(odd){border-color:rgba(98,220,173,.12)}
+      `;
+      document.head.append(orbitStyle);
+
+      [
+        [300, 210], [440, 310], [600, 420], [760, 530]
+      ].forEach(([w, h]) => {
+        const ring = document.createElement('span');
+        ring.className = 'solar-orbit';
+        ring.style.width = `${w}px`;
+        ring.style.height = `${h}px`;
+        field.insertBefore(ring, field.firstChild);
+      });
+
+      const orbitPresets = [
+        [300, 214, -2.1, 0.00018, 70],
+        [370, 250, -0.72, -0.00015, 95],
+        [410, 292, 2.35, 0.00014, 80],
+        [470, 336, 0.44, -0.00012, 110],
+        [245, 168, 3.08, 0.00022, 60],
+        [480, 306, -0.08, 0.00011, 88],
+        [190, 132, -2.65, -0.00028, 38],
+        [275, 188, -0.28, 0.00024, 45],
+        [245, 174, 1.98, -0.00025, 42],
+        [310, 220, 1.12, 0.0002, 48],
+        [190, 140, 2.85, 0.0003, 34],
+        [330, 232, 0.8, -0.00019, 52]
+      ];
+      const orbitNodes = [...nodes].map((node, index) => {
+        const [rx, ry, phase, speed, zAmp] = orbitPresets[index] || orbitPresets.at(-1);
+        node.dataset.orbitIndex = String(index);
+        return { node, rx, ry, phase, speed, zAmp };
+      });
+
+      function setFieldTransform(extraTilt = true) {
+        field.style.transform = `scale(${zoomLevel}) perspective(1200px) rotateX(${extraTilt ? rotX : 0}deg) rotateY(${extraTilt ? rotY : 0}deg)`;
+      }
 
       // Draw SVG Constellation Connections to Core & Neighbors
       function renderConstellation() {
@@ -696,8 +750,38 @@
         vectorContainer.innerHTML = markup;
       }
 
-      // Initial Draw + Resizing sync
-      setTimeout(renderConstellation, 100);
+      function animateOrbit(timestamp = 0) {
+        if (orbitStartTime === null) orbitStartTime = timestamp;
+        const elapsed = timestamp - orbitStartTime;
+        const tiltActive = Date.now() < userTiltUntil;
+        const orbitTime = frozenOrbitTime ?? elapsed;
+        orbitNodes.forEach(({ node, rx, ry, phase, speed, zAmp }, index) => {
+          const angle = reduceMotion.matches ? phase : phase + orbitTime * speed;
+          const depth = Math.sin(angle);
+          const x = fieldCenter.x + Math.cos(angle) * rx;
+          const y = fieldCenter.y + Math.sin(angle) * ry * 0.72;
+          const z = depth * zAmp;
+          const scale = (node.classList.contains('primary-node') ? 1 : 0.94) + depth * 0.12 + (node === hoveredNode ? 0.13 : 0);
+          node.style.left = `${x}px`;
+          node.style.top = `${y}px`;
+          node.style.zIndex = String(30 + Math.round(depth * 20) + (node === hoveredNode ? 80 : 0));
+          node.style.transform = `translate(-50%, -50%) translateZ(${z}px) scale(${scale.toFixed(3)})`;
+          const match = activeFilter === 'all' || (node.getAttribute('data-tags') || '').split(' ').includes(activeFilter);
+          node.classList.toggle('orbit-match', match);
+          node.classList.toggle('orbit-hidden', !match);
+          if (match) {
+            node.style.pointerEvents = 'auto';
+          } else {
+            node.style.pointerEvents = 'auto';
+          }
+        });
+        setFieldTransform(tiltActive);
+        renderConstellation();
+        if (!reduceMotion.matches) requestAnimationFrame(animateOrbit);
+      }
+
+      // Initial draw + resizing sync.
+      requestAnimationFrame(animateOrbit);
       window.addEventListener('resize', renderConstellation);
 
       // Interactive 3D Parallax Tilt on Cursor Move
@@ -710,7 +794,8 @@
         rotX = -normY * 16;
         rotY = normX * 22;
 
-        field.style.transform = `scale(${zoomLevel}) perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        userTiltUntil = Date.now() + 1400;
+        setFieldTransform(true);
         
         // Dynamic Coordinate String
         const posX = (21.1458 + normX * 0.04).toFixed(4);
@@ -719,7 +804,8 @@
       });
 
       stage.addEventListener('mouseleave', () => {
-        field.style.transform = `scale(${zoomLevel}) perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        userTiltUntil = 0;
+        setFieldTransform(false);
         coordTelemetry.textContent = `X: 21.1458 | Y: 79.0882 | Z: ${zoomLevel.toFixed(3)}`;
       });
 
@@ -734,26 +820,17 @@
           chip.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
           chip.classList.add('bg-primary', 'text-on-primary', 'active-chip');
 
-          const filter = chip.getAttribute('data-filter');
-
-          nodes.forEach(node => {
-            const tags = (node.getAttribute('data-tags') || '').split(' ');
-            if (filter === 'all' || tags.includes(filter)) {
-              node.style.opacity = '1';
-              node.style.filter = 'grayscale(0%) drop-shadow(0 0 16px rgba(184,164,248,0.35))';
-              node.style.transform = 'scale(1.04)';
-            } else {
-              node.style.opacity = '0.15';
-              node.style.filter = 'grayscale(100%)';
-              node.style.transform = 'scale(0.9)';
-            }
-          });
+          activeFilter = chip.getAttribute('data-filter');
+          renderConstellation();
         });
       });
 
       // Hover & Telemetry HUD Population
       nodes.forEach(node => {
         node.addEventListener('mouseenter', (e) => {
+          hoveredNode = node;
+          frozenOrbitTime = orbitStartTime === null ? 0 : performance.now() - orbitStartTime;
+          node.classList.add('orbit-active');
           const title = node.getAttribute('data-title');
           const category = node.getAttribute('data-category');
           const role = node.getAttribute('data-role');
@@ -801,11 +878,19 @@
             hud.classList.add('opacity-100', 'scale-100');
           }, 10);
         });
+        node.addEventListener('mouseleave', () => {
+          if (hoveredNode === node) hoveredNode = null;
+          frozenOrbitTime = null;
+          node.classList.remove('orbit-active');
+        });
       });
 
       // Close Telemetry HUD
       if (closeHud) {
         closeHud.addEventListener('click', () => {
+          hoveredNode?.classList.remove('orbit-active');
+          hoveredNode = null;
+          frozenOrbitTime = null;
           hud.classList.add('opacity-0', 'scale-95');
           setTimeout(() => hud.classList.add('hidden'), 200);
         });
@@ -814,13 +899,13 @@
       // Radar Zoom Controls
       document.getElementById('zoom-in')?.addEventListener('click', () => {
         zoomLevel = Math.min(zoomLevel + 0.15, 1.4);
-        field.style.transform = `scale(${zoomLevel}) perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        setFieldTransform(true);
         renderConstellation();
       });
 
       document.getElementById('zoom-out')?.addEventListener('click', () => {
         zoomLevel = Math.max(zoomLevel - 0.15, 0.7);
-        field.style.transform = `scale(${zoomLevel}) perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+        setFieldTransform(true);
         renderConstellation();
       });
 
@@ -828,7 +913,8 @@
         zoomLevel = 1.0;
         rotX = 0;
         rotY = 0;
-        field.style.transform = `scale(1.0) perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+        userTiltUntil = 0;
+        setFieldTransform(false);
         renderConstellation();
       });
 
