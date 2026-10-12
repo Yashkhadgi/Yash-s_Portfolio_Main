@@ -1,0 +1,9 @@
+{
+  "name": "stitch-the-builders-universe-portfolio",
+  "version": "1.0.0",
+  "description": "The connected five-page portfolio of Yash Khadgi",
+  "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "start": "python3 -m http.server 4173"
+  }
+}
