@@ -1,27 +1,49 @@
-# The Builder's Journey
+# Yash Khadgi — Portfolio Universe
 
-The connected five-page portfolio of Yash Khadgi.
+A cinematic, interactive five-page portfolio showcasing projects, research landmarks, and builder philosophy.
 
-## Preview locally
+---
 
+## 🚀 Quick Start (Run Locally)
+
+Choose any method to run locally:
+
+### Option 1: Using npm (Recommended)
+```bash
+npm run dev
+```
+
+### Option 2: Using Python
 ```bash
 python3 -m http.server 4173
 ```
 
-Open `http://localhost:4173/`. The root shell connects all screens while preserving the original page designs.
+### Option 3: Using npx serve
+```bash
+npx serve .
+```
 
-## Routes
+After starting, open **`http://localhost:4173`** (or the URL printed in your terminal) in your browser.
 
-- `#arrival` — cinematic arrival
-- `#universe` — builder's universe
-- `#theater` — project theater
-- `#research` — research landmarks
-- `#about` — person behind the builds
+---
 
-## Deploy
+## 🧭 Page Routes
 
-This is a static site with no build step. Deploy the repository root to Vercel, Netlify, GitHub Pages, or any static host. The single public entry point is `index.html`.
+The root shell smoothly navigates between all preserved pages:
 
-Read [PROJECT_REVIEW.md](PROJECT_REVIEW.md) for the functional audit, unresolved content claims and remaining features. This is a preview-ready site, not a fully verified publication-ready portfolio.
+- `#arrival` — Cinematic Arrival
+- `#universe` — The Builder's Universe
+- `#theater` — Project Theater
+- `#research` — Research Landmarks
+- `#about` — The Person Behind the Builds
 
-`page-enhancements.js` attaches shared search, accessibility and case-study behavior to the preserved screens. Always preview through the root URL, rather than opening child HTML files directly. Images and fonts still require internet access.
+---
+
+## 🌐 Deploy to Vercel
+
+This is a static web application with zero build configuration needed.
+
+1. Push this repository to GitHub.
+2. Import the repository in [Vercel](https://vercel.com).
+3. Keep default settings (`Build Command: None`, `Output Directory: .`).
+4. Click **Deploy**.
