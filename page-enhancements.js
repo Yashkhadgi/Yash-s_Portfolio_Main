@@ -35,15 +35,21 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
   const close = doc.createElement('button'); close.textContent = 'Close'; close.onclick = () => dialog.close();
   dialog.append(heading, search, results, close); doc.body.append(dialog);
   const projectRepos = [
-    ['CustomerPulse','CustomerPulse','Python FastAPI RAG AWS'],['MemoryLens','memorylens','Python FastAPI AWS FAISS'],
-    ['DocFlow','DocFlow','Python FastAPI React PostgreSQL'],['Lung Digital Twin','LungTwin_V2','Python FastAPI React Three.js'],
-    ['SkillForge','skilforge','Python Flask SQLite internship'],['MedMinder AI','medicine-reminder-agent','Python agents Streamlit'],
-    ['BhashaYatra','multilingual_tourist_assistant','Python agents RAG'],['TrendPulse','TrendPlus','Python CLI'],
-    ['SIT EduBot','student-faq-chatbot','Python Flask NLP'],['AI Air Smartboard','AASB-Ai_Air_Smartboard','Python FastAPI vision'],
-    ['SafarSathi','SafarSathi','Travel in progress']
+    ['CustomerPulse','CustomerPulse','React TypeScript FastAPI PostgreSQL AWS Bedrock RAG'],
+    ['MemoryLens','memorylens','Python FastAPI FAISS React AWS Textract Rekognition Bedrock to confirm'],
+    ['DocFlow','DocFlow','React TypeScript FastAPI PostgreSQL Celery Docker'],
+    ['Lung Digital Twin','LungTwin_V2','React Three.js FastAPI PyDICOM SimpleITK PyRadiomics scikit-learn'],
+    ['SkillForge','skilforge','Python Flask SQLite Bootstrap REST APIs Chart.js'],
+    ['MedMinder AI','medicine-reminder-agent','Python Streamlit SQLite Pydantic PDF parsing LLM fallback'],
+    ['BhashaYatra','multilingual_tourist_assistant','LangGraph ChromaDB Sarvam AI SQLite travel assistant'],
+    ['TrendPulse','TrendPlus','Python Tavily Groq Pydantic Rich CLI'],
+    ['SIT EduBot','student-faq-chatbot','Flask NLTK TextBlob TF-IDF Logistic Regression JavaScript'],
+    ['AI Air Smartboard','AASB-Ai_Air_Smartboard','Python OpenCV MediaPipe FastAPI WebSockets React Vite'],
+    ['SafarSathi','SafarSathi','travel companion in progress']
   ];
   const commands = Object.entries({arrival:'Arrival',universe:'Universe',theater:'Project Theater',research:'Research / Agriculture Price Prediction',about:'About'}).map(([route,name])=>({name,action:()=>navigate(route)}));
   projectRepos.forEach(([name,repo,tags])=>commands.push({name:`${name} · GitHub`,tags,action:()=>win.open(`https://github.com/Yashkhadgi/${repo}`,'_blank','noopener,noreferrer')}));
+  commands.push({name:'Agriculture Price Prediction · IEEE DOI',tags:'IEEE TEMSMET 2025 agriculture price prediction machine learning patent reported publication',action:()=>win.open('https://doi.org/10.1109/TEMSMET65536.2025.11467327','_blank','noopener,noreferrer')});
   commands.push({name:'Contact by email',action:()=>{win.location.href='mailto:yashkhadgi4@gmail.com';}});
   function renderCommands(){
     results.replaceChildren();
@@ -101,10 +107,10 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
   const modal=doc.querySelector('#project-modal');
   if(modal){
     const content={
-      'customerpulse-modal':['CustomerPulse','AI-powered complaint intelligence for financial services.','AI/ML and product architecture contributor.','Complaint intake, AI analysis, related-complaint detection, agent review and response drafting.','Python, FastAPI, PostgreSQL, AWS Bedrock, RAG, React/TypeScript','CustomerPulse'],
-      'memorylens-modal':['MemoryLens','Multimodal document and photograph search using natural-language cues and face matching.','Team lead and central FastAPI backend developer.','Indexing, semantic retrieval, face-search endpoints and cross-platform file opening.','Python, FastAPI, FAISS, AWS services, React','memorylens'],
-      'docflow-modal':['DocFlow','Document processing and workflow automation for invoices, forms and contracts.','Team lead, backend and infrastructure.','Upload, asynchronous extraction, validation, human review and CSV/JSON export.','React, TypeScript, FastAPI, PostgreSQL, Celery','DocFlow'],
-      'digitaltwin-modal':['Lung Digital Twin v2','Research prototype exploring lung-cancer treatment simulation; not a clinically validated medical device.','Team lead and end-to-end prototype developer.','DICOM processing, CT viewing, anatomical visualization and treatment-response simulation.','React, Three.js, FastAPI, PyDICOM, SimpleITK, scikit-learn','LungTwin_V2']
+      'customerpulse-modal':['CustomerPulse','AI-powered unified complaint intelligence platform for financial-services workflows.','AI/ML and product architecture contributor in a four-person team.','Email and website complaint intake, AI enrichment, duplicate/similarity detection, customer communication history, response assistance, permissions and lifecycle tracking.','React/TypeScript, FastAPI, PostgreSQL, AWS Bedrock, RAG','CustomerPulse'],
+      'memorylens-modal':['MemoryLens','Multimodal document and photo search using natural-language clues and face matching.','Team Lead & Backend Architect in a four-person team.','Document parsing/indexing, embeddings and vector retrieval with FAISS, face-related photo matching, progress/status updates and local open-file workflows; AWS versus offline architecture details to be confirmed.','Python, FastAPI, FAISS, React, AWS Textract/Rekognition/Bedrock references','memorylens'],
+      'docflow-modal':['DocFlow','Document processing and automation SaaS for invoices, forms and contracts.','Team Lead, Backend & Infrastructure for IEEE NEXUS 2026 work that is still improving.','Bulk upload, OCR/field extraction, async jobs, queueing/retries, human review, exports, authentication and deployment planning; advanced SaaS features remain to be verified.','React/TypeScript, FastAPI, PostgreSQL, Celery, Docker/deployment planning','DocFlow'],
+      'digitaltwin-modal':['Lung Digital Twin v2','Medical research prototype exploring CT imaging, 3D anatomy and treatment-response simulation; not a clinically validated device.','Team Lead & end-to-end prototype developer.','DICOM scan views where data is available, tumor masks, anatomical 3D representation, treatment scheduling and Gompertz-style growth/response simulation.','React/Vite, Three.js/React Three Fiber, Recharts, FastAPI, PyDICOM, SimpleITK, PyRadiomics, scikit-learn','LungTwin_V2']
     };
     let opener;
     const templates = new Map([...doc.querySelectorAll('.modal-tab-content')].map(panel=>[panel.id,panel.innerHTML]));

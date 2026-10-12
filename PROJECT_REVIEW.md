@@ -1,4 +1,4 @@
-# Portfolio review - 8 October 2026
+# Portfolio review - 13 October 2026
 
 ## Overall status
 
@@ -8,6 +8,14 @@ Original images, screenshots, page styles, typography, colors and layouts are pr
 
 ## Fixed during this review
 
+- Replaced placeholder, invented and unsupported written content across the five static pages with profile-backed descriptions, roles, statuses, stacks and cautious scope language.
+- Updated identity copy to Yash Khadgi, AI/ML & Full-Stack Developer | Software Builder, with SIT Nagpur + IIT Madras BS current-student wording.
+- Replaced the previous non-Nagpur coordinate references with Nagpur coordinates and updated page footers to 2026.
+- Removed unverified performance metrics, production telemetry, fake benchmark claims, unsupported awards, and overstated patent language from the public-facing pages.
+- Rebuilt the Universe node metadata for all 12 projects using the master profile and kept Agriculture Price Prediction linked to its DOI rather than a repo.
+- Updated Theater flagship copy, conceptual image alt text, non-live system overview wording, and modal content/repo URLs for CustomerPulse, MemoryLens, DocFlow and Lung Digital Twin.
+- Updated Research patent wording to reported publication status and changed DOI badges to avoid overstating verification.
+- Updated About copy with the dual-degree identity, languages spoken, Nagpur home base, recently started fitness note, contact links and an honest skill navigator.
 - Parent route navigation now replaces iframe history entries, fixing the Back-button stall. Removed the handler that intercepted native Alt+Left/Right.
 - Existing navigation anchors point to shareable root hash URLs, including modified-click behavior.
 - Same-route mobile selection closes the route menu. Escape closes the menu.
@@ -36,16 +44,17 @@ Original images, screenshots, page styles, typography, colors and layouts are pr
 | Research | Methodology stage selection, patent expansion |
 | About | Six question answers, eight technology evidence selectors |
 
-## Content work awaiting your real data
+## Remaining placeholders and unverified items
 
 These are publication blockers for credibility, not requests to replace images now. The existing exported screens contain claims that should not be treated as verified portfolio facts.
 
-1. Arrival: placeholder portrait, Pune coordinates instead of Nagpur, alumni wording for current studies, architect/zero-defect claims, patent status labels and old year/build labels.
-2. Universe: wrong SIH reference instead of Union Bank x KJ Somaiya, IEEE 2024 instead of TEMSMET 2025, two registered patents claim, invented inference/voxel metrics and unconfirmed technology stacks. Node hover metadata also contains these issues.
-3. Theater: 98.4% accuracy, 420ms, 380ms, 500+ requests/second, embedding counts, certainty/drift and uptime values are unverified. The architecture drawer presents sample telemetry as live. Medical simulation copy needs research-prototype language. Generated product visuals are retained as requested, but are not verified screenshots.
-4. Research: supplied DOI is linked, but this review did not independently verify the paper or patent documents. Existing 'verified' badges overstate that distinction. Preparation/model methodology details need the actual paper.
-5. About: actual portrait; verified per-project technology mappings and feature status (especially BhashaYatra plans versus implemented work).
-6. Resume PDF, paper PDF, patent records, conference presentation, certificates, personal photographs and product screenshots/demo recordings.
+1. Arrival and About still use portrait placeholders until a real portrait is supplied.
+2. Theater uses generated/conceptual visuals only; replace with genuine project screenshots or demo recordings when available.
+3. MemoryLens technical architecture still needs current-repository confirmation for cloud versus offline implementation details.
+4. DocFlow advanced SaaS features and hackathon result remain to be confirmed before stronger claims.
+5. BhashaYatra implemented scope, SIT EduBot ownership specifics and SafarSathi progress need confirmation from current repos or notes.
+6. Research still needs paper PDF, publication screenshots, conference photos, patent documents and official patent/publication numbers.
+7. Resume PDF, certificates, internship letters, hackathon proof, gallery photos and demo videos are still awaiting upload.
 
 ## Broader brief not implemented yet
 
