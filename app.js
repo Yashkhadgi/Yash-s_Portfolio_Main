@@ -16,11 +16,36 @@
   const mobileJourney = document.querySelector('#mobile-journey');
   const journeyToggle = document.querySelector('#journey-toggle');
   let currentRoute = 'arrival';
+  let currentSub = null;
   let transitionTimer;
 
+  const validSubPaths = {
+    universe: ['eklink']
+  };
+
+  function parseHash() {
+    const raw = location.hash.slice(1).trim();
+    if (!raw) return { base: 'arrival', sub: null, raw: 'arrival' };
+    const parts = raw.split('/');
+    const base = parts[0].toLowerCase();
+    const sub = parts.length > 1 ? parts.slice(1).join('/').toLowerCase() : null;
+
+    if (!routes[base]) {
+      return { base: 'arrival', sub: null, raw: 'arrival' };
+    }
+
+    if (sub) {
+      if (base === 'universe' && !validSubPaths.universe.includes(sub)) {
+        return { base, sub: null, raw: base };
+      }
+      return { base, sub, raw: `${base}/${sub}` };
+    }
+
+    return { base, sub: null, raw: base };
+  }
+
   function routeFromHash() {
-    const requested = location.hash.slice(1).toLowerCase();
-    return routes[requested] ? requested : 'arrival';
+    return parseHash().base;
   }
 
   function routeFromLink(link) {
@@ -51,23 +76,85 @@
     });
   }
 
-  function navigate(route, options = {}) {
-    if (!routes[route]) route = 'arrival';
-    const destination = routes[route];
-    const sameRoute = currentRoute === route && frame.dataset.loaded === 'true';
-
-    if (!options.fromHistory && location.hash !== `#${route}`) {
-      history.pushState({ route }, '', `#${route}`);
+  function notifyTheaterProject(projectId) {
+    if (!projectId) return;
+    try {
+      const win = frame.contentWindow;
+      const doc = frame.contentDocument;
+      if (!win || !doc) return;
+      const cleanId = projectId.toLowerCase().replace(/[-_]modal$/, '');
+      const modalId = cleanId + '-modal';
+      const stageId = 'stage-' + cleanId;
+      if (doc.getElementById(stageId) && typeof win.switchStage === 'function') {
+        win.switchStage(stageId);
+      }
+      if (typeof win.openModal === 'function' && doc.getElementById(modalId)) {
+        win.openModal(modalId);
+      }
+    } catch (e) {
+      console.warn('Theater project activation error:', e);
     }
-    updateMobileJourney(route);
-    if (sameRoute) return;
+  }
 
-    currentRoute = route;
+  function navigate(target, options = {}) {
+    let base, sub;
+    if (typeof target === 'string') {
+      const parts = target.split('/');
+      base = parts[0].toLowerCase();
+      sub = parts.length > 1 ? parts.slice(1).join('/').toLowerCase() : null;
+    } else if (target && typeof target === 'object') {
+      base = target.base || 'arrival';
+      sub = target.sub || null;
+    } else {
+      base = 'arrival';
+      sub = null;
+    }
+
+    if (!routes[base]) base = 'arrival';
+
+    if (sub && base === 'universe' && !validSubPaths.universe.includes(sub)) {
+      sub = null;
+    }
+
+    const fullPath = sub ? `${base}/${sub}` : base;
+    const destination = routes[base];
+    const sameBaseRoute = currentRoute === base && frame.dataset.loaded === 'true';
+    const sameSub = currentSub === sub;
+
+    if (!options.fromHistory && location.hash !== `#${fullPath}`) {
+      history.pushState({ route: base, sub }, '', `#${fullPath}`);
+    } else if (options.fromHistory && location.hash !== `#${fullPath}`) {
+      history.replaceState({ route: base, sub }, '', `#${fullPath}`);
+    }
+    updateMobileJourney(base);
+
+    if (sameBaseRoute) {
+      if (!sameSub) {
+        currentSub = sub;
+        if (base === 'universe') {
+          frame.contentWindow?.postMessage({ type: 'navigate-sub', sub }, '*');
+        } else if (base === 'theater') {
+          frame.contentWindow?.postMessage({ type: 'select-project', project: sub }, '*');
+          notifyTheaterProject(sub);
+        }
+      }
+      return;
+    }
+
+    currentRoute = base;
+    currentSub = sub;
     beginTransition();
-    frame.dataset.route = route;
+    frame.dataset.route = base;
     frame.dataset.loaded = 'false';
+
+    const urlObj = new URL(destination.file, location.href);
+    if (sub) {
+      if (base === 'universe') urlObj.searchParams.set('sub', sub);
+      if (base === 'theater') urlObj.searchParams.set('project', sub);
+    }
+
     // Replace child history so only the parent route contributes a Back entry.
-    frame.contentWindow.location.replace(new URL(destination.file, location.href).href);
+    frame.contentWindow.location.replace(urlObj.href);
     document.title = `${destination.title} — Yash Khadgi`;
   }
 
@@ -97,6 +184,15 @@
       console.error('Portfolio enhancement failed:', error);
     }
 
+    if (currentSub) {
+      if (route === 'universe') {
+        frame.contentWindow?.postMessage({ type: 'navigate-sub', sub: currentSub }, '*');
+      } else if (route === 'theater') {
+        frame.contentWindow?.postMessage({ type: 'select-project', project: currentSub }, '*');
+        notifyTheaterProject(currentSub);
+      }
+    }
+
     doc.querySelectorAll('a').forEach(link => {
       const targetRoute = routeFromLink(link);
       if (!targetRoute) return;
@@ -114,19 +210,43 @@
   }
 
   frame.addEventListener('load', wirePage);
-  window.addEventListener('hashchange', () => navigate(routeFromHash(), { fromHistory: true }));
-  window.addEventListener('popstate', () => navigate(routeFromHash(), { fromHistory: true }));
+  window.addEventListener('hashchange', () => navigate(parseHash(), { fromHistory: true }));
+  window.addEventListener('popstate', () => navigate(parseHash(), { fromHistory: true }));
 
-  const initialRoute = routeFromHash();
-  currentRoute = initialRoute;
-  document.title = `${routes[initialRoute].title} — Yash Khadgi`;
-  frame.dataset.route = initialRoute;
-  updateMobileJourney(initialRoute);
-  if (initialRoute !== 'arrival') {
-    frame.src = routes[initialRoute].file;
-    document.title = `${routes[initialRoute].title} — Yash Khadgi`;
+  window.addEventListener('message', (event) => {
+    if (event.data?.type === 'hash-update') {
+      const hash = event.data.hash;
+      const parts = hash.split('/');
+      const base = parts[0];
+      const sub = parts.length > 1 ? parts.slice(1).join('/') : null;
+      currentRoute = base;
+      currentSub = sub;
+      if (location.hash !== `#${hash}`) {
+        history.pushState({ route: base, sub }, '', `#${hash}`);
+      }
+      updateMobileJourney(base);
+    } else if (event.data?.type === 'navigate') {
+      navigate(event.data.hash);
+    }
+  });
+
+  const initial = parseHash();
+  currentRoute = initial.base;
+  currentSub = initial.sub;
+  document.title = `${routes[initial.base].title} — Yash Khadgi`;
+  frame.dataset.route = initial.base;
+  updateMobileJourney(initial.base);
+
+  if (initial.base !== 'arrival' || initial.sub) {
+    const initialUrl = new URL(routes[initial.base].file, location.href);
+    if (initial.sub) {
+      if (initial.base === 'universe') initialUrl.searchParams.set('sub', initial.sub);
+      if (initial.base === 'theater') initialUrl.searchParams.set('project', initial.sub);
+    }
+    frame.src = initialUrl.href;
+    document.title = `${routes[initial.base].title} — Yash Khadgi`;
   } else if (location.hash !== '#arrival') {
-    history.replaceState({ route: 'arrival' }, '', '#arrival');
+    history.replaceState({ route: 'arrival', sub: null }, '', '#arrival');
   }
 
   journeyToggle.addEventListener('click', () => {
@@ -137,6 +257,11 @@
     button.addEventListener('click', () => navigate(button.dataset.route));
   });
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') updateMobileJourney(currentRoute);
+    if (event.key === 'Escape') {
+      updateMobileJourney(currentRoute);
+      try {
+        frame.contentWindow?.postMessage({ type: 'escape' }, '*');
+      } catch (e) {}
+    }
   });
 })();

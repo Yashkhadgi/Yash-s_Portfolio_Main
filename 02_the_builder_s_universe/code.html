@@ -1,923 +1,1524 @@
 <!DOCTYPE html>
+<html class="dark" lang="en" data-universe-engine="true">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<title>Yash Khadgi — The Builder's Universe</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Geist:wght@100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+@layer base{html,body{margin:0;padding:0}body{overscroll-behavior:none}main>:first-child{margin-top:0!important}main>:last-child{margin-bottom:0!important}}
+::-webkit-scrollbar{display:none}
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-primary-container":"#493682","on-error":"#690005",background:"#111317","secondary-fixed-dim":"#62dcad","on-surface":"#e2e2e8","on-tertiary-fixed":"#001e2c","primary-fixed":"#e8ddff","on-surface-variant":"#cac4d2","tertiary-fixed-dim":"#7bd0ff",tertiary:"#8bd5ff","surface-bright":"#37393e","on-secondary-container":"#003121","inverse-surface":"#e2e2e8","surface-variant":"#333539","secondary-container":"#18a479","tertiary-fixed":"#c4e7ff","inverse-primary":"#64529f",outline:"#948f9b","outline-variant":"#484550","on-error-container":"#ffdad6","surface-tint":"#cdbdff","on-primary-fixed-variant":"#4c3a85","surface-container-highest":"#333539",secondary:"#62dcad","on-background":"#e2e2e8","surface-container":"#1e2024","on-tertiary-fixed-variant":"#004c69","on-tertiary-container":"#004964","on-primary":"#35216d","tertiary-container":"#36bcf7","surface-container-high":"#282a2e","surface-container-lowest":"#0c0e12","inverse-on-surface":"#2f3035","surface-container-low":"#1a1c20","on-tertiary":"#00354a","error-container":"#93000a","on-secondary-fixed-variant":"#00513a",surface:"#111317","on-secondary":"#003827","surface-dim":"#111317","primary-fixed-dim":"#cdbdff","secondary-fixed":"#80f9c8",error:"#ffb4ab","on-primary-fixed":"#200558",primary:"#d2c3ff","primary-container":"#b8a4f8","on-secondary-fixed":"#002115"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-sm":"0.5rem",margin:"4rem","margin-mobile":"1.25rem","space-lg":"1.75rem","space-3xl":"8rem","space-xs":"0.25rem",gutter:"1.5rem","space-2xl":"5rem","space-md":"1rem","gutter-mobile":"1rem","space-xl":"3rem","margin-tablet":"2rem"},fontFamily:{"headline-lg":["Bodoni Moda"],"body-sm":["Geist"],"body-lg":["Geist"],"label-tag":["JetBrains Mono"],"headline-md-mobile":["Bodoni Moda"],"headline-md":["Bodoni Moda"],"body-md":["Geist"],"title-lg":["Geist"],"label-caps":["JetBrains Mono"],"display-xl-mobile":["Bodoni Moda"],"code-inline":["JetBrains Mono"],"title-md":["Geist"],"headline-lg-mobile":["Bodoni Moda"],"display-xl":["Bodoni Moda"]},fontSize:{"headline-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.01em",fontWeight:"500"}],"body-sm":["13px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"400"}],"body-lg":["17px",{lineHeight:"28px",letterSpacing:"0em",fontWeight:"400"}],"label-tag":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"headline-md-mobile":["24px",{lineHeight:"32px",letterSpacing:"0em",fontWeight:"500"}],"headline-md":["32px",{lineHeight:"40px",letterSpacing:"0em",fontWeight:"500"}],"body-md":["15px",{lineHeight:"24px",letterSpacing:"0em",fontWeight:"400"}],"title-lg":["22px",{lineHeight:"30px",letterSpacing:"-0.01em",fontWeight:"600"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.12em",fontWeight:"600"}],"display-xl-mobile":["42px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"600"}],"code-inline":["13px",{lineHeight:"18px",letterSpacing:"0em",fontWeight:"400"}],"title-md":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"500"}],"headline-lg-mobile":["32px",{lineHeight:"38px",letterSpacing:"-0.01em",fontWeight:"500"}],"display-xl":["72px",{lineHeight:"80px",letterSpacing:"-0.02em",fontWeight:"600"}]}}}}</script>
+</head>
+<body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen overflow-x-hidden">
 
-<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Yash Khadgi — The Builder's Universe</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Geist:wght@100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-          "on-primary-container": "#493682",
-          "on-error": "#690005",
-          "background": "#111317",
-          "secondary-fixed-dim": "#62dcad",
-          "on-surface": "#e2e2e8",
-          "on-tertiary-fixed": "#001e2c",
-          "primary-fixed": "#e8ddff",
-          "on-surface-variant": "#cac4d2",
-          "tertiary-fixed-dim": "#7bd0ff",
-          "tertiary": "#8bd5ff",
-          "surface-bright": "#37393e",
-          "on-secondary-container": "#003121",
-          "inverse-surface": "#e2e2e8",
-          "surface-variant": "#333539",
-          "secondary-container": "#18a479",
-          "tertiary-fixed": "#c4e7ff",
-          "inverse-primary": "#64529f",
-          "outline": "#948f9b",
-          "outline-variant": "#484550",
-          "on-error-container": "#ffdad6",
-          "surface-tint": "#cdbdff",
-          "on-primary-fixed-variant": "#4c3a85",
-          "surface-container-highest": "#333539",
-          "secondary": "#62dcad",
-          "on-background": "#e2e2e8",
-          "surface-container": "#1e2024",
-          "on-tertiary-fixed-variant": "#004c69",
-          "on-tertiary-container": "#004964",
-          "on-primary": "#35216d",
-          "tertiary-container": "#36bcf7",
-          "surface-container-high": "#282a2e",
-          "surface-container-lowest": "#0c0e12",
-          "inverse-on-surface": "#2f3035",
-          "surface-container-low": "#1a1c20",
-          "on-tertiary": "#00354a",
-          "error-container": "#93000a",
-          "on-secondary-fixed-variant": "#00513a",
-          "surface": "#111317",
-          "on-secondary": "#003827",
-          "surface-dim": "#111317",
-          "primary-fixed-dim": "#cdbdff",
-          "secondary-fixed": "#80f9c8",
-          "error": "#ffb4ab",
-          "on-primary-fixed": "#200558",
-          "primary": "#d2c3ff",
-          "primary-container": "#b8a4f8",
-          "on-secondary-fixed": "#002115"
-        },
-        "borderRadius": {
-          "DEFAULT": "0.25rem",
-          "lg": "0.5rem",
-          "xl": "0.75rem",
-          "full": "9999px"
-        },
-        "spacing": {
-          "space-sm": "0.5rem",
-          "margin": "4rem",
-          "margin-mobile": "1.25rem",
-          "space-lg": "1.75rem",
-          "space-3xl": "8rem",
-          "space-xs": "0.25rem",
-          "gutter": "1.5rem",
-          "space-2xl": "5rem",
-          "space-md": "1rem",
-          "gutter-mobile": "1rem",
-          "space-xl": "3rem",
-          "margin-tablet": "2rem"
-        },
-        "fontFamily": {
-          "headline-lg": [
-            "Bodoni Moda"
-          ],
-          "body-sm": [
-            "Geist"
-          ],
-          "body-lg": [
-            "Geist"
-          ],
-          "label-tag": [
-            "JetBrains Mono"
-          ],
-          "headline-md-mobile": [
-            "Bodoni Moda"
-          ],
-          "headline-md": [
-            "Bodoni Moda"
-          ],
-          "body-md": [
-            "Geist"
-          ],
-          "title-lg": [
-            "Geist"
-          ],
-          "label-caps": [
-            "JetBrains Mono"
-          ],
-          "display-xl-mobile": [
-            "Bodoni Moda"
-          ],
-          "code-inline": [
-            "JetBrains Mono"
-          ],
-          "title-md": [
-            "Geist"
-          ],
-          "headline-lg-mobile": [
-            "Bodoni Moda"
-          ],
-          "display-xl": [
-            "Bodoni Moda"
-          ]
-        },
-        "fontSize": {
-          "headline-lg": [
-            "48px",
-            {
-              "lineHeight": "56px",
-              "letterSpacing": "-0.01em",
-              "fontWeight": "500"
-            }
-          ],
-          "body-sm": [
-            "13px",
-            {
-              "lineHeight": "20px",
-              "letterSpacing": "0.01em",
-              "fontWeight": "400"
-            }
-          ],
-          "body-lg": [
-            "17px",
-            {
-              "lineHeight": "28px",
-              "letterSpacing": "0em",
-              "fontWeight": "400"
-            }
-          ],
-          "label-tag": [
-            "12px",
-            {
-              "lineHeight": "16px",
-              "letterSpacing": "0.04em",
-              "fontWeight": "500"
-            }
-          ],
-          "headline-md-mobile": [
-            "24px",
-            {
-              "lineHeight": "32px",
-              "letterSpacing": "0em",
-              "fontWeight": "500"
-            }
-          ],
-          "headline-md": [
-            "32px",
-            {
-              "lineHeight": "40px",
-              "letterSpacing": "0em",
-              "fontWeight": "500"
-            }
-          ],
-          "body-md": [
-            "15px",
-            {
-              "lineHeight": "24px",
-              "letterSpacing": "0em",
-              "fontWeight": "400"
-            }
-          ],
-          "title-lg": [
-            "22px",
-            {
-              "lineHeight": "30px",
-              "letterSpacing": "-0.01em",
-              "fontWeight": "600"
-            }
-          ],
-          "label-caps": [
-            "11px",
-            {
-              "lineHeight": "14px",
-              "letterSpacing": "0.12em",
-              "fontWeight": "600"
-            }
-          ],
-          "display-xl-mobile": [
-            "42px",
-            {
-              "lineHeight": "48px",
-              "letterSpacing": "-0.02em",
-              "fontWeight": "600"
-            }
-          ],
-          "code-inline": [
-            "13px",
-            {
-              "lineHeight": "18px",
-              "letterSpacing": "0em",
-              "fontWeight": "400"
-            }
-          ],
-          "title-md": [
-            "18px",
-            {
-              "lineHeight": "26px",
-              "letterSpacing": "-0.005em",
-              "fontWeight": "500"
-            }
-          ],
-          "headline-lg-mobile": [
-            "32px",
-            {
-              "lineHeight": "38px",
-              "letterSpacing": "-0.01em",
-              "fontWeight": "500"
-            }
-          ],
-          "display-xl": [
-            "72px",
-            {
-              "lineHeight": "80px",
-              "letterSpacing": "-0.02em",
-              "fontWeight": "600"
-            }
-          ]
-        }
-      },
-    },
-  }</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 px-gutter-mobile md:px-gutter py-space-sm pointer-events-none"><div class="max-w-[1440px] mx-auto h-20 flex items-center justify-between gap-space-md pointer-events-auto"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="arrival" href="#"><div class="w-10 h-10 rounded-lg bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center shadow-[0_1px_8px_rgba(0,0,0,0.4)] group-hover:bg-surface-variant transition-colors"><span class="font-headline-md text-headline-md text-primary">YK</span></div><div class="hidden xl:flex flex-col"><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps tracking-widest text-on-surface">YASH KHADGI</span></div><span class="font-label-caps text-label-caps text-on-surface-variant text-[9px] tracking-wider">AVAILABLE FOR INNOVATIVE BUILDS • 2025/26</span></div></a></div><nav class="hidden lg:flex items-center p-space-xs rounded-full bg-surface-container-low/70 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.5)]" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(184,164,248,0.25)]"><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="arrival" href="#">01 ARRIVAL</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(184,164,248,0.25)]" data-path="universe" href="#">02 UNIVERSE</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="theater" href="#">03 THEATER</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="archives" href="#">04 ARCHIVES</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">05 ABOUT</a></nav><div class="flex items-center gap-space-sm"><button aria-label="Command Center" class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-high/60 backdrop-blur-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="font-code-inline text-code-inline text-[11px] font-semibold text-primary">⌘K</span><span class="hidden md:inline font-label-tag text-label-tag text-[11px]">COMMAND</span></button><button aria-label="Toggle Ambience Audio" class="w-9 h-9 rounded-lg bg-surface-container-high/60 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="material-symbols-outlined text-[18px]">graphic_eq</span></button><button aria-label="Toggle Theme Mode" class="w-9 h-9 rounded-lg bg-surface-container-high/60 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><a class="hidden sm:inline-flex items-center px-space-md py-space-xs rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps font-semibold shadow-[0_0_24px_rgba(184,164,248,0.3)] hover:brightness-110 transition-all" data-path="universe" href="#">EXPLORE</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(210,195,255,0.35)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full relative select-none">
-<!-- Top Universe Control Horizon -->
-<section class="w-full px-gutter-mobile md:px-gutter pt-space-xl pb-space-lg flex flex-col md:flex-row md:items-end justify-between gap-space-md border-b-0">
+<!-- ═══ HEADER (preserved) ═══ -->
+<header class="fixed top-0 left-0 right-0 z-50 px-gutter-mobile md:px-gutter py-space-sm pointer-events-none">
+<div class="max-w-[1440px] mx-auto h-20 flex items-center justify-between gap-space-md pointer-events-auto">
+<div class="flex items-center gap-space-md">
+<a class="flex items-center gap-space-sm group" data-path="arrival" href="#">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center shadow-[0_1px_8px_rgba(0,0,0,0.4)] group-hover:bg-surface-variant transition-colors"><span class="font-headline-md text-headline-md text-primary">YK</span></div>
+<div class="hidden xl:flex flex-col"><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps tracking-widest text-on-surface">YASH KHADGI</span></div><span class="font-label-caps text-label-caps text-on-surface-variant text-[9px] tracking-wider">AVAILABLE FOR INNOVATIVE BUILDS • 2025/26</span></div>
+</a>
+</div>
+<nav class="hidden lg:flex items-center p-space-xs rounded-full bg-surface-container-low/70 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.5)]">
+<a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="arrival" href="#">01 ARRIVAL</a>
+<a aria-current="page" class="px-space-md py-space-xs rounded-full transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(184,164,248,0.25)]" data-path="universe" href="#">02 UNIVERSE</a>
+<a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="theater" href="#">03 THEATER</a>
+<a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="archives" href="#">04 ARCHIVES</a>
+<a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#">05 ABOUT</a>
+</nav>
+<div class="flex items-center gap-space-sm">
+<button aria-label="Command Center" class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-high/60 backdrop-blur-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="font-code-inline text-code-inline text-[11px] font-semibold text-primary">⌘K</span><span class="hidden md:inline font-label-tag text-label-tag text-[11px]">COMMAND</span></button>
+<button aria-label="Toggle Ambience Audio" class="w-9 h-9 rounded-lg bg-surface-container-high/60 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="material-symbols-outlined text-[18px]">graphic_eq</span></button>
+<button aria-label="Toggle Theme Mode" class="w-9 h-9 rounded-lg bg-surface-container-high/60 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button>
+<a class="hidden sm:inline-flex items-center px-space-md py-space-xs rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps font-semibold shadow-[0_0_24px_rgba(184,164,248,0.3)] hover:brightness-110 transition-all" data-path="universe" href="#">EXPLORE</a>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(210,195,255,0.35)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+</div>
+</div>
+</header>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<main class="w-full pt-20 bg-surface-container-lowest min-h-screen">
+<div class="flex flex-col w-full relative select-none" id="universe-root">
+
+<!-- ── HEADING + FILTERS ── -->
+<section class="w-full px-gutter-mobile md:px-gutter pt-space-xl pb-space-lg flex flex-col md:flex-row md:items-end justify-between gap-space-md" id="universe-header">
 <div class="flex flex-col max-w-2xl">
-<div class="flex items-center gap-space-xs mb-space-xs">
-<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-<span class="font-label-caps text-label-caps tracking-widest text-secondary uppercase">Spatial Dimension 02 // Autonomous Topology</span>
-<span class="text-outline text-[10px]">•</span>
-<span class="font-code-inline text-code-inline text-[11px] text-on-surface-variant">NODE CLUSTER V.4.8</span>
+  <div class="flex items-center gap-space-xs mb-space-xs" id="universe-eyebrow">
+    <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+    <span class="font-label-caps text-label-caps tracking-widest text-secondary uppercase" id="eyebrow-text">Spatial Dimension 02 // Autonomous Topology</span>
+    <span class="text-outline text-[10px]">•</span>
+    <span class="font-code-inline text-code-inline text-[11px] text-on-surface-variant">NODE CLUSTER V.4.8</span>
+  </div>
+  <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight" id="universe-title">
+    The Builder's <span class="italic font-normal text-primary" id="title-italic">Universe</span>
+  </h1>
+  <p class="font-body-md text-body-md text-on-surface-variant mt-space-xs max-w-xl" id="universe-desc">
+    Interconnected project destinations, AI workflows, research prototypes, and in-progress builds. Navigate the map to inspect profile-backed roles, stacks, statuses, and capabilities.
+  </p>
 </div>
-<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-        The Builder’s <span class="italic font-normal text-primary">Universe</span>
-</h1>
-<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs max-w-xl">
-        Interconnected project destinations, AI workflows, research prototypes, and in-progress builds. Navigate the map to inspect profile-backed roles, stacks, statuses, and capabilities.
-      </p>
-</div>
-<!-- Telemetry & Constellation Filter Bar -->
-<div class="flex flex-col items-start md:items-end gap-space-sm">
-<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-full shadow-sm">
-<span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">COSMIC DRIFT</span>
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-<span class="font-code-inline text-code-inline text-[11px] text-primary" id="coordinates-telemetry">X: 21.1458 | Y: 79.0882 | Z: 1.000</span>
-</div>
-<div class="flex flex-wrap gap-1.5 items-center max-w-lg justify-start md:justify-end" id="tech-filters">
-<button class="filter-chip active-chip px-space-sm py-1 rounded-full bg-primary text-on-primary font-label-tag text-label-tag transition-all shadow-sm" data-filter="all">
-          All Systems (12)
-        </button>
-<button class="filter-chip px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tag text-label-tag transition-all" data-filter="rag">
-          RAG &amp; AI/ML
-        </button>
-<button class="filter-chip px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tag text-label-tag transition-all" data-filter="backend">
-          Python / FastAPI
-        </button>
-<button class="filter-chip px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tag text-label-tag transition-all" data-filter="cloud">
-          AWS Cloud
-        </button>
-<button class="filter-chip px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tag text-label-tag transition-all" data-filter="fullstack">
-          React / Full-Stack
-        </button>
-<button class="filter-chip px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-tag text-label-tag transition-all" data-filter="research">
-          Patents &amp; Research
-        </button>
-</div>
+<div class="flex flex-col items-start md:items-end gap-space-sm" id="filter-area">
+  <div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-full shadow-sm" id="cosmic-drift">
+    <span class="font-label-caps text-label-caps text-on-surface-variant text-[10px]">COSMIC DRIFT</span>
+    <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+    <span class="font-code-inline text-code-inline text-[11px] text-primary" id="coordinates-telemetry">X: 21.1458 | Y: 79.0882 | Z: 1.000</span>
+  </div>
+  <div class="flex flex-wrap gap-1.5 items-center max-w-lg justify-start md:justify-end" id="tech-filters" role="group" aria-label="Filter projects by technology">
+    <!-- Generated by engine -->
+  </div>
 </div>
 </section>
-<!-- Interactive 3D Spatial Canvas Viewport -->
-<div class="relative w-full h-[760px] lg:h-[840px] overflow-hidden bg-surface-container-lowest flex items-center justify-center cursor-grab active:cursor-grabbing" id="universe-stage">
-<!-- Deep Spatial Background Grid & Atmospheric Halos -->
+
+<!-- ── BREADCRUMB (child system, hidden by default) ── -->
+<div class="w-full px-gutter-mobile md:px-gutter transition-all duration-300 overflow-hidden" id="universe-breadcrumb" style="max-height:0;opacity:0">
+<div class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container/90 backdrop-blur-md shadow-lg font-label-tag text-label-tag text-[11px] mb-space-sm">
+  <button class="text-primary hover:text-on-surface transition-colors" id="breadcrumb-back" type="button">← BACK TO UNIVERSE</button>
+  <span class="text-outline-variant">›</span>
+  <span class="text-on-surface font-semibold" id="breadcrumb-label">EKLINK</span>
+  <span class="text-on-surface-variant text-[9px] ml-2 opacity-60">ESC</span>
+</div>
+</div>
+
+<!-- ── UNIVERSE STAGE ── -->
+<div class="relative w-full overflow-hidden bg-surface-container-lowest flex items-center justify-center" id="universe-stage" style="height:clamp(520px,72vh,840px);cursor:grab;perspective:1400px">
+<!-- Background atmospheric effects -->
 <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(184,164,248,0.06),transparent_80%)]"></div>
 <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-primary-container/5 blur-3xl pointer-events-none"></div>
 <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-secondary/5 blur-3xl pointer-events-none"></div>
-<!-- Vector Constellation Lines Surface Layer -->
-<svg class="absolute inset-0 w-full h-full pointer-events-none z-10" id="constellation-canvas" xmlns="http://www.w3.org/2000/svg">
+
+<!-- Bloom overlay for child system transitions -->
+<div class="absolute inset-0 pointer-events-none z-[60] rounded-full opacity-0 transition-opacity duration-300 bg-[radial-gradient(circle_at_center,rgba(184,164,248,0.3),transparent_70%)]" id="bloom-overlay"></div>
+
+<!-- Fit-to-viewport wrapper -->
+<div class="relative" id="spatial-field-wrapper" style="width:1100px;height:780px;transform-origin:center center">
+<!-- SVG layer — orbit rings + constellation lines -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" id="universe-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 780" style="overflow:visible">
 <defs>
-<lineargradient id="link-grad-core" x1="0%" x2="100%" y1="0%" y2="100%">
-<stop offset="0%" stop-color="#b8a4f8" stop-opacity="0.35"></stop>
-<stop offset="100%" stop-color="#62dcad" stop-opacity="0.1"></stop>
-</lineargradient>
-<lineargradient id="link-active" x1="0%" x2="100%" y1="0%" y2="100%">
-<stop offset="0%" stop-color="#b8a4f8" stop-opacity="0.8"></stop>
-<stop offset="100%" stop-color="#62dcad" stop-opacity="0.7"></stop>
-</lineargradient>
+  <linearGradient id="link-grad-core" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#b8a4f8" stop-opacity="0.35"/>
+    <stop offset="100%" stop-color="#62dcad" stop-opacity="0.1"/>
+  </linearGradient>
+  <linearGradient id="link-active" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#b8a4f8" stop-opacity="0.8"/>
+    <stop offset="100%" stop-color="#62dcad" stop-opacity="0.7"/>
+  </linearGradient>
 </defs>
-<!-- Coordinate lines are dynamically bound / synced via JS -->
-<g id="vector-links"></g>
+<g id="svg-orbit-rings"></g>
+<g id="svg-constellation-lines"></g>
+<g id="svg-orbit-tags"></g>
 </svg>
-<!-- Parallax 3D Pivot Transform Container -->
-<div class="relative w-[1100px] h-[780px] transition-transform duration-300 ease-out flex items-center justify-center" id="spatial-field">
-<!-- Central Gravitational Core (Yash's Core Engine) -->
-<div class="absolute z-20 flex flex-col items-center justify-center group cursor-pointer" id="core-anchor">
-<!-- Concentric Orbital Wave Rings -->
-<div class="absolute w-[820px] h-[580px] rounded-[50%] border-0 bg-transparent shadow-[0_0_0_1px_rgba(202,196,210,0.07)] pointer-events-none animate-[spin_120s_linear_infinite]"></div>
-<div class="absolute w-[620px] h-[440px] rounded-[50%] border-0 bg-transparent shadow-[0_0_0_1px_rgba(184,164,248,0.12)] pointer-events-none animate-[spin_80s_linear_infinite_reverse]"></div>
-<div class="absolute w-[380px] h-[280px] rounded-[50%] border-0 bg-transparent shadow-[0_0_0_1px_rgba(98,220,173,0.14)] pointer-events-none"></div>
-<!-- Central Sun/Matrix Core Body -->
-<div class="relative w-24 h-24 rounded-full bg-surface-container flex flex-col items-center justify-center shadow-2xl transition-all duration-500 group-hover:scale-110">
-<div class="absolute inset-1 rounded-full bg-surface-container-high flex flex-col items-center justify-center">
-<span class="font-headline-md text-headline-md text-primary tracking-tighter">YK</span>
-<span class="font-label-caps text-label-caps text-[8px] text-secondary tracking-widest mt-0.5">NEXUS</span>
+
+<!-- 3D spatial field -->
+<div class="absolute inset-0" id="spatial-field" style="transform-style:preserve-3d;will-change:transform">
+
+<!-- Central Gravitational Core -->
+<div class="absolute z-20 flex flex-col items-center justify-center group" id="core-anchor" style="left:550px;top:390px;transform:translate(-50%,-50%)">
+  <div class="absolute w-48 h-48 rounded-full bg-[radial-gradient(circle,rgba(184,164,248,0.08),transparent_70%)] pointer-events-none" id="core-glow"></div>
+  <div class="relative w-24 h-24 rounded-full bg-surface-container flex flex-col items-center justify-center shadow-2xl transition-all duration-500 group-hover:scale-110">
+    <div class="absolute inset-1 rounded-full bg-surface-container-high flex flex-col items-center justify-center">
+      <span class="font-headline-md text-headline-md text-primary tracking-tighter" id="core-label">YK</span>
+      <span class="font-label-caps text-label-caps text-[8px] text-secondary tracking-widest mt-0.5" id="core-sub">NEXUS</span>
+    </div>
+  </div>
+  <span class="absolute -bottom-7 font-code-inline text-code-inline text-[10px] text-on-surface-variant bg-surface-container-low px-2 py-0.5 rounded-full whitespace-nowrap shadow-sm" id="core-tag">GRAVITATIONAL CORE</span>
 </div>
-<span class="absolute -bottom-7 font-code-inline text-code-inline text-[10px] text-on-surface-variant bg-surface-container-low px-2 py-0.5 rounded-full whitespace-nowrap shadow-sm">
-            GRAVITATIONAL CORE
-          </span>
-</div>
-</div>
-<!-- PRIMARY PLANETARY NODES (Deep Flagship Ventures) -->
-<!-- Node 1: CustomerPulse -->
-<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="FLAGSHIP · COMPLAINT INTELLIGENCE" data-metrics="Email and website complaint intake • AI enrichment • duplicate detection • lifecycle tracking" data-node="customerpulse" data-recognition="Union Bank x KJ Somaiya Hackathon finalist · approx. top 2% of 1,500+ teams" data-role="AI/ML and product architecture contributor in a four-person team" data-stack="React/TypeScript • FastAPI • PostgreSQL • AWS Bedrock • RAG" data-tags="rag backend cloud fullstack" data-title="CustomerPulse" style="top: 130px; left: 160px;">
-<div class="node-orb w-16 h-16 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
-<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-[22px]">insights</span>
-</div>
-<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
-</div>
-<div class="mt-2 text-center pointer-events-none">
-<span class="font-title-md text-title-md text-on-surface font-semibold block">CustomerPulse</span>
-<span class="font-label-tag text-label-tag text-secondary text-[11px] block">Complaint Intelligence</span>
+
+<!-- Planets are generated by the engine into #spatial-field -->
 </div>
 </div>
-<!-- Node 2: MemoryLens -->
-<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="FLAGSHIP · MULTIMODAL SEARCH" data-metrics="Natural-language document search • face/photo matching • indexing and open-file workflows" data-node="memorylens" data-recognition="AWS-powered AI for Bharat prototype submission stage; not selected for the final event round" data-role="Team Lead &amp; Backend Architect in a four-person team" data-stack="Python • FastAPI • FAISS • React • AWS Textract/Rekognition/Bedrock references" data-tags="rag cloud backend fullstack" data-title="MemoryLens" style="top: 80px; right: 200px;">
-<div class="node-orb w-16 h-16 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
-<div class="w-12 h-12 rounded-full bg-tertiary-container/20 flex items-center justify-center">
-<span class="material-symbols-outlined text-tertiary text-[22px]">saved_search</span>
+
+<!-- HUD Panel -->
+<aside class="absolute z-50 pointer-events-auto transition-all duration-200 opacity-0 scale-95 translate-y-2 w-96 max-w-[calc(100vw-2rem)] bg-surface-container/95 backdrop-blur-xl p-space-md rounded-2xl shadow-[0_24px_48px_-12px_rgba(0,0,0,0.8)] hidden" id="telemetry-hud" role="dialog" aria-label="Project details">
+<div class="flex items-center justify-between gap-space-xs mb-space-xs pb-space-xs">
+  <div class="flex items-center gap-1.5">
+    <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+    <span class="font-label-caps text-label-caps text-[9px] text-secondary tracking-widest uppercase" id="hud-category"></span>
+  </div>
+  <button class="text-on-surface-variant hover:text-on-surface p-1" id="close-hud" type="button" aria-label="Close project preview">
+    <span class="material-symbols-outlined text-[16px]">close</span>
+  </button>
 </div>
-<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
-</div>
-<div class="mt-2 text-center pointer-events-none">
-<span class="font-title-md text-title-md text-on-surface font-semibold block">MemoryLens</span>
-<span class="font-label-tag text-label-tag text-tertiary text-[11px] block">Prototype Search</span>
-</div>
-</div>
-<!-- Node 3: DocFlow -->
-<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="FLAGSHIP · DOCUMENT AUTOMATION" data-metrics="Bulk upload • extraction • async jobs • human review • export workflows" data-node="docflow" data-recognition="IEEE NEXUS 2026 project; outcome details to be confirmed" data-role="Team Lead, Backend &amp; Infrastructure" data-stack="React/TypeScript • FastAPI • PostgreSQL • Celery • Docker/deployment planning" data-tags="backend fullstack" data-title="DocFlow" style="top: 480px; left: 140px;">
-<div class="node-orb w-16 h-16 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
-<div class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-[22px]">account_tree</span>
-</div>
-<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-tertiary ring-2 ring-surface-container-lowest"></span>
-</div>
-<div class="mt-2 text-center pointer-events-none">
-<span class="font-title-md text-title-md text-on-surface font-semibold block">DocFlow</span>
-<span class="font-label-tag text-label-tag text-on-surface-variant text-[11px] block">Document Automation</span>
-</div>
-</div>
-<!-- Node 4: Lung Digital Twin -->
-<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="FLAGSHIP · MEDICAL RESEARCH PROTOTYPE" data-metrics="DICOM viewing • tumor masks • 3D anatomy • treatment scheduling • Gompertz-style simulation" data-node="lungtwin" data-recognition="Research prototype only; not a clinical device" data-role="Team Lead &amp; end-to-end prototype developer" data-stack="React/Vite • Three.js/React Three Fiber • Recharts • FastAPI • PyDICOM • SimpleITK • PyRadiomics • scikit-learn" data-tags="research backend fullstack" data-title="Lung Digital Twin" style="top: 460px; right: 150px;">
-<div class="node-orb w-16 h-16 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
-<div class="w-12 h-12 rounded-full bg-primary/25 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-[22px]">coronavirus</span>
-</div>
-<span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-error ring-2 ring-surface-container-lowest animate-ping"></span>
-</div>
-<div class="mt-2 text-center pointer-events-none">
-<span class="font-title-md text-title-md text-on-surface font-semibold block">Lung Digital Twin</span>
-<span class="font-label-tag text-label-tag text-primary text-[11px] block">Research Prototype</span>
-</div>
-</div>
-<!-- Node 5: SkillForge -->
-<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="FEATURED · FULL-STACK LMS" data-metrics="Registration/login • RBAC • enrollments • progress • reviews • certificates • admin dashboards" data-node="skillforge" data-recognition="Solo Maincraft Technologies internship project" data-role="Full-Stack Developer" data-stack="Python • Flask • SQLite • Bootstrap • REST APIs • Chart.js" data-tags="backend fullstack" data-title="SkillForge" style="top: 320px; left: 80px;">
-<div class="node-orb w-14 h-14 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
-<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface text-[20px]">school</span>
-</div>
-</div>
-<div class="mt-2 text-center pointer-events-none">
-<span class="font-title-md text-title-md text-on-surface text-[15px] font-medium block">SkillForge</span>
-<span class="font-label-tag text-label-tag text-on-surface-variant text-[10px] block">LMS System</span>
-</div>
-</div>
-<!-- Node 6: Agri Price Prediction -->
-<div class="celestial-node primary-node absolute z-30 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="FEATURED · ML RESEARCH" data-metrics="Historical market data • ensemble regression • published paper • DOI available" data-node="agripredict" data-recognition="IEEE TEMSMET 2025 paper plus reported patent publication, June 2026" data-role="Research contributor and co-author" data-stack="Python • Machine Learning • ensemble regression • historical crop-market data" data-tags="research" data-title="Agriculture Price Prediction" style="top: 290px; right: 70px;">
-<div class="node-orb w-14 h-14 rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative group">
-<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-[20px]">psychology_alt</span>
-</div>
-</div>
-<div class="mt-2 text-center pointer-events-none">
-<span class="font-title-md text-title-md text-on-surface text-[15px] font-medium block">Agri Price ML</span>
-<span class="font-label-tag text-label-tag text-secondary text-[10px] block">IEEE TEMSMET 2025</span>
-</div>
-</div>
-<!-- SATELLITE & ASTEROID NODES (Specialized micro-systems & innovations) -->
-<!-- Satellite 1: MedMinder AI -->
-<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="FEATURED · MEDICINE REMINDER" data-metrics="Prescription parsing • schedule planning • alerts • adherence logs • caregiver escalation" data-node="medminder" data-recognition="Solo reminder-only prototype; not medical advice" data-role="Developer" data-stack="Python • Streamlit • SQLite • Pydantic • PDF parsing • LLM options with regex fallback" data-tags="rag backend" data-title="MedMinder AI" style="top: 210px; left: 340px;">
-<div class="w-9 h-9 rounded-full bg-surface-container shadow-md flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-[14px]">medication</span>
-</div>
-<span class="font-code-inline text-code-inline text-[10px] text-on-surface-variant mt-1">MedMinder</span>
-</div>
-<!-- Satellite 2: BhashaYatra -->
-<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="SUPPORTING · MULTILINGUAL TOURIST ASSISTANT" data-metrics="Agent graph design • maps/weather/forex integrations planned • RAG and SOS paths to verify" data-node="bhashayatra" data-recognition="Individual academic project; feature completion to verify" data-role="Developer" data-stack="LangGraph • Google Maps APIs • weather/forex APIs • ChromaDB • Sarvam AI • SQLite" data-tags="rag backend" data-title="BhashaYatra" style="top: 190px; right: 340px;">
-<div class="w-9 h-9 rounded-full bg-surface-container shadow-md flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-[14px]">translate</span>
-</div>
-<span class="font-code-inline text-code-inline text-[10px] text-on-surface-variant mt-1">BhashaYatra</span>
-</div>
-<!-- Satellite 3: TrendPulse -->
-<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="SUPPORTING · PLACEMENT INTELLIGENCE CLI" data-metrics="Target-company research • structured JSON analysis • Rich terminal output • Markdown reports" data-node="trendpulse" data-recognition="Individual CLI application" data-role="Developer" data-stack="Python • Tavily API • Groq • Pydantic • Rich" data-tags="backend" data-title="TrendPulse" style="top: 550px; left: 360px;">
-<div class="w-9 h-9 rounded-full bg-surface-container shadow-md flex items-center justify-center">
-<span class="material-symbols-outlined text-tertiary text-[14px]">trending_up</span>
-</div>
-<span class="font-code-inline text-code-inline text-[10px] text-on-surface-variant mt-1">TrendPulse</span>
-</div>
-<!-- Satellite 4: SIT EduBot -->
-<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="SUPPORTING · STUDENT FAQ CHATBOT" data-metrics="Keyword fast paths • NLTK preprocessing • TF-IDF retrieval • intent classification • analytics logs" data-node="sitedubot" data-recognition="Academic chatbot; ownership specifics to confirm" data-role="Contributor/developer, specifics to confirm" data-stack="Flask • NLTK • TextBlob • TF-IDF • Logistic Regression • HTML/CSS/JavaScript" data-tags="backend fullstack" data-title="SIT EduBot" style="top: 540px; right: 350px;">
-<div class="w-9 h-9 rounded-full bg-surface-container shadow-md flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface text-[14px]">smart_toy</span>
-</div>
-<span class="font-code-inline text-code-inline text-[10px] text-on-surface-variant mt-1">SIT EduBot</span>
-</div>
-<!-- Satellite 5: AI Air Smartboard -->
-<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="EXPERIMENTAL · GESTURE SMARTBOARD" data-metrics="Hand tracking • draw/erase/point gestures • WebSocket events • React whiteboard" data-node="airsmartboard" data-recognition="Solo experimental application" data-role="Developer" data-stack="Python • OpenCV • MediaPipe • FastAPI WebSockets • React/Vite" data-tags="backend fullstack" data-title="AI Air Smartboard" style="top: 390px; left: 240px;">
-<div class="w-8 h-8 rounded-full bg-surface-container shadow-md flex items-center justify-center">
-<span class="material-symbols-outlined text-secondary text-[13px]">draw</span>
-</div>
-<span class="font-code-inline text-code-inline text-[9px] text-on-surface-variant mt-1">Air Smartboard</span>
-</div>
-<!-- Satellite 6: SafarSathi -->
-<div class="celestial-node satellite-node absolute z-20 flex flex-col items-center cursor-pointer transition-all duration-300" data-category="CURRENTLY BUILDING · TRAVEL COMPANION" data-metrics="Multilingual assistance • maps • contextual trip help • journey planning • SOS support planned" data-node="safarsathi" data-recognition="Personal project in progress" data-role="Builder / developer" data-stack="In-progress travel assistant; exact implemented stack to be confirmed from current repo" data-tags="rag fullstack" data-title="SafarSathi (In Progress)" style="top: 400px; right: 260px;">
-<div class="w-8 h-8 rounded-full bg-surface-container shadow-md flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-[13px]">travel_explore</span>
-</div>
-<span class="font-code-inline text-code-inline text-[9px] text-primary mt-1">SafarSathi (Dev)</span>
-</div>
-</div>
-<!-- Mini Universe Radar & Viewport Controls (Bottom Right) -->
-<div class="absolute bottom-6 right-6 z-40 bg-surface-container/90 backdrop-blur-md p-3 rounded-xl shadow-2xl flex flex-col gap-2">
-<div class="flex items-center justify-between gap-4">
-<span class="font-label-caps text-label-caps text-[9px] text-on-surface-variant">MINI RADAR</span>
-<div class="flex items-center gap-1">
-<button class="w-6 h-6 rounded bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-variant transition-colors" id="zoom-in" title="Zoom In" type="button">
-<span class="material-symbols-outlined text-[14px]">add</span>
-</button>
-<button class="w-6 h-6 rounded bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-variant transition-colors" id="zoom-out" title="Zoom Out" type="button">
-<span class="material-symbols-outlined text-[14px]">remove</span>
-</button>
-<button class="w-6 h-6 rounded bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-variant transition-colors" id="zoom-reset" title="Reset View" type="button">
-<span class="material-symbols-outlined text-[14px]">restart_alt</span>
-</button>
-</div>
-</div>
-<!-- Radar Screen Miniature -->
-<div class="relative w-36 h-24 bg-surface-container-lowest rounded-lg overflow-hidden flex items-center justify-center">
-<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(98,220,173,0.1),transparent_70%)]"></div>
-<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
-<div class="absolute w-20 h-14 rounded-full border-0 shadow-[0_0_0_1px_rgba(202,196,210,0.15)] pointer-events-none"></div>
-<div class="absolute w-2 h-2 rounded-full bg-primary" style="top: 20%; left: 24%;"></div>
-<div class="absolute w-2 h-2 rounded-full bg-tertiary" style="top: 15%; right: 28%;"></div>
-<div class="absolute w-2 h-2 rounded-full bg-secondary" style="bottom: 22%; left: 22%;"></div>
-<div class="absolute w-2 h-2 rounded-full bg-primary" style="bottom: 20%; right: 20%;"></div>
-<div class="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:10px_10px]"></div>
-</div>
-<div class="flex items-center justify-between font-code-inline text-code-inline text-[9px] text-on-surface-variant">
-<span>STATUS: ACTIVE</span>
-<span class="text-secondary">SYS_SYNCED</span>
-</div>
-</div>
-<!-- Spatial Legend (Bottom Left) -->
-<div class="absolute bottom-6 left-6 z-40 hidden md:flex items-center gap-4 bg-surface-container/90 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-xl">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-full bg-primary shadow-sm"></span>
-<span class="font-label-tag text-label-tag text-[11px] text-on-surface">Flagship Systems</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
-<span class="font-label-tag text-label-tag text-[11px] text-on-surface">Research &amp; Patents</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-on-surface-variant"></span>
-<span class="font-label-tag text-label-tag text-[11px] text-on-surface-variant">Satellites / Micro-apps</span>
-</div>
-</div>
-<!-- FLOATING INSPECTION TELEMETRY HUD (Appears on Hover / Selection) -->
-<aside class="absolute z-50 pointer-events-auto transition-all duration-200 opacity-0 scale-95 translate-y-2 w-96 max-w-[calc(100vw-2rem)] bg-surface-container/95 backdrop-blur-xl p-space-md rounded-2xl shadow-[0_24px_48px_-12px_rgba(0,0,0,0.8)] hidden" id="telemetry-hud">
-<div class="flex items-center justify-between gap-space-xs mb-space-xs pb-space-xs border-b-0">
-<div class="flex items-center gap-1.5">
-<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-<span class="font-label-caps text-label-caps text-[9px] text-secondary tracking-widest uppercase" id="hud-category">AI &amp; INTELLIGENCE</span>
-</div>
-<button class="text-on-surface-variant hover:text-on-surface p-1" id="close-hud" type="button">
-<span class="material-symbols-outlined text-[16px]">close</span>
-</button>
-</div>
-<h3 class="font-headline-md text-headline-md text-on-surface text-[22px] leading-tight" id="hud-title">CustomerPulse</h3>
-<div class="my-space-xs bg-surface-container-high px-space-sm py-1.5 rounded-lg">
-<span class="font-label-caps text-label-caps text-[9px] text-on-surface-variant block">ROLE SPECIFICATION</span>
-<span class="font-body-md text-body-md text-primary font-medium text-[13px]" id="hud-role">Lead Backend &amp; AI Architect</span>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[22px] leading-tight" id="hud-title"></h3>
+<div class="font-code-inline text-code-inline text-[11px] text-on-surface-variant mt-1 mb-space-xs" id="hud-status"></div>
+<div class="bg-surface-container-high px-space-sm py-1.5 rounded-lg">
+  <span class="font-label-caps text-label-caps text-[9px] text-on-surface-variant block">ROLE SPECIFICATION</span>
+  <span class="font-body-md text-body-md text-primary font-medium text-[13px]" id="hud-role"></span>
 </div>
 <div class="flex flex-col gap-1.5 my-space-sm">
-<div class="flex items-start gap-2 text-[12px]">
-<span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">verified</span>
-<span class="font-body-sm text-body-sm text-on-surface" id="hud-recognition">Union Bank x KJ Somaiya finalist</span>
-</div>
-<div class="flex items-start gap-2 text-[12px]">
-<span class="material-symbols-outlined text-primary text-[16px] shrink-0 mt-0.5">speed</span>
-<span class="font-code-inline text-code-inline text-on-surface-variant text-[11px]" id="hud-metrics">Complaint intake • AI enrichment • lifecycle tracking</span>
-</div>
+  <div class="flex items-start gap-2 text-[12px]">
+    <span class="material-symbols-outlined text-secondary text-[16px] shrink-0 mt-0.5">verified</span>
+    <span class="font-body-sm text-body-sm text-on-surface" id="hud-recognition"></span>
+  </div>
+  <div class="flex items-start gap-2 text-[12px]">
+    <span class="material-symbols-outlined text-primary text-[16px] shrink-0 mt-0.5">speed</span>
+    <span class="font-code-inline text-code-inline text-on-surface-variant text-[11px]" id="hud-metrics"></span>
+  </div>
 </div>
 <div class="mt-space-sm pt-space-xs">
-<span class="font-label-caps text-label-caps text-[9px] text-on-surface-variant block mb-1.5 tracking-wider">STACK / TOOLS</span>
-<div class="flex flex-wrap gap-1" id="hud-stack">
-<!-- Stack chips injected via JS -->
+  <span class="font-label-caps text-label-caps text-[9px] text-on-surface-variant block mb-1.5 tracking-wider">STACK / TOOLS</span>
+  <div class="flex flex-wrap gap-1" id="hud-stack"></div>
 </div>
-</div>
-<div class="mt-space-md pt-space-xs flex items-center justify-between gap-2">
-<a class="w-full text-center py-2 px-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-caps text-label-caps text-[11px] font-semibold hover:brightness-110 transition-all shadow-sm" data-path="theater" href="#">
-          LAUNCH PROJECT THEATER →
-        </a>
-</div>
+<div class="mt-space-md pt-space-xs flex flex-col gap-2" id="hud-actions"></div>
 </aside>
+
+<!-- Drag indicator -->
+<div class="fixed bottom-5 left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-full font-label-tag text-[11px] tracking-wider uppercase pointer-events-none z-[9999] transition-all duration-300 bg-surface-container/92 backdrop-blur-xl border border-primary-container/25 text-primary shadow-[0_8px_32px_rgba(0,0,0,.5)] opacity-0 translate-y-3" id="drag-indicator">
+<span class="inline-block mr-1.5 text-[13px] align-middle">⟳</span><span id="drag-label">DRAG TO REVOLVE</span>
 </div>
-<!-- Artifact Technical Matrix: Deep Dive Registry -->
-<section class="w-full px-gutter-mobile md:px-gutter py-space-2xl bg-surface-container-low/40">
-<div class="max-w-[1440px] mx-auto flex flex-col gap-space-xl">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-<div>
-<span class="font-label-caps text-label-caps text-primary tracking-widest block mb-space-xs">REGISTRY ARCHITECTURE</span>
-<h2 class="font-headline-md text-headline-md text-on-surface">Planetary Telemetry &amp; System Artifacts</h2>
+
+<!-- Mini Radar -->
+<div class="absolute bottom-6 right-6 z-40 bg-surface-container/90 backdrop-blur-md p-3 rounded-xl shadow-2xl flex flex-col gap-2" id="mini-radar">
+<div class="flex items-center justify-between gap-4">
+  <span class="font-label-caps text-label-caps text-[9px] text-on-surface-variant">MINI RADAR</span>
+  <div class="flex items-center gap-1">
+    <button class="w-6 h-6 rounded bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-variant transition-colors" id="zoom-in" title="Zoom In" type="button"><span class="material-symbols-outlined text-[14px]">add</span></button>
+    <button class="w-6 h-6 rounded bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-variant transition-colors" id="zoom-out" title="Zoom Out" type="button"><span class="material-symbols-outlined text-[14px]">remove</span></button>
+    <button class="w-6 h-6 rounded bg-surface-container-high text-on-surface flex items-center justify-center hover:bg-surface-variant transition-colors" id="zoom-reset" title="Reset View" type="button"><span class="material-symbols-outlined text-[14px]">restart_alt</span></button>
+  </div>
 </div>
-<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
-          A truthful technical index of twelve projects, with stacks, roles and statuses limited to the supplied profile.
-        </p>
+<div class="relative w-36 h-24 bg-surface-container-lowest rounded-lg overflow-hidden">
+  <canvas class="w-full h-full" id="radar-canvas" width="144" height="96"></canvas>
 </div>
-<!-- Bento Grid of Key Ecosystem Pillars -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
-<!-- Artifact Spec 1: Enterprise Complaints & Vector RAG -->
-<div class="bg-surface-container p-space-lg rounded-2xl flex flex-col justify-between shadow-md hover:bg-surface-container-high transition-colors">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<span class="font-label-caps text-label-caps text-secondary text-[10px]">AI-RAG // PLATFORM</span>
-<span class="font-code-inline text-code-inline text-[11px] text-on-surface-variant">PRJ-01</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">CustomerPulse</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
-              Unified complaint intelligence dashboard for multi-channel intake, AI enrichment, duplicate detection, response assistance and complaint lifecycle tracking.
-            </p>
-<div class="space-y-2 mb-space-md">
-<div class="flex justify-between text-[12px] font-code-inline">
-<span class="text-on-surface-variant">Recognition:</span>
-<span class="text-primary font-medium">Union Bank x KJ Somaiya finalist</span>
-</div>
-<div class="flex justify-between text-[12px] font-code-inline">
-<span class="text-on-surface-variant">Scope:</span>
-<span class="text-secondary font-medium">Approx. top 2% of 1,500+ teams</span>
+<div class="flex items-center justify-between font-code-inline text-code-inline text-[9px] text-on-surface-variant">
+  <span id="radar-status">STATUS: ACTIVE</span>
+  <span class="text-secondary" id="radar-count">SYS_SYNCED</span>
 </div>
 </div>
-</div>
-<div class="flex flex-wrap gap-1.5 pt-space-sm">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">FastAPI</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">PostgreSQL</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">AWS Bedrock</span>
-</div>
-</div>
-<!-- Artifact Spec 2: Biomedical Twin & Oncology Simulator -->
-<div class="bg-surface-container p-space-lg rounded-2xl flex flex-col justify-between shadow-md hover:bg-surface-container-high transition-colors">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<span class="font-label-caps text-label-caps text-primary text-[10px]">COMPUTATIONAL BIOLOGY</span>
-<span class="font-code-inline text-code-inline text-[11px] text-on-surface-variant">PRJ-02</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Lung Digital Twin</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
-              Research prototype combining CT/DICOM viewing, anatomical 3D visualization, tumor masks and treatment-response simulation. Not a clinical device.
-            </p>
-<div class="space-y-2 mb-space-md">
-<div class="flex justify-between text-[12px] font-code-inline">
-<span class="text-on-surface-variant">Status:</span>
-<span class="text-primary font-medium">Working research prototype</span>
-</div>
-<div class="flex justify-between text-[12px] font-code-inline">
-<span class="text-on-surface-variant">Role:</span>
-<span class="text-secondary font-medium">Team lead + end-to-end build</span>
+
+<!-- Legend -->
+<div class="absolute bottom-6 left-6 z-40 hidden md:flex items-center gap-4 bg-surface-container/90 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-xl" id="universe-legend">
+<!-- Generated by engine -->
 </div>
 </div>
-</div>
-<div class="flex flex-wrap gap-1.5 pt-space-sm">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">React / Three.js</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">FastAPI</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">PyDICOM</span>
-</div>
-</div>
-<!-- Artifact Spec 3: Agriculture ML Research -->
-<div class="bg-surface-container p-space-lg rounded-2xl flex flex-col justify-between shadow-md hover:bg-surface-container-high transition-colors">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<span class="font-label-caps text-label-caps text-secondary text-[10px]">IEEE &amp; REPORTED PATENT</span>
-<span class="font-code-inline text-code-inline text-[11px] text-on-surface-variant">PRJ-03</span>
-</div>
-<h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Agri Price Forecasting</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
-              Ensemble-regression crop price prediction research using historical market data. Published at IEEE TEMSMET 2025 with a reported patent publication in June 2026.
-            </p>
-<div class="space-y-2 mb-space-md">
-<div class="flex justify-between text-[12px] font-code-inline">
-<span class="text-on-surface-variant">IP Status:</span>
-<span class="text-secondary font-medium">Reported publication, June 2026</span>
-</div>
-<div class="flex justify-between text-[12px] font-code-inline">
-<span class="text-on-surface-variant">Published:</span>
-<span class="text-primary font-medium">IEEE TEMSMET 2025</span>
-</div>
-</div>
-</div>
-<div class="flex flex-wrap gap-1.5 pt-space-sm">
-<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">Python</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">ML</span>
-<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">DOI</span>
-</div>
-</div>
-</div>
-<!-- Live Orchestration Callout Banner -->
-<div class="w-full bg-surface-container-high rounded-2xl p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md shadow-xl">
-<div class="flex items-center gap-space-md">
-<div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[26px]">terminal</span>
-</div>
-<div>
-<h4 class="font-title-lg text-title-lg text-on-surface">Explore Deep Documentation &amp; Interactive Runtime</h4>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-              Most nodes link to GitHub repositories; Agriculture Price Prediction links to the IEEE DOI because no public repo is supplied.
-            </p>
-</div>
-</div>
-<div class="flex items-center gap-space-sm shrink-0">
-<a class="px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-caps text-label-caps font-semibold shadow-md hover:brightness-110 transition-all" data-path="theater" href="#">
-            ENTER THEATER (03)
-          </a>
-<a class="px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-caps text-label-caps hover:bg-surface-variant transition-all" data-path="archives" href="#">
-            VIEW RESEARCH
-          </a>
-</div>
-</div>
+
+<!-- ── REGISTRY SECTION ── -->
+<section class="w-full px-gutter-mobile md:px-gutter py-space-2xl bg-surface-container-low/40" id="registry-section">
+<div class="max-w-[1440px] mx-auto flex flex-col gap-space-xl" id="registry-content">
+<!-- Generated by engine -->
 </div>
 </section>
-<!-- Client-Side Universe Mechanics Script -->
+
+</div>
+</main>
+
+<!-- ═══ FOOTER ASIDES + FOOTER (preserved) ═══ -->
+<aside class="fixed bottom-space-md left-gutter-mobile md:left-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)]"><span class="material-symbols-outlined text-secondary text-[16px] animate-pulse">sensors</span><div class="flex items-center gap-space-xs font-label-tag text-label-tag text-[11px] text-on-surface-variant"><span class="text-on-surface font-semibold">21°08'N 79°05'E</span><span class="opacity-40">•</span><span class="text-secondary font-medium">IST 02:44:19</span><span class="opacity-40">•</span><div class="flex items-center gap-[2px] h-3"><span class="w-[2px] h-2 bg-secondary/80 rounded-full animate-bounce"></span><span class="w-[2px] h-3 bg-secondary rounded-full animate-bounce [animation-delay:0.15s]"></span><span class="w-[2px] h-1.5 bg-secondary/60 rounded-full animate-bounce [animation-delay:0.3s]"></span></div></div></div></aside>
+<aside class="fixed bottom-space-md right-gutter-mobile md:right-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)] group"><button class="font-label-caps text-label-caps text-[10px] text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" type="button">SKIP INTRO</button><div class="relative flex items-center justify-center w-7 h-7"><svg class="w-7 h-7 -rotate-90" viewbox="0 0 32 32"><circle class="text-surface-variant" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-width="2"></circle><circle class="text-primary" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-dasharray="81.68" stroke-dashoffset="54" stroke-width="2.5"></circle></svg><span class="absolute font-code-inline text-code-inline text-[9px] font-semibold text-on-surface">34%</span></div></div></aside>
+<footer class="w-full bg-surface-container-lowest py-space-xl mt-space-2xl shadow-[0_-1px_16px_rgba(0,0,0,0.4)]"><div class="max-w-[1440px] mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md font-label-tag text-label-tag text-on-surface-variant"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-primary text-[20px]">YK</span><span>© 2026 Yash Khadgi. Building products. Building a legacy.</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps text-[11px]"><span class="text-secondary">OPEN TO INTERNSHIPS &amp; COLLABORATION</span><span class="opacity-30">|</span><span class="text-on-surface-variant">LAT 21.1458° N • LON 79.0882° E</span></div></div></footer>
+
+<!-- ═══ DATA + ENGINE ═══ -->
+<script src="universe.data.js"></script>
 <script>
-    (function initUniverse() {
-      const stage = document.getElementById('universe-stage');
-      const field = document.getElementById('spatial-field');
-      const hud = document.getElementById('telemetry-hud');
-      const closeHud = document.getElementById('close-hud');
-      const filterChips = document.querySelectorAll('.filter-chip');
-      const nodes = document.querySelectorAll('.celestial-node');
-      const vectorContainer = document.getElementById('vector-links');
-      const coordTelemetry = document.getElementById('coordinates-telemetry');
-      const coreAnchor = document.getElementById('core-anchor');
+// ═══════════════════════════════════════════════════════════════════
+// THE BUILDER'S UNIVERSE ENGINE
+// Phases 2–9: Engine, Filter, HUD, Child Systems, Radar, Registry
+// ═══════════════════════════════════════════════════════════════════
+(function() {
+'use strict';
+const DATA = window.UNIVERSE_DATA;
+if (!DATA) { console.error('UNIVERSE_DATA not loaded'); return; }
 
-      // Zoom Controls State
-      let zoomLevel = 1.0;
-      let rotX = 0;
-      let rotY = 0;
-      let activeFilter = 'all';
-      let hoveredNode = null;
-      let userTiltUntil = 0;
-      let frozenOrbitTime = null;
-      let orbitStartTime = null;
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-      const fieldCenter = { x: 550, y: 390 };
-      const orbitStyle = document.createElement('style');
-      orbitStyle.textContent = `
-        #universe-stage{perspective:1400px}
-        #spatial-field{transform-style:preserve-3d;will-change:transform}
-        .celestial-node{will-change:left,top,transform,opacity,filter;transform-style:preserve-3d}
-        .celestial-node .node-orb,.celestial-node>div:first-child{box-shadow:0 22px 40px rgba(0,0,0,.48), inset -10px -12px 20px rgba(0,0,0,.25), inset 8px 8px 18px rgba(255,255,255,.04)}
-        .celestial-node.orbit-hidden{opacity:.14!important;filter:grayscale(100%) blur(.2px)!important}
-        .celestial-node.orbit-match{opacity:1!important;filter:grayscale(0%) drop-shadow(0 0 18px rgba(184,164,248,.38))!important}
-        .celestial-node.orbit-active .node-orb,.celestial-node.orbit-active>div:first-child{box-shadow:0 28px 70px rgba(195,178,255,.3),0 0 0 8px rgba(195,178,255,.08), inset -10px -12px 20px rgba(0,0,0,.2)}
-        .solar-orbit{position:absolute;left:50%;top:50%;border:1px solid rgba(195,178,255,.105);border-radius:50%;transform:translate(-50%,-50%) rotateX(62deg) rotateZ(-10deg);pointer-events:none;box-shadow:0 0 28px rgba(98,220,173,.025)}
-        .solar-orbit:nth-child(odd){border-color:rgba(98,220,173,.12)}
+// ── CONSTANTS ──
+const CX = 550, CY = 390, FW = 1100, FH = 780;
+const PI2 = Math.PI * 2;
+const DEG = Math.PI / 180;
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+// ── DOM REFS ──
+const $ = id => document.getElementById(id);
+const stage         = $('universe-stage');
+const fieldWrapper  = $('spatial-field-wrapper');
+const field         = $('spatial-field');
+const svgEl         = $('universe-svg');
+const svgRings      = $('svg-orbit-rings');
+const svgLines      = $('svg-constellation-lines');
+const svgTags       = $('svg-orbit-tags');
+const coreAnchor    = $('core-anchor');
+const coreLabel     = $('core-label');
+const coreSub       = $('core-sub');
+const coreTag       = $('core-tag');
+const coreGlow      = $('core-glow');
+const hud           = $('telemetry-hud');
+const closeHudBtn   = $('close-hud');
+const filterArea    = $('filter-area');
+const filtersEl     = $('tech-filters');
+const cosmicDrift   = $('cosmic-drift');
+const coordTel      = $('coordinates-telemetry');
+const dragIndicator = $('drag-indicator');
+const dragLabelEl   = $('drag-label');
+const radarCanvas   = $('radar-canvas');
+const radarStatus   = $('radar-status');
+const radarCount    = $('radar-count');
+const legendEl      = $('universe-legend');
+const breadcrumb    = $('universe-breadcrumb');
+const breadcrumbBack= $('breadcrumb-back');
+const breadcrumbLbl = $('breadcrumb-label');
+const bloomOverlay  = $('bloom-overlay');
+const eyebrowText   = $('eyebrow-text');
+const titleItalic   = $('title-italic');
+const universeDesc  = $('universe-desc');
+const registryEl    = $('registry-content');
+const radarCtx      = radarCanvas.getContext('2d');
+
+// ── ENGINE STATE ──
+const S = {
+  mode: 'UNIVERSE',   // UNIVERSE | TRANSITION_IN | CHILD | TRANSITION_OUT
+  filter: 'all',
+  selected: null,      // project id (pinned HUD)
+  hovered: null,       // project id
+  zoom: 1.0,
+  vpScale: 1.0,       // fit-to-viewport scale
+  tiltX: 0, tiltY: 0,
+  tiltUntil: 0,
+  globalDragOffset: 0, // radians (shared orbit drag)
+  reduceMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+};
+
+// Drag state
+let isDragging = false, dragTarget = null; // null=universe, 'orbit-id'=single orbit
+let dragStartX=0, dragStartY=0, dragLastX=0, dragLastY=0;
+let dragVelocity = 0, dragNodeVelocity = 0, dragMoved = false;
+let momentumRAF = null;
+
+// Per-orbit runtime
+const orbRT = {}; // { 'orbit-ai': { time:0, speed:1, target:1, userOff:0 } }
+
+// Planet runtime objects
+let planets = []; // { data, el, line, labelEl, subEl, orbitData, packOff, targetPack, startPack, vis:'visible'|'hiding'|'hidden'|'showing', visOp:1 }
+
+// Current system config
+let curOrbits = DATA.ORBITS;
+let curProjects = DATA.PROJECTS;
+let curChildKey = null;
+
+// Animation
+let lastTs = 0, frameCount = 0, loopId = 0, paused = false;
+let filterTweenStart = -Infinity;
+
+// ══════════════════════════════════════════
+// ── ORBIT MATH ──
+// ══════════════════════════════════════════
+function orbitPos(orb, angle) {
+  const r = orb.rot * DEG;
+  const cr = Math.cos(r), sr = Math.sin(r);
+  const u = orb.a * Math.cos(angle);
+  const v = orb.b * Math.sin(angle);
+  return { x: CX + u*cr - v*sr, y: CY + u*sr + v*cr, depth: Math.sin(angle) };
+}
+
+function getAngle(orb, rt, packOff) {
+  const angularSpeed = orb.dir * PI2 / (orb.period * 1000);
+  return orb.phase + angularSpeed * rt.time + S.globalDragOffset + rt.userOff + packOff;
+}
+
+function shortAngleDist(from, to) {
+  let d = ((to - from) % PI2 + 3*Math.PI) % PI2 - Math.PI;
+  return d;
+}
+
+function easeInOutCubic(t) {
+  return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2;
+}
+
+function lerp(a,b,t) { return a + (b-a)*t; }
+
+// ══════════════════════════════════════════
+// ── SVG HELPERS ──
+// ══════════════════════════════════════════
+function svgCreate(tag, attrs) {
+  const el = document.createElementNS(SVG_NS, tag);
+  for (const [k,v] of Object.entries(attrs||{})) el.setAttribute(k,v);
+  return el;
+}
+
+function createOrbitRing(orb, parent) {
+  // Full ring
+  const g = svgCreate('g');
+  const ellipse = svgCreate('ellipse', {
+    cx: CX, cy: CY, rx: orb.a, ry: orb.b,
+    transform: `rotate(${orb.rot} ${CX} ${CY})`,
+    fill: 'none', stroke: orb.color, 'stroke-opacity': '0.14', 'stroke-width': '1'
+  });
+  if (orb.dashed) ellipse.setAttribute('stroke-dasharray', '6 8');
+  g.appendChild(ellipse);
+
+  // Front-half arc (brighter)
+  const r = orb.rot * DEG;
+  const cr = Math.cos(r), sr = Math.sin(r);
+  const p1x = CX + orb.a * cr, p1y = CY + orb.a * sr;
+  const p2x = CX - orb.a * cr, p2y = CY - orb.a * sr;
+  const arc = svgCreate('path', {
+    d: `M ${p1x},${p1y} A ${orb.a},${orb.b} ${orb.rot} 0,1 ${p2x},${p2y}`,
+    fill: 'none', stroke: orb.color, 'stroke-opacity': '0.26', 'stroke-width': '1.5'
+  });
+  if (orb.dashed) arc.setAttribute('stroke-dasharray', '6 8');
+  g.appendChild(arc);
+
+  g.dataset.orbitId = orb.id;
+  parent.appendChild(g);
+  return { g, ellipse, arc };
+}
+
+function createOrbitTag(orb, parent) {
+  // Place tag at the far end of the orbit (θ ≈ π/2 — the "top")
+  const angle = Math.PI * 0.5;
+  const pos = orbitPos(orb, angle);
+  const text = svgCreate('text', {
+    x: pos.x, y: pos.y - 12,
+    'font-family': "'JetBrains Mono', monospace", 'font-size': '11',
+    'text-anchor': 'middle', fill: orb.color, 'fill-opacity': '0.4',
+    'pointer-events': 'none'
+  });
+  text.textContent = orb.tag;
+  text.dataset.orbitId = orb.id;
+  parent.appendChild(text);
+  return text;
+}
+
+// ══════════════════════════════════════════
+// ── PLANET DOM CREATION ──
+// ══════════════════════════════════════════
+function createPlanetEl(proj, labelBelow) {
+  const tier = DATA.TIERS[proj.tier];
+  const acc = DATA.ACCENT_CLASSES[proj.accent] || DATA.ACCENT_CLASSES.primary;
+  const orbSize = tier.orbSize;
+  const innerSize = tier.innerSize;
+
+  const btn = document.createElement('button');
+  btn.className = 'celestial-node absolute z-30 flex flex-col items-center cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-lowest';
+  btn.style.cssText = 'left:0;top:0;will-change:transform;transform-style:preserve-3d;pointer-events:auto;';
+  btn.dataset.id = proj.id;
+  btn.dataset.title = proj.title;
+  btn.setAttribute('aria-label', `${proj.title}, ${proj.tier} project, orbit ${proj.orbit}. Press Enter for details.`);
+  btn.type = 'button';
+
+  // Orb
+  const orb = document.createElement('div');
+  orb.className = `node-orb rounded-full bg-surface-container-high shadow-xl flex items-center justify-center relative`;
+  orb.style.cssText = `width:${orbSize}px;height:${orbSize}px;box-shadow:0 22px 40px rgba(0,0,0,.48),inset -10px -12px 20px rgba(0,0,0,.25),inset 8px 8px 18px rgba(255,255,255,.04)`;
+  if (tier.dashed) orb.style.border = `2px dashed ${acc.text === 'text-primary' ? '#b8a4f8' : acc.text === 'text-secondary' ? '#62dcad' : '#cac4d2'}`;
+
+  const inner = document.createElement('div');
+  inner.className = `rounded-full ${acc.bg} flex items-center justify-center`;
+  inner.style.cssText = `width:${innerSize}px;height:${innerSize}px`;
+  const icon = document.createElement('span');
+  icon.className = `material-symbols-outlined ${acc.text}`;
+  icon.style.fontSize = `${tier.iconSize}px`;
+  icon.textContent = proj.icon;
+  inner.appendChild(icon);
+  orb.appendChild(inner);
+
+  // Status dot
+  if (proj.tier === 'flagship' || proj.tier === 'high' || proj.tier === 'portal') {
+    const dot = document.createElement('span');
+    dot.className = `absolute -top-1 -right-1 w-3 h-3 rounded-full ${acc.dot} ring-2 ring-surface-container-lowest`;
+    if (proj.id === 'lungtwin') dot.classList.add('animate-ping');
+    orb.appendChild(dot);
+  }
+
+  // Portal moons (EkLink)
+  if (proj.tier === 'portal') {
+    orb.style.cursor = 'zoom-in';
+    const moonRing = document.createElement('div');
+    moonRing.className = 'absolute inset-[-8px] rounded-full border border-dashed border-primary/30 animate-[spin_20s_linear_infinite]';
+    for (let m = 0; m < 4; m++) {
+      const moon = document.createElement('span');
+      const a = m * 90;
+      moon.className = 'absolute w-2 h-2 rounded-full bg-primary/60';
+      moon.style.cssText = `top:50%;left:50%;transform:rotate(${a}deg) translateX(${orbSize/2+8}px) translate(-50%,-50%)`;
+      moonRing.appendChild(moon);
+    }
+    orb.appendChild(moonRing);
+  }
+
+  btn.appendChild(orb);
+
+  // Label
+  const label = document.createElement('div');
+  label.className = `planet-label text-center pointer-events-none transition-opacity duration-200 ${labelBelow ? 'mt-2' : 'mb-2 order-first'}`;
+
+  const titleSpan = document.createElement('span');
+  titleSpan.className = 'font-title-md text-on-surface font-semibold block';
+  titleSpan.style.fontSize = proj.tier === 'medium' || proj.tier === 'research-concept' ? '13px' : '15px';
+  titleSpan.textContent = proj.title;
+  label.appendChild(titleSpan);
+
+  const subSpan = document.createElement('span');
+  subSpan.className = `planet-subtitle font-label-tag text-label-tag ${acc.text} block transition-opacity duration-200`;
+  subSpan.style.fontSize = '11px';
+  subSpan.textContent = proj.sub;
+  if (!tier.alwaysShowSub) subSpan.style.opacity = '0';
+  label.appendChild(subSpan);
+
+  btn.appendChild(label);
+
+  return { el: btn, orbEl: orb, labelEl: label, subEl: subSpan, titleEl: titleSpan };
+}
+
+// ══════════════════════════════════════════
+// ── SYSTEM MOUNT / UNMOUNT ──
+// ══════════════════════════════════════════
+let orbitRings = []; // { g, ellipse, arc, tagEl }
+let conLines = [];   // SVG <line> elements
+
+function mountSystem(orbits, projects, isChild) {
+  // Init orbit runtime
+  orbits.forEach(o => {
+    if (!orbRT[o.id]) orbRT[o.id] = { time: 0, speed: 1, target: 1, userOff: 0 };
+  });
+
+  // Clear previous
+  svgRings.innerHTML = '';
+  svgLines.innerHTML = '';
+  svgTags.innerHTML = '';
+  field.querySelectorAll('.celestial-node').forEach(el => el.remove());
+  planets = [];
+  orbitRings = [];
+  conLines = [];
+
+  // Create orbit rings
+  orbits.forEach((o, i) => {
+    const ring = createOrbitRing(o, svgRings);
+    const tagEl = createOrbitTag(o, svgTags);
+    orbitRings.push({ ...ring, tagEl, orbit: o });
+  });
+
+  // Group projects by orbit to compute pack offsets
+  const byOrbit = {};
+  orbits.forEach(o => byOrbit[o.id] = []);
+  projects.forEach(p => {
+    if (byOrbit[p.orbit]) byOrbit[p.orbit].push(p);
+  });
+
+  // Create planets
+  projects.forEach(proj => {
+    const orb = orbits.find(o => o.id === proj.orbit);
+    if (!orb) return;
+    const orbitGroup = byOrbit[proj.orbit];
+    const k = orbitGroup.indexOf(proj);
+    const n = orbitGroup.length;
+    const packOff = n > 0 ? k * PI2 / n : 0;
+    const labelBelow = k % 2 === 0;
+
+    const { el, orbEl, labelEl, subEl, titleEl } = createPlanetEl(proj, labelBelow);
+    field.appendChild(el);
+
+    // Constellation line
+    const line = svgCreate('line', {
+      x1: CX, y1: CY, x2: CX, y2: CY,
+      stroke: 'url(#link-grad-core)',
+      'stroke-width': (proj.tier==='flagship'||proj.tier==='high'||proj.tier==='portal') ? '1.5' : '0.75',
+      'stroke-opacity': (proj.tier==='flagship'||proj.tier==='high'||proj.tier==='portal') ? '0.28' : '0.12',
+      'stroke-dasharray': (proj.tier==='medium'||proj.tier==='research-concept') ? '4,4' : 'none'
+    });
+    svgLines.appendChild(line);
+
+    planets.push({
+      data: proj, el, orbEl, labelEl, subEl, titleEl, line,
+      orbitData: orb,
+      packOff,           // current pack offset (tweened)
+      targetPack: packOff,
+      startPack: packOff,
+      vis: 'visible',
+      visOp: 1,
+      isChild: isChild || false
+    });
+  });
+
+  // Update counts
+  updateFilterCounts();
+  renderLegend(isChild ? 'child' : 'main');
+
+  curOrbits = orbits;
+  curProjects = projects;
+}
+
+function unmountSystem() {
+  field.querySelectorAll('.celestial-node').forEach(el => el.remove());
+  svgRings.innerHTML = '';
+  svgLines.innerHTML = '';
+  svgTags.innerHTML = '';
+  planets = [];
+  orbitRings = [];
+  conLines = [];
+}
+
+// ══════════════════════════════════════════
+// ── FILTER (Phase 3) ──
+// ══════════════════════════════════════════
+function generateFilters() {
+  filtersEl.innerHTML = '';
+  const total = DATA.PROJECTS.length;
+  Object.entries(DATA.TAGS).forEach(([key, label]) => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-chip px-space-sm py-1 rounded-full font-label-tag text-label-tag transition-all';
+    btn.dataset.filter = key;
+    btn.setAttribute('aria-pressed', key === 'all' ? 'true' : 'false');
+    const count = key === 'all' ? total : DATA.PROJECTS.filter(p => p.tags.includes(key)).length;
+    btn.textContent = key === 'all' ? `${label} (${total})` : label;
+    if (key === 'all') {
+      btn.classList.add('bg-primary', 'text-on-primary', 'active-chip', 'shadow-sm');
+    } else {
+      btn.classList.add('bg-surface-container-high', 'text-on-surface-variant', 'hover:text-on-surface');
+    }
+    btn.addEventListener('click', () => applyFilter(key));
+    filtersEl.appendChild(btn);
+  });
+}
+
+function applyFilter(key) {
+  if (S.mode !== 'UNIVERSE' && S.mode !== 'CHILD') return;
+  S.filter = key;
+
+  // Update chip styling
+  filtersEl.querySelectorAll('.filter-chip').forEach(c => {
+    const isActive = c.dataset.filter === key;
+    c.classList.toggle('bg-primary', isActive);
+    c.classList.toggle('text-on-primary', isActive);
+    c.classList.toggle('active-chip', isActive);
+    c.classList.toggle('shadow-sm', isActive);
+    c.classList.toggle('bg-surface-container-high', !isActive);
+    c.classList.toggle('text-on-surface-variant', !isActive);
+    c.setAttribute('aria-pressed', String(isActive));
+  });
+
+  // Determine visibility
+  let visCount = 0;
+  planets.forEach(p => {
+    const match = key === 'all' || p.data.tags.includes(key);
+    if (match && (p.vis === 'hidden' || p.vis === 'hiding')) {
+      p.vis = 'showing';
+      p.el.style.visibility = 'visible';
+      p.el.style.pointerEvents = 'auto';
+      p.el.removeAttribute('aria-hidden');
+      p.el.tabIndex = 0;
+    } else if (!match && (p.vis === 'visible' || p.vis === 'showing')) {
+      p.vis = 'hiding';
+      // Close HUD if this planet is selected/hovered
+      if (S.selected === p.data.id) hideHUD();
+      if (S.hovered === p.data.id) S.hovered = null;
+    }
+    if (match) visCount++;
+  });
+
+  // Recompute pack offsets per orbit
+  curOrbits.forEach(orb => {
+    const orbitPlanets = planets.filter(p => p.data.orbit === orb.id && p.vis !== 'hidden' && p.vis !== 'hiding');
+    const m = orbitPlanets.length;
+    orbitPlanets.forEach((p, k) => {
+      p.startPack = p.packOff;
+      p.targetPack = m > 0 ? k * PI2 / m : 0;
+    });
+  });
+  filterTweenStart = performance.now();
+
+  // Dim orbits with 0 visible planets
+  orbitRings.forEach(ring => {
+    const hasVisible = planets.some(p => p.data.orbit === ring.orbit.id && p.vis !== 'hidden' && p.vis !== 'hiding');
+    ring.ellipse.setAttribute('stroke-opacity', hasVisible ? '0.14' : '0.04');
+    ring.arc.setAttribute('stroke-opacity', hasVisible ? '0.26' : '0.04');
+    ring.tagEl.setAttribute('fill-opacity', hasVisible ? '0.4' : '0');
+  });
+
+  // Update radar count
+  radarCount.textContent = `SHOWING ${visCount}/${curProjects.length}`;
+
+  // If reduced motion, render one static frame
+  if (S.reduceMotion) renderStaticFrame();
+}
+
+function updateFilterCounts() {
+  const allChip = filtersEl.querySelector('[data-filter="all"]');
+  if (allChip) allChip.textContent = `${DATA.TAGS.all} (${curProjects.length})`;
+}
+
+// ══════════════════════════════════════════
+// ── HUD (Phase 4) ──
+// ══════════════════════════════════════════
+let hudReturnFocus = null;
+
+function showHUD(proj, anchorEl) {
+  $('hud-category').textContent = proj.category;
+  $('hud-title').textContent = proj.title;
+  $('hud-status').textContent = proj.status;
+  $('hud-role').textContent = proj.role;
+  $('hud-recognition').textContent = proj.recognition;
+  $('hud-metrics').textContent = proj.metrics;
+
+  // Stack chips
+  const stackEl = $('hud-stack');
+  stackEl.innerHTML = '';
+  proj.stack.forEach(tech => {
+    const span = document.createElement('span');
+    span.className = 'px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-code-inline text-[10px]';
+    span.textContent = tech;
+    stackEl.appendChild(span);
+  });
+
+  // Action buttons
+  const actions = $('hud-actions');
+  actions.innerHTML = '';
+
+  if (proj.childSystem) {
+    // Portal: enter ecosystem
+    const enterBtn = document.createElement('button');
+    enterBtn.className = 'w-full text-center py-2 px-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-caps text-label-caps text-[11px] font-semibold hover:brightness-110 transition-all shadow-sm';
+    enterBtn.textContent = 'ENTER ECOSYSTEM →';
+    enterBtn.addEventListener('click', () => enterChildSystem(proj.childSystem));
+    actions.appendChild(enterBtn);
+  } else if (!S.mode.includes('CHILD') || !curChildKey) {
+    // Theater link
+    const theaterBtn = document.createElement('a');
+    theaterBtn.className = 'w-full text-center py-2 px-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-caps text-label-caps text-[11px] font-semibold hover:brightness-110 transition-all shadow-sm block';
+    theaterBtn.textContent = 'LAUNCH PROJECT THEATER →';
+    theaterBtn.href = '#';
+    theaterBtn.dataset.path = 'theater';
+    theaterBtn.addEventListener('click', e => {
+      e.preventDefault();
+      // Try to navigate to theater with project id
+      try { window.parent.postMessage({ type: 'navigate', hash: `theater/${proj.id}` }, '*'); } catch(ex) {}
+    });
+    actions.appendChild(theaterBtn);
+  }
+
+  if (proj.github) {
+    const ghBtn = document.createElement('a');
+    ghBtn.className = 'w-full text-center py-2 px-space-sm rounded-lg bg-surface-container-high text-on-surface font-label-caps text-label-caps text-[11px] hover:bg-surface-variant transition-all block';
+    ghBtn.textContent = 'GITHUB ↗';
+    ghBtn.href = proj.github;
+    ghBtn.target = '_blank';
+    ghBtn.rel = 'noopener noreferrer';
+    actions.appendChild(ghBtn);
+  } else if (S.mode === 'CHILD') {
+    const noRepo = document.createElement('span');
+    noRepo.className = 'w-full text-center py-2 font-code-inline text-code-inline text-[11px] text-on-surface-variant block';
+    noRepo.textContent = 'REPO LINK COMING SOON';
+    actions.appendChild(noRepo);
+  }
+
+  if (proj.doi) {
+    const doiBtn = document.createElement('a');
+    doiBtn.className = 'w-full text-center py-2 px-space-sm rounded-lg bg-surface-container-high text-on-surface font-label-caps text-label-caps text-[11px] hover:bg-surface-variant transition-all block';
+    doiBtn.textContent = 'READ PAPER ↗';
+    doiBtn.href = proj.doi;
+    doiBtn.target = '_blank';
+    doiBtn.rel = 'noopener noreferrer';
+    actions.appendChild(doiBtn);
+  }
+
+  // Position HUD
+  if (anchorEl && window.innerWidth >= 768) {
+    const nodeRect = anchorEl.getBoundingClientRect();
+    const stageRect = stage.getBoundingClientRect();
+    let left = nodeRect.right - stageRect.left + 16;
+    let top = nodeRect.top - stageRect.top - 20;
+    if (left + 384 > stageRect.width) left = nodeRect.left - stageRect.left - 400;
+    if (left < 16) left = 16;
+    if (top < 16) top = 16;
+    if (top + 300 > stageRect.height) top = stageRect.height - 320;
+    hud.style.left = `${left}px`;
+    hud.style.top = `${top}px`;
+    hud.style.bottom = '';
+    hud.style.right = '';
+    hud.style.width = '';
+    hud.style.maxWidth = 'calc(100vw - 2rem)';
+    hud.style.borderRadius = '';
+  } else {
+    // Bottom sheet on mobile
+    hud.style.left = '0';
+    hud.style.right = '0';
+    hud.style.bottom = '0';
+    hud.style.top = '';
+    hud.style.width = '100%';
+    hud.style.maxWidth = '100%';
+    hud.style.borderRadius = '1rem 1rem 0 0';
+  }
+
+  hud.classList.remove('hidden');
+  requestAnimationFrame(() => {
+    hud.classList.remove('opacity-0', 'scale-95');
+    hud.classList.add('opacity-100', 'scale-100');
+  });
+  hudReturnFocus = anchorEl;
+}
+
+function hideHUD() {
+  S.selected = null;
+  hud.classList.add('opacity-0', 'scale-95');
+  hud.classList.remove('opacity-100', 'scale-100');
+  setTimeout(() => hud.classList.add('hidden'), 200);
+  if (hudReturnFocus) { hudReturnFocus.focus(); hudReturnFocus = null; }
+  // Restore orbit speed
+  curOrbits.forEach(o => { if (orbRT[o.id]) orbRT[o.id].target = 1; });
+}
+
+closeHudBtn.addEventListener('click', hideHUD);
+
+// ══════════════════════════════════════════
+// ── INTERACTION (Phase 4) ──
+// ══════════════════════════════════════════
+
+// Planet click/hover
+function attachPlanetListeners(p) {
+  const el = p.el;
+
+  el.addEventListener('mouseenter', () => {
+    if (isDragging || S.mode.includes('TRANSITION')) return;
+    S.hovered = p.data.id;
+    if (orbRT[p.data.orbit]) orbRT[p.data.orbit].target = 0;
+    // Show subtitle for medium/research-concept
+    if (p.subEl) p.subEl.style.opacity = '1';
+  });
+
+  el.addEventListener('mouseleave', () => {
+    if (S.selected === p.data.id) return; // pinned
+    S.hovered = null;
+    if (orbRT[p.data.orbit]) orbRT[p.data.orbit].target = 1;
+    // Hide subtitle if not always shown
+    const tier = DATA.TIERS[p.data.tier];
+    if (!tier.alwaysShowSub && p.subEl) p.subEl.style.opacity = '0';
+  });
+
+  el.addEventListener('click', (e) => {
+    if (dragMoved) return; // was a drag, not a click
+    e.stopPropagation();
+    if (S.mode.includes('TRANSITION')) return;
+
+    // Portal: enter child system
+    if (p.data.childSystem) {
+      enterChildSystem(p.data.childSystem);
+      return;
+    }
+
+    // Pin selection
+    S.selected = p.data.id;
+    if (orbRT[p.data.orbit]) orbRT[p.data.orbit].target = 0;
+    showHUD(p.data, el);
+  });
+
+  el.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      el.click();
+    }
+  });
+}
+
+// Close HUD on empty-space click
+stage.addEventListener('click', (e) => {
+  if (e.target === stage || e.target.closest('#spatial-field-wrapper') && !e.target.closest('.celestial-node') && !e.target.closest('#core-anchor')) {
+    if (S.selected) hideHUD();
+  }
+});
+
+// Keyboard: Esc
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    if (S.selected) { hideHUD(); return; }
+    if (S.mode === 'CHILD') { exitChildSystem(); return; }
+  }
+});
+
+// ── DRAG TO REVOLVE ──
+function onDragStart(e) {
+  if (S.mode.includes('TRANSITION')) return;
+  const isNode = e.target.closest('.celestial-node');
+  if (e.target.closest('#telemetry-hud') || e.target.closest('button:not(.celestial-node)') || e.target.closest('#mini-radar')) return;
+
+  e.preventDefault();
+  isDragging = true;
+  dragMoved = false;
+  const pt = e.touches ? e.touches[0] : e;
+  dragStartX = dragLastX = pt.clientX;
+  dragStartY = dragLastY = pt.clientY;
+  dragVelocity = 0;
+  if (momentumRAF) { cancelAnimationFrame(momentumRAF); momentumRAF = null; }
+
+  if (isNode) {
+    const nodeId = isNode.dataset.id;
+    const planet = planets.find(p => p.data.id === nodeId);
+    dragTarget = planet ? planet.data.orbit : null;
+    showDragLabel(`REVOLVING ${(planet?.data.title || 'NODE').toUpperCase()}`);
+  } else {
+    dragTarget = null;
+    showDragLabel('REVOLVING UNIVERSE');
+  }
+  stage.style.cursor = 'grabbing';
+}
+
+function onDragMove(e) {
+  if (!isDragging) return;
+  e.preventDefault();
+  const pt = e.touches ? e.touches[0] : e;
+  const dx = pt.clientX - dragLastX;
+  const dy = pt.clientY - dragLastY;
+  const delta = dx + dy * 0.5;
+
+  if (!dragMoved && (Math.abs(pt.clientX - dragStartX) > 4 || Math.abs(pt.clientY - dragStartY) > 4)) {
+    dragMoved = true;
+  }
+
+  if (dragTarget === null) {
+    // Universe drag: 0.004 rad/px
+    S.globalDragOffset += delta * 0.004;
+    dragVelocity = delta * 0.004;
+  } else if (orbRT[dragTarget]) {
+    // Single orbit: 0.006 rad/px
+    orbRT[dragTarget].userOff += delta * 0.006;
+    dragVelocity = delta * 0.006;
+  }
+
+  dragLastX = pt.clientX;
+  dragLastY = pt.clientY;
+}
+
+function onDragEnd() {
+  if (!isDragging) return;
+  isDragging = false;
+  stage.style.cursor = 'grab';
+  hideDragLabel();
+
+  // Momentum
+  if (Math.abs(dragVelocity) > 0.0005) {
+    const target = dragTarget;
+    function momentum() {
+      dragVelocity *= 0.94;
+      if (target === null) {
+        S.globalDragOffset += dragVelocity;
+      } else if (orbRT[target]) {
+        orbRT[target].userOff += dragVelocity;
+      }
+      if (Math.abs(dragVelocity) > 0.0003) {
+        momentumRAF = requestAnimationFrame(momentum);
+      }
+    }
+    momentumRAF = requestAnimationFrame(momentum);
+  }
+}
+
+function showDragLabel(text) {
+  dragLabelEl.textContent = text;
+  dragIndicator.style.opacity = '1';
+  dragIndicator.style.transform = 'translateX(-50%) translateY(0)';
+}
+function hideDragLabel() {
+  dragIndicator.style.opacity = '0';
+  dragIndicator.style.transform = 'translateX(-50%) translateY(10px)';
+}
+
+stage.addEventListener('mousedown', onDragStart);
+window.addEventListener('mousemove', onDragMove);
+window.addEventListener('mouseup', onDragEnd);
+stage.addEventListener('touchstart', onDragStart, { passive: false });
+window.addEventListener('touchmove', onDragMove, { passive: false });
+window.addEventListener('touchend', onDragEnd);
+
+// ── PARALLAX TILT ──
+stage.addEventListener('mousemove', (e) => {
+  if (isDragging || S.reduceMotion) return;
+  const rect = stage.getBoundingClientRect();
+  const nx = (e.clientX - rect.left) / rect.width - 0.5;
+  const ny = (e.clientY - rect.top) / rect.height - 0.5;
+  S.tiltX = -ny * 16;
+  S.tiltY = nx * 22;
+  S.tiltUntil = Date.now() + 1400;
+  coordTel.textContent = `X: ${(21.1458+nx*0.04).toFixed(4)} | Y: ${(79.0882+ny*0.04).toFixed(4)} | Z: ${S.zoom.toFixed(3)}`;
+});
+stage.addEventListener('mouseleave', () => {
+  S.tiltUntil = 0;
+  coordTel.textContent = `X: 21.1458 | Y: 79.0882 | Z: ${S.zoom.toFixed(3)}`;
+});
+
+// ══════════════════════════════════════════
+// ── CHILD SYSTEM (Phase 5) ──
+// ══════════════════════════════════════════
+let mainOrbitState = null; // preserved state for return
+
+function enterChildSystem(childId) {
+  const childDef = DATA.CHILD_SYSTEMS[childId];
+  if (!childDef || S.mode !== 'UNIVERSE') return;
+  S.mode = 'TRANSITION_IN';
+  curChildKey = childId;
+  hideHUD();
+
+  // Save main state
+  mainOrbitState = {};
+  curOrbits.forEach(o => { mainOrbitState[o.id] = { ...orbRT[o.id] }; });
+
+  // Notify parent for hash
+  try { window.parent.postMessage({ type: 'hash-update', hash: `universe/${childId}` }, '*'); } catch(ex) {}
+
+  // Transition
+  const dur = S.reduceMotion ? 200 : 700;
+
+  // Fade out chips, cosmic drift
+  filterArea.style.transition = `opacity ${dur/2}ms, max-height ${dur/2}ms`;
+  filterArea.style.opacity = '0';
+  filterArea.style.maxHeight = '0';
+  filterArea.style.overflow = 'hidden';
+  cosmicDrift.style.opacity = '0';
+
+  // Bloom
+  bloomOverlay.style.opacity = '0.3';
+  setTimeout(() => { bloomOverlay.style.opacity = '0'; }, dur * 0.8);
+
+  // Fade out current planets and rings
+  field.style.transition = `opacity ${dur*0.5}ms`;
+  field.style.opacity = '0';
+
+  setTimeout(() => {
+    // Swap content
+    unmountSystem();
+    mountSystem(childDef.orbits, childDef.nodes, true);
+
+    // Update core
+    coreLabel.textContent = childDef.core.label;
+    coreSub.textContent = childDef.core.sub;
+    coreTag.textContent = 'CENTRAL AUTH';
+
+    // Update heading
+    eyebrowText.textContent = childDef.eyebrow;
+    titleItalic.textContent = childDef.italic;
+    universeDesc.textContent = childDef.description;
+
+    // Show breadcrumb
+    breadcrumbLbl.textContent = childId.toUpperCase();
+    breadcrumb.style.maxHeight = '60px';
+    breadcrumb.style.opacity = '1';
+
+    // Attach listeners to new planets
+    planets.forEach(p => attachPlanetListeners(p));
+
+    // Render legend for child
+    renderLegend('child');
+
+    // Fade in
+    field.style.opacity = '1';
+    S.mode = 'CHILD';
+
+    // Trigger static frame if reduced motion
+    if (S.reduceMotion) renderStaticFrame();
+  }, dur);
+}
+
+function exitChildSystem() {
+  if (S.mode !== 'CHILD') return;
+  S.mode = 'TRANSITION_OUT';
+
+  // Notify parent
+  try { window.parent.postMessage({ type: 'hash-update', hash: 'universe' }, '*'); } catch(ex) {}
+
+  const dur = S.reduceMotion ? 200 : 700;
+
+  field.style.transition = `opacity ${dur*0.5}ms`;
+  field.style.opacity = '0';
+  bloomOverlay.style.opacity = '0.3';
+  setTimeout(() => { bloomOverlay.style.opacity = '0'; }, dur * 0.8);
+
+  setTimeout(() => {
+    // Restore main system
+    unmountSystem();
+    mountSystem(DATA.ORBITS, DATA.PROJECTS, false);
+
+    // Restore orbit state
+    if (mainOrbitState) {
+      Object.entries(mainOrbitState).forEach(([id, st]) => { orbRT[id] = { ...st }; });
+      mainOrbitState = null;
+    }
+
+    // Restore core
+    coreLabel.textContent = 'YK';
+    coreSub.textContent = 'NEXUS';
+    coreTag.textContent = 'GRAVITATIONAL CORE';
+
+    // Restore heading
+    eyebrowText.textContent = 'Spatial Dimension 02 // Autonomous Topology';
+    titleItalic.textContent = 'Universe';
+    universeDesc.textContent = 'Interconnected project destinations, AI workflows, research prototypes, and in-progress builds. Navigate the map to inspect profile-backed roles, stacks, statuses, and capabilities.';
+
+    // Hide breadcrumb
+    breadcrumb.style.maxHeight = '0';
+    breadcrumb.style.opacity = '0';
+
+    // Restore filter area
+    filterArea.style.opacity = '1';
+    filterArea.style.maxHeight = '';
+    filterArea.style.overflow = '';
+    cosmicDrift.style.opacity = '1';
+
+    // Re-attach listeners
+    planets.forEach(p => attachPlanetListeners(p));
+    renderLegend('main');
+
+    // Re-apply current filter
+    S.filter = 'all';
+    applyFilter('all');
+
+    field.style.opacity = '1';
+    S.mode = 'UNIVERSE';
+    curChildKey = null;
+
+    if (S.reduceMotion) renderStaticFrame();
+  }, dur);
+}
+
+// Breadcrumb back
+breadcrumbBack.addEventListener('click', exitChildSystem);
+
+// Listen for parent messages (sub-path navigation, escape)
+window.addEventListener('message', (e) => {
+  if (e.data?.type === 'escape') {
+    if (S.selected) { hideHUD(); return; }
+    if (S.mode === 'CHILD') { exitChildSystem(); return; }
+  }
+  if (e.data?.type === 'navigate-sub') {
+    if (e.data.sub && DATA.CHILD_SYSTEMS[e.data.sub]) {
+      // Wait for system to be mounted
+      setTimeout(() => {
+        if (S.mode === 'UNIVERSE') enterChildSystem(e.data.sub);
+      }, 300);
+    } else if (!e.data.sub && S.mode === 'CHILD') {
+      exitChildSystem();
+    }
+  }
+});
+
+// ══════════════════════════════════════════
+// ── LEGEND ──
+// ══════════════════════════════════════════
+function renderLegend(type) {
+  legendEl.innerHTML = '';
+  (DATA.LEGENDS[type] || DATA.LEGENDS.main).forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'flex items-center gap-2';
+    const dot = document.createElement('span');
+    dot.className = 'rounded-full';
+    dot.style.cssText = `width:${item.size}px;height:${item.size}px;background:${item.color}`;
+    if (item.ring) { dot.style.background = 'transparent'; dot.style.border = `2px dashed ${item.color}`; }
+    if (item.dashed) { dot.style.border = `2px dashed ${item.color}`; dot.style.background = 'transparent'; }
+    div.appendChild(dot);
+    const lbl = document.createElement('span');
+    lbl.className = 'font-label-tag text-label-tag text-[11px] text-on-surface';
+    lbl.textContent = item.label;
+    div.appendChild(lbl);
+    legendEl.appendChild(div);
+  });
+}
+
+// ══════════════════════════════════════════
+// ── RADAR (Phase 6) ──
+// ══════════════════════════════════════════
+const RADAR_SCALE = 0.12;
+const RCX = 72, RCY = 48;
+const tierDotColors = { flagship: '#b8a4f8', high: '#b8a4f8', medium: '#cac4d2', 'research-concept': '#62dcad', portal: '#8bd5ff' };
+
+function updateRadar() {
+  radarCtx.clearRect(0, 0, 144, 96);
+
+  // Orbit rings
+  curOrbits.forEach(orb => {
+    radarCtx.save();
+    radarCtx.translate(RCX, RCY);
+    radarCtx.rotate(orb.rot * DEG);
+    radarCtx.beginPath();
+    radarCtx.ellipse(0, 0, orb.a * RADAR_SCALE, orb.b * RADAR_SCALE, 0, 0, PI2);
+    radarCtx.strokeStyle = orb.color;
+    radarCtx.globalAlpha = 0.18;
+    radarCtx.lineWidth = 0.5;
+    radarCtx.stroke();
+    radarCtx.restore();
+  });
+
+  // Planet dots
+  radarCtx.globalAlpha = 1;
+  planets.forEach(p => {
+    if (p.vis === 'hidden') return;
+    const rt = orbRT[p.data.orbit];
+    if (!rt) return;
+    const angle = getAngle(p.orbitData, rt, p.packOff);
+    const pos = orbitPos(p.orbitData, angle);
+    const rx = RCX + (pos.x - CX) * RADAR_SCALE;
+    const ry = RCY + (pos.y - CY) * RADAR_SCALE;
+    radarCtx.beginPath();
+    radarCtx.arc(rx, ry, (p.data.tier === 'flagship' || p.data.tier === 'portal') ? 2.5 : 1.5, 0, PI2);
+    radarCtx.fillStyle = tierDotColors[p.data.tier] || '#cac4d2';
+    radarCtx.globalAlpha = p.visOp;
+    radarCtx.fill();
+  });
+
+  // Core dot
+  radarCtx.globalAlpha = 1;
+  radarCtx.beginPath();
+  radarCtx.arc(RCX, RCY, 2.5, 0, PI2);
+  radarCtx.fillStyle = '#62dcad';
+  radarCtx.fill();
+}
+
+// ── ZOOM CONTROLS ──
+$('zoom-in').addEventListener('click', () => { S.zoom = Math.min(S.zoom + 0.15, 1.4); });
+$('zoom-out').addEventListener('click', () => { S.zoom = Math.max(S.zoom - 0.15, 0.7); });
+$('zoom-reset').addEventListener('click', () => {
+  S.zoom = 1.0; S.tiltX = 0; S.tiltY = 0; S.tiltUntil = 0;
+  S.globalDragOffset = 0;
+  Object.values(orbRT).forEach(r => { r.userOff = 0; });
+  if (momentumRAF) { cancelAnimationFrame(momentumRAF); momentumRAF = null; }
+  dragVelocity = 0;
+});
+
+// ══════════════════════════════════════════
+// ── FIT-TO-VIEWPORT (Phase 7) ──
+// ══════════════════════════════════════════
+function fitViewport() {
+  const sw = stage.clientWidth;
+  const sh = stage.clientHeight;
+  S.vpScale = Math.min(sw / FW, sh / FH, 1);
+  fieldWrapper.style.transform = `scale(${S.vpScale * S.zoom})`;
+}
+
+const resizeObs = new ResizeObserver(fitViewport);
+resizeObs.observe(stage);
+
+// IntersectionObserver — pause when off-screen
+const visObs = new IntersectionObserver(entries => {
+  paused = !entries[0].isIntersecting;
+  if (!paused && !loopId) startLoop();
+}, { threshold: 0.05 });
+visObs.observe(stage);
+
+// Tab visibility
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { paused = true; } else { paused = false; lastTs = performance.now(); }
+});
+
+// ══════════════════════════════════════════
+// ── ANIMATION LOOP (Phase 2 core) ──
+// ══════════════════════════════════════════
+function tick(ts) {
+  if (paused) { loopId = requestAnimationFrame(tick); return; }
+  const dt = Math.min(ts - lastTs, 50);
+  lastTs = ts;
+  frameCount++;
+
+  // Tilt
+  const tiltActive = Date.now() < S.tiltUntil;
+  const tx = tiltActive ? S.tiltX : 0;
+  const ty = tiltActive ? S.tiltY : 0;
+  field.style.transform = `rotateX(${tx}deg) rotateY(${ty}deg)`;
+
+  // Viewport scale (includes zoom)
+  fieldWrapper.style.transform = `scale(${S.vpScale * S.zoom})`;
+
+  // Update orbit times
+  curOrbits.forEach(o => {
+    const rt = orbRT[o.id];
+    if (!rt) return;
+    rt.speed += (rt.target - rt.speed) * 0.12;
+    if (Math.abs(rt.speed - rt.target) < 0.001) rt.speed = rt.target;
+    rt.time += dt * rt.speed;
+  });
+
+  // Filter tween
+  const filterProgress = Math.min(1, (ts - filterTweenStart) / 700);
+  const filterEase = easeInOutCubic(filterProgress);
+  const filterDone = filterProgress >= 1;
+
+  // Update planets
+  planets.forEach(p => {
+    // Visibility transitions
+    if (p.vis === 'hidden') {
+      p.line.setAttribute('stroke-opacity', '0');
+      return;
+    }
+    if (p.vis === 'hiding') {
+      p.visOp = Math.max(0, p.visOp - dt / 450);
+      if (p.visOp <= 0) {
+        p.vis = 'hidden'; p.visOp = 0;
+        p.el.style.visibility = 'hidden';
+        p.el.style.pointerEvents = 'none';
+        p.el.setAttribute('aria-hidden', 'true');
+        p.el.tabIndex = -1;
+        p.line.setAttribute('stroke-opacity', '0');
+        return;
+      }
+    }
+    if (p.vis === 'showing') {
+      p.visOp = Math.min(1, p.visOp + dt / 300);
+      if (p.visOp >= 1) { p.vis = 'visible'; p.visOp = 1; }
+    }
+
+    // Tween pack offset
+    if (!filterDone && p.targetPack !== undefined) {
+      const diff = shortAngleDist(p.startPack, p.targetPack);
+      p.packOff = p.startPack + diff * filterEase;
+    } else if (filterDone) {
+      p.packOff = p.targetPack !== undefined ? p.targetPack : p.packOff;
+    }
+
+    // Compute position
+    const rt = orbRT[p.data.orbit];
+    if (!rt) return;
+    const angle = getAngle(p.orbitData, rt, p.packOff);
+    const pos = orbitPos(p.orbitData, angle);
+
+    // Depth effects
+    const tierScale = DATA.TIERS[p.data.tier].orbSize / 64; // normalise to 1 for flagship
+    const depthScale = 1 + 0.14 * pos.depth;
+    const hoverScale = (p.data.id === S.hovered || p.data.id === S.selected) ? 1.12 : 1;
+    const hideScale = p.vis === 'hiding' ? Math.max(0.4, p.visOp) : 1;
+    const s = depthScale * hoverScale * hideScale;
+    const depthOp = pos.depth < -0.3 ? 0.72 : 1;
+
+    // Set transform (no left/top animation!)
+    p.el.style.transform = `translate3d(${pos.x}px, ${pos.y}px, ${pos.depth * p.orbitData.zAmp}px) translate(-50%, -50%) scale(${s.toFixed(3)})`;
+    p.el.style.opacity = (depthOp * p.visOp).toFixed(2);
+    p.el.style.zIndex = String(30 + Math.round(pos.depth * 20) + (p.data.id === S.hovered ? 80 : 0) + (p.data.id === S.selected ? 90 : 0));
+
+    // Constellation line
+    p.line.setAttribute('x2', pos.x.toFixed(1));
+    p.line.setAttribute('y2', pos.y.toFixed(1));
+    const lineOp = p.visOp * ((p.data.tier==='flagship'||p.data.tier==='high'||p.data.tier==='portal') ? 0.28 : 0.12);
+    p.line.setAttribute('stroke-opacity', lineOp.toFixed(2));
+    if (p.data.id === S.hovered || p.data.id === S.selected) {
+      p.line.setAttribute('stroke', 'url(#link-active)');
+      p.line.setAttribute('stroke-opacity', (p.visOp * 0.7).toFixed(2));
+    } else {
+      p.line.setAttribute('stroke', 'url(#link-grad-core)');
+    }
+
+    // Label depth fade
+    if (pos.depth < -0.3 && p.data.id !== S.hovered && p.data.id !== S.selected) {
+      p.labelEl.style.opacity = '0.35';
+    } else {
+      p.labelEl.style.opacity = '1';
+    }
+
+    // Subtitle visibility for medium/research-concept
+    const tier = DATA.TIERS[p.data.tier];
+    if (!tier.alwaysShowSub && p.subEl && p.data.id !== S.hovered && p.data.id !== S.selected) {
+      p.subEl.style.opacity = pos.depth > 0.4 ? '1' : '0';
+    }
+
+    // Orbit tag brightness on hover
+    if (p.data.id === S.hovered || p.data.id === S.selected) {
+      const tag = svgTags.querySelector(`[data-orbit-id="${p.data.orbit}"]`);
+      if (tag) tag.setAttribute('fill-opacity', '0.9');
+    }
+  });
+
+  // Reset orbit tag opacity for non-active orbits
+  if (frameCount % 10 === 0) {
+    svgTags.querySelectorAll('text').forEach(tag => {
+      const oid = tag.dataset.orbitId;
+      const hasActive = planets.some(p => p.data.orbit === oid && (p.data.id === S.hovered || p.data.id === S.selected));
+      if (!hasActive) tag.setAttribute('fill-opacity', '0.4');
+    });
+  }
+
+  // Radar (every 4 frames)
+  if (frameCount % 4 === 0) updateRadar();
+
+  loopId = requestAnimationFrame(tick);
+}
+
+function startLoop() {
+  if (loopId) return;
+  lastTs = performance.now();
+  loopId = requestAnimationFrame(tick);
+}
+
+function stopLoop() {
+  if (loopId) { cancelAnimationFrame(loopId); loopId = 0; }
+}
+
+// Reduced motion: render one static frame
+function renderStaticFrame() {
+  // Manually update all planet positions without the rAF loop
+  curOrbits.forEach(o => {
+    const rt = orbRT[o.id];
+    if (!rt) return;
+    rt.speed = rt.target; // snap
+  });
+
+  planets.forEach(p => {
+    if (p.vis === 'hidden') return;
+    p.packOff = p.targetPack !== undefined ? p.targetPack : p.packOff;
+    const rt = orbRT[p.data.orbit];
+    if (!rt) return;
+    const angle = getAngle(p.orbitData, rt, p.packOff);
+    const pos = orbitPos(p.orbitData, angle);
+    const s = 1 + 0.14 * pos.depth;
+    p.el.style.transform = `translate3d(${pos.x}px, ${pos.y}px, 0px) translate(-50%, -50%) scale(${s.toFixed(3)})`;
+    p.el.style.opacity = p.visOp.toFixed(2);
+    p.el.style.zIndex = String(30 + Math.round(pos.depth * 20));
+    p.line.setAttribute('x2', pos.x.toFixed(1));
+    p.line.setAttribute('y2', pos.y.toFixed(1));
+  });
+
+  updateRadar();
+}
+
+// ══════════════════════════════════════════
+// ── REGISTRY (Phase 8) ──
+// ══════════════════════════════════════════
+function generateRegistry() {
+  const total = DATA.PROJECTS.length;
+  const childCount = Object.values(DATA.CHILD_SYSTEMS).reduce((s,c) => s + c.nodes.length, 0);
+
+  registryEl.innerHTML = `
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+      <div>
+        <span class="font-label-caps text-label-caps text-primary tracking-widest block mb-space-xs">REGISTRY ARCHITECTURE</span>
+        <h2 class="font-headline-md text-headline-md text-on-surface">Planetary Telemetry &amp; System Artifacts</h2>
+      </div>
+      <p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">
+        A truthful technical index of ${total} projects, with stacks, roles and statuses limited to the supplied profile. EkLink contains ${childCount} more applications under development.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md" id="registry-grid"></div>
+    <div class="w-full bg-surface-container-high rounded-2xl p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md shadow-xl">
+      <div class="flex items-center gap-space-md">
+        <div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-[26px]">terminal</span></div>
+        <div>
+          <h4 class="font-title-lg text-title-lg text-on-surface">Explore Deep Documentation &amp; Interactive Runtime</h4>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">Most nodes link to GitHub repositories; Agriculture Price Prediction links to the IEEE DOI because no public repo is supplied.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-sm shrink-0">
+        <a class="px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-caps text-label-caps font-semibold shadow-md hover:brightness-110 transition-all" data-path="theater" href="#">ENTER THEATER (03)</a>
+        <a class="px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-caps text-label-caps hover:bg-surface-variant transition-all" data-path="archives" href="#">VIEW RESEARCH</a>
+      </div>
+    </div>
+  `;
+
+  const grid = $('registry-grid');
+  // Show first 6 as full cards, rest as compact
+  const sorted = [...DATA.PROJECTS].sort((a,b) => a.rank - b.rank);
+  const fullCards = sorted.slice(0, 6);
+  const compactCards = sorted.slice(6);
+
+  fullCards.forEach((p, i) => {
+    const chipColor = p.tags.includes('research') ? 'text-secondary' : p.tags.includes('ai') ? 'text-primary' : 'text-on-surface-variant';
+    grid.innerHTML += `
+      <div class="bg-surface-container p-space-lg rounded-2xl flex flex-col justify-between shadow-md hover:bg-surface-container-high transition-colors cursor-pointer" data-registry-id="${p.id}">
+        <div>
+          <div class="flex items-center justify-between mb-space-md">
+            <span class="font-label-caps text-label-caps ${chipColor} text-[10px]">${p.category}</span>
+            <span class="font-code-inline text-code-inline text-[11px] text-on-surface-variant">PRJ-${String(i+1).padStart(2,'0')}</span>
+          </div>
+          <h3 class="font-title-lg text-title-lg text-on-surface mb-space-xs">${p.title}</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">${p.metrics}</p>
+          <div class="space-y-2 mb-space-md">
+            <div class="flex justify-between text-[12px] font-code-inline">
+              <span class="text-on-surface-variant">Status:</span>
+              <span class="text-primary font-medium">${p.status}</span>
+            </div>
+            <div class="flex justify-between text-[12px] font-code-inline">
+              <span class="text-on-surface-variant">Role:</span>
+              <span class="text-secondary font-medium">${p.role}</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-1.5 pt-space-sm">
+          ${p.stack.slice(0,3).map(t => `<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest text-on-surface font-label-tag text-[10px]">${t}</span>`).join('')}
+        </div>
+      </div>
+    `;
+  });
+
+  // Compact cards for remaining projects
+  if (compactCards.length) {
+    const compactSection = document.createElement('div');
+    compactSection.className = 'md:col-span-3 grid grid-cols-2 md:grid-cols-4 gap-3';
+    compactCards.forEach(p => {
+      const isPortal = p.tier === 'portal';
+      compactSection.innerHTML += `
+        <div class="bg-surface-container p-space-md rounded-xl hover:bg-surface-container-high transition-colors cursor-pointer" data-registry-id="${p.id}">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="material-symbols-outlined text-[16px] ${DATA.ACCENT_CLASSES[p.accent]?.text || 'text-on-surface-variant'}">${p.icon}</span>
+            <span class="font-title-md text-[14px] text-on-surface font-medium">${p.title}</span>
+          </div>
+          <span class="font-code-inline text-code-inline text-[10px] text-on-surface-variant block">${p.sub}</span>
+          ${isPortal ? '<div class="flex gap-1 mt-2 flex-wrap">' + DATA.CHILD_SYSTEMS.eklink.nodes.map(n => `<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant font-label-tag text-[9px]">${n.title}</span>`).join('') + '</div>' : ''}
+          ${isPortal ? `<button class="mt-2 text-primary font-label-tag text-[10px] hover:text-on-surface transition-colors" onclick="document.getElementById('universe-stage').scrollIntoView({behavior:'smooth'})">EXPLORE ECOSYSTEM ↑</button>` : ''}
+        </div>
       `;
-      document.head.append(orbitStyle);
+    });
+    grid.appendChild(compactSection);
+  }
 
-      [
-        [300, 210], [440, 310], [600, 420], [760, 530]
-      ].forEach(([w, h]) => {
-        const ring = document.createElement('span');
-        ring.className = 'solar-orbit';
-        ring.style.width = `${w}px`;
-        ring.style.height = `${h}px`;
-        field.insertBefore(ring, field.firstChild);
-      });
+  // Registry card click → scroll to stage and select planet (OPTIONAL)
+  grid.querySelectorAll('[data-registry-id]').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = card.dataset.registryId;
+      stage.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        const planet = planets.find(p => p.data.id === id);
+        if (planet && planet.vis !== 'hidden') {
+          S.selected = id;
+          if (orbRT[planet.data.orbit]) orbRT[planet.data.orbit].target = 0;
+          showHUD(planet.data, planet.el);
+        } else if (id === 'eklink') {
+          enterChildSystem('eklink');
+        }
+      }, 600);
+    });
+  });
+}
 
-      const orbitPresets = [
-        [300, 214, -2.1, 0.00018, 70],
-        [370, 250, -0.72, -0.00015, 95],
-        [410, 292, 2.35, 0.00014, 80],
-        [470, 336, 0.44, -0.00012, 110],
-        [245, 168, 3.08, 0.00022, 60],
-        [480, 306, -0.08, 0.00011, 88],
-        [190, 132, -2.65, -0.00028, 38],
-        [275, 188, -0.28, 0.00024, 45],
-        [245, 174, 1.98, -0.00025, 42],
-        [310, 220, 1.12, 0.0002, 48],
-        [190, 140, 2.85, 0.0003, 34],
-        [330, 232, 0.8, -0.00019, 52]
-      ];
-      const orbitNodes = [...nodes].map((node, index) => {
-        const [rx, ry, phase, speed, zAmp] = orbitPresets[index] || orbitPresets.at(-1);
-        node.dataset.orbitIndex = String(index);
-        return { node, rx, ry, phase, speed, zAmp };
-      });
+// ══════════════════════════════════════════
+// ── INIT ──
+// ══════════════════════════════════════════
+function init() {
+  // Generate filter chips
+  generateFilters();
 
-      function setFieldTransform(extraTilt = true) {
-        field.style.transform = `scale(${zoomLevel}) perspective(1200px) rotateX(${extraTilt ? rotX : 0}deg) rotateY(${extraTilt ? rotY : 0}deg)`;
-      }
+  // Mount main system
+  mountSystem(DATA.ORBITS, DATA.PROJECTS, false);
 
-      // Draw SVG Constellation Connections to Core & Neighbors
-      function renderConstellation() {
-        if (!vectorContainer || !coreAnchor) return;
-        const stageRect = stage.getBoundingClientRect();
-        const coreRect = coreAnchor.getBoundingClientRect();
-        const coreX = coreRect.left + coreRect.width / 2 - stageRect.left;
-        const coreY = coreRect.top + coreRect.height / 2 - stageRect.top;
+  // Attach planet listeners
+  planets.forEach(p => attachPlanetListeners(p));
 
-        let markup = '';
-        nodes.forEach(node => {
-          const rect = node.getBoundingClientRect();
-          const nodeX = rect.left + rect.width / 2 - stageRect.left;
-          const nodeY = rect.top + rect.height / 2 - stageRect.top;
-          
-          const isPrimary = node.classList.contains('primary-node');
-          const strokeWidth = isPrimary ? 1.5 : 0.75;
-          const strokeOpacity = isPrimary ? 0.28 : 0.12;
+  // Generate legend
+  renderLegend('main');
 
-          markup += `
-            <line x1="${coreX}" y1="${coreY}" x2="${nodeX}" y2="${nodeY}" 
-                  stroke="url(#link-grad-core)" stroke-width="${strokeWidth}" 
-                  stroke-opacity="${strokeOpacity}" stroke-dasharray="${isPrimary ? 'none' : '4,4'}" />
-          `;
-        });
+  // Generate registry
+  generateRegistry();
 
-        vectorContainer.innerHTML = markup;
-      }
+  // Fit viewport
+  fitViewport();
 
-      function animateOrbit(timestamp = 0) {
-        if (orbitStartTime === null) orbitStartTime = timestamp;
-        const elapsed = timestamp - orbitStartTime;
-        const tiltActive = Date.now() < userTiltUntil;
-        const orbitTime = frozenOrbitTime ?? elapsed;
-        orbitNodes.forEach(({ node, rx, ry, phase, speed, zAmp }, index) => {
-          const angle = reduceMotion.matches ? phase : phase + orbitTime * speed;
-          const depth = Math.sin(angle);
-          const x = fieldCenter.x + Math.cos(angle) * rx;
-          const y = fieldCenter.y + Math.sin(angle) * ry * 0.72;
-          const z = depth * zAmp;
-          const scale = (node.classList.contains('primary-node') ? 1 : 0.94) + depth * 0.12 + (node === hoveredNode ? 0.13 : 0);
-          node.style.left = `${x}px`;
-          node.style.top = `${y}px`;
-          node.style.zIndex = String(30 + Math.round(depth * 20) + (node === hoveredNode ? 80 : 0));
-          node.style.transform = `translate(-50%, -50%) translateZ(${z}px) scale(${scale.toFixed(3)})`;
-          const match = activeFilter === 'all' || (node.getAttribute('data-tags') || '').split(' ').includes(activeFilter);
-          node.classList.toggle('orbit-match', match);
-          node.classList.toggle('orbit-hidden', !match);
-          if (match) {
-            node.style.pointerEvents = 'auto';
-          } else {
-            node.style.pointerEvents = 'auto';
-          }
-        });
-        setFieldTransform(tiltActive);
-        renderConstellation();
-        if (!reduceMotion.matches) requestAnimationFrame(animateOrbit);
-      }
+  // Check for deep link (sub-path passed via query param or message)
+  const params = new URLSearchParams(location.search);
+  const sub = params.get('sub');
+  if (sub && DATA.CHILD_SYSTEMS[sub]) {
+    // Delay to let system fully render
+    setTimeout(() => enterChildSystem(sub), 500);
+  }
 
-      // Initial draw + resizing sync.
-      requestAnimationFrame(animateOrbit);
-      window.addEventListener('resize', renderConstellation);
+  // Start animation
+  if (S.reduceMotion) {
+    renderStaticFrame();
+  } else {
+    startLoop();
+  }
 
-      // Interactive 3D Parallax Tilt on Cursor Move
-      stage.addEventListener('mousemove', (e) => {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const rect = stage.getBoundingClientRect();
-        const normX = (e.clientX - rect.left) / rect.width - 0.5;
-        const normY = (e.clientY - rect.top) / rect.height - 0.5;
+  // Listen for reduced-motion changes
+  window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', (e) => {
+    S.reduceMotion = e.matches;
+    if (e.matches) { stopLoop(); renderStaticFrame(); } else { startLoop(); }
+  });
+}
 
-        rotX = -normY * 16;
-        rotY = normX * 22;
-
-        userTiltUntil = Date.now() + 1400;
-        setFieldTransform(true);
-        
-        // Dynamic Coordinate String
-        const posX = (21.1458 + normX * 0.04).toFixed(4);
-        const posY = (79.0882 + normY * 0.04).toFixed(4);
-        coordTelemetry.textContent = `X: ${posX} | Y: ${posY} | Z: ${zoomLevel.toFixed(3)}`;
-      });
-
-      stage.addEventListener('mouseleave', () => {
-        userTiltUntil = 0;
-        setFieldTransform(false);
-        coordTelemetry.textContent = `X: 21.1458 | Y: 79.0882 | Z: ${zoomLevel.toFixed(3)}`;
-      });
-
-      // Filter Logic (Illuminates / Dims Nodes & Constellation)
-      filterChips.forEach(chip => {
-        chip.addEventListener('click', () => {
-          filterChips.forEach(c => {
-            c.classList.remove('bg-primary', 'text-on-primary', 'active-chip');
-            c.classList.add('bg-surface-container-high', 'text-on-surface-variant');
-          });
-
-          chip.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
-          chip.classList.add('bg-primary', 'text-on-primary', 'active-chip');
-
-          activeFilter = chip.getAttribute('data-filter');
-          renderConstellation();
-        });
-      });
-
-      // Hover & Telemetry HUD Population
-      nodes.forEach(node => {
-        node.addEventListener('mouseenter', (e) => {
-          hoveredNode = node;
-          frozenOrbitTime = orbitStartTime === null ? 0 : performance.now() - orbitStartTime;
-          node.classList.add('orbit-active');
-          const title = node.getAttribute('data-title');
-          const category = node.getAttribute('data-category');
-          const role = node.getAttribute('data-role');
-          const recognition = node.getAttribute('data-recognition');
-          const metrics = node.getAttribute('data-metrics');
-          const stack = (node.getAttribute('data-stack') || '').split('•');
-
-          document.getElementById('hud-title').textContent = title;
-          document.getElementById('hud-category').textContent = category;
-          document.getElementById('hud-role').textContent = role;
-          document.getElementById('hud-recognition').textContent = recognition;
-          document.getElementById('hud-metrics').textContent = metrics;
-
-          const stackContainer = document.getElementById('hud-stack');
-          stackContainer.innerHTML = '';
-          stack.forEach(tech => {
-            if (tech.trim()) {
-              const span = document.createElement('span');
-              span.className = 'px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface font-code-inline text-[10px]';
-              span.textContent = tech.trim();
-              stackContainer.appendChild(span);
-            }
-          });
-
-          // Position HUD relative to Node
-          const nodeRect = node.getBoundingClientRect();
-          const stageRect = stage.getBoundingClientRect();
-          
-          let left = nodeRect.right - stageRect.left + 16;
-          let top = nodeRect.top - stageRect.top - 20;
-
-          // Screen constraint safety
-          if (left + 384 > stageRect.width) {
-            left = nodeRect.left - stageRect.left - 400;
-          }
-          if (left < 16) left = 16;
-          if (top < 16) top = 16;
-          if (top + 280 > stageRect.height) top = stageRect.height - 300;
-
-          hud.style.left = `${left}px`;
-          hud.style.top = `${top}px`;
-          hud.classList.remove('hidden');
-          setTimeout(() => {
-            hud.classList.remove('opacity-0', 'scale-95');
-            hud.classList.add('opacity-100', 'scale-100');
-          }, 10);
-        });
-        node.addEventListener('mouseleave', () => {
-          if (hoveredNode === node) hoveredNode = null;
-          frozenOrbitTime = null;
-          node.classList.remove('orbit-active');
-        });
-      });
-
-      // Close Telemetry HUD
-      if (closeHud) {
-        closeHud.addEventListener('click', () => {
-          hoveredNode?.classList.remove('orbit-active');
-          hoveredNode = null;
-          frozenOrbitTime = null;
-          hud.classList.add('opacity-0', 'scale-95');
-          setTimeout(() => hud.classList.add('hidden'), 200);
-        });
-      }
-
-      // Radar Zoom Controls
-      document.getElementById('zoom-in')?.addEventListener('click', () => {
-        zoomLevel = Math.min(zoomLevel + 0.15, 1.4);
-        setFieldTransform(true);
-        renderConstellation();
-      });
-
-      document.getElementById('zoom-out')?.addEventListener('click', () => {
-        zoomLevel = Math.max(zoomLevel - 0.15, 0.7);
-        setFieldTransform(true);
-        renderConstellation();
-      });
-
-      document.getElementById('zoom-reset')?.addEventListener('click', () => {
-        zoomLevel = 1.0;
-        rotX = 0;
-        rotY = 0;
-        userTiltUntil = 0;
-        setFieldTransform(false);
-        renderConstellation();
-      });
-
-    })();
-  </script>
-</div></main><aside class="fixed bottom-space-md left-gutter-mobile md:left-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)]"><span class="material-symbols-outlined text-secondary text-[16px] animate-pulse">sensors</span><div class="flex items-center gap-space-xs font-label-tag text-label-tag text-[11px] text-on-surface-variant"><span class="text-on-surface font-semibold">21°08'N 79°05'E</span><span class="opacity-40">•</span><span class="text-secondary font-medium">IST 02:44:19</span><span class="opacity-40">•</span><div class="flex items-center gap-[2px] h-3"><span class="w-[2px] h-2 bg-secondary/80 rounded-full animate-bounce"></span><span class="w-[2px] h-3 bg-secondary rounded-full animate-bounce [animation-delay:0.15s]"></span><span class="w-[2px] h-1.5 bg-secondary/60 rounded-full animate-bounce [animation-delay:0.3s]"></span></div></div></div></aside><aside class="fixed bottom-space-md right-gutter-mobile md:right-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)] group"><button class="font-label-caps text-label-caps text-[10px] text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" type="button">SKIP INTRO</button><div class="relative flex items-center justify-center w-7 h-7"><svg class="w-7 h-7 -rotate-90" viewbox="0 0 32 32"><circle class="text-surface-variant" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-width="2"></circle><circle class="text-primary" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-dasharray="81.68" stroke-dashoffset="54" stroke-width="2.5"></circle></svg><span class="absolute font-code-inline text-code-inline text-[9px] font-semibold text-on-surface">34%</span></div></div></aside><footer class="w-full bg-surface-container-lowest py-space-xl mt-space-2xl shadow-[0_-1px_16px_rgba(0,0,0,0.4)]"><div class="max-w-[1440px] mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md font-label-tag text-label-tag text-on-surface-variant"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-primary text-[20px]">YK</span><span>© 2026 Yash Khadgi. Building products. Building a legacy.</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps text-[11px]"><span class="text-secondary">OPEN TO INTERNSHIPS &amp; COLLABORATION</span><span class="opacity-30">|</span><span class="text-on-surface-variant">LAT 21.1458° N • LON 79.0882° E</span></div></div></footer></body></html>
+init();
+})();
+</script>
+</body>
+</html>

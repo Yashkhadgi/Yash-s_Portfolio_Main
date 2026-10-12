@@ -77,12 +77,14 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
     }
   });
   dialog.addEventListener('close',()=>{heading.textContent='Explore the journey';search.hidden=false;});
-  doc.querySelectorAll('.celestial-node').forEach(node=>{
-    node.tabIndex=0;node.setAttribute('role','button');node.setAttribute('aria-label',node.dataset.title||node.textContent.trim());
-    const open=()=>node.dispatchEvent(new win.MouseEvent('mouseenter'));
-    node.addEventListener('click',open);
-    node.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
-  });
+  if (!doc.documentElement.dataset.universeEngine) {
+    doc.querySelectorAll('.celestial-node').forEach(node=>{
+      node.tabIndex=0;node.setAttribute('role','button');node.setAttribute('aria-label',node.dataset.title||node.textContent.trim());
+      const open=()=>node.dispatchEvent(new win.MouseEvent('mouseenter'));
+      node.addEventListener('click',open);
+      node.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
+    });
+  }
   for(const selector of ['.q','.tech-btn','.filter-chip','.node']){
     const buttons=[...doc.querySelectorAll(selector)];
     const sync=()=>buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.classList.contains('active')||button.classList.contains('active-chip'))));
