@@ -26,22 +26,20 @@
     portal:            { orbSize: 60, innerSize: 44, iconSize: 22, alwaysShowSub: true,  glow: true,  dashed: true  }
   };
 
-  // ── FIVE ORBITS ──
+  // ── THREE CONCENTRIC ORBITS (no crossing rings, shared tilt of -8 deg) ──
   // a = semi-major, b = semi-minor, rot = degrees (CW+), zAmp = depth parallax,
   // period = seconds per revolution, dir = +1 CCW / -1 CW, phase = initial offset (rad)
   const ORBITS = [
-    { id: 'orbit-ai',        name: 'AI / ML & RAG',              a: 250, b: 105, rot: -14, zAmp: 70,  period: 70,  dir:  1, color: '#b8a4f8', phase: -0.6, dashed: false, tag: 'ORBIT 01 · AI/ML & RAG' },
-    { id: 'orbit-backend',   name: 'Python / FastAPI & Backend',  a: 285, b: 105, rot:  82, zAmp: 95,  period: 95,  dir: -1, color: '#cac4d2', phase:  0.9, dashed: false, tag: 'ORBIT 02 · PYTHON / FASTAPI' },
-    { id: 'orbit-fullstack', name: 'React / Full-Stack',          a: 385, b: 150, rot:  24, zAmp: 80,  period: 120, dir:  1, color: '#8bd5ff', phase:  2.1, dashed: false, tag: 'ORBIT 03 · REACT / FULL-STACK' },
-    { id: 'orbit-research',  name: 'Patents & Research',          a: 300, b: 120, rot: -68, zAmp: 90,  period: 88,  dir: -1, color: '#62dcad', phase: -2.4, dashed: false, tag: 'ORBIT 04 · PATENTS & RESEARCH' },
-    { id: 'orbit-ecosystem', name: 'Ecosystem (EkLink)',          a: 470, b: 190, rot:   6, zAmp: 50,  period: 160, dir:  1, color: '#b8a4f8', phase:  0.3, dashed: true,  tag: 'ORBIT 05 · ECOSYSTEM' }
+    { id: 'orbit-flagship',   name: 'Flagship Systems',         a: 250, b: 145, rot: -8, zAmp: 30, period: 75,  dir: 1, color: '#b8a4f8', phase: 0,   dashed: false, tag: '' },
+    { id: 'orbit-satellites', name: 'Satellites & Micro-apps',  a: 360, b: 210, rot: -8, zAmp: 42, period: 115, dir: 1, color: '#cac4d2', phase: 0.5, dashed: false, tag: '' },
+    { id: 'orbit-research',   name: 'Research & Patents',        a: 465, b: 275, rot: -8, zAmp: 54, period: 160, dir: 1, color: '#62dcad', phase: 1.2, dashed: false, tag: '' }
   ];
 
   // ── 15 PROJECTS (priority order) ──
   const PROJECTS = [
     {
       id: 'customerpulse', title: 'CustomerPulse', sub: 'Complaint Intelligence', tier: 'flagship', rank: 1,
-      orbit: 'orbit-ai', icon: 'insights', accent: 'secondary',
+      orbit: 'orbit-flagship', icon: 'insights', accent: 'secondary',
       tags: ['ai','backend','cloud','fullstack'],
       category: 'FLAGSHIP · COMPLAINT INTELLIGENCE',
       status: 'Completed hackathon prototype',
@@ -53,7 +51,7 @@
     },
     {
       id: 'docflow', title: 'DocFlow', sub: 'Document Automation', tier: 'flagship', rank: 2,
-      orbit: 'orbit-backend', icon: 'account_tree', accent: 'secondary',
+      orbit: 'orbit-flagship', icon: 'account_tree', accent: 'secondary',
       tags: ['backend','fullstack'],
       category: 'FLAGSHIP · DOCUMENT AUTOMATION SaaS',
       status: 'Working prototype · development ongoing',
@@ -65,7 +63,7 @@
     },
     {
       id: 'safarsathi', title: 'SafarSathi', sub: 'Multilingual Travel Companion', tier: 'flagship', rank: 3,
-      orbit: 'orbit-ai', icon: 'travel_explore', accent: 'primary',
+      orbit: 'orbit-flagship', icon: 'travel_explore', accent: 'primary',
       tags: ['ai','fullstack'],
       category: 'FLAGSHIP · AGENTIC TRAVELTECH',
       status: 'Completed',
@@ -77,7 +75,7 @@
     },
     {
       id: 'memorylens', title: 'MemoryLens', sub: 'Multimodal Search', tier: 'flagship', rank: 4,
-      orbit: 'orbit-ai', icon: 'saved_search', accent: 'tertiary',
+      orbit: 'orbit-flagship', icon: 'saved_search', accent: 'tertiary',
       tags: ['ai','backend','cloud','fullstack','cv'],
       category: 'FLAGSHIP · MULTIMODAL SEARCH',
       status: 'Hackathon prototype completed',
@@ -89,7 +87,7 @@
     },
     {
       id: 'lungtwin', title: 'Lung Digital Twin', sub: 'Research Prototype', tier: 'flagship', rank: 5,
-      orbit: 'orbit-research', icon: 'coronavirus', accent: 'primary',
+      orbit: 'orbit-flagship', icon: 'coronavirus', accent: 'primary',
       tags: ['research','ai','backend','fullstack','cv'],
       category: 'FLAGSHIP · MEDICAL RESEARCH PROTOTYPE',
       status: 'Working research prototype',
@@ -101,7 +99,7 @@
     },
     {
       id: 'learningpath', title: 'Learning Path Recommender', sub: 'Adaptive Learning AI', tier: 'flagship', rank: 6,
-      orbit: 'orbit-ai', icon: 'route', accent: 'primary',
+      orbit: 'orbit-flagship', icon: 'route', accent: 'primary',
       tags: ['ai','fullstack'],
       category: 'FLAGSHIP · RECOMMENDATION SYSTEM',
       status: 'Hackathon project (implementation documented in submitted report)',
@@ -113,7 +111,7 @@
     },
     {
       id: 'skillforge', title: 'SkillForge', sub: 'LMS System', tier: 'flagship', rank: 7,
-      orbit: 'orbit-fullstack', icon: 'school', accent: 'on-surface',
+      orbit: 'orbit-flagship', icon: 'school', accent: 'on-surface',
       tags: ['backend','fullstack'],
       category: 'FLAGSHIP · FULL-STACK LMS',
       status: 'Built',
@@ -137,7 +135,7 @@
     },
     {
       id: 'eklink', title: 'EkLink', sub: 'Unified Portal · 4 apps inside', tier: 'portal', rank: 9,
-      orbit: 'orbit-ecosystem', icon: 'hub', accent: 'primary',
+      orbit: null, icon: 'hub', accent: 'primary',
       tags: ['fullstack','backend'],
       category: 'ECOSYSTEM · CENTRAL AUTH PORTAL',
       status: 'Group project · under development',
@@ -150,7 +148,7 @@
     },
     {
       id: 'aasb', title: 'AI Air SmartBoard', sub: 'Gesture Whiteboard', tier: 'medium', rank: 10,
-      orbit: 'orbit-fullstack', icon: 'draw', accent: 'secondary',
+      orbit: 'orbit-satellites', icon: 'draw', accent: 'secondary',
       tags: ['cv','backend','fullstack'],
       category: 'EXPERIMENTAL · COMPUTER VISION',
       status: 'Built experimental application',
@@ -162,7 +160,7 @@
     },
     {
       id: 'bhashayatra', title: 'BhashaYatra', sub: 'Agentic Tourist Assistant', tier: 'medium', rank: 11,
-      orbit: 'orbit-ai', icon: 'translate', accent: 'primary',
+      orbit: 'orbit-satellites', icon: 'translate', accent: 'primary',
       tags: ['ai','backend'],
       category: 'ACADEMIC · MULTI-AGENT RAG',
       status: 'Academic project · feature completion to verify',
@@ -174,7 +172,7 @@
     },
     {
       id: 'trendplus', title: 'TrendPlus', sub: 'Placement Intelligence CLI', tier: 'medium', rank: 12,
-      orbit: 'orbit-backend', icon: 'trending_up', accent: 'tertiary',
+      orbit: 'orbit-satellites', icon: 'trending_up', accent: 'tertiary',
       tags: ['ai','backend'],
       category: 'SUPPORTING · PLACEMENT INTELLIGENCE CLI',
       status: 'Built',
@@ -186,7 +184,7 @@
     },
     {
       id: 'medminder', title: 'MedMinder AI', sub: 'Medication Adherence', tier: 'medium', rank: 13,
-      orbit: 'orbit-backend', icon: 'medication', accent: 'secondary',
+      orbit: 'orbit-satellites', icon: 'medication', accent: 'secondary',
       tags: ['ai','backend'],
       category: 'FEATURED · MULTI-AGENT REMINDERS',
       status: 'Built application / prototype · reminder tool, not medical advice',
@@ -198,7 +196,7 @@
     },
     {
       id: 'sitedubot', title: 'SIT EduBot', sub: 'Student FAQ Chatbot', tier: 'medium', rank: 14,
-      orbit: 'orbit-fullstack', icon: 'smart_toy', accent: 'on-surface',
+      orbit: 'orbit-satellites', icon: 'smart_toy', accent: 'on-surface',
       tags: ['ai','backend','fullstack'],
       category: 'ACADEMIC · NLP CHATBOT',
       status: 'Built academic project',
@@ -222,21 +220,20 @@
     }
   ];
 
-  // ── EKLINK CHILD SYSTEM ──
+  // ── EKLINK CHILD SYSTEM (ONE SINGLE ORBIT) ──
   const CHILD_SYSTEMS = {
     eklink: {
       title: 'EkLink',
-      italic: 'Ecosystem',
-      eyebrow: 'SPATIAL DIMENSION 02.1 // CHILD SYSTEM · EKLINK',
+      italic: 'Solar System',
+      eyebrow: 'SPATIAL DIMENSION 02.1 // SOLAR SYSTEM · EKLINK',
       description: 'One identity, four institutional apps. EkLink is the central authentication and access layer; TemplateOS, ApproveIt, SlotIt and Attendie are specialised applications being developed to plug into it.',
-      core: { label: 'EK', sub: 'CENTRAL AUTH', github: 'https://github.com/Yashkhadgi/EkLink' },
+      core: { label: 'EKLINK', sub: 'CENTRAL SUN · AUTH', github: 'https://github.com/Yashkhadgi/EkLink' },
       orbits: [
-        { id: 'c-docs', name: 'Documents & Approvals',    a: 190, b: 80,  rot: -10, period: 55, dir:  1, color: '#b8a4f8', zAmp: 50, phase: 0,   dashed: false, tag: 'ORBIT A · DOCUMENTS & APPROVALS' },
-        { id: 'c-ops',  name: 'Institutional Operations',  a: 290, b: 110, rot:  70, period: 80, dir: -1, color: '#8bd5ff', zAmp: 60, phase: 1.2, dashed: false, tag: 'ORBIT B · INSTITUTIONAL OPS' }
+        { id: 'c-eklink', name: 'EkLink Unified Apps', a: 280, b: 155, rot: -8, period: 75, dir: 1, color: '#ffd166', zAmp: 35, phase: 0, dashed: false, tag: '' }
       ],
       nodes: [
         {
-          id: 'templateos', title: 'TemplateOS', sub: 'Templates & Documents', orbit: 'c-docs', icon: 'description',
+          id: 'templateos', title: 'TemplateOS', sub: 'Templates & Documents', orbit: 'c-eklink', icon: 'description',
           tier: 'medium', rank: 16, accent: 'primary', tags: [],
           category: 'EKLINK ECOSYSTEM · APPLICATION 1',
           status: 'Under development', role: 'EkLink ecosystem · application 1',
@@ -245,7 +242,7 @@
           metrics: 'Reusable document & report templates • consistent institutional documents • saved outputs'
         },
         {
-          id: 'approveit', title: 'ApproveIt', sub: 'Approvals & Tracking', orbit: 'c-docs', icon: 'fact_check',
+          id: 'approveit', title: 'ApproveIt', sub: 'Approvals & Tracking', orbit: 'c-eklink', icon: 'fact_check',
           tier: 'medium', rank: 17, accent: 'secondary', tags: [],
           category: 'EKLINK ECOSYSTEM · APPLICATION 2',
           status: 'Under development', role: 'EkLink ecosystem · application 2',
@@ -254,7 +251,7 @@
           metrics: 'Multi-stage approval flows • request tracking • sign-off interactions'
         },
         {
-          id: 'slotit', title: 'SlotIt', sub: 'Spaces & Bookings', orbit: 'c-ops', icon: 'event_seat',
+          id: 'slotit', title: 'SlotIt', sub: 'Spaces & Bookings', orbit: 'c-eklink', icon: 'event_seat',
           tier: 'medium', rank: 18, accent: 'tertiary', tags: [],
           category: 'EKLINK ECOSYSTEM · APPLICATION 3',
           status: 'Under development', role: 'EkLink ecosystem · application 3',
@@ -263,7 +260,7 @@
           metrics: 'Classroom / lab booking • availability check • conflict prevention'
         },
         {
-          id: 'attendie', title: 'Attendie', sub: 'Attendance Requests & Events', orbit: 'c-ops', icon: 'how_to_reg',
+          id: 'attendie', title: 'Attendie', sub: 'Attendance Requests & Events', orbit: 'c-eklink', icon: 'how_to_reg',
           tier: 'medium', rank: 19, accent: 'secondary', tags: [],
           category: 'EKLINK ECOSYSTEM · APPLICATION 4',
           status: 'Under development', role: 'EkLink ecosystem · application 4',
@@ -283,15 +280,15 @@
   // ── LEGEND CONFIGS ──
   const LEGENDS = {
     main: [
-      { color: '#b8a4f8', size: 12, label: 'Flagship Systems' },
-      { color: '#62dcad', size: 10, label: 'Research & Patents' },
-      { color: '#cac4d2', size:  8, label: 'Satellites / Micro-apps' },
-      { color: '#8bd5ff', size: 10, label: 'Portal (sub-system)', ring: true }
+      { color: '#b8a4f8', size: 12, label: 'Orbit 1 · Flagship Systems' },
+      { color: '#cac4d2', size: 10, label: 'Orbit 2 · Satellites & Micro-apps' },
+      { color: '#62dcad', size:  8, label: 'Orbit 3 · Research & Patents' },
+      { color: '#8bd5ff', size: 12, label: 'Shooting Star · EkLink Portal', isStar: true }
     ],
     child: [
-      { color: '#b8a4f8', size: 12, label: 'Central Core' },
-      { color: '#cac4d2', size: 10, label: 'Under-development app', dashed: true },
-      { color: '#8bd5ff', size:  8, label: 'Planned integration', dashLine: true }
+      { color: '#ffd166', size: 12, label: 'Central Sun · EkLink (Auth Core)', isSun: true },
+      { color: '#8bd5ff', size: 10, label: 'Planets · 4 Unified Apps' },
+      { color: '#cac4d2', size:  8, label: 'Planetary Orbit · Synchronized Path', dashed: true }
     ]
   };
 
@@ -311,7 +308,7 @@
     const issues = [];
 
     PROJECTS.forEach(p => {
-      if (!orbitIds.has(p.orbit)) issues.push(`Project "${p.id}": orbit "${p.orbit}" not found`);
+      if (p.orbit && !orbitIds.has(p.orbit)) issues.push(`Project "${p.id}": orbit "${p.orbit}" not found`);
       if (!tierKeys.has(p.tier))  issues.push(`Project "${p.id}": tier "${p.tier}" unknown`);
       p.tags.forEach(t => {
         if (!tagKeys.has(t)) issues.push(`Project "${p.id}": tag "${t}" not in taxonomy`);

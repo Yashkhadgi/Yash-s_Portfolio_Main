@@ -45,7 +45,8 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
     ['TrendPulse','TrendPlus','Python Tavily Groq Pydantic Rich CLI'],
     ['SIT EduBot','student-faq-chatbot','Flask NLTK TextBlob TF-IDF Logistic Regression JavaScript'],
     ['AI Air Smartboard','AASB-Ai_Air_Smartboard','Python OpenCV MediaPipe FastAPI WebSockets React Vite'],
-    ['SafarSathi','SafarSathi','travel companion in progress']
+    ['SafarSathi','SafarSathi','travel companion in progress'],
+    ['Learning Path Recommender','HCL_hack','Next.js 15 React Tailwind v4 PostgreSQL Prisma Groq Gemini Zod DAG']
   ];
   const commands = Object.entries({arrival:'Arrival',universe:'Universe',theater:'Project Theater',research:'Research / Agriculture Price Prediction',about:'About'}).map(([route,name])=>({name,action:()=>navigate(route)}));
   projectRepos.forEach(([name,repo,tags])=>commands.push({name:`${name} · GitHub`,tags,action:()=>win.open(`https://github.com/Yashkhadgi/${repo}`,'_blank','noopener,noreferrer')}));
@@ -109,11 +110,17 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
   const modal=doc.querySelector('#project-modal');
   if(modal){
     const content={
-      'customerpulse-modal':['CustomerPulse','AI-powered unified complaint intelligence platform for financial-services workflows.','AI/ML and product architecture contributor in a four-person team.','Email and website complaint intake, AI enrichment, duplicate/similarity detection, customer communication history, response assistance, permissions and lifecycle tracking.','React/TypeScript, FastAPI, PostgreSQL, AWS Bedrock, RAG','CustomerPulse'],
-      'memorylens-modal':['MemoryLens','Multimodal document and photo search using natural-language clues and face matching.','Team Lead & Backend Architect in a four-person team.','Document parsing/indexing, embeddings and vector retrieval with FAISS, face-related photo matching, progress/status updates and local open-file workflows; AWS versus offline architecture details to be confirmed.','Python, FastAPI, FAISS, React, AWS Textract/Rekognition/Bedrock references','memorylens'],
-      'docflow-modal':['DocFlow','Document processing and automation SaaS for invoices, forms and contracts.','Team Lead, Backend & Infrastructure for IEEE NEXUS 2026 work that is still improving.','Bulk upload, OCR/field extraction, async jobs, queueing/retries, human review, exports, authentication and deployment planning; advanced SaaS features remain to be verified.','React/TypeScript, FastAPI, PostgreSQL, Celery, Docker/deployment planning','DocFlow'],
-      'digitaltwin-modal':['Lung Digital Twin v2','Medical research prototype exploring CT imaging, 3D anatomy and treatment-response simulation; not a clinically validated device.','Team Lead & end-to-end prototype developer.','DICOM scan views where data is available, tumor masks, anatomical 3D representation, treatment scheduling and Gompertz-style growth/response simulation.','React/Vite, Three.js/React Three Fiber, Recharts, FastAPI, PyDICOM, SimpleITK, PyRadiomics, scikit-learn','LungTwin_V2']
+      'customerpulse-modal':['CustomerPulse','AI-powered unified complaint intelligence platform for financial-services workflows.','AI/ML, Architecture & Product Contributor · 4-member team','Multi-channel complaint intake • NLP classification & sentiment • urgency scoring • duplicate detection (pgvector + hashing) • AI-assisted replies • RBAC','React, TypeScript, Vite, FastAPI, PostgreSQL, pgvector, AWS Bedrock (Claude)','CustomerPulse','Completed hackathon prototype','Finalist (approx. top 2% of 1,500+ teams) — Union Bank × KJ Somaiya Hackathon 2026',['Intake','Enrichment','Deduplication','Response & RBAC'],['Multi-channel intake','NLP classification & urgency scoring','pgvector duplicate detection','AI-assisted reply drafting & RBAC']],
+      'memorylens-modal':['MemoryLens','Multimodal document and photo search using natural-language clues and face matching.','Team Lead & Backend Architect · 4-member team','Natural-language document search • face-based photo matching • FAISS vector retrieval • indexing & open-file workflow','Python, FastAPI, React, FAISS, AWS Textract, AWS Rekognition, AWS Bedrock','memorylens','Hackathon prototype completed','AWS-powered AI for Bharat Hackathon 2026 — prototype submission stage (not the Grand Finale)',['Ingestion','Cloud Extraction','Vector Retrieval','Search Workflow'],['Document & photo intake','Textract & Rekognition extraction','FAISS vector index & matching','Ranked open-file workflow']],
+      'docflow-modal':['DocFlow','Document automation platform for bulk uploads, OCR/field extraction, async processing and structured exports.','Team Lead, Backend & Infrastructure','Bulk PDF/image upload • OCR-based extraction • async jobs (Celery + RabbitMQ) • human review of low-confidence fields • CSV/JSON export','React, TypeScript, FastAPI, PostgreSQL, Celery, RabbitMQ, Docker','DocFlow','Working prototype · development ongoing','Born at IEEE NEXUS 2026, Symbiosis Institute of Technology, Nagpur',['Upload','Extraction','Queue Processing','Review & Export'],['Bulk PDF & image upload','OCR field extraction','Celery & RabbitMQ async jobs','Human review & structured export']],
+      'digitaltwin-modal':['Lung Digital Twin','Medical research prototype exploring CT imaging, 3D anatomy and mathematical growth/response simulation; not a clinical device.','Team Lead & end-to-end prototype developer','DICOM CT viewing • tumor-mask overlays • 3D lung anatomy • treatment scheduling • Gompertz-style response simulation','React, Vite, Three.js, React Three Fiber, Recharts, FastAPI, PyDICOM, SimpleITK, PyRadiomics, scikit-learn','LungTwin_V2','Working research prototype','Patent reported (exact title/number to be added). Research simulation only, not a clinical device',['DICOM Scans','Segmentation','3D Anatomy','Response Sim'],['DICOM CT scan viewing','Tumor-mask overlay analysis','3D anatomical lung model','Gompertz-style response simulation']],
+      'skillforge-modal':['SkillForge','Full-stack learning management system featuring authentication with OTP recovery, RBAC, enrollment progress tracking, admin analytics, and audit logging.','Solo · Python Full Stack Internship, Maincraft Technologies (May–June 2026)','Auth + OTP recovery • RBAC • enrollment & progress • reviews • certificates • admin analytics • audit logs • CSV export • API-key REST','Python, Flask, SQLite, Bootstrap, JavaScript, Chart.js, Flask-WTF, Flask-Limiter','skilforge','Built','Complete internship product',['Auth & Security','Core LMS Engine','Audits & Analytics','Certificates & APIs'],['Auth & OTP recovery / RBAC','Enrollment & course progress','Audit logs & admin analytics','Certificates & API-key REST']],
+      'safarsathi-modal':['SafarSathi','Multilingual AI travel assistant providing location-aware recommendations, route assistance, and SOS support for hospitals and police.','Builder / Developer · personal project','Multilingual AI assistant • location-aware recommendations • route & trip help • SOS support for hospitals/police','AI / LLM integration, Multilingual processing, Google Maps, Travel APIs','SafarSathi','Completed','Completed personal product',['User Intake','Multilingual NLP','Maps & Routing','Guidance & SOS'],['User query & location intake','Multilingual NLP processing','Google Maps & travel integration','Contextual advice & SOS support']],
+      'learningpath-modal':['Learning Path Recommender','Adaptive learning path engine featuring conversational onboarding, skill-gap diagnostics, and DAG topological course sequencing.','Role to be confirmed','Conversational onboarding • skill-gap analysis • hybrid course scoring • DAG + Kahn topological path (Foundations → Core → Specialization) • adaptive re-planning • 5-question diagnostics','Next.js 15, React, Tailwind v4, PostgreSQL, Prisma, Groq, Gemini, Zod','HCL_hack','Hackathon project (implementation documented in submitted report)','HCL × HackerEarth Amplified Hackathon',['Diagnostics','Skill-Gap Scoring','DAG Sequencing','Adaptive Path'],['5-question conversational diagnostic','Hybrid skill-gap course scoring','DAG + Kahn topological sequencing','Adaptive re-planning roadmap']],
+      'agriprice-modal':['Agriculture Price Prediction','An agricultural machine learning framework for ensemble regressor-based crop price forecasting using historical market data.','Research team member · co-author & ML contributor','Historical market data • ensemble regression • published paper with DOI • patent publication reported June 2026','Python, Machine Learning, Ensemble Regression, Data Analytics','https://doi.org/10.1109/TEMSMET65536.2025.11467327','Published (IEEE Xplore) · patent publication reported June 2026','IEEE TEMSMET 2025, NIT Delhi — IEEE Xplore DOI Available',['Market Data','Preparation','Modelling','Prediction'],['Historical crop-market commodity records','Dataset cleaning and feature preparation','Ensemble regression framework','Agricultural commodity price forecasting']]
     };
+    content['agri-price-modal'] = content['agriprice-modal'];
+    content['lungtwin-modal'] = content['digitaltwin-modal'];
     let opener;
     const templates = new Map([...doc.querySelectorAll('.modal-tab-content')].map(panel=>[panel.id,panel.innerHTML]));
     const oldOpen=win.openModal, oldClose=win.closeModal;
@@ -122,16 +129,34 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
       opener=doc.activeElement;oldOpen(id);
       templates.forEach((html,id)=>{doc.getElementById(id).innerHTML=html;});
       const setText=(selector,values)=>doc.querySelectorAll(selector).forEach((el,i)=>{el.textContent=values[i]||'';});
-      setText('#content-tab-overview p',[data[1],'Personal contribution',data[2],'Product scope',data[3]]);
-      setText('#content-tab-overview span',['ROLE','WORKFLOW']);
-      setText('#content-tab-problem h4',[data[0],'Approach']);
+      const contextText = data[7] ? `${data[1]} (${data[7]})` : data[1];
+      setText('#content-tab-overview p',[contextText,'Personal contribution',data[2],data[6]||'Product scope',data[3]]);
+      setText('#content-tab-overview span',['ROLE','STATUS & SCOPE']);
+      setText('#content-tab-problem h4',[data[0],'Approach & Key Capabilities']);
       setText('#content-tab-problem p',[data[1],data[3]]);
-      setText('#content-tab-arch p',['Input','Processing','Review','Output',data[3]]);
-      setText('#content-tab-arch span:not(.material-symbols-outlined)',['CONCEPTUAL WORKFLOW','INPUT','PROCESSING','REVIEW','OUTPUT']);
-      const stack=data[4].split(', ');
-      setText('#content-tab-specs p',[stack[0],stack[1],stack[2],stack.slice(3).join(', '),'GitHub Source Repository','Project source and documentation.']);
+      const steps = data[8] || ['Input','Processing','Review','Output'];
+      const stepDescs = data[9] || steps;
+      setText('#content-tab-arch p',[stepDescs[0],stepDescs[1],stepDescs[2],stepDescs[3],'Conceptual overview – not repository-verified. ' + data[3]]);
+      setText('#content-tab-arch span:not(.material-symbols-outlined)',['Conceptual overview – not repository-verified',steps[0].toUpperCase(),steps[1].toUpperCase(),steps[2].toUpperCase(),steps[3].toUpperCase()]);
+      const stack = Array.isArray(data[4]) ? data[4] : data[4].split(', ');
+      const isDoi = data[5] && data[5].includes('doi.org');
+      setText('#content-tab-specs p',[stack[0]||'Stack',stack[1]||'Stack',stack[2]||'Stack',stack.slice(3).join(', ')||'Stack', isDoi ? 'IEEE Publication Record' : 'GitHub Source Repository', isDoi ? 'Published IEEE conference paper with DOI record.' : 'Project source and documentation.']);
       setText('#content-tab-specs span.font-label-caps',['TECHNOLOGY','TECHNOLOGY','TECHNOLOGY','TECHNOLOGY']);
-      const repo=doc.querySelector('#content-tab-specs a');repo.href=`https://github.com/Yashkhadgi/${data[5]}`;repo.target='_blank';repo.rel='noopener noreferrer';
+      const repo=doc.querySelector('#content-tab-specs a');
+      if (data[5]) {
+        const repoUrl = data[5].startsWith('http') ? data[5] : `https://github.com/Yashkhadgi/${data[5]}`;
+        repo.href = repoUrl.replace(/\.git$/, '');
+        repo.style.display = '';
+        repo.target = '_blank';
+        repo.rel = 'noopener noreferrer';
+        if (isDoi) {
+          repo.textContent = 'OPEN IEEE DOI ↗';
+        } else {
+          repo.textContent = 'VIEW ON GITHUB ↗';
+        }
+      } else {
+        repo.style.display = 'none';
+      }
       const auditLabel=[...modal.querySelectorAll('span')].find(el=>el.textContent.includes('SYSTEM AUDIT STATUS'));if(auditLabel)auditLabel.textContent='PROJECT OVERVIEW';
       modal.setAttribute('role','dialog');modal.setAttribute('aria-modal','true');modal.setAttribute('aria-labelledby','modal-title');
       doc.body.style.overflow='hidden';modal.querySelector('button').focus();
