@@ -1142,6 +1142,8 @@ An agricultural machine learning framework for ensemble regressor-based crop pri
       let activeIndex = 0;
       let scrollRaf = null;
       let headingAnimTimer = null;
+      let reelTarget = 0;
+      let reelMotionRaf = null;
 
       // Ensure data attributes are populated from cards
       cards.forEach((card, idx) => {
@@ -1297,12 +1299,55 @@ An agricultural machine learning framework for ensemble regressor-based crop pri
         const scrollerRect = scroller.getBoundingClientRect();
         const cardRect = card.getBoundingClientRect();
         const targetScrollLeft = scroller.scrollLeft + (cardRect.left - scrollerRect.left) - (scrollerRect.width - cardRect.width) / 2;
+        if (reelMotionRaf) cancelAnimationFrame(reelMotionRaf);
+        reelMotionRaf = null;
+        reelTarget = Math.round(targetScrollLeft);
 
         scroller.scrollTo({
-          left: Math.round(targetScrollLeft),
+          left: reelTarget,
           behavior: 'smooth'
         });
       }
+
+      // While the reel is in the reading zone, vertical wheel travel advances
+      // the filmstrip. At either end, normal page scrolling resumes.
+      const desktopWheel = window.matchMedia('(hover: hover) and (pointer: fine)');
+      if (desktopWheel.matches) scroller.style.scrollSnapType = 'none';
+
+      function moveReel() {
+        const distance = reelTarget - scroller.scrollLeft;
+        if (Math.abs(distance) < 0.7) {
+          scroller.scrollLeft = reelTarget;
+          reelMotionRaf = null;
+          return;
+        }
+        scroller.scrollLeft += distance * 0.18;
+        reelMotionRaf = requestAnimationFrame(moveReel);
+      }
+
+      document.addEventListener('wheel', event => {
+        if (!desktopWheel.matches || event.defaultPrevented || event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+        if (document.getElementById('project-modal')?.classList.contains('hidden') === false) return;
+        if (event.target instanceof Element && event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
+        const rail = document.getElementById('stage-rail');
+        const rect = rail.getBoundingClientRect();
+        if (rect.top > innerHeight * 0.45 || rect.bottom < innerHeight * 0.55) return;
+
+        const max = scroller.scrollWidth - scroller.clientWidth;
+        const forward = event.deltaY > 0;
+        if ((forward && reelTarget >= max - 2 && scroller.scrollLeft >= max - 2) ||
+            (!forward && reelTarget <= 2 && scroller.scrollLeft <= 2)) return;
+
+        event.preventDefault();
+        const delta = event.deltaMode === 1 ? event.deltaY * 16 : event.deltaMode === 2 ? event.deltaY * innerHeight : event.deltaY;
+        if (!reelMotionRaf) reelTarget = scroller.scrollLeft;
+        reelTarget = Math.max(0, Math.min(max, reelTarget + delta * 0.9));
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          scroller.scrollLeft = reelTarget;
+        } else if (!reelMotionRaf) {
+          reelMotionRaf = requestAnimationFrame(moveReel);
+        }
+      }, { passive: false });
 
       // Throttled scroll listener
       scroller.addEventListener('scroll', () => {

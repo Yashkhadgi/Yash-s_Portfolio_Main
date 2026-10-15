@@ -2,165 +2,213 @@
   'use strict';
 
   const routes = {
-    arrival: { file: '01_the_cinematic_arrival/code.html', title: "The Departure" },
-    universe: { file: '02_the_builder_s_universe/code.html', title: "The Builder's Universe" },
-    theater: { file: '03_cinematic_project_theater/code.html', title: 'Project Theater' },
-    research: { file: '04_research_landmarks/code.html', title: 'Research Landmarks' },
-    about: { file: '05_the_person_behind_the_builds/code.html', title: 'The Person Behind the Builds' }
+    arrival: { file: 'pages/arrival.html', title: 'The Departure' },
+    universe: { file: 'pages/universe.html', title: "The Builder's Universe" },
+    theater: { file: 'pages/theater.html', title: 'Project Theater' },
+    research: { file: 'pages/research.html', title: 'Archives' },
+    about: { file: 'pages/about.html', title: 'About' }
   };
-
   const routeOrder = Object.keys(routes);
-  const frame = document.querySelector('#portfolio-page');
-  const veil = document.querySelector('#veil');
-  const progress = document.querySelector('#progress');
+  const legacyFolders = {
+    arrival: '01_the_cinematic_arrival',
+    universe: '02_the_builder_s_universe',
+    theater: '03_cinematic_project_theater',
+    research: '04_research_landmarks',
+    about: '05_the_person_behind_the_builds'
+  };
+  const app = document.querySelector('#app');
+  const stage = document.querySelector('#page-stage');
   const mobileJourney = document.querySelector('#mobile-journey');
   const journeyToggle = document.querySelector('#journey-toggle');
+  const chapter = document.querySelector('#chapter-cue');
+  const chapterNumber = document.querySelector('#chapter-number');
+  const chapterTitle = document.querySelector('#chapter-title');
+  const frames = new Map();
+  let frame = null;
   let currentRoute = 'arrival';
   let currentSub = null;
-  let transitionTimer;
+  let transitionTimer = 0;
+  let cueTimer = 0;
+  let navigationId = 0;
+  const journeyScroll = window.createJourneyScroll({
+    routeOrder,
+    getRoute: () => currentRoute,
+    navigate: (route, direction) => navigate(route, { scrollDirection: direction })
+  });
 
-  const validSubPaths = {
-    universe: ['eklink']
-  };
+  function recordVisit(route) {
+    fetch('/api/visit', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ route: `#${route || 'arrival'}` }),
+      keepalive: true
+    }).catch(() => {});
+  }
 
   function parseHash() {
     const raw = location.hash.slice(1).trim();
-    if (!raw) return { base: 'arrival', sub: null, raw: 'arrival' };
-    const parts = raw.split('/');
-    const base = parts[0].toLowerCase();
-    const sub = parts.length > 1 ? parts.slice(1).join('/').toLowerCase() : null;
-
-    if (!routes[base]) {
-      return { base: 'arrival', sub: null, raw: 'arrival' };
+    const [key, ...rest] = raw.split('/');
+    const base = routes[key?.toLowerCase()] ? key.toLowerCase() : 'arrival';
+    const sub = rest.join('/').toLowerCase() || null;
+    if (sub && !(base === 'universe' && sub === 'eklink') && base !== 'theater') {
+      return { base, sub: null, raw: base };
     }
-
-    if (sub) {
-      if (base === 'universe' && !validSubPaths.universe.includes(sub)) {
-        return { base, sub: null, raw: base };
-      }
-      return { base, sub, raw: `${base}/${sub}` };
-    }
-
-    return { base, sub: null, raw: base };
+    return { base, sub, raw: sub ? `${base}/${sub}` : base };
   }
 
-  function routeFromHash() {
-    return parseHash().base;
-  }
-
-  function routeFromLink(link) {
-    const dataPath = link.dataset.path;
+  function routeFromLink(link, pageRoute) {
     const aliases = { archives: 'research' };
-    if (dataPath && routes[aliases[dataPath] || dataPath]) return aliases[dataPath] || dataPath;
-
+    const dataPath = aliases[link.dataset.path] || link.dataset.path;
+    if (dataPath && routes[dataPath]) return dataPath;
     const href = link.getAttribute('href') || '';
-    if (href === '#' && link.closest('nav') && link.classList.contains('active')) return currentRoute;
-    return routeOrder.find(key => href.includes(routes[key].file.split('/')[0])) || null;
+    if (href === '#' && link.closest('nav') && link.classList.contains('active')) return pageRoute;
+    return routeOrder.find(key => href.includes(routes[key].file) || href.includes(`${legacyFolders[key]}/code.html`)) || null;
   }
 
-  function beginTransition() {
-    clearTimeout(transitionTimer);
-    frame.classList.remove('ready');
-    veil.classList.add('show');
-    progress.classList.remove('done');
-    progress.classList.add('active');
+  function ensureFrame(route) {
+    if (frames.has(route)) return frames.get(route);
+    const child = document.createElement('iframe');
+    child.className = 'page is-hidden';
+    child.dataset.route = route;
+    child.title = routes[route].title;
+    child.setAttribute('aria-hidden', 'true');
+    child.tabIndex = -1;
+    child.inert = true;
+    child.setAttribute('allow', 'fullscreen');
+    child.addEventListener('load', () => wirePage(child, route), { once: true });
+    frames.set(route, child);
+    child.src = routes[route].file;
+    stage.appendChild(child);
+    return child;
   }
 
-  function endTransition() {
-    requestAnimationFrame(() => {
-      frame.classList.add('ready');
-      veil.classList.remove('show');
-      progress.classList.remove('active');
-      progress.classList.add('done');
-      transitionTimer = setTimeout(() => progress.classList.remove('done'), 450);
+  function preloadPages() {
+    const index = routeOrder.indexOf(currentRoute);
+    const priority = [routeOrder[index + 1], routeOrder[index - 1], ...routeOrder].filter(Boolean);
+    [...new Set(priority)].forEach((route, position) => {
+      if (route !== currentRoute) setTimeout(() => ensureFrame(route), 120 + position * 180);
     });
   }
 
+  function positionFrame(child, direction) {
+    try {
+      const scrollingElement = child.contentDocument.scrollingElement;
+      child.contentWindow.scrollTo(0, direction === -1 ? scrollingElement.scrollHeight : 0);
+    } catch (error) {
+      // A direct visit can still be finishing its first layout.
+    }
+  }
+
+  function showChapter(route) {
+    clearTimeout(cueTimer);
+    chapterNumber.textContent = `${String(routeOrder.indexOf(route) + 1).padStart(2, '0')} / 05`;
+    chapterTitle.textContent = routes[route].title;
+    chapter.classList.remove('show');
+    void chapter.offsetWidth;
+    chapter.classList.add('show');
+    cueTimer = setTimeout(() => chapter.classList.remove('show'), 1150);
+  }
+
+  function activate(next, route, direction, token) {
+    if (token !== navigationId) return;
+    clearTimeout(transitionTimer);
+    const previous = frame;
+    if (previous === next) return;
+    frames.forEach(child => {
+      if (child === previous || child === next) return;
+      child.classList.remove('is-active', 'is-entering', 'is-outgoing');
+      child.classList.add('is-hidden');
+    });
+    const motion = previous && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    positionFrame(next, direction);
+    next.classList.remove('is-hidden', 'is-outgoing', 'is-active');
+    next.classList.add(motion ? 'is-entering' : 'is-active');
+    next.classList.toggle('from-left', direction === -1);
+    next.removeAttribute('aria-hidden');
+    next.removeAttribute('tabindex');
+    next.inert = false;
+    frame = next;
+    if (previous) {
+      previous.inert = true;
+      previous.setAttribute('aria-hidden', 'true');
+      previous.tabIndex = -1;
+    }
+    app.classList.toggle('moving-back', direction === -1);
+    if (motion) {
+      showChapter(route);
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        if (token !== navigationId) return;
+        next.classList.add('is-active');
+        next.classList.remove('is-entering');
+        previous.classList.add('is-outgoing');
+        previous.classList.remove('is-active');
+      }));
+      transitionTimer = setTimeout(() => {
+        previous.classList.remove('is-outgoing');
+        previous.classList.add('is-hidden');
+        app.classList.remove('moving-back');
+      }, 800);
+      journeyScroll.lock(900);
+    } else if (previous) {
+      previous.classList.remove('is-active', 'is-outgoing');
+      previous.classList.add('is-hidden');
+    }
+    if (currentSub) notifySubroute(route, currentSub);
+  }
+
   function notifyTheaterProject(projectId) {
-    if (!projectId) return;
+    if (!projectId || !frame) return;
     try {
       const win = frame.contentWindow;
       const doc = frame.contentDocument;
-      if (!win || !doc) return;
       const cleanId = projectId.toLowerCase().replace(/[-_]modal$/, '');
-      const modalId = cleanId + '-modal';
-      const stageId = 'stage-' + cleanId;
-      if (doc.getElementById(stageId) && typeof win.switchStage === 'function') {
-        win.switchStage(stageId);
-      }
-      if (typeof win.openModal === 'function' && doc.getElementById(modalId)) {
-        win.openModal(modalId);
-      }
-    } catch (e) {
-      console.warn('Theater project activation error:', e);
+      if (doc.getElementById(`stage-${cleanId}`) && typeof win.switchStage === 'function') win.switchStage(`stage-${cleanId}`);
+      if (doc.getElementById(`${cleanId}-modal`) && typeof win.openModal === 'function') win.openModal(`${cleanId}-modal`);
+    } catch (error) {
+      console.warn('Theater project activation error:', error);
+    }
+  }
+
+  function notifySubroute(route, sub) {
+    if (!frame || !sub) return;
+    if (route === 'universe') frame.contentWindow.postMessage({ type: 'navigate-sub', sub }, '*');
+    if (route === 'theater') {
+      frame.contentWindow.postMessage({ type: 'select-project', project: sub }, '*');
+      notifyTheaterProject(sub);
     }
   }
 
   function navigate(target, options = {}) {
-    let base, sub;
-    if (typeof target === 'string') {
-      const parts = target.split('/');
-      base = parts[0].toLowerCase();
-      sub = parts.length > 1 ? parts.slice(1).join('/').toLowerCase() : null;
-    } else if (target && typeof target === 'object') {
-      base = target.base || 'arrival';
-      sub = target.sub || null;
-    } else {
-      base = 'arrival';
-      sub = null;
-    }
-
-    if (!routes[base]) base = 'arrival';
-
-    if (sub && base === 'universe' && !validSubPaths.universe.includes(sub)) {
-      sub = null;
-    }
-
+    const requested = typeof target === 'string' ? target.split('/') : [target?.base || 'arrival', target?.sub];
+    const base = routes[requested[0]] ? requested[0] : 'arrival';
+    let sub = requested[1] || null;
+    if (sub && !(base === 'universe' && sub === 'eklink') && base !== 'theater') sub = null;
     const fullPath = sub ? `${base}/${sub}` : base;
-    const destination = routes[base];
-    const sameBaseRoute = currentRoute === base && frame.dataset.loaded === 'true';
-    const sameSub = currentSub === sub;
-
-    if (!options.fromHistory && location.hash !== `#${fullPath}`) {
-      history.pushState({ route: base, sub }, '', `#${fullPath}`);
-    } else if (options.fromHistory && location.hash !== `#${fullPath}`) {
-      history.replaceState({ route: base, sub }, '', `#${fullPath}`);
+    if (location.hash !== `#${fullPath}`) {
+      const method = options.fromHistory ? 'replaceState' : 'pushState';
+      history[method]({ route: base, sub }, '', `#${fullPath}`);
     }
     updateMobileJourney(base);
-
-    if (sameBaseRoute) {
-      if (!sameSub) {
+    if (base === currentRoute) {
+      if (sub !== currentSub) {
         currentSub = sub;
-        if (base === 'universe') {
-          frame.contentWindow?.postMessage({ type: 'navigate-sub', sub }, '*');
-        } else if (base === 'theater') {
-          frame.contentWindow?.postMessage({ type: 'select-project', project: sub }, '*');
-          notifyTheaterProject(sub);
-        }
+        notifySubroute(base, sub);
       }
       return;
     }
-
+    const direction = options.scrollDirection || (routeOrder.indexOf(base) > routeOrder.indexOf(currentRoute) ? 1 : -1);
     currentRoute = base;
     currentSub = sub;
-    beginTransition();
-    frame.dataset.route = base;
-    frame.dataset.loaded = 'false';
-
-    const urlObj = new URL(destination.file, location.href);
-    if (sub) {
-      if (base === 'universe') urlObj.searchParams.set('sub', sub);
-      if (base === 'theater') urlObj.searchParams.set('project', sub);
-    }
-
-    // Replace child history so only the parent route contributes a Back entry.
-    frame.contentWindow.location.replace(urlObj.href);
-    document.title = `${destination.title} — Yash Khadgi`;
+    recordVisit(fullPath);
+    document.title = `${routes[base].title} — Yash Khadgi`;
+    const token = ++navigationId;
+    const next = ensureFrame(base);
+    journeyScroll.lock(900);
+    if (next.dataset.loaded === 'true') activate(next, base, direction, token);
   }
 
   function updateMobileJourney(route) {
-    const position = routeOrder.indexOf(route) + 1;
-    journeyToggle.textContent = `${String(position).padStart(2, '0')} / 05`;
+    journeyToggle.textContent = `${String(routeOrder.indexOf(route) + 1).padStart(2, '0')} / 05`;
     mobileJourney.querySelectorAll('[data-route]').forEach(button => {
       button.classList.toggle('active', button.dataset.route === route);
     });
@@ -168,35 +216,23 @@
     journeyToggle.setAttribute('aria-expanded', 'false');
   }
 
-  function wirePage() {
-    const doc = frame.contentDocument;
+  function wirePage(child, route) {
+    const doc = child.contentDocument;
     if (!doc) return;
-
-    frame.dataset.loaded = 'true';
-    const route = frame.dataset.route || currentRoute;
+    child.dataset.loaded = 'true';
     doc.documentElement.dataset.journeyRoute = route;
     doc.addEventListener('keydown', event => {
       if (event.key === 'Escape') updateMobileJourney(currentRoute);
     });
     try {
-      window.enhancePortfolioPage(doc, frame.contentWindow, navigate);
+      window.enhancePortfolioPage(doc, child.contentWindow, navigate);
     } catch (error) {
       console.error('Portfolio enhancement failed:', error);
     }
-
-    if (currentSub) {
-      if (route === 'universe') {
-        frame.contentWindow?.postMessage({ type: 'navigate-sub', sub: currentSub }, '*');
-      } else if (route === 'theater') {
-        frame.contentWindow?.postMessage({ type: 'select-project', project: currentSub }, '*');
-        notifyTheaterProject(currentSub);
-      }
-    }
-
+    journeyScroll.wire(doc, child.contentWindow);
     doc.querySelectorAll('a').forEach(link => {
-      const targetRoute = routeFromLink(link);
+      const targetRoute = routeFromLink(link, route);
       if (!targetRoute) return;
-
       link.setAttribute('href', new URL(`#${targetRoute}`, location.href).href);
       link.setAttribute('target', '_top');
       link.addEventListener('click', event => {
@@ -205,26 +241,23 @@
         navigate(targetRoute);
       });
     });
-
-    endTransition();
+    if (route === currentRoute && child !== frame) {
+      const direction = frame ? (routeOrder.indexOf(route) > routeOrder.indexOf(frame.dataset.route) ? 1 : -1) : 0;
+      activate(child, route, direction, navigationId);
+    }
+    if (route === initial.base) preloadPages();
   }
 
-  frame.addEventListener('load', wirePage);
   window.addEventListener('hashchange', () => navigate(parseHash(), { fromHistory: true }));
   window.addEventListener('popstate', () => navigate(parseHash(), { fromHistory: true }));
-
-  window.addEventListener('message', (event) => {
+  window.addEventListener('message', event => {
+    if (!Array.from(frames.values()).some(child => child.contentWindow === event.source)) return;
     if (event.data?.type === 'hash-update') {
-      const hash = event.data.hash;
-      const parts = hash.split('/');
-      const base = parts[0];
-      const sub = parts.length > 1 ? parts.slice(1).join('/') : null;
-      currentRoute = base;
-      currentSub = sub;
-      if (location.hash !== `#${hash}`) {
-        history.pushState({ route: base, sub }, '', `#${hash}`);
-      }
-      updateMobileJourney(base);
+      const [base, ...rest] = String(event.data.hash || '').split('/');
+      if (base !== currentRoute) return;
+      currentSub = rest.join('/') || null;
+      const hash = currentSub ? `${base}/${currentSub}` : base;
+      if (location.hash !== `#${hash}`) history.pushState({ route: base, sub: currentSub }, '', `#${hash}`);
     } else if (event.data?.type === 'navigate') {
       navigate(event.data.hash);
     }
@@ -233,22 +266,11 @@
   const initial = parseHash();
   currentRoute = initial.base;
   currentSub = initial.sub;
+  if (location.hash !== `#${initial.raw}`) history.replaceState({ route: initial.base, sub: initial.sub }, '', `#${initial.raw}`);
+  recordVisit(initial.raw);
   document.title = `${routes[initial.base].title} — Yash Khadgi`;
-  frame.dataset.route = initial.base;
   updateMobileJourney(initial.base);
-
-  if (initial.base !== 'arrival' || initial.sub) {
-    const initialUrl = new URL(routes[initial.base].file, location.href);
-    if (initial.sub) {
-      if (initial.base === 'universe') initialUrl.searchParams.set('sub', initial.sub);
-      if (initial.base === 'theater') initialUrl.searchParams.set('project', initial.sub);
-    }
-    frame.src = initialUrl.href;
-    document.title = `${routes[initial.base].title} — Yash Khadgi`;
-  } else if (location.hash !== '#arrival') {
-    history.replaceState({ route: 'arrival', sub: null }, '', '#arrival');
-  }
-
+  ensureFrame(initial.base);
   journeyToggle.addEventListener('click', () => {
     const open = mobileJourney.classList.toggle('open');
     journeyToggle.setAttribute('aria-expanded', String(open));
@@ -259,9 +281,7 @@
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
       updateMobileJourney(currentRoute);
-      try {
-        frame.contentWindow?.postMessage({ type: 'escape' }, '*');
-      } catch (e) {}
+      frame?.contentWindow?.postMessage({ type: 'escape' }, '*');
     }
   });
 })();

@@ -29,12 +29,14 @@ After starting, open **`http://localhost:4173`** (or the URL printed in your ter
 
 ## 🧭 Page Routes
 
-The root shell smoothly navigates between all preserved pages:
+The root shell keeps the five pages in `pages/` preloaded and switches between them without reloading on every visit:
+
+Scrolling beyond the bottom of a page opens the next page; scrolling past the top returns to the previous page. Navigation links still work directly. The scroll controller is authored in `journey-scroll.ts`; run `npm run build` after editing it to regenerate the committed browser script `journey-scroll.js` (Node.js 22.10+).
 
 - `#arrival` — Cinematic Arrival
 - `#universe` — The Builder's Universe
 - `#theater` — Project Theater
-- `#research` — Research Landmarks
+- `#research` — Archives
 - `#about` — The Person Behind the Builds
 
 ---

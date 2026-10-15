@@ -9,6 +9,21 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
   style.textContent = `
     :focus-visible{outline:2px solid #c3b2ff!important;outline-offset:4px}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+    .portfolio-motion-reveal{opacity:0;transform:translate3d(0,24px,0) scale(.985);filter:blur(8px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1),filter .75s ease}
+    .portfolio-motion-reveal.is-visible{opacity:1;transform:none;filter:none}
+    .portfolio-motion-tilt{transform-style:preserve-3d;will-change:transform;transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease}
+    .portfolio-motion-tilt:hover{box-shadow:0 24px 70px rgba(0,0,0,.28)}
+    .portfolio-magnetic{will-change:translate;transition:translate .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease}
+    .portfolio-motion-reveal h1,.portfolio-motion-reveal h2,.portfolio-motion-reveal h3{text-wrap:balance}
+    .portfolio-motion-reveal.is-visible h1,.portfolio-motion-reveal.is-visible h2,.portfolio-motion-reveal.is-visible h3{animation:portfolio-title-focus .9s cubic-bezier(.22,1,.36,1) both}
+    @keyframes portfolio-title-focus{from{opacity:.2;filter:blur(10px);letter-spacing:.08em;transform:translateY(12px)}to{opacity:1;filter:none;letter-spacing:0;transform:none}}
+    .portfolio-cursor{position:fixed;z-index:9999;width:10px;height:10px;border:1px solid rgba(195,178,255,.9);border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%);transition:width .22s ease,height .22s ease,background .22s ease,opacity .22s ease;mix-blend-mode:screen}
+    .portfolio-cursor.is-active{opacity:1}
+    .portfolio-cursor.is-hovering{width:34px;height:34px;background:rgba(195,178,255,.16)}
+    .portfolio-cinema-bar{position:fixed;left:0;right:0;height:18px;background:#07080b;z-index:9998;pointer-events:none;transition:transform .9s cubic-bezier(.22,1,.36,1)}
+    .portfolio-cinema-bar.top{top:0}.portfolio-cinema-bar.bottom{bottom:0}
+    .portfolio-cinema-bar.settled.top{transform:translateY(-100%)}.portfolio-cinema-bar.settled.bottom{transform:translateY(100%)}
+    @media (pointer:coarse),(prefers-reduced-motion:reduce){.portfolio-cursor,.portfolio-cinema-bar{display:none}.portfolio-motion-reveal{opacity:1;transform:none;filter:none}}
     #portfolio-command{background:#171a20;color:#ebe9ef;border:1px solid #49434f;border-radius:8px;padding:24px;width: min(540px,90vw);max-height:80vh;overflow:auto}
     #portfolio-command::backdrop{background:rgba(0,0,0,.7)}
     #portfolio-command input{width:100%;padding:12px;background:#0c0e12;color:inherit;border:1px solid #49434f;border-radius:4px;margin:16px 0}
@@ -18,6 +33,84 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
     .modal-tab-btn{flex-shrink:0}
   `;
   doc.head.append(style);
+  doc.documentElement.classList.add('portfolio-motion-enabled');
+
+  // A short filmic entrance plus scroll reveals give the exported pages a shared rhythm.
+  const topBar = doc.createElement('div'); topBar.className = 'portfolio-cinema-bar top'; topBar.setAttribute('aria-hidden', 'true');
+  const bottomBar = doc.createElement('div'); bottomBar.className = 'portfolio-cinema-bar bottom'; bottomBar.setAttribute('aria-hidden', 'true');
+  doc.body.append(topBar, bottomBar);
+  requestAnimationFrame(() => requestAnimationFrame(() => { topBar.classList.add('settled'); bottomBar.classList.add('settled'); }));
+
+  const revealSelectors = 'main > section, main > div > section, .section, .hero, .stage-panel, .filmstrip-card, .patent, .paper, .answer, .evidence, .interest';
+  const revealItems = [...doc.querySelectorAll(revealSelectors)].filter((el, index, all) => all.indexOf(el) === index);
+  revealItems.forEach((el, index) => { el.classList.add('portfolio-motion-reveal'); el.style.transitionDelay = `${Math.min(index * 45, 280)}ms`; });
+  if ('IntersectionObserver' in win) {
+    const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); }
+    }), { threshold: .12, rootMargin: '0px 0px -7% 0px' });
+    revealItems.forEach(el => revealObserver.observe(el));
+  } else revealItems.forEach(el => el.classList.add('is-visible'));
+
+  // Desktop-only pointer depth: this is intentionally limited to framed content cards.
+  if (win.matchMedia('(hover: hover) and (pointer: fine)').matches && !win.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const tiltItems = [...doc.querySelectorAll('.filmstrip-card, .paper, .patent, .answer, .evidence, .interest, .portrait-frame, .interactive-fragment')];
+    tiltItems.forEach(el => {
+      el.classList.add('portfolio-motion-tilt');
+      el.addEventListener('pointermove', event => {
+        const rect = el.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - .5;
+        const y = (event.clientY - rect.top) / rect.height - .5;
+        el.style.transform = `perspective(900px) rotateX(${(-y * 3.5).toFixed(2)}deg) rotateY(${(x * 4.5).toFixed(2)}deg) translateZ(0)`;
+      });
+      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+    });
+
+    const cursor = doc.createElement('div'); cursor.className = 'portfolio-cursor'; cursor.setAttribute('aria-hidden', 'true'); doc.body.append(cursor);
+    let cursorX = -40, cursorY = -40, targetX = -40, targetY = -40;
+    doc.addEventListener('pointermove', event => { targetX = event.clientX; targetY = event.clientY; cursor.classList.add('is-active'); }, { passive: true });
+    const drawCursor = () => { cursorX += (targetX - cursorX) * .22; cursorY += (targetY - cursorY) * .22; cursor.style.left = `${cursorX}px`; cursor.style.top = `${cursorY}px`; win.requestAnimationFrame(drawCursor); };
+    drawCursor();
+    doc.querySelectorAll('a,button,.celestial-node,.q,.tech-btn,.filter-chip').forEach(el => {
+      el.addEventListener('pointerenter', () => cursor.classList.add('is-hovering'));
+      el.addEventListener('pointerleave', () => cursor.classList.remove('is-hovering'));
+    });
+
+    // Spring-like magnetic feedback for primary actions without changing their layout.
+    const magneticItems = [...doc.querySelectorAll('.cta, [data-path="universe"], .stage-nav-btn, #reel-prev-btn, #reel-next-btn, .tool')];
+    magneticItems.forEach(el => {
+      el.classList.add('portfolio-magnetic');
+      el.addEventListener('pointermove', event => {
+        const rect = el.getBoundingClientRect();
+        const x = event.clientX - rect.left - rect.width / 2;
+        const y = event.clientY - rect.top - rect.height / 2;
+        el.style.translate = `${(x * .12).toFixed(1)}px ${(y * .12).toFixed(1)}px`;
+      });
+      el.addEventListener('pointerleave', () => { el.style.translate = ''; });
+    });
+  }
+
+  // Gentle pointer parallax on the existing hero focal points; no layout or content changes.
+  if (win.matchMedia('(hover: hover) and (pointer: fine)').matches && !win.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const parallaxItems = [...doc.querySelectorAll('.hero .portrait, .hero .paper-orbit, .hero .orbit')];
+    doc.addEventListener('pointermove', event => {
+      const x = (event.clientX / win.innerWidth - .5) * 2;
+      const y = (event.clientY / win.innerHeight - .5) * 2;
+      parallaxItems.forEach((el, index) => { el.style.translate = `${(x * (index + 1) * 3).toFixed(1)}px ${(y * (index + 1) * 2).toFixed(1)}px`; });
+    }, { passive: true });
+  }
+
+  // Keep scroll-linked motion lightweight: one RAF update per frame, with a soft depth shift.
+  const depthItems = [...doc.querySelectorAll('.hero .portrait-frame, .hero .paper, .hero .answer, .hero .orbit')];
+  if (depthItems.length && !win.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let scrollFrame = 0;
+    const updateDepth = () => {
+      scrollFrame = 0;
+      const amount = Math.min(win.scrollY, win.innerHeight) * .035;
+      depthItems.forEach((el, index) => { el.style.setProperty('--portfolio-depth', `${(amount * (index % 2 ? -1 : 1)).toFixed(1)}px`); el.style.translate = `0 var(--portfolio-depth)`; });
+    };
+    win.addEventListener('scroll', () => { if (!scrollFrame) scrollFrame = win.requestAnimationFrame(updateDepth); }, { passive: true });
+    updateDepth();
+  }
   doc.querySelector('#btn-tab-overview')?.parentElement.style.setProperty('overflow-x', 'auto');
   doc.querySelectorAll('img').forEach(img => {
     if (!img.hasAttribute('alt')) img.alt = img.dataset.alt || '';
@@ -48,7 +141,7 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
     ['SafarSathi','SafarSathi','travel companion in progress'],
     ['Learning Path Recommender','HCL_hack','Next.js 15 React Tailwind v4 PostgreSQL Prisma Groq Gemini Zod DAG']
   ];
-  const commands = Object.entries({arrival:'Arrival',universe:'Universe',theater:'Project Theater',research:'Research / Agriculture Price Prediction',about:'About'}).map(([route,name])=>({name,action:()=>navigate(route)}));
+  const commands = Object.entries({arrival:'Arrival',universe:'Universe',theater:'Project Theater',research:'Archives / Research',about:'About'}).map(([route,name])=>({name,action:()=>navigate(route)}));
   projectRepos.forEach(([name,repo,tags])=>commands.push({name:`${name} · GitHub`,tags,action:()=>win.open(`https://github.com/Yashkhadgi/${repo}`,'_blank','noopener,noreferrer')}));
   commands.push({name:'Agriculture Price Prediction · IEEE DOI',tags:'IEEE TEMSMET 2025 agriculture price prediction machine learning patent reported publication',action:()=>win.open('https://doi.org/10.1109/TEMSMET65536.2025.11467327','_blank','noopener,noreferrer')});
   commands.push({name:'Contact by email',action:()=>{win.location.href='mailto:yashkhadgi4@gmail.com';}});
