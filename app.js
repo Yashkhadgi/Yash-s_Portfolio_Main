@@ -147,7 +147,7 @@
         previous.classList.remove('is-outgoing');
         previous.classList.add('is-hidden');
         app.classList.remove('moving-back');
-      }, 800);
+      }, 860);
       journeyScroll.lock(900);
     } else if (previous) {
       previous.classList.remove('is-active', 'is-outgoing');
