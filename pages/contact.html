@@ -1,0 +1,44 @@
+<!doctype html>
+<script>if(window.top===window.self){window.location.replace('../index.html#contact')}</script>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Yash Khadgi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600&family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+  <header class="shell site-nav">
+    <a class="brand" data-path="arrival" href="../index.html#arrival"><span>YK</span><small>YASH KHADGI</small></a>
+    <nav aria-label="Pages"><a data-path="arrival" href="../index.html#arrival">01 ARRIVAL</a><a data-path="universe" href="../index.html#universe">02 UNIVERSE</a><a data-path="theater" href="../index.html#theater">03 THEATER</a><a data-path="research" href="../index.html#research">04 ARCHIVES</a><a class="active" aria-current="page" href="#">05 CONTACT</a></nav>
+  </header>
+  <main>
+    <section class="contact-hero shell">
+      <div><span class="eyebrow">05 / CONTACT</span><h1>Let's talk about<br><em>what's next.</em></h1><p>Open to internships, collaborations and thoughtful conversations about AI, backend systems and products worth building.</p></div>
+      <div class="availability"><span class="signal" aria-hidden="true"></span><div><strong>Open to opportunities</strong><small>Nagpur, India · Available remotely</small></div></div>
+    </section>
+    <section class="contact-body"><div class="shell contact-grid">
+      <div class="links"><span class="eyebrow">DIRECT LINKS</span><h2>Find me here.</h2>
+        <a href="mailto:yashkhadgi4@gmail.com"><span><small>EMAIL</small><strong>yashkhadgi4@gmail.com</strong></span><b aria-hidden="true">↗</b></a>
+        <a href="https://github.com/Yashkhadgi" target="_blank" rel="noopener noreferrer"><span><small>CODE</small><strong>GitHub</strong></span><b aria-hidden="true">↗</b></a>
+        <a href="https://www.linkedin.com/in/yash-khadgi-b6528b314" target="_blank" rel="noopener noreferrer"><span><small>PROFESSIONAL PROFILE</small><strong>LinkedIn</strong></span><b aria-hidden="true">↗</b></a>
+        <a href="../more data abt me/Yash_resume_fsd.pdf" target="_blank" rel="noopener noreferrer"><span><small>DOCUMENT</small><strong>View resume</strong></span><b aria-hidden="true">↗</b></a>
+        <a href="../more data abt me/Yash_resume_fsd.pdf" download><span><small>PDF</small><strong>Download resume</strong></span><b aria-hidden="true">↓</b></a>
+      </div>
+      <div class="message"><span class="eyebrow">SEND A MESSAGE</span><h2>Get in touch.</h2><form id="contact-form" action="/api/contact" method="post">
+        <div class="form-row"><label>Your name<input name="name" autocomplete="name" required maxlength="100" placeholder="Name"></label><label>Email address<input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label></div>
+        <label>Subject<input name="subject" required maxlength="150" placeholder="What's on your mind?"></label>
+        <label>Message<textarea name="message" required minlength="10" maxlength="5000" rows="6" placeholder="Tell me a little about your project or opportunity."></textarea></label>
+        <div class="trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <button type="submit" id="send-button">SEND MESSAGE <span aria-hidden="true">↗</span></button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form></div>
+    </div></section>
+  </main>
+  <footer class="shell footer"><span>© 2026 Yash Khadgi</span><a data-path="arrival" href="../index.html#arrival">BACK TO ARRIVAL ↑</a></footer>
+  <script src="contact.js"></script>
+</body>
+</html>
