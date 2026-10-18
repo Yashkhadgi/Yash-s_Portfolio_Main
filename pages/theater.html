@@ -25,6 +25,38 @@
 #filmstrip-scroller::-webkit-scrollbar {
   display: none;
 }
+.project-artwork {
+  position: absolute;
+  inset: 0;
+  background-image: url('../more%20data%20abt%20me/project-artwork-03-08.png');
+  background-size: 300% 200%;
+  background-repeat: no-repeat;
+  opacity: 0.88;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.filmstrip-card:hover .project-artwork,
+.filmstrip-card:focus-within .project-artwork {
+  transform: scale(1.04);
+}
+.project-artwork::after {
+  content: 'CONCEPTUAL VISUAL';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid rgba(242, 241, 247, 0.24);
+  border-radius: 999px;
+  background: rgba(17, 18, 22, 0.72);
+  color: #f2f1f7;
+  font: 600 0.65rem/1 'JetBrains Mono', monospace;
+  letter-spacing: 0.04em;
+}
+.project-artwork-03 { background-position: 0% 0%; }
+.project-artwork-04 { background-position: 50% 0%; }
+.project-artwork-05 { background-position: 100% 0%; }
+.project-artwork-06 { background-position: 0% 100%; }
+.project-artwork-07 { background-position: 50% 100%; }
+.project-artwork-08 { background-position: 100% 100%; }
 .reel-section.pinned-reel {
   padding-top: 0;
   padding-bottom: 0;
@@ -317,20 +349,11 @@
 <p class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-space-xs">Production Systems &amp; High-Order Reasoning</p>
 <h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Cinematic Project Theater</h1>
 </div>
-<!-- Spatial Stage Selector -->
-<div class="flex items-center gap-space-xs p-space-xs rounded-xl bg-surface-container-high/70 backdrop-blur-xl shadow-xl">
-<button class="stage-nav-btn active px-space-md py-space-xs rounded-lg font-label-tag text-label-tag transition-all bg-primary-container text-on-primary-container shadow-sm font-semibold flex items-center gap-space-xs" id="tab-stage-customerpulse" onclick="switchStage('stage-customerpulse')" type="button">
-<span>01</span>
-<span class="hidden sm:inline">CUSTOMER PULSE</span>
-</button>
-<button class="stage-nav-btn px-space-md py-space-xs rounded-lg font-label-tag text-label-tag transition-all text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/40 flex items-center gap-space-xs" id="tab-stage-memorylens" onclick="switchStage('stage-memorylens')" type="button">
-<span>02</span>
-<span class="hidden sm:inline">MEMORYLENS</span>
-</button>
-<button class="stage-nav-btn px-space-md py-space-xs rounded-lg font-label-tag text-label-tag transition-all text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/40 flex items-center gap-space-xs" id="tab-stage-rail" onclick="switchStage('stage-rail')" type="button">
-<span>03-07</span>
-<span class="hidden sm:inline">VAULT PREVIEW</span>
-</button>
+<!-- The theater is one continuous scroll: two vertical flagship arrivals, then a horizontal project reel. -->
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-surface-container-high/70 backdrop-blur-xl shadow-xl font-label-tag text-label-tag text-on-surface-variant">
+<span class="text-primary font-semibold">01—08</span>
+<span class="opacity-40">/</span>
+<span>FULL PROJECT JOURNEY</span>
 </div>
 </div>
 </div>
@@ -623,7 +646,7 @@
 <span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">IEEE NEXUS 2026 • IMPROVING</span>
 </div>
 <div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<img class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Conceptual visual for DocFlow document automation; not a real project screenshot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWD9FhZFxq0aFAgluMW3dtBavKXmoE-vSYEj7tPgbcQjcXIlExekhmbnSMl9z0IPyjNNh6_aqodBttAuDyPfDD6E_Av4EZkAJJIcClN9IJhhvLJDIIPLD5FcsYD92hNU79Hdn4rV8zt6y6f1ZN_4hMh5I3PZhjpnODje5Q31m9BvpHTjsmtuSq1z4_hdWE1GsTCf7Ev0tj5yMP3jUgeYxoPpDPu0Q5VCa1nEp3_ZXn"/>
+<div class="project-artwork project-artwork-03" role="img" aria-label="Conceptual artwork showing documents moving through an automated extraction workflow"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
 <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
 <span class="filmstrip-card-cat font-label-caps text-label-caps text-secondary text-xs sm:text-sm tracking-wider font-semibold">ENTERPRISE SAAS</span>
@@ -651,7 +674,7 @@ Document automation platform for bulk uploads, OCR/field extraction, asynchronou
 <span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">RESEARCH PROTOTYPE</span>
 </div>
 <div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<img class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Conceptual visual for Lung Digital Twin v2; not a clinical screenshot or validated medical output." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDLX1JL7m0WO-jeP-q-_1uP9D8c48rhalcKRAlTsluJqi4eT_me2q-ckQBXFd7yD7mKFNjQmdWVUV6UOTZKBM7m5VXwRcXIDrZ1E6kCscleudqTd08-HziKeeq8Lg57ywWtpah0mEjsdqpnhPfVmB83gnQcywNsZUGbAeElqSsCCgupYfCpFMZtr6TIgaXf0qmhiYIXbCCaPu87dg987oQT1UmqeCECbuuYNC0c13v"/>
+<div class="project-artwork project-artwork-04" role="img" aria-label="Conceptual medical research visualization of a lung model and CT scan; not clinical output"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
 <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
 <span class="filmstrip-card-cat font-label-caps text-label-caps text-primary text-xs sm:text-sm tracking-wider font-semibold">COMPUTATIONAL ONCOLOGY</span>
@@ -679,10 +702,7 @@ Research prototype exploring CT imaging, 3D anatomy and mathematical growth/resp
 <span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">SOLO INTERNSHIP • BUILT</span>
 </div>
 <div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<div class="flex flex-col items-center justify-center gap-space-sm text-on-surface-variant/60">
-<span class="material-symbols-outlined text-[64px] text-secondary/50">school</span>
-<span class="font-code-inline text-code-inline text-xs text-outline tracking-wider">CONCEPTUAL VISUAL • SCREENSHOT COMING SOON</span>
-</div>
+<div class="project-artwork project-artwork-05" role="img" aria-label="Conceptual learning management system shown on a laptop and tablet"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
 <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
 <span class="filmstrip-card-cat font-label-caps text-label-caps text-secondary text-xs sm:text-sm tracking-wider font-semibold">FULL-STACK LMS</span>
@@ -710,10 +730,7 @@ Full-stack learning management system featuring authentication with OTP recovery
 <span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">PERSONAL PROJECT • COMPLETED</span>
 </div>
 <div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<div class="flex flex-col items-center justify-center gap-space-sm text-on-surface-variant/60">
-<span class="material-symbols-outlined text-[64px] text-primary/50">travel_explore</span>
-<span class="font-code-inline text-code-inline text-xs text-outline tracking-wider">CONCEPTUAL VISUAL • SCREENSHOT COMING SOON</span>
-</div>
+<div class="project-artwork project-artwork-06" role="img" aria-label="Conceptual travel assistant on a mountain road with a route map"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
 <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
 <span class="filmstrip-card-cat font-label-caps text-label-caps text-primary text-xs sm:text-sm tracking-wider font-semibold">AGENTIC TRAVELTECH</span>
@@ -741,10 +758,7 @@ Multilingual AI travel assistant providing location-aware recommendations, route
 <span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">HCL × HACKEREARTH</span>
 </div>
 <div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<div class="flex flex-col items-center justify-center gap-space-sm text-on-surface-variant/60">
-<span class="material-symbols-outlined text-[64px] text-tertiary/50">route</span>
-<span class="font-code-inline text-code-inline text-xs text-outline tracking-wider">CONCEPTUAL VISUAL • SCREENSHOT COMING SOON</span>
-</div>
+<div class="project-artwork project-artwork-07" role="img" aria-label="Conceptual adaptive learning path shown as a connected skill and course graph"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
 <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
 <span class="filmstrip-card-cat font-label-caps text-label-caps text-tertiary text-xs sm:text-sm tracking-wider font-semibold">ADAPTIVE LEARNING</span>
@@ -772,10 +786,7 @@ Adaptive learning platform featuring conversational onboarding, skill-gap analys
 <span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">IEEE TEMSMET 2025 • PUBLISHED</span>
 </div>
 <div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<div class="flex flex-col items-center justify-center gap-space-sm text-on-surface-variant/60">
-<span class="material-symbols-outlined text-[64px] text-secondary/50">psychology_alt</span>
-<span class="font-code-inline text-code-inline text-xs text-outline tracking-wider">IEEE XPLORE • PUBLISHED RESEARCH PAPER</span>
-</div>
+<div class="project-artwork project-artwork-08" role="img" aria-label="Conceptual agricultural market research visualization with crops and an illustrative price trend"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
 <div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
 <span class="filmstrip-card-cat font-label-caps text-label-caps text-secondary text-xs sm:text-sm tracking-wider font-semibold">ENSEMBLE REGRESSION ML</span>
@@ -1032,32 +1043,14 @@ An agricultural machine learning framework for ensemble regressor-based crop pri
 <!-- SCRIPT FOR THEATER CONTROLS & MODALS -->
 <script>
     function switchStage(stageId) {
-      // Toggle Stage view
+      // Keep every project stage mounted; project links only bring the requested stage into view.
       document.querySelectorAll('.stage-panel').forEach(panel => {
-        if (panel.id === stageId) {
-          panel.classList.remove('hidden');
-        } else {
-          panel.classList.add('hidden');
-        }
+        panel.classList.remove('hidden');
+        panel.classList.add('is-visible');
       });
-
-      // Update Nav Buttons
-      document.querySelectorAll('.stage-nav-btn').forEach(btn => {
-        btn.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-sm');
-        btn.classList.add('text-on-surface-variant');
-      });
-
-      const activeBtn = document.getElementById('tab-' + stageId);
-      if (activeBtn) {
-        activeBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-sm');
-        activeBtn.classList.remove('text-on-surface-variant');
-      }
-
-      if (stageId === 'stage-rail') {
-        setTimeout(() => {
-          window.dispatchEvent(new Event('resize'));
-        }, 50);
-      }
+      const target = document.getElementById(stageId);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (stageId === 'stage-rail') setTimeout(() => window.dispatchEvent(new Event('resize')), 50);
     }
 
     function openModal(projectId) {
@@ -1329,10 +1322,15 @@ An agricultural machine learning framework for ensemble regressor-based crop pri
       }
 
       const rail = document.getElementById('stage-rail');
-      const pinQuery = window.matchMedia('(min-width: 1024px) and (prefers-reduced-motion: no-preference)');
+      const pinQuery = window.matchMedia('(min-width: 1024px)');
       let reelDistance = 0;
 
       function moveReel() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          scroller.scrollLeft = reelTarget;
+          reelMotionRaf = null;
+          return;
+        }
         const distance = reelTarget - scroller.scrollLeft;
         if (Math.abs(distance) < 0.7) {
           scroller.scrollLeft = reelTarget;
