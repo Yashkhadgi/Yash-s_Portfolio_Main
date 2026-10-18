@@ -12,10 +12,11 @@
     body{font-family:Arial,sans-serif}
     .app,.page-stage{position:fixed;inset:0;background:#0c0e12;overflow:hidden}
     .page{position:absolute;inset:0;display:block;width:100%;height:100%;border:0;background:#0c0e12;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(0) scale(1)}
-    .page.is-active{z-index:2;opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0) scale(1);filter:blur(0);transition:transform .82s cubic-bezier(.22,1,.36,1),opacity .72s ease,filter .72s ease}
-    .page.is-entering{z-index:2;opacity:0;visibility:visible;transform:translateX(18vw) scale(.985);filter:blur(4px)}
-    .page.is-entering.from-left{transform:translateX(-18vw) scale(.985)}
-    .page.is-outgoing{z-index:1;opacity:.25;visibility:visible;transform:translateX(-8vw) scale(.99);filter:blur(4px);transition:transform .82s cubic-bezier(.22,1,.36,1),opacity .72s ease,filter .72s ease}
+    .page{will-change:transform,opacity}
+    .page.is-active{z-index:2;opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0) scale(1);transition:transform .72s cubic-bezier(.22,1,.36,1),opacity .55s ease}
+    .page.is-entering{z-index:2;opacity:0;visibility:visible;transform:translateX(12vw) scale(.99)}
+    .page.is-entering.from-left{transform:translateX(-12vw) scale(.99)}
+    .page.is-outgoing{z-index:1;opacity:.18;visibility:visible;transform:translateX(-6vw) scale(.995);transition:transform .72s cubic-bezier(.22,1,.36,1),opacity .55s ease}
     .app.moving-back .page.is-outgoing{transform:translateX(8vw) scale(.99)}
     .chapter-cue{position:fixed;z-index:5;left:max(24px,4vw);bottom:max(28px,5vh);pointer-events:none;display:flex;align-items:center;gap:16px;color:#f3f0f7;text-shadow:0 2px 14px #0c0e12;font:500 clamp(18px,2.2vw,30px)/1.1 Georgia,serif;opacity:0;transform:translateY(18px);transition:opacity .25s ease,transform .45s ease}
     .chapter-cue.show{opacity:1;transform:translateY(0)}
@@ -43,7 +44,7 @@
     <div class="chapter-cue" id="chapter-cue" aria-hidden="true"><small id="chapter-number"></small><span id="chapter-title"></span></div>
     <nav class="mobile-journey" id="mobile-journey" aria-label="Portfolio pages">
       <div class="journey-menu">
-        <button data-route="arrival">01 · ARRIVAL</button><button data-route="universe">02 · UNIVERSE</button><button data-route="theater">03 · THEATER</button><button data-route="research">04 · ARCHIVES</button><button data-route="about">05 · ABOUT</button>
+        <button data-route="arrival">01 · ARRIVAL</button><button data-route="universe">02 · UNIVERSE</button><button data-route="theater">03 · THEATER</button><button data-route="research">04 · ARCHIVES</button><button data-route="contact">05 · CONTACT</button>
       </div>
       <button class="journey-toggle" id="journey-toggle" type="button" aria-expanded="false" aria-label="Open journey navigation">01 / 05</button>
     </nav>

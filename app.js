@@ -6,7 +6,7 @@
     universe: { file: 'pages/universe.html', title: "The Builder's Universe" },
     theater: { file: 'pages/theater.html', title: 'Project Theater' },
     research: { file: 'pages/research.html', title: 'Archives' },
-    about: { file: 'pages/about.html', title: 'About' }
+    contact: { file: 'pages/contact.html', title: 'Contact' }
   };
   const routeOrder = Object.keys(routes);
   const legacyFolders = {
@@ -14,7 +14,7 @@
     universe: '02_the_builder_s_universe',
     theater: '03_cinematic_project_theater',
     research: '04_research_landmarks',
-    about: '05_the_person_behind_the_builds'
+    contact: '05_the_person_behind_the_builds'
   };
   const app = document.querySelector('#app');
   const stage = document.querySelector('#page-stage');
@@ -48,7 +48,8 @@
   function parseHash() {
     const raw = location.hash.slice(1).trim();
     const [key, ...rest] = raw.split('/');
-    const base = routes[key?.toLowerCase()] ? key.toLowerCase() : 'arrival';
+    const requested = key?.toLowerCase() === 'about' ? 'contact' : key?.toLowerCase();
+    const base = routes[requested] ? requested : 'arrival';
     const sub = rest.join('/').toLowerCase() || null;
     if (sub && !(base === 'universe' && sub === 'eklink') && base !== 'theater') {
       return { base, sub: null, raw: base };
@@ -57,7 +58,7 @@
   }
 
   function routeFromLink(link, pageRoute) {
-    const aliases = { archives: 'research' };
+    const aliases = { archives: 'research', about: 'contact' };
     const dataPath = aliases[link.dataset.path] || link.dataset.path;
     if (dataPath && routes[dataPath]) return dataPath;
     const href = link.getAttribute('href') || '';
@@ -84,7 +85,7 @@
 
   function preloadPages() {
     const index = routeOrder.indexOf(currentRoute);
-    const priority = [routeOrder[index + 1], routeOrder[index - 1], ...routeOrder].filter(Boolean);
+    const priority = [routeOrder[index + 1], routeOrder[index - 1]].filter(Boolean);
     [...new Set(priority)].forEach((route, position) => {
       if (route !== currentRoute) setTimeout(() => ensureFrame(route), 120 + position * 180);
     });
@@ -147,8 +148,8 @@
         previous.classList.remove('is-outgoing');
         previous.classList.add('is-hidden');
         app.classList.remove('moving-back');
-      }, 860);
-      journeyScroll.lock(900);
+      }, 760);
+      journeyScroll.lock(780);
     } else if (previous) {
       previous.classList.remove('is-active', 'is-outgoing');
       previous.classList.add('is-hidden');
@@ -180,7 +181,8 @@
 
   function navigate(target, options = {}) {
     const requested = typeof target === 'string' ? target.split('/') : [target?.base || 'arrival', target?.sub];
-    const base = routes[requested[0]] ? requested[0] : 'arrival';
+    const route = requested[0] === 'about' ? 'contact' : requested[0];
+    const base = routes[route] ? route : 'arrival';
     let sub = requested[1] || null;
     if (sub && !(base === 'universe' && sub === 'eklink') && base !== 'theater') sub = null;
     const fullPath = sub ? `${base}/${sub}` : base;
@@ -203,7 +205,7 @@
     document.title = `${routes[base].title} — Yash Khadgi`;
     const token = ++navigationId;
     const next = ensureFrame(base);
-    journeyScroll.lock(900);
+    journeyScroll.lock(780);
     if (next.dataset.loaded === 'true') activate(next, base, direction, token);
   }
 

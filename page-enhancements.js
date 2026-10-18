@@ -66,10 +66,17 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
     });
 
     const cursor = doc.createElement('div'); cursor.className = 'portfolio-cursor'; cursor.setAttribute('aria-hidden', 'true'); doc.body.append(cursor);
-    let cursorX = -40, cursorY = -40, targetX = -40, targetY = -40;
-    doc.addEventListener('pointermove', event => { targetX = event.clientX; targetY = event.clientY; cursor.classList.add('is-active'); }, { passive: true });
-    const drawCursor = () => { cursorX += (targetX - cursorX) * .22; cursorY += (targetY - cursorY) * .22; cursor.style.left = `${cursorX}px`; cursor.style.top = `${cursorY}px`; win.requestAnimationFrame(drawCursor); };
-    drawCursor();
+    let cursorX = -40, cursorY = -40, targetX = -40, targetY = -40, cursorFrame = 0;
+    const drawCursor = () => {
+      cursorFrame = 0;
+      cursorX += (targetX - cursorX) * .22; cursorY += (targetY - cursorY) * .22;
+      cursor.style.left = `${cursorX}px`; cursor.style.top = `${cursorY}px`;
+      if (Math.abs(targetX - cursorX) > .2 || Math.abs(targetY - cursorY) > .2) cursorFrame = win.requestAnimationFrame(drawCursor);
+    };
+    doc.addEventListener('pointermove', event => {
+      targetX = event.clientX; targetY = event.clientY; cursor.classList.add('is-active');
+      if (!cursorFrame) cursorFrame = win.requestAnimationFrame(drawCursor);
+    }, { passive: true });
     doc.querySelectorAll('a,button,.celestial-node,.q,.tech-btn,.filter-chip').forEach(el => {
       el.addEventListener('pointerenter', () => cursor.classList.add('is-hovering'));
       el.addEventListener('pointerleave', () => cursor.classList.remove('is-hovering'));
@@ -141,7 +148,7 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
     ['SafarSathi','SafarSathi','travel companion in progress'],
     ['Learning Path Recommender','HCL_hack','Next.js 15 React Tailwind v4 PostgreSQL Prisma Groq Gemini Zod DAG']
   ];
-  const commands = Object.entries({arrival:'Arrival',universe:'Universe',theater:'Project Theater',research:'Archives / Research',about:'About'}).map(([route,name])=>({name,action:()=>navigate(route)}));
+  const commands = Object.entries({arrival:'Arrival',universe:'Universe',theater:'Project Theater',research:'Archives',contact:'Contact'}).map(([route,name])=>({name,action:()=>navigate(route)}));
   projectRepos.forEach(([name,repo,tags])=>commands.push({name:`${name} · GitHub`,tags,action:()=>win.open(`https://github.com/Yashkhadgi/${repo}`,'_blank','noopener,noreferrer')}));
   commands.push({name:'Agriculture Price Prediction · IEEE DOI',tags:'IEEE TEMSMET 2025 agriculture price prediction machine learning patent reported publication',action:()=>win.open('https://doi.org/10.1109/TEMSMET65536.2025.11467327','_blank','noopener,noreferrer')});
   commands.push({name:'Contact by email',action:()=>{win.location.href='mailto:yashkhadgi4@gmail.com';}});
