@@ -1,0 +1,44 @@
+.profile-flow{user-select:text;background:#0c0e12;color:#ebe9ef;font-family:Geist,Arial,sans-serif}
+.profile-flow *{box-sizing:border-box}
+.profile-wrap{width:min(100% - 56px,1320px);margin-inline:auto}
+.profile-section{padding:82px 0;border-top:1px solid #292c33}
+.profile-kicker{display:block;margin-bottom:12px;color:#b4a8c6;font:600 11px "JetBrains Mono",monospace}
+.profile-flow h2{margin:0 0 28px;font:600 clamp(30px,3.4vw,46px)/1.1 Geist,Arial,sans-serif}
+.profile-flow h3{margin:0 0 8px;font:600 19px/1.3 Geist,Arial,sans-serif}
+.profile-flow p{margin:0;color:#aaa5af;line-height:1.65}
+.profile-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(250px,.8fr);gap:64px;align-items:center}
+.profile-intro-single{grid-template-columns:minmax(0,780px)}
+.profile-intro h2{margin-bottom:22px}
+.profile-intro p+p{margin-top:16px}
+.profile-intro img{display:block;width:min(100%,330px);height:390px;object-fit:cover;border:1px solid #34363e;border-radius:6px;-webkit-user-drag:none;user-select:none}
+.profile-timeline{border-top:1px solid #34363e}
+.profile-row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:26px;padding:22px 0;border-bottom:1px solid #34363e}
+.profile-date,.profile-label{font:600 10px "JetBrains Mono",monospace;color:#b4a8c6}
+.profile-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 34px;border-top:1px solid #34363e}
+.profile-item{padding:25px 0;border-bottom:1px solid #34363e}
+.profile-item h3{margin-top:11px}
+.profile-section-header{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:25px}
+.profile-section-header p{max-width:560px}
+.profile-skills{display:grid;grid-template-columns:220px minmax(0,1fr);gap:38px}
+.skill-categories{display:flex;flex-direction:column;gap:3px;align-self:start}
+.skill-category{border:0;border-left:3px solid transparent;background:transparent;color:#918d98;text-align:left;padding:14px 16px;cursor:pointer;font:600 14px Geist,Arial,sans-serif}
+.skill-category:hover,.skill-category[aria-selected="true"]{color:#eeeaf3;background:#1b1d23;border-left-color:#c3b2ff}
+.skill-category small{display:block;margin-top:4px;color:#8e8994;font:500 10px "JetBrains Mono",monospace}
+.skill-category[aria-selected="true"] small{color:#c3b2ff}
+.skill-panel-heading{min-height:36px;margin:0 0 20px;color:#bfbac6;font:500 15px Geist,Arial,sans-serif}
+.skill-panel-heading strong{color:#ebe9ef}
+.skill-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.skill-tile{min-height:98px;padding:18px;border:1px solid #34363e;border-radius:7px;background:#171a20;text-align:left;color:#ebe9ef;cursor:pointer;transition:background .22s,border-color .22s,transform .22s}
+.skill-tile:hover,.skill-tile[aria-pressed="true"]{background:#202329;border-color:#8676b7;transform:translateY(-2px)}
+.skill-tile b{display:block;font:600 17px Geist,Arial,sans-serif}
+.skill-tile span{display:block;margin-top:9px;color:#a49cba;font:500 10px "JetBrains Mono",monospace}
+.skill-evidence{margin-top:24px;padding-top:22px;border-top:1px solid #34363e}
+.skill-evidence h3{margin:7px 0}
+.skill-projects{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.skill-projects a{display:inline-flex;align-items:center;min-height:36px;padding:8px 12px;border:1px solid #41424b;border-radius:5px;color:#c3b2ff;text-decoration:none;font:600 11px "JetBrains Mono",monospace}
+.skill-projects a:hover{border-color:#c3b2ff;background:#202329}
+.profile-end{display:flex;justify-content:space-between;align-items:center;gap:22px}
+.profile-next{display:inline-flex;align-items:center;min-height:44px;padding:12px 20px;background:#c3b2ff;color:#302257;border-radius:5px;text-decoration:none;font:600 12px "JetBrains Mono",monospace}
+@media(max-width:900px){.profile-intro{grid-template-columns:1fr;gap:28px}.profile-intro img{height:350px}.profile-skills{grid-template-columns:1fr;gap:20px}.skill-categories{display:flex;flex-direction:row;overflow-x:auto;padding-bottom:8px}.skill-category{flex:0 0 auto;border-left:0;border-bottom:3px solid transparent}.skill-category[aria-selected="true"]{border-bottom-color:#c3b2ff}.profile-section-header{display:block}.profile-section-header p{margin-top:12px}}
+@media(max-width:600px){.profile-wrap{width:min(100% - 36px,1320px)}.profile-section{padding:58px 0}.profile-row{grid-template-columns:1fr;gap:6px}.profile-grid{grid-template-columns:1fr}.skill-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-end{align-items:flex-start;flex-direction:column}.profile-intro img{width:260px;height:315px}}
+@media(prefers-reduced-motion:reduce){.skill-tile{transition:none}.skill-tile:hover{transform:none}}
