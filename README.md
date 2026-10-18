@@ -43,12 +43,11 @@ Scrolling beyond the bottom of a page opens the next page; scrolling past the to
 
 ## 🌐 Deploy to Vercel
 
-This is a static web application with zero build configuration needed.
+This is a static HTML/CSS/JavaScript site with Vercel Functions in `/api`. The checked-in `vercel.json` pins the framework to Other, runs `npm run build`, and serves the repository root as the output directory.
 
-1. Push this repository to GitHub.
-2. Import the repository in [Vercel](https://vercel.com).
-3. Keep default settings (`Build Command: None`, `Output Directory: .`).
-4. Click **Deploy**.
+1. Push this repository to GitHub and import `Yashkhadgi/Yash-s_Portfolio_Main` in [Vercel](https://vercel.com).
+2. Set the Root Directory to the repository root. The project config supplies Framework Preset `Other`, Build Command `npm run build`, and Output Directory `.`.
+3. Keep the Production Branch as `main`, then click **Deploy**. Future pushes to `main` deploy to production automatically.
 
 ### Contact form email delivery
 
