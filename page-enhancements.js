@@ -172,10 +172,6 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
       button.addEventListener('click',event=>{event.preventDefault();event.stopImmediatePropagation();openCommands();},true);
     }
     if(label==='SKIP INTRO') button.onclick=()=>win.switchScene?win.switchScene('C'):navigate('universe');
-    // Retain the supplied palette; make unfinished controls explicit on activation.
-    if(label==='Toggle Theme Mode'||label==='Toggle Ambience Audio'){
-      button.onclick=()=>{heading.textContent=label==='Toggle Theme Mode'?'Light theme is not supplied yet':'Ambience audio is not supplied yet';search.hidden=true;results.replaceChildren();dialog.showModal();};
-    }
   });
   dialog.addEventListener('close',()=>{heading.textContent='Explore the journey';search.hidden=false;});
   if (!doc.documentElement.dataset.universeEngine) {
