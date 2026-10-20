@@ -19,8 +19,8 @@
 
   // ── TIER CONFIGURATION ──
   const TIERS = {
-    flagship:          { orbSize: 64, innerSize: 48, iconSize: 22, alwaysShowSub: true,  glow: true,  dashed: false },
-    high:              { orbSize: 56, innerSize: 40, iconSize: 20, alwaysShowSub: true,  glow: false, dashed: false },
+    flagship:          { orbSize: 80, innerSize: 60, iconSize: 28, alwaysShowSub: true,  glow: true,  dashed: false },
+    high:              { orbSize: 68, innerSize: 52, iconSize: 24, alwaysShowSub: true,  glow: false, dashed: false },
     medium:            { orbSize: 40, innerSize: 28, iconSize: 16, alwaysShowSub: false, glow: false, dashed: false },
     'research-concept':{ orbSize: 44, innerSize: 32, iconSize: 16, alwaysShowSub: false, glow: false, dashed: true  },
     portal:            { orbSize: 60, innerSize: 44, iconSize: 22, alwaysShowSub: true,  glow: true,  dashed: true  }
@@ -30,9 +30,9 @@
   // a = semi-major, b = semi-minor, rot = degrees (CW+), zAmp = depth parallax,
   // period = seconds per revolution, dir = +1 CCW / -1 CW, phase = initial offset (rad)
   const ORBITS = [
-    { id: 'orbit-flagship',   name: 'Flagship Systems',         a: 250, b: 145, rot: -8, zAmp: 30, period: 75,  dir: 1, color: '#b8a4f8', phase: 0,   dashed: false, tag: '' },
-    { id: 'orbit-satellites', name: 'Satellites & Micro-apps',  a: 360, b: 210, rot: -8, zAmp: 42, period: 115, dir: 1, color: '#cac4d2', phase: 0.5, dashed: false, tag: '' },
-    { id: 'orbit-research',   name: 'Research & Patents',        a: 465, b: 275, rot: -8, zAmp: 54, period: 160, dir: 1, color: '#62dcad', phase: 1.2, dashed: false, tag: '' }
+    { id: 'orbit-flagship',   name: 'Featured Projects',         a: 250, b: 145, rot: -8, zAmp: 30, period: 75,  dir: 1, color: '#55b7ff', phase: 0,   dashed: false, tag: '' },
+    { id: 'orbit-research',   name: 'Research & Patents',      a: 360, b: 210, rot: -8, zAmp: 42, period: 115, dir: 1, color: '#62dcad', phase: 0.5, dashed: false, tag: '' },
+    { id: 'orbit-satellites', name: 'Other Builds',             a: 465, b: 275, rot: -8, zAmp: 54, period: 160, dir: 1, color: '#cac4d2', phase: 1.2, dashed: false, tag: '' }
   ];
 
   // ── 15 PROJECTS (priority order) ──
@@ -50,10 +50,10 @@
       github: 'https://github.com/Yashkhadgi/CustomerPulse'
     },
     {
-      id: 'docflow', title: 'DocFlow', sub: 'Document Automation', tier: 'flagship', rank: 2,
-      orbit: 'orbit-flagship', icon: 'account_tree', accent: 'secondary',
+      id: 'docflow', title: 'DocFlow', sub: 'Document Automation', tier: 'medium', rank: 10,
+      orbit: 'orbit-satellites', icon: 'account_tree', accent: 'secondary',
       tags: ['backend','fullstack'],
-      category: 'FLAGSHIP · DOCUMENT AUTOMATION SaaS',
+      category: 'BUILD · DOCUMENT AUTOMATION SaaS',
       status: 'Working prototype · development ongoing',
       role: 'Team Lead, Backend & Infrastructure',
       recognition: 'Born at IEEE NEXUS 2026, Symbiosis Institute of Technology, Nagpur',
@@ -62,7 +62,7 @@
       github: 'https://github.com/Yashkhadgi/DocFlow'
     },
     {
-      id: 'safarsathi', title: 'SafarSathi', sub: 'Multilingual Travel Companion', tier: 'flagship', rank: 3,
+      id: 'safarsathi', title: 'SafarSathi', sub: 'Multilingual Travel Companion', tier: 'flagship', rank: 4,
       orbit: 'orbit-flagship', icon: 'travel_explore', accent: 'primary',
       tags: ['ai','fullstack'],
       category: 'FLAGSHIP · AGENTIC TRAVELTECH',
@@ -74,7 +74,7 @@
       github: 'https://github.com/Yashkhadgi/SafarSathi'
     },
     {
-      id: 'memorylens', title: 'MemoryLens', sub: 'Multimodal Search', tier: 'flagship', rank: 4,
+      id: 'memorylens', title: 'MemoryLens', sub: 'Multimodal Search', tier: 'flagship', rank: 2,
       orbit: 'orbit-flagship', icon: 'saved_search', accent: 'tertiary',
       tags: ['ai','backend','cloud','fullstack','cv'],
       category: 'FLAGSHIP · MULTIMODAL SEARCH',
@@ -86,10 +86,10 @@
       github: 'https://github.com/Yashkhadgi/memorylens'
     },
     {
-      id: 'lungtwin', title: 'Lung Digital Twin', sub: 'Research Prototype', tier: 'flagship', rank: 5,
-      orbit: 'orbit-flagship', icon: 'coronavirus', accent: 'primary',
+      id: 'lungtwin', title: 'Lung Digital Twin', sub: 'Research Prototype', tier: 'high', rank: 5,
+      orbit: 'orbit-research', icon: 'coronavirus', accent: 'primary',
       tags: ['research','ai','backend','fullstack','cv'],
-      category: 'FLAGSHIP · MEDICAL RESEARCH PROTOTYPE',
+      category: 'RESEARCH · MEDICAL RESEARCH PROTOTYPE',
       status: 'Working research prototype',
       role: 'Team Lead & end-to-end prototype developer',
       recognition: 'Patent reported (exact title/number to be added). Research simulation only, not a clinical device',
@@ -98,10 +98,10 @@
       github: 'https://github.com/Yashkhadgi/LungTwin_V2'
     },
     {
-      id: 'learningpath', title: 'Learning Path Recommender', sub: 'Adaptive Learning AI', tier: 'flagship', rank: 6,
-      orbit: 'orbit-flagship', icon: 'route', accent: 'primary',
+      id: 'learningpath', title: 'Learning Path Recommender', sub: 'Adaptive Learning AI', tier: 'medium', rank: 11,
+      orbit: 'orbit-satellites', icon: 'route', accent: 'primary',
       tags: ['ai','fullstack'],
-      category: 'FLAGSHIP · RECOMMENDATION SYSTEM',
+      category: 'BUILD · RECOMMENDATION SYSTEM',
       status: 'Hackathon project (implementation documented in submitted report)',
       role: 'TBC',
       recognition: 'HCL × HackerEarth Amplified Hackathon',
@@ -110,7 +110,7 @@
       github: 'https://github.com/Yashkhadgi/HCL_hack'
     },
     {
-      id: 'skillforge', title: 'SkillForge', sub: 'LMS System', tier: 'flagship', rank: 7,
+      id: 'skillforge', title: 'SkillForge', sub: 'LMS System', tier: 'flagship', rank: 3,
       orbit: 'orbit-flagship', icon: 'school', accent: 'on-surface',
       tags: ['backend','fullstack'],
       category: 'FLAGSHIP · FULL-STACK LMS',
@@ -122,7 +122,7 @@
       github: 'https://github.com/Yashkhadgi/skilforge'
     },
     {
-      id: 'agriprice', title: 'Agri Price ML', sub: 'IEEE TEMSMET 2025', tier: 'high', rank: 8,
+      id: 'agriprice', title: 'Agri Price ML', sub: 'IEEE TEMSMET 2025', tier: 'high', rank: 6,
       orbit: 'orbit-research', icon: 'psychology_alt', accent: 'secondary',
       tags: ['research','ai'],
       category: 'RESEARCH · PUBLISHED PAPER + PATENT',
@@ -147,7 +147,7 @@
       childSystem: 'eklink'
     },
     {
-      id: 'aasb', title: 'AI Air SmartBoard', sub: 'Gesture Whiteboard', tier: 'medium', rank: 10,
+      id: 'aasb', title: 'AI Air SmartBoard', sub: 'Gesture Whiteboard', tier: 'medium', rank: 12,
       orbit: 'orbit-satellites', icon: 'draw', accent: 'secondary',
       tags: ['cv','backend','fullstack'],
       category: 'EXPERIMENTAL · COMPUTER VISION',
@@ -159,7 +159,7 @@
       github: 'https://github.com/Yashkhadgi/AASB-Ai_Air_Smartboard'
     },
     {
-      id: 'bhashayatra', title: 'BhashaYatra', sub: 'Agentic Tourist Assistant', tier: 'medium', rank: 11,
+      id: 'bhashayatra', title: 'BhashaYatra', sub: 'Agentic Tourist Assistant', tier: 'medium', rank: 13,
       orbit: 'orbit-satellites', icon: 'translate', accent: 'primary',
       tags: ['ai','backend'],
       category: 'ACADEMIC · MULTI-AGENT RAG',
@@ -171,7 +171,7 @@
       github: 'https://github.com/Yashkhadgi/multilingual_tourist_assistant'
     },
     {
-      id: 'trendplus', title: 'TrendPlus', sub: 'Placement Intelligence CLI', tier: 'medium', rank: 12,
+      id: 'trendplus', title: 'TrendPlus', sub: 'Placement Intelligence CLI', tier: 'medium', rank: 14,
       orbit: 'orbit-satellites', icon: 'trending_up', accent: 'tertiary',
       tags: ['ai','backend'],
       category: 'SUPPORTING · PLACEMENT INTELLIGENCE CLI',
@@ -183,7 +183,7 @@
       github: 'https://github.com/Yashkhadgi/TrendPlus'
     },
     {
-      id: 'medminder', title: 'MedMinder AI', sub: 'Medication Adherence', tier: 'medium', rank: 13,
+      id: 'medminder', title: 'MedMinder AI', sub: 'Medication Adherence', tier: 'medium', rank: 15,
       orbit: 'orbit-satellites', icon: 'medication', accent: 'secondary',
       tags: ['ai','backend'],
       category: 'FEATURED · MULTI-AGENT REMINDERS',
@@ -195,7 +195,7 @@
       github: 'https://github.com/Yashkhadgi/medicine-reminder-agent'
     },
     {
-      id: 'sitedubot', title: 'SIT EduBot', sub: 'Student FAQ Chatbot', tier: 'medium', rank: 14,
+      id: 'sitedubot', title: 'SIT EduBot', sub: 'Student FAQ Chatbot', tier: 'medium', rank: 16,
       orbit: 'orbit-satellites', icon: 'smart_toy', accent: 'on-surface',
       tags: ['ai','backend','fullstack'],
       category: 'ACADEMIC · NLP CHATBOT',
@@ -207,7 +207,7 @@
       github: 'https://github.com/Yashkhadgi/student-faq-chatbot'
     },
     {
-      id: 'cyclecura', title: 'CycleCura', sub: 'Cycle & PCOS Risk Concept', tier: 'research-concept', rank: 15,
+      id: 'cyclecura', title: 'CycleCura', sub: 'Cycle & PCOS Risk Concept', tier: 'high', rank: 7,
       orbit: 'orbit-research', icon: 'monitor_heart', accent: 'secondary',
       tags: ['research','ai'],
       category: 'RESEARCH · PATENT-ASSOCIATED CONCEPT',
@@ -227,7 +227,7 @@
       italic: 'Solar System',
       eyebrow: 'SPATIAL DIMENSION 02.1 // SOLAR SYSTEM · EKLINK',
       description: 'One identity, four institutional apps. EkLink is the central authentication and access layer; TemplateOS, ApproveIt, SlotIt and Attendie are specialised applications being developed to plug into it.',
-      core: { label: 'EKLINK', sub: 'CENTRAL SUN · AUTH', github: 'https://github.com/Yashkhadgi/EkLink' },
+      core: { label: 'EkLink', sub: '', github: 'https://github.com/Yashkhadgi/EkLink' },
       orbits: [
         { id: 'c-eklink', name: 'EkLink Unified Apps', a: 280, b: 155, rot: -8, period: 75, dir: 1, color: '#ffd166', zAmp: 35, phase: 0, dashed: false, tag: '' }
       ],
@@ -280,13 +280,13 @@
   // ── LEGEND CONFIGS ──
   const LEGENDS = {
     main: [
-      { color: '#b8a4f8', size: 12, label: 'Orbit 1 · Flagship Systems' },
-      { color: '#cac4d2', size: 10, label: 'Orbit 2 · Satellites & Micro-apps' },
-      { color: '#62dcad', size:  8, label: 'Orbit 3 · Research & Patents' },
+      { color: '#55b7ff', size: 12, label: 'Orbit 1 · Featured Projects' },
+      { color: '#62dcad', size: 10, label: 'Orbit 2 · Research & Patents' },
+      { color: '#cac4d2', size:  8, label: 'Orbit 3 · Other Builds' },
       { color: '#8bd5ff', size: 12, label: 'Shooting Star · EkLink Portal', isStar: true }
     ],
     child: [
-      { color: '#ffd166', size: 12, label: 'Central Sun · EkLink (Auth Core)', isSun: true },
+      { color: '#ffd166', size: 12, label: 'EkLink', isSun: true },
       { color: '#8bd5ff', size: 10, label: 'Planets · 4 Unified Apps' },
       { color: '#cac4d2', size:  8, label: 'Planetary Orbit · Synchronized Path', dashed: true }
     ]

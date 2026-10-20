@@ -1,0 +1,14 @@
+/* Exact original violet shades are documented in PALETTE_REFERENCE.md. */
+:root{--brand-violet:#c3b2ff;--brand-primary:#d2c3ff;--brand-last:#cdbdff}
+.brand-mark{background:none!important;color:var(--brand-violet)!important;-webkit-text-fill-color:var(--brand-violet)!important}
+.arrival-name-y{color:var(--brand-primary)!important;-webkit-text-fill-color:var(--brand-primary)!important;font-style:normal}
+.arrival-name-ash{color:#e2e2e8!important;-webkit-text-fill-color:#e2e2e8!important;font-style:normal}
+.arrival-name-last{color:var(--brand-last)!important;-webkit-text-fill-color:var(--brand-last)!important;font-style:normal}
+@media(forced-colors:active){.brand-mark,.arrival-name-y,.arrival-name-ash,.arrival-name-last{color:CanvasText!important;-webkit-text-fill-color:CanvasText!important}}
+/* Lavender carries the identity/editorial layer; blue carries technical interaction. */
+header nav [aria-current="page"],header nav .bg-primary-container{background-color:#b8a4f8!important;color:#251b3c!important;box-shadow:0 0 22px #b8a4f82b!important}
+header [data-path="universe"].bg-primary{background-color:#c3b2ff!important;color:#251b3c!important}
+header .rounded-full.bg-primary{background-color:#d2c3ff!important}
+.chapter-cue small{color:#bdaafa}.chapter-cue::before{background:#bdaafa;box-shadow:0 0 16px #bdaafa}
+:focus-visible{outline-color:#55b7ff!important}
+h1 .text-primary,h2 .text-primary{color:#c3b2ff}

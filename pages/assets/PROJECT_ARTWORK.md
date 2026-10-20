@@ -1,0 +1,13 @@
+# Generated project artwork
+
+Built-in `image_gen` generated `project-concepts-atlas.png` on 20 October 2026. Conceptual illustrations only; these are not screenshots or evidence of product functionality. Existing project artwork is unchanged.
+
+The atlas has three equal columns and rows. Row 1: CycleCura, Air SmartBoard, BhashaYatra. Row 2: TrendPlus, MedMinder, SIT EduBot. Row 3: EkLink, two unused atmospheric tiles. CSS displays each relevant tile without duplicating the image download.
+
+## Final generation prompt
+
+Use case: stylized-concept. Create one high-resolution landscape sprite atlas for a dark space-themed software developer portfolio. EXACTLY 3 columns by 3 rows of equal-sized rectangular artwork tiles, edge-to-edge grid, no gaps, no border, no text anywhere, no letters, no numbers, no logos, no watermark. Every tile is a distinct polished cinematic 3D conceptual illustration, dark charcoal backgrounds, restrained lavender lighting, electric blue technical light, tiny mint highlights, sophisticated realistic materials. No people, no fake screenshots or readable dashboards. Tile row 1 col 1: CycleCura menstrual wellness research, abstract elegant biological cycle ring with soft cellular forms and a restrained health tracking curve, no anatomical organs. Row1 col2: Air SmartBoard, luminous hand gesture outline drawing precise shapes onto a floating glass board. Row1 col3: BhashaYatra, multilingual travel assistant, connected language speech bubbles orbit a stylized globe and location pin, no written text. Row2 col1: TrendPlus, placement preparation research CLI, a sculptural terminal window with abstract code lines connecting to career roadmap nodes. Row2 col2: MedMinder, medication reminders, glass pill organizer with medicine capsules and a luminous clock ring. Row2 col3: SIT EduBot, student FAQ chatbot, academic book and graduation cap connected to a conversational orb. Row3 col1: EkLink, a unified institutional app ecosystem, one central glass identity gateway connected to exactly four satellite application modules. Row3 col2 and row3 col3: subtle abstract space network patterns in same style. Keep each subject centered entirely in its own tile with safe margins. All tiles equally detailed and visually distinct, cohesive charcoal lavender blue palette. Intended as conceptual project artwork, not evidence of working software.
+
+## User-supplied replacements
+
+CycleCura now uses `cyclecura-interface-concept.png`; BhashaYatra uses `bhashayatra-interface-concept.png`. Both supplied by the user. The other five project illustrations still use the atlas. Interface concept labels are preserved.

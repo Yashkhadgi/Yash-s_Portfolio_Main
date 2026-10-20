@@ -78,7 +78,7 @@
     child.setAttribute('allow', 'fullscreen');
     child.addEventListener('load', () => wirePage(child, route), { once: true });
     frames.set(route, child);
-    child.src = routes[route].file;
+    child.src = `${routes[route].file}?v=20261020-stacked-name1`;
     stage.appendChild(child);
     return child;
   }
@@ -148,8 +148,8 @@
         previous.classList.remove('is-outgoing');
         previous.classList.add('is-hidden');
         app.classList.remove('moving-back');
-      }, 760);
-      journeyScroll.lock(780);
+      }, 1000);
+      journeyScroll.lock(1020);
     } else if (previous) {
       previous.classList.remove('is-active', 'is-outgoing');
       previous.classList.add('is-hidden');
@@ -205,7 +205,7 @@
     document.title = `${routes[base].title} — Yash Khadgi`;
     const token = ++navigationId;
     const next = ensureFrame(base);
-    journeyScroll.lock(780);
+    journeyScroll.lock(1020);
     if (next.dataset.loaded === 'true') activate(next, base, direction, token);
   }
 

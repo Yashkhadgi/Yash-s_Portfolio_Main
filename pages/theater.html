@@ -76,6 +76,26 @@
     aspect-ratio: auto;
   }
 }
+@media (max-width: 640px) {
+  .stage-panel { padding-left: 1rem; padding-right: 1rem; }
+  .stage-panel .font-headline-lg { font-size: clamp(2rem, 9vw, 2.7rem); line-height: 1.08; }
+  .stage-panel .grid { min-width: 0; }
+  .stage-panel .rounded-2xl, .stage-panel .rounded-3xl { border-radius: 1rem; }
+  .stage-panel .p-6 { padding: 1rem; }
+  .stage-panel .h-\[360px\] { height: auto; min-height: 220px; }
+  #stage-rail { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  #stage-rail .reel-sticky { gap: 1.25rem; }
+  #reel-live-heading { font-size: clamp(1.75rem, 8vw, 2.35rem); line-height: 1.08; }
+  #filmstrip-scroller { width: calc(100vw - 2rem); gap: 1rem; margin-right: -1rem; padding-right: 1rem; scroll-padding-inline: .25rem; }
+  #filmstrip-scroller .filmstrip-card { width: calc(100vw - 3rem); max-width: none; padding: 1rem; border-radius: 1rem; }
+  .filmstrip-card:not(.active-card) { opacity: .78; transform: none; }
+  .filmstrip-card .relative.w-full.aspect-\[16\/9\] { height: auto; aspect-ratio: 4 / 3; max-height: none; margin-bottom: 1rem; }
+  .filmstrip-card-title { font-size: clamp(1.4rem, 7vw, 2rem); }
+  .filmstrip-card .flex-wrap { align-items: flex-start; }
+  #reel-prev-btn, #reel-next-btn { width: 2.75rem; height: 2.75rem; }
+  .reel-section .font-label-tag, .reel-section .font-code-inline { overflow-wrap: anywhere; }
+  body > aside { display: none; }
+}
 @media (prefers-reduced-motion: reduce) {
   .filmstrip-card {
     transition: opacity 0.15s ease !important;
@@ -95,13 +115,13 @@
     theme: {
       extend: {
         "colors": {
-          "on-primary-container": "#493682",
+          "on-primary-container": "#174367",
           "on-error": "#690005",
           "background": "#111317",
           "secondary-fixed-dim": "#62dcad",
           "on-surface": "#e2e2e8",
           "on-tertiary-fixed": "#001e2c",
-          "primary-fixed": "#e8ddff",
+          "primary-fixed": "#dcefff",
           "on-surface-variant": "#cac4d2",
           "tertiary-fixed-dim": "#7bd0ff",
           "tertiary": "#8bd5ff",
@@ -111,19 +131,19 @@
           "surface-variant": "#333539",
           "secondary-container": "#18a479",
           "tertiary-fixed": "#c4e7ff",
-          "inverse-primary": "#64529f",
+          "inverse-primary": "#286a9e",
           "outline": "#948f9b",
-          "outline-variant": "#484550",
+          "outline-variant": "#454b50",
           "on-error-container": "#ffdad6",
-          "surface-tint": "#cdbdff",
-          "on-primary-fixed-variant": "#4c3a85",
+          "surface-tint": "#85ccff",
+          "on-primary-fixed-variant": "#174367",
           "surface-container-highest": "#333539",
           "secondary": "#62dcad",
           "on-background": "#e2e2e8",
           "surface-container": "#1e2024",
           "on-tertiary-fixed-variant": "#004c69",
           "on-tertiary-container": "#004964",
-          "on-primary": "#35216d",
+          "on-primary": "#0b304d",
           "tertiary-container": "#36bcf7",
           "surface-container-high": "#282a2e",
           "surface-container-lowest": "#0c0e12",
@@ -135,12 +155,12 @@
           "surface": "#111317",
           "on-secondary": "#003827",
           "surface-dim": "#111317",
-          "primary-fixed-dim": "#cdbdff",
+          "primary-fixed-dim": "#85ccff",
           "secondary-fixed": "#80f9c8",
           "error": "#ffb4ab",
-          "on-primary-fixed": "#200558",
-          "primary": "#d2c3ff",
-          "primary-container": "#b8a4f8",
+          "on-primary-fixed": "#06233b",
+          "primary": "#85ccff",
+          "primary-container": "#55b7ff",
           "on-secondary-fixed": "#002115"
         },
         "borderRadius": {
@@ -323,493 +343,23 @@
         }
       },
     },
-  }</script></head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 px-gutter-mobile md:px-gutter py-space-sm pointer-events-none"><div class="max-w-[1440px] mx-auto h-20 flex items-center justify-between gap-space-md pointer-events-auto"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="arrival" href="#"><div class="w-10 h-10 rounded-lg bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center shadow-[0_1px_8px_rgba(0,0,0,0.4)] group-hover:bg-surface-variant transition-colors"><span class="font-headline-md text-headline-md text-primary">YK</span></div><div class="hidden xl:flex flex-col"><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps tracking-widest text-on-surface">YASH KHADGI</span></div><span class="font-label-caps text-label-caps text-on-surface-variant text-[9px] tracking-wider">OPEN TO INTERNSHIPS &amp; COLLABORATION</span></div></a></div><nav class="hidden lg:flex items-center p-space-xs rounded-full bg-surface-container-low/70 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.5)]" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(184,164,248,0.25)]"><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="arrival" href="#">01 ARRIVAL</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="universe" href="#">02 UNIVERSE</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(184,164,248,0.25)]" data-path="theater" href="#">03 THEATER</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="archives" href="#">04 ARCHIVES</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">05 CONTACT</a></nav><div class="flex items-center gap-space-sm"><button aria-label="Command Center" class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-high/60 backdrop-blur-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="font-code-inline text-code-inline text-[11px] font-semibold text-primary">⌘K</span><span class="hidden md:inline font-label-tag text-label-tag text-[11px]">COMMAND</span></button><a class="hidden sm:inline-flex items-center px-space-md py-space-xs rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps font-semibold shadow-[0_0_24px_rgba(184,164,248,0.3)] hover:brightness-110 transition-all" data-path="universe" href="#">EXPLORE</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(210,195,255,0.35)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
-<!-- THEATER HERO OVERVIEW STRIP -->
-<section class="relative w-full px-gutter-mobile md:px-gutter py-space-xl overflow-hidden">
-<div class="max-w-[1440px] mx-auto flex flex-col gap-space-lg">
-<!-- Metatags and Theater Status -->
-<div class="flex flex-wrap items-center justify-between gap-space-md">
-<div class="flex items-center gap-space-sm">
-<span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-secondary shadow-[0_0_8px_rgba(98,220,173,0.8)] animate-pulse"></span>
-<span class="font-label-caps text-label-caps tracking-widest text-secondary">STAGE 03 / PROJECT THEATER</span>
-<span class="font-label-tag text-label-tag text-outline">•</span>
-<span class="font-label-tag text-label-tag text-on-surface-variant">CURATED ARTIFACT EXHIBITION</span>
-</div>
-<div class="flex items-center gap-space-xs font-code-inline text-code-inline text-on-surface-variant bg-surface-container-high/60 backdrop-blur-md px-space-md py-space-xs rounded-full">
-<span>FPS: 60.0</span>
-<span class="opacity-40">|</span>
-<span class="text-tertiary">SPATIAL RENDER: ACTIVE</span>
-<span class="opacity-40">|</span>
-<span class="text-primary">ARCH: 2024-2025</span>
-</div>
-</div>
-<!-- Main Exhibition Headline -->
-<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg">
-<div class="max-w-3xl">
-<p class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-space-xs">Production Systems &amp; High-Order Reasoning</p>
-<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Cinematic Project Theater</h1>
-</div>
-<!-- The theater is one continuous scroll: two vertical flagship arrivals, then a horizontal project reel. -->
-<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-xl bg-surface-container-high/70 backdrop-blur-xl shadow-xl font-label-tag text-label-tag text-on-surface-variant">
-<span class="text-primary font-semibold">01—08</span>
-<span class="opacity-40">/</span>
-<span>FULL PROJECT JOURNEY</span>
-</div>
-</div>
-</div>
-</section>
-<!-- ========================================== -->
-<!-- ACT 1: CUSTOMERPULSE HERO LAUNCH STAGE      -->
-<!-- ========================================== -->
-<section class="stage-panel w-full px-gutter-mobile md:px-gutter py-space-xl" id="stage-customerpulse">
-<div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
-<!-- Left Narrative & Architectural Column (5 Cols) -->
-<div class="lg:col-span-5 flex flex-col gap-space-lg">
-<div class="flex flex-col gap-space-xs">
-<div class="flex items-center gap-space-sm">
-<span class="font-code-inline text-code-inline text-secondary bg-surface-container-high px-space-sm py-1 rounded-full">FINALIST • TOP 2% / 1,500+ TEAMS</span>
-<span class="font-label-tag text-label-tag text-on-surface-variant">FLAGSHIP ARCHITECTURE</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-space-xs">
-            01 / CustomerPulse
-          </h2>
-<p class="font-title-md text-title-md text-primary mt-space-xs">
-            AI-Powered Complaint Intelligence Platform
-          </p>
-</div>
-<!-- Capability & Role Matrix -->
-<div class="flex flex-wrap gap-space-xs">
-<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-tag text-label-tag">AI/ML Architecture</span>
-<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-tag text-label-tag">RAG Feedback Loop</span>
-<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-tag text-label-tag">RBAC &amp; CRUD Control</span>
-<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-secondary font-label-tag text-label-tag">Complaint Lifecycle</span>
-</div>
-<!-- Narrative Breakdown -->
-<div class="flex flex-col gap-space-md text-on-surface-variant font-body-md text-body-md leading-relaxed">
-<p>
-            CustomerPulse is an AI-powered unified complaint intelligence dashboard for financial-services workflows. It brings complaints from channels such as email and web forms into one place, enriches them with AI analysis, detects related or duplicate submissions and supports response drafting.
-          </p>
-<p>
-            Yash contributed as the AI/ML and product-architecture member in a four-person team, working on ideation, problem deep-dives, RAG and AI processing, feedback-loop design, RBAC and CRUD-related functions.
-          </p>
-</div>
-<!-- Interactive Specs Bar -->
-<div class="grid grid-cols-3 gap-space-sm p-space-md rounded-xl bg-surface-container-high/50 backdrop-blur-md">
-<div class="flex flex-col">
-<span class="font-label-caps text-label-caps text-outline uppercase">Role</span>
-<span class="font-title-lg text-title-lg text-secondary">AI/ML</span>
-<span class="font-label-tag text-label-tag text-on-surface-variant">Product architecture</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-caps text-label-caps text-outline uppercase">Team</span>
-<span class="font-title-lg text-title-lg text-primary">4 people</span>
-<span class="font-label-tag text-label-tag text-on-surface-variant">Hackathon prototype</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-caps text-label-caps text-outline uppercase">Cohort</span>
-<span class="font-title-lg text-title-lg text-tertiary">Top 2%</span>
-<span class="font-label-tag text-label-tag text-on-surface-variant">1,500+ National Teams</span>
-</div>
-</div>
-<!-- Action Triggers -->
-<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
-<button class="px-space-lg py-space-sm rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps tracking-wider font-semibold shadow-[0_0_24px_rgba(184,164,248,0.35)] hover:brightness-110 transition-all flex items-center gap-space-xs" id="customerpulse-modal" onclick="openModal('customerpulse-modal')" type="button">
-<span>EXPLORE FULL CASE STUDY</span>
-<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</button>
-<button class="px-space-md py-space-sm rounded-full bg-surface-container-high text-on-surface hover:text-primary transition-all font-label-caps text-label-caps flex items-center gap-space-xs" onclick="toggleDrawer()" type="button">
-<span class="material-symbols-outlined text-[16px]">account_tree</span>
-<span>SYSTEM GRAPH</span>
-</button>
-</div>
-</div>
-<!-- Right Visual Launch Stage Mockup & Radar Showcase (7 Cols) -->
-<div class="lg:col-span-7 flex flex-col gap-space-md">
-<!-- Main Cinematic Display Container -->
-<div class="relative w-full rounded-2xl bg-surface-container-high/60 backdrop-blur-2xl p-space-md shadow-2xl overflow-hidden group">
-<!-- Glassmorphic Header of the Mockup -->
-<div class="flex items-center justify-between pb-space-sm mb-space-sm">
-<div class="flex items-center gap-space-xs">
-<span class="w-3 h-3 rounded-full bg-error/80"></span>
-<span class="w-3 h-3 rounded-full bg-surface-variant"></span>
-<span class="w-3 h-3 rounded-full bg-secondary/80"></span>
-<span class="font-code-inline text-code-inline text-on-surface-variant text-[11px] ml-space-xs">customerpulse / conceptual visual</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
-<span class="font-label-tag text-label-tag text-secondary text-[11px]">CONCEPTUAL</span>
-</div>
-</div>
-<!-- Editorial Mockup Imagery -->
-<div class="relative w-full h-[360px] md:h-[440px] rounded-xl overflow-hidden bg-surface-container-lowest">
-<img class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Conceptual visual for CustomerPulse complaint intelligence; not a real project screenshot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxeOlXzOWwts8TZA9XzNYObL6FGmSk5b5OdseO0YxLnvif0-7mu98aeQhkk0bmr3wbbXeDhFCsZe9900FoY6zDGpNnYnCvITxANtApC6JQ7uvNfQRtbijr-uYntF7s1RaMTlqwA8TGQ7G54KtvaeBnOYZ4sXAcSS6d60TosUA1PNT3wMGfafbbC2mN8SZ_FsLGxqsfAi6E8nRX9L2yV9Hj0_pAyqxff3mWZ3w4mk8F"/>
-<!-- Floating Live Sentiment Triage Overlay -->
-<div class="absolute top-4 left-4 p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl max-w-xs shadow-xl flex flex-col gap-space-xs">
-<div class="flex items-center justify-between">
-<span class="font-label-caps text-label-caps text-secondary">COMPLAINT QUEUE</span>
-<span class="font-code-inline text-code-inline text-[11px] text-primary">AI ENRICHMENT</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface line-clamp-2">
-                "Customer-submitted complaints can be organized by topic, sentiment, severity and urgency."
-              </p>
-<div class="flex items-center justify-between pt-1">
-<span class="font-label-tag text-label-tag text-on-surface-variant">Agent review supported</span>
-<span class="text-secondary font-code-inline text-[11px]">DRAFTING</span>
-</div>
-</div>
-<!-- Floating Vector Similarity Radar SVG Overlay -->
-<div class="absolute bottom-4 right-4 p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-xl flex flex-col gap-space-xs items-center">
-<span class="font-label-caps text-label-caps text-on-surface-variant">CONCEPTUAL SIGNAL MAP</span>
-<!-- Radar Chart SVG -->
-<svg class="w-24 h-24" viewbox="0 0 100 100">
-<polygon class="text-surface-variant" fill="none" points="50,10 90,38 75,85 25,85 10,38" stroke="currentColor" stroke-width="1"></polygon>
-<polygon class="text-surface-variant" fill="none" points="50,25 78,45 68,75 32,75 22,45" stroke="currentColor" stroke-width="1"></polygon>
-<!-- Plotted Values -->
-<polygon class="text-primary" fill="rgba(184, 164, 248, 0.3)" points="50,18 84,40 62,80 28,70 18,44" stroke="currentColor" stroke-width="1.5"></polygon>
-<circle class="fill-primary" cx="50" cy="18" r="2.5"></circle>
-<circle class="fill-primary" cx="84" cy="40" r="2.5"></circle>
-<circle class="fill-secondary" cx="62" cy="80" r="2.5"></circle>
-<circle class="fill-secondary" cx="28" cy="70" r="2.5"></circle>
-<circle class="fill-primary" cx="18" cy="44" r="2.5"></circle>
-</svg>
-<span class="font-code-inline text-code-inline text-[10px] text-secondary">NO LIVE TELEMETRY</span>
-</div>
-</div>
-<!-- Bottom Live Stream Indicator Strip -->
-<div class="mt-space-sm pt-space-sm flex flex-wrap items-center justify-between gap-space-sm font-label-tag text-label-tag text-on-surface-variant">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-primary text-[16px]">database</span>
-<span>FEATURES: AI ENRICHMENT • DUPLICATE DETECTION • RESPONSE ASSISTANCE</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-secondary text-[16px]">verified</span>
-<span>STATUS: HACKATHON PROTOTYPE</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- ========================================== -->
-<!-- ACT 2: MEMORYLENS HERO LAUNCH STAGE        -->
-<!-- ========================================== -->
-<section class="stage-panel w-full px-gutter-mobile md:px-gutter py-space-xl" id="stage-memorylens">
-<div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
-<!-- Left Narrative Column (5 Cols) -->
-<div class="lg:col-span-5 flex flex-col gap-space-lg">
-<div class="flex flex-col gap-space-xs">
-<div class="flex items-center gap-space-sm">
-<span class="font-code-inline text-code-inline text-tertiary bg-surface-container-high px-space-sm py-1 rounded-full">AI FOR BHARAT • PROTOTYPE SUBMISSION</span>
-<span class="font-label-tag text-label-tag text-on-surface-variant">PROTOTYPE SHOWCASE</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-space-xs">
-            02 / MemoryLens
-          </h2>
-<p class="font-title-md text-title-md text-tertiary mt-space-xs">
-            AI-Powered Multimodal Document &amp; Photo Search
-          </p>
-</div>
-<div class="flex flex-wrap gap-space-xs">
-<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-tag text-label-tag">Team Lead &amp; Backend Architect</span>
-<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-tag text-label-tag">Document Search</span>
-<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-tertiary font-label-tag text-label-tag">Face Matching</span>
-</div>
-<div class="flex flex-col gap-space-md text-on-surface-variant font-body-md text-body-md leading-relaxed">
-<p>
-            MemoryLens helps users find documents and photos from what they remember rather than exact filenames. It combines document parsing, embeddings/vector retrieval, face-related photo indexing and ranked results.
-          </p>
-<p>
-            Yash was Team Lead &amp; Backend Architect for the four-person build, owning the central FastAPI application, key search/indexing/status/open-file endpoints, AWS-related integrations and repository coordination. The cloud/offline architecture should remain marked as to be confirmed from the current repo.
-          </p>
-</div>
-<!-- Metric specs -->
-<div class="grid grid-cols-3 gap-space-sm p-space-md rounded-xl bg-surface-container-high/50 backdrop-blur-md">
-<div class="flex flex-col">
-<span class="font-label-caps text-label-caps text-outline uppercase">Role</span>
-<span class="font-title-lg text-title-lg text-tertiary">Lead</span>
-<span class="font-label-tag text-label-tag text-on-surface-variant">Backend architect</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-caps text-label-caps text-outline uppercase">Scope</span>
-<span class="font-title-lg text-title-lg text-primary">Text + Img</span>
-<span class="font-label-tag text-label-tag text-on-surface-variant">Joint Embedding</span>
-</div>
-<div class="flex flex-col">
-<span class="font-label-caps text-label-caps text-outline uppercase">Status</span>
-<span class="font-title-lg text-title-lg text-secondary">Submitted</span>
-<span class="font-label-tag text-label-tag text-on-surface-variant">Prototype stage</span>
-</div>
-</div>
-<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
-<button class="px-space-lg py-space-sm rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps tracking-wider font-semibold shadow-[0_0_24px_rgba(184,164,248,0.35)] hover:brightness-110 transition-all flex items-center gap-space-xs" id="memorylens-modal" onclick="openModal('memorylens-modal')" type="button">
-<span>INSPECT MULTIMODAL PIPELINE</span>
-<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-</button>
-<a class="px-space-md py-space-sm rounded-full bg-surface-container-high text-on-surface hover:text-tertiary transition-all font-label-caps text-label-caps flex items-center gap-space-xs" href="#">
-<span class="material-symbols-outlined text-[16px]">terminal</span>
-<span>GITHUB REPO</span>
-</a>
-</div>
-</div>
-<!-- Right Visual Launch Stage - Multi-layered Stack (7 Cols) -->
-<div class="lg:col-span-7 flex flex-col gap-space-md">
-<div class="relative w-full rounded-2xl bg-surface-container-high/60 backdrop-blur-2xl p-space-md shadow-2xl overflow-hidden group">
-<div class="flex items-center justify-between pb-space-sm mb-space-sm">
-<div class="flex items-center gap-space-xs">
-<span class="w-3 h-3 rounded-full bg-surface-variant"></span>
-<span class="w-3 h-3 rounded-full bg-tertiary/80"></span>
-<span class="w-3 h-3 rounded-full bg-primary/80"></span>
-<span class="font-code-inline text-code-inline text-on-surface-variant text-[11px] ml-space-xs">memorylens-cluster // crossmodal-index.faiss</span>
-</div>
-<span class="font-label-tag text-label-tag text-tertiary text-[11px]">CONCEPTUAL VISUAL</span>
-</div>
-<div class="relative w-full h-[360px] md:h-[440px] rounded-xl overflow-hidden bg-surface-container-lowest">
-<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700 ease-out" data-alt="Conceptual visual for MemoryLens multimodal search; not a real project screenshot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4tVci4ipQmCRmRhBv_qjWBIJcfzy801Fe37OQ25p18VHF7E7rJ0UyP4nVPJkT06zgXtObLWF1HjsawKnfM8YArqKwM-m8NTrLM6KwhkSx5XFNN-aqf3jD2t-7NOISi4m1pLh2D2LhSX5_zh_Ckkwk4GhJvc8UF0tF1ymV7-AlSNqR-kztUK8MTmWS7ECHHZsOQZCX46XUwCY4aOk9Jz4g35zPNweu1UA2D8NT82pR"/>
-<!-- Visual Floating Cluster Matrix Pill -->
-<div class="absolute top-4 right-4 p-space-sm rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-xl flex flex-col gap-1 text-right">
-<span class="font-label-caps text-label-caps text-tertiary">SEARCH PIPELINE</span>
-<span class="font-code-inline text-code-inline text-on-surface text-[11px]">DOCUMENTS + PHOTOS</span>
-<span class="font-label-tag text-label-tag text-secondary text-[10px]">ARCHITECTURE TO CONFIRM</span>
-</div>
-<!-- Query Visual Card -->
-<div class="absolute bottom-4 left-4 p-space-md rounded-xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-xl max-w-sm flex flex-col gap-space-xs">
-<div class="flex items-center gap-space-xs text-primary">
-<span class="material-symbols-outlined text-[16px]">search</span>
-<span class="font-label-caps text-label-caps">SEMANTIC NATURAL QUERY</span>
-</div>
-<p class="font-code-inline text-code-inline text-[12px] text-on-surface">
-                &gt; "Signed clinic discharge report from Maharashtra hospital with handwritten doctor stamp"
-              </p>
-<div class="flex items-center justify-between text-[11px] font-label-tag text-on-surface-variant pt-1">
-<span>Ranked results</span>
-<span class="text-tertiary font-semibold">Prototype workflow</span>
-</div>
-</div>
-</div>
-<!-- Bottom Meta Strip -->
-<div class="mt-space-sm pt-space-sm flex flex-wrap items-center justify-between gap-space-sm font-label-tag text-label-tag text-on-surface-variant">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-tertiary text-[16px]">memory</span>
-<span>DOCUMENT PARSING • INDEXING • FACE MATCHING</span>
-</div>
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-secondary text-[16px]">cloud_done</span>
-<span>AWS VS OFFLINE DETAILS TO BE CONFIRMED</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- ========================================== -->
-<!-- ACT 3: SNEAK PEEK HORIZONTAL FILMSTRIP RAIL -->
-<!-- ========================================== -->
-<section class="stage-panel reel-section w-full px-gutter-mobile md:px-gutter py-space-xl" id="stage-rail">
-<div class="reel-sticky max-w-[1440px] mx-auto flex flex-col gap-space-lg sm:gap-space-xl">
-<!-- Strip Title & Navigation Header -->
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-  <div class="flex-1 min-w-0">
-    <span class="font-label-caps text-label-caps text-secondary tracking-widest uppercase block mb-1">LAB ARTIFACTS &amp; ACTIVE EXPLORATIONS</span>
-    <div class="relative min-h-[4.25rem] sm:min-h-[4.75rem] flex flex-col justify-center overflow-hidden">
-      <h2 id="reel-live-heading" class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-tight">
-        <span id="reel-live-num" class="text-on-surface-variant font-light opacity-60">03 / </span><span id="reel-live-name" class="font-medium">DocFlow Core Engine</span>
-      </h2>
-      <p id="reel-live-meta" class="font-label-tag text-label-tag text-secondary text-xs sm:text-sm mt-1 truncate">
-        ENTERPRISE SAAS · IEEE NEXUS 2026 · IMPROVING
-      </p>
-    </div>
-  </div>
-  <div class="flex items-center gap-space-sm shrink-0">
-    <!-- Clickable Progress Indicator Dots -->
-    <div id="reel-indicators" class="hidden sm:flex items-center gap-1.5 bg-surface-container-high/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-outline-variant/30"></div>
-    <!-- Counter Badge -->
-    <div class="font-code-inline text-code-inline text-xs text-on-surface-variant bg-surface-container-high/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-outline-variant/30">
-      <span id="reel-active-count" class="text-primary font-semibold">01</span> / <span id="reel-total-count">06</span>
-    </div>
-    <!-- Prev / Next Arrows -->
-    <div class="flex items-center gap-1.5">
-      <button id="reel-prev-btn" class="w-9 h-9 rounded-full bg-surface-container-high hover:bg-surface-variant disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-on-surface transition-colors border border-outline-variant/30 shadow-sm cursor-pointer" aria-label="Previous project card" type="button">
-        <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-      </button>
-      <button id="reel-next-btn" class="w-9 h-9 rounded-full bg-surface-container-high hover:bg-surface-variant disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-on-surface transition-colors border border-outline-variant/30 shadow-sm cursor-pointer" aria-label="Next project card" type="button">
-        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
-      </button>
-    </div>
-  </div>
-</div>
-<!-- Filmstrip Cards Container -->
-<div id="filmstrip-scroller" tabindex="0" aria-label="Project explorations horizontal filmstrip reel" class="flex overflow-x-auto gap-6 sm:gap-8 pb-6 pt-2 snap-x outline-none focus-visible:ring-1 focus-visible:ring-primary/40 rounded-3xl" style="scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity;">
-<!-- TEASER CARD 1: DOCFLOW -->
-<div class="filmstrip-card flex-none w-[88vw] sm:w-[82vw] lg:w-[74vw] max-w-[1000px] flex flex-col rounded-3xl bg-surface-container-high/70 backdrop-blur-xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-outline-variant/30 group active-card" data-number="03" data-title="DocFlow Core Engine" data-category="ENTERPRISE SAAS" data-status="IEEE NEXUS 2026 • IMPROVING">
-<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md sm:mb-6">
-<span class="filmstrip-card-badge font-code-inline text-code-inline text-secondary bg-surface-container px-space-sm py-1.5 rounded-full text-xs sm:text-sm font-medium">PROJECT 03 • AUTOMATION SAAS</span>
-<span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">IEEE NEXUS 2026 • IMPROVING</span>
-</div>
-<div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<div class="project-artwork project-artwork-03" role="img" aria-label="Conceptual artwork showing documents moving through an automated extraction workflow"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
-<div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
-<span class="filmstrip-card-cat font-label-caps text-label-caps text-secondary text-xs sm:text-sm tracking-wider font-semibold">ENTERPRISE SAAS</span>
-<span class="filmstrip-card-title font-title-lg text-title-lg text-on-surface font-semibold text-[clamp(1.75rem,2.4vw,2.6rem)] leading-tight">DocFlow Core Engine</span>
-</div>
-</div>
-<p class="font-body-md text-on-surface-variant text-[16px] sm:text-[18px] leading-relaxed mb-6 max-w-3xl">
-Document automation platform for bulk uploads, OCR/field extraction, asynchronous processing, human review and structured exports. Advanced SaaS features remain in progress or to be confirmed.
-</p>
-<div class="flex flex-wrap items-center justify-between gap-space-sm pt-4 mt-auto border-t border-outline-variant/30">
-<div class="flex flex-wrap gap-2">
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">Team Lead</span>
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">Async Workers</span>
-</div>
-<button class="font-label-tag text-label-tag text-primary hover:text-secondary transition-colors flex items-center gap-1.5 text-xs sm:text-sm px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-variant/70 border border-outline-variant/30 cursor-pointer" id="docflow-modal" onclick="openModal('docflow-modal')" type="button">
-<span>EXPLORE SPECS</span>
-<span class="material-symbols-outlined text-[18px]">north_east</span>
-</button>
-</div>
-</div>
-<!-- TEASER CARD 2: LUNG DIGITAL TWIN -->
-<div class="filmstrip-card flex-none w-[88vw] sm:w-[82vw] lg:w-[74vw] max-w-[1000px] flex flex-col rounded-3xl bg-surface-container-high/70 backdrop-blur-xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-outline-variant/30 group" data-number="04" data-title="Lung Digital Twin Simulator" data-category="COMPUTATIONAL ONCOLOGY" data-status="RESEARCH PROTOTYPE">
-<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md sm:mb-6">
-<span class="filmstrip-card-badge font-code-inline text-code-inline text-primary bg-surface-container px-space-sm py-1.5 rounded-full text-xs sm:text-sm font-medium">PROJECT 04 • HEALTHCARE &amp; BIO-SIM</span>
-<span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">RESEARCH PROTOTYPE</span>
-</div>
-<div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<div class="project-artwork project-artwork-04" role="img" aria-label="Conceptual medical research visualization of a lung model and CT scan; not clinical output"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
-<div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
-<span class="filmstrip-card-cat font-label-caps text-label-caps text-primary text-xs sm:text-sm tracking-wider font-semibold">COMPUTATIONAL ONCOLOGY</span>
-<span class="filmstrip-card-title font-title-lg text-title-lg text-on-surface font-semibold text-[clamp(1.75rem,2.4vw,2.6rem)] leading-tight">Lung Digital Twin Simulator</span>
-</div>
-</div>
-<p class="font-body-md text-on-surface-variant text-[16px] sm:text-[18px] leading-relaxed mb-6 max-w-3xl">
-Research prototype exploring CT imaging, 3D anatomy and mathematical growth/response simulation for lung-cancer treatment scenarios. It is not clinically validated treatment advice.
-</p>
-<div class="flex flex-wrap items-center justify-between gap-space-sm pt-4 mt-auto border-t border-outline-variant/30">
-<div class="flex flex-wrap gap-2">
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">DICOM View</span>
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">Prototype Only</span>
-</div>
-<button class="font-label-tag text-label-tag text-primary hover:text-secondary transition-colors flex items-center gap-1.5 text-xs sm:text-sm px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-variant/70 border border-outline-variant/30 cursor-pointer" id="digitaltwin-modal" onclick="openModal('digitaltwin-modal')" type="button">
-<span>EXPLORE SIMULATION</span>
-<span class="material-symbols-outlined text-[18px]">north_east</span>
-</button>
-</div>
-</div>
-<!-- TEASER CARD 3: SKILLFORGE -->
-<div class="filmstrip-card flex-none w-[88vw] sm:w-[82vw] lg:w-[74vw] max-w-[1000px] flex flex-col rounded-3xl bg-surface-container-high/70 backdrop-blur-xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-outline-variant/30 group" data-number="05" data-title="SkillForge Platform" data-category="FULL-STACK LMS" data-status="SOLO INTERNSHIP • BUILT">
-<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md sm:mb-6">
-<span class="filmstrip-card-badge font-code-inline text-code-inline text-secondary bg-surface-container px-space-sm py-1.5 rounded-full text-xs sm:text-sm font-medium">PROJECT 05 • FULL-STACK LMS</span>
-<span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">SOLO INTERNSHIP • BUILT</span>
-</div>
-<div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<div class="project-artwork project-artwork-05" role="img" aria-label="Conceptual learning management system shown on a laptop and tablet"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
-<div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
-<span class="filmstrip-card-cat font-label-caps text-label-caps text-secondary text-xs sm:text-sm tracking-wider font-semibold">FULL-STACK LMS</span>
-<span class="filmstrip-card-title font-title-lg text-title-lg text-on-surface font-semibold text-[clamp(1.75rem,2.4vw,2.6rem)] leading-tight">SkillForge Platform</span>
-</div>
-</div>
-<p class="font-body-md text-on-surface-variant text-[16px] sm:text-[18px] leading-relaxed mb-6 max-w-3xl">
-Full-stack learning management system featuring authentication with OTP recovery, RBAC, enrollment and progress tracking, admin analytics, and audit logging. Completed during a solo Python full-stack internship.
-</p>
-<div class="flex flex-wrap items-center justify-between gap-space-sm pt-4 mt-auto border-t border-outline-variant/30">
-<div class="flex flex-wrap gap-2">
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">Flask / SQLite</span>
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">RBAC &amp; Audit Logs</span>
-</div>
-<button class="font-label-tag text-label-tag text-primary hover:text-secondary transition-colors flex items-center gap-1.5 text-xs sm:text-sm px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-variant/70 border border-outline-variant/30 cursor-pointer" id="skillforge-modal" onclick="openModal('skillforge-modal')" type="button">
-<span>EXPLORE SPECS</span>
-<span class="material-symbols-outlined text-[18px]">north_east</span>
-</button>
-</div>
-</div>
-<!-- TEASER CARD 4: SAFARSATHI -->
-<div class="filmstrip-card flex-none w-[88vw] sm:w-[82vw] lg:w-[74vw] max-w-[1000px] flex flex-col rounded-3xl bg-surface-container-high/70 backdrop-blur-xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-outline-variant/30 group" data-number="06" data-title="SafarSathi Companion" data-category="AGENTIC TRAVELTECH" data-status="PERSONAL PROJECT • COMPLETED">
-<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md sm:mb-6">
-<span class="filmstrip-card-badge font-code-inline text-code-inline text-primary bg-surface-container px-space-sm py-1.5 rounded-full text-xs sm:text-sm font-medium">PROJECT 06 • AGENTIC TRAVELTECH</span>
-<span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">PERSONAL PROJECT • COMPLETED</span>
-</div>
-<div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<div class="project-artwork project-artwork-06" role="img" aria-label="Conceptual travel assistant on a mountain road with a route map"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
-<div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
-<span class="filmstrip-card-cat font-label-caps text-label-caps text-primary text-xs sm:text-sm tracking-wider font-semibold">AGENTIC TRAVELTECH</span>
-<span class="filmstrip-card-title font-title-lg text-title-lg text-on-surface font-semibold text-[clamp(1.75rem,2.4vw,2.6rem)] leading-tight">SafarSathi Companion</span>
-</div>
-</div>
-<p class="font-body-md text-on-surface-variant text-[16px] sm:text-[18px] leading-relaxed mb-6 max-w-3xl">
-Multilingual AI travel assistant providing location-aware recommendations, route and trip assistance, and SOS support for hospitals and police.
-</p>
-<div class="flex flex-wrap items-center justify-between gap-space-sm pt-4 mt-auto border-t border-outline-variant/30">
-<div class="flex flex-wrap gap-2">
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">Multilingual AI</span>
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">Emergency SOS</span>
-</div>
-<button class="font-label-tag text-label-tag text-primary hover:text-secondary transition-colors flex items-center gap-1.5 text-xs sm:text-sm px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-variant/70 border border-outline-variant/30 cursor-pointer" id="safarsathi-modal" onclick="openModal('safarsathi-modal')" type="button">
-<span>EXPLORE SPECS</span>
-<span class="material-symbols-outlined text-[18px]">north_east</span>
-</button>
-</div>
-</div>
-<!-- TEASER CARD 5: LEARNING PATH RECOMMENDER -->
-<div class="filmstrip-card flex-none w-[88vw] sm:w-[82vw] lg:w-[74vw] max-w-[1000px] flex flex-col rounded-3xl bg-surface-container-high/70 backdrop-blur-xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-outline-variant/30 group" data-number="07" data-title="Learning Path Recommender" data-category="ADAPTIVE LEARNING" data-status="HCL × HACKEREARTH">
-<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md sm:mb-6">
-<span class="filmstrip-card-badge font-code-inline text-code-inline text-tertiary bg-surface-container px-space-sm py-1.5 rounded-full text-xs sm:text-sm font-medium">PROJECT 07 • RECOMMENDATION SYSTEM</span>
-<span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">HCL × HACKEREARTH</span>
-</div>
-<div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<div class="project-artwork project-artwork-07" role="img" aria-label="Conceptual adaptive learning path shown as a connected skill and course graph"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
-<div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
-<span class="filmstrip-card-cat font-label-caps text-label-caps text-tertiary text-xs sm:text-sm tracking-wider font-semibold">ADAPTIVE LEARNING</span>
-<span class="filmstrip-card-title font-title-lg text-title-lg text-on-surface font-semibold text-[clamp(1.75rem,2.4vw,2.6rem)] leading-tight">Learning Path Recommender</span>
-</div>
-</div>
-<p class="font-body-md text-on-surface-variant text-[16px] sm:text-[18px] leading-relaxed mb-6 max-w-3xl">
-Adaptive learning platform featuring conversational onboarding, skill-gap analysis, and DAG topological course sequencing.
-</p>
-<div class="flex flex-wrap items-center justify-between gap-space-sm pt-4 mt-auto border-t border-outline-variant/30">
-<div class="flex flex-wrap gap-2">
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">DAG / Kahn Algorithm</span>
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">Next.js / Groq</span>
-</div>
-<button class="font-label-tag text-label-tag text-primary hover:text-secondary transition-colors flex items-center gap-1.5 text-xs sm:text-sm px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-variant/70 border border-outline-variant/30 cursor-pointer" id="learningpath-modal" onclick="openModal('learningpath-modal')" type="button">
-<span>EXPLORE SPECS</span>
-<span class="material-symbols-outlined text-[18px]">north_east</span>
-</button>
-</div>
-</div>
-<!-- TEASER CARD 6: AGRICULTURE PRICE PREDICTION -->
-<div class="filmstrip-card flex-none w-[88vw] sm:w-[82vw] lg:w-[74vw] max-w-[1000px] flex flex-col rounded-3xl bg-surface-container-high/70 backdrop-blur-xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-outline-variant/30 group" data-number="08" data-title="Agriculture Price Prediction" data-category="ENSEMBLE REGRESSION ML" data-status="IEEE TEMSMET 2025 • PUBLISHED">
-<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-md sm:mb-6">
-<span class="filmstrip-card-badge font-code-inline text-code-inline text-secondary bg-surface-container px-space-sm py-1.5 rounded-full text-xs sm:text-sm font-medium">PROJECT 08 • RESEARCH &amp; ML</span>
-<span class="filmstrip-card-status font-label-tag text-label-tag text-on-surface-variant text-xs sm:text-sm">IEEE TEMSMET 2025 • PUBLISHED</span>
-</div>
-<div class="relative w-full aspect-[16/9] sm:h-72 md:h-80 lg:h-[380px] max-h-[420px] rounded-2xl overflow-hidden bg-surface-container-lowest mb-6 flex items-center justify-center border border-outline-variant/20">
-<div class="project-artwork project-artwork-08" role="img" aria-label="Conceptual agricultural market research visualization with crops and an illustrative price trend"></div>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/95 via-surface-container-lowest/40 to-transparent"></div>
-<div class="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 flex flex-col z-10">
-<span class="filmstrip-card-cat font-label-caps text-label-caps text-secondary text-xs sm:text-sm tracking-wider font-semibold">ENSEMBLE REGRESSION ML</span>
-<span class="filmstrip-card-title font-title-lg text-title-lg text-on-surface font-semibold text-[clamp(1.75rem,2.4vw,2.6rem)] leading-tight">Agriculture Price Prediction</span>
-</div>
-</div>
-<p class="font-body-md text-on-surface-variant text-[16px] sm:text-[18px] leading-relaxed mb-6 max-w-3xl">
-An agricultural machine learning framework for ensemble regressor-based crop price forecasting using historical market data. Published in IEEE Xplore.
-</p>
-<div class="flex flex-wrap items-center justify-between gap-space-sm pt-4 mt-auto border-t border-outline-variant/30">
-<div class="flex flex-wrap gap-2">
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">Co-Author &amp; ML</span>
-<span class="px-space-sm py-1.5 rounded-lg bg-surface-container text-xs sm:text-sm font-label-tag text-on-surface-variant">IEEE DOI Link</span>
-</div>
-<button class="font-label-tag text-label-tag text-primary hover:text-secondary transition-colors flex items-center gap-1.5 text-xs sm:text-sm px-space-md py-2 rounded-lg bg-surface-container hover:bg-surface-variant/70 border border-outline-variant/30 cursor-pointer" id="agriprice-modal" onclick="openModal('agriprice-modal')" type="button">
-<span>EXPLORE PAPER</span>
-<span class="material-symbols-outlined text-[18px]">north_east</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-</section>
+  }</script><link rel="stylesheet" href="site-theme.css?v=20261020-stacked-name1">
+<link rel="stylesheet" href="theater-catalog.css?v=20261020-stacked-name1">
+<link rel="stylesheet" href="portfolio-motion.css?v=20261020-stacked-name1">
+</head><body class="bg-surface-container-lowest font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen overflow-x-hidden"><header class="fixed top-0 left-0 right-0 z-50 px-gutter-mobile md:px-gutter py-space-sm pointer-events-none"><div class="max-w-[1440px] mx-auto h-20 flex items-center justify-between gap-space-md pointer-events-auto"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="arrival" href="#"><div class="w-10 h-10 rounded-lg bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center shadow-[0_1px_8px_rgba(0,0,0,0.4)] group-hover:bg-surface-variant transition-colors"><span class="font-headline-md text-headline-md text-primary brand-mark">YK</span></div><div class="hidden xl:flex flex-col"><div class="flex items-center gap-space-xs"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps tracking-widest text-on-surface brand-mark">YASH KHADGI</span></div><span class="font-label-caps text-label-caps text-on-surface-variant text-[9px] tracking-wider">OPEN TO INTERNSHIPS &amp; COLLABORATION</span></div></a></div><nav class="hidden lg:flex items-center p-space-xs rounded-full bg-surface-container-low/70 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.5)]" data-active-classes="bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(85,183,255,0.25)]"><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="arrival" href="#">01 ARRIVAL</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="universe" href="#">02 UNIVERSE</a><a aria-current="page" class="px-space-md py-space-xs rounded-full transition-colors bg-primary-container text-on-primary-container font-semibold shadow-[0_0_20px_rgba(85,183,255,0.25)]" data-path="theater" href="#">03 THEATER</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="archives" href="#">04 ARCHIVES</a><a class="px-space-md py-space-xs rounded-full font-label-tag text-label-tag text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#">05 CONTACT</a></nav><div class="flex items-center gap-space-sm"><button aria-label="Command Center" class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs rounded-lg bg-surface-container-high/60 backdrop-blur-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all shadow-[0_1px_8px_rgba(0,0,0,0.3)]" type="button"><span class="font-code-inline text-code-inline text-[11px] font-semibold text-primary">⌘K</span><span class="hidden md:inline font-label-tag text-label-tag text-[11px]">COMMAND</span></button><a class="hidden sm:inline-flex items-center px-space-md py-space-xs rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps font-semibold shadow-[0_0_24px_rgba(85,183,255,0.3)] hover:brightness-110 transition-all" data-path="universe" href="#">EXPLORE</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(133,204,255,0.35)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full">
+<div class="theater-catalog">
+  <section class="catalog-hero">
+    <p class="catalog-kicker">PROJECT THEATER</p>
+    <h1>Project Theater</h1>
+    <p>Hackathon builds, research outcomes and independent projects. Explore the work, my contribution and the available source material.</p>
+    <nav class="catalog-nav" aria-label="Project categories"><a href="#hackathon-builds">Hackathon Builds <span>04</span></a><a href="#standout-projects">Research &amp; Standout <span>05</span></a><a href="#experimental-builds">Personal &amp; Experimental <span>06</span></a></nav>
+  </section>
+  <section class="catalog-group" id="hackathon-builds" aria-labelledby="hackathon-heading"><div class="catalog-group-heading"><div><p class="catalog-kicker">01 / HACKATHONS</p><h2 id="hackathon-heading">Hackathon Builds</h2></div><p>Projects built for competitive hackathons, with team roles and submission outcomes.</p></div><div class="catalog-grid" id="hackathon-project-grid"></div></section>
+  <section class="catalog-group" id="standout-projects" aria-labelledby="standout-heading"><div class="catalog-group-heading"><div><p class="catalog-kicker">02 / RESEARCH &amp; PRODUCTS</p><h2 id="standout-heading">Research &amp; Standout Projects</h2></div><p>Published research, patent applications, an internship build and a substantial independent project.</p></div><div class="catalog-grid" id="standout-project-grid"></div></section>
+  <section class="catalog-group" id="experimental-builds" aria-labelledby="experimental-heading"><div class="catalog-group-heading"><div><p class="catalog-kicker">03 / MORE BUILDS</p><h2 id="experimental-heading">Personal &amp; Experimental Builds</h2></div><p>Smaller tools, academic applications, ongoing team work and experiments.</p></div><div class="catalog-grid catalog-grid-compact" id="experimental-project-grid"></div></section>
+</div>
+<script src="universe.data.js?v=20261020-stacked-name1"></script>
+<script src="theater-catalog.js?v=20261020-stacked-name1"></script>
 <!-- ========================================== -->
 <!-- MODAL: INTERACTIVE CASE STUDY DEEP DIVE    -->
 <!-- ========================================== -->
@@ -1063,7 +613,7 @@ An agricultural machine learning framework for ensemble regressor-based crop pri
         title.innerText = 'MemoryLens — Prototype Case Study';
       } else if (projectId === 'docflow-modal') {
         title.innerText = 'DocFlow — Document Automation Case Study';
-      } else if (projectId === 'digitaltwin-modal') {
+      } else if ((projectId === 'digitaltwin-modal' || projectId === 'lungtwin-modal')) {
         title.innerText = 'Lung Digital Twin — Research Prototype';
       } else if (projectId === 'skillforge-modal') {
         title.innerText = 'SkillForge — Full-Stack LMS Case Study';
@@ -1114,13 +664,13 @@ An agricultural machine learning framework for ensemble regressor-based crop pri
       if (!pid) return;
       let cleanId = pid.toLowerCase().replace(/[-_]modal$/, '');
       if (cleanId === 'agri-price' || cleanId === 'agriprice' || cleanId === 'agri') cleanId = 'agriprice';
-      if (cleanId === 'lung-twin' || cleanId === 'lungtwin' || cleanId === 'digitaltwin') cleanId = 'digitaltwin';
+      if (cleanId === 'lung-twin' || cleanId === 'lungtwin' || cleanId === 'digitaltwin') cleanId = 'lungtwin';
       const modalId = cleanId + '-modal';
       const stageId = 'stage-' + cleanId;
       if (document.getElementById(stageId)) {
         switchStage(stageId);
       } else {
-        switchStage('stage-rail');
+        switchStage('stage-' + cleanId);
       }
       openModal(modalId);
     }
@@ -1132,284 +682,5 @@ An agricultural machine learning framework for ensemble regressor-based crop pri
       if (e.data?.type === 'select-project') selectProject(e.data.project);
     });
 
-    // ══════════════════════════════════════════
-    // ── HORIZONTAL FILMSTRIP REEL CONTROLLER ──
-    // ══════════════════════════════════════════
-    (function initFilmstripReel() {
-      const scroller = document.getElementById('filmstrip-scroller');
-      if (!scroller) return;
-
-      const cards = Array.from(scroller.querySelectorAll('.filmstrip-card'));
-      const prevBtn = document.getElementById('reel-prev-btn');
-      const nextBtn = document.getElementById('reel-next-btn');
-      const liveHeading = document.getElementById('reel-live-heading');
-      const liveNum = document.getElementById('reel-live-num');
-      const liveName = document.getElementById('reel-live-name');
-      const liveMeta = document.getElementById('reel-live-meta');
-      const activeCountEl = document.getElementById('reel-active-count');
-      const totalCountEl = document.getElementById('reel-total-count');
-      const indicatorsContainer = document.getElementById('reel-indicators');
-
-      if (totalCountEl) totalCountEl.textContent = String(cards.length).padStart(2, '0');
-
-      let activeIndex = 0;
-      let scrollRaf = null;
-      let headingAnimTimer = null;
-      let reelTarget = 0;
-      let reelMotionRaf = null;
-
-      // Ensure data attributes are populated from cards
-      cards.forEach((card, idx) => {
-        if (!card.dataset.title) {
-          const t = card.querySelector('.filmstrip-card-title');
-          card.dataset.title = t ? t.textContent.trim() : `Project ${idx + 1}`;
-        }
-        if (!card.dataset.number) {
-          const b = card.querySelector('.filmstrip-card-badge');
-          const match = b ? b.textContent.match(/PROJECT\s*(\d+)/i) : null;
-          card.dataset.number = match ? match[1] : String(idx + 3).padStart(2, '0');
-        }
-        if (!card.dataset.category) {
-          const c = card.querySelector('.filmstrip-card-cat');
-          card.dataset.category = c ? c.textContent.trim() : '';
-        }
-        if (!card.dataset.status) {
-          const s = card.querySelector('.filmstrip-card-status');
-          card.dataset.status = s ? s.textContent.trim() : '';
-        }
-      });
-
-      // Render progress dots
-      if (indicatorsContainer) {
-        indicatorsContainer.innerHTML = '';
-        cards.forEach((_, idx) => {
-          const dot = document.createElement('button');
-          dot.type = 'button';
-          dot.className = `h-2 sm:h-2.5 rounded-full transition-all duration-300 cursor-pointer ${idx === 0 ? 'bg-primary w-5 sm:w-6' : 'bg-surface-variant hover:bg-on-surface-variant/60 w-2 sm:w-2.5'}`;
-          dot.setAttribute('aria-label', `Navigate to card ${idx + 1}`);
-          dot.addEventListener('click', () => scrollToCard(idx));
-          indicatorsContainer.appendChild(dot);
-        });
-      }
-
-      // Dynamic padding at start and end of scroller to ensure center placement
-      function updateReelPadding() {
-        const firstCard = cards[0];
-        if (!firstCard || !scroller.clientWidth) return;
-        const cardWidth = firstCard.offsetWidth;
-        const scrollerWidth = scroller.clientWidth;
-        const pad = Math.max(16, Math.round((scrollerWidth - cardWidth) / 2));
-        scroller.style.paddingLeft = `${pad}px`;
-        scroller.style.paddingRight = `${pad}px`;
-      }
-
-      function updateHeadingText(card) {
-        if (!liveHeading) return;
-        const num = card.dataset.number || '';
-        const title = card.dataset.title || '';
-        const cat = card.dataset.category || '';
-        const status = card.dataset.status || '';
-        const metaStr = [cat, status].filter(Boolean).join(' · ');
-
-        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reducedMotion) {
-          if (liveNum) liveNum.textContent = num ? `${num} / ` : '';
-          if (liveName) liveName.textContent = title;
-          if (liveMeta) liveMeta.textContent = metaStr;
-          return;
-        }
-
-        if (headingAnimTimer) clearTimeout(headingAnimTimer);
-
-        liveHeading.style.transition = 'transform 120ms cubic-bezier(0.4, 0, 1, 1), opacity 120ms ease';
-        liveHeading.style.transform = 'translateY(-10px)';
-        liveHeading.style.opacity = '0';
-        if (liveMeta) {
-          liveMeta.style.transition = 'transform 120ms cubic-bezier(0.4, 0, 1, 1), opacity 120ms ease';
-          liveMeta.style.transform = 'translateY(-6px)';
-          liveMeta.style.opacity = '0';
-        }
-
-        headingAnimTimer = setTimeout(() => {
-          if (liveNum) liveNum.textContent = num ? `${num} / ` : '';
-          if (liveName) liveName.textContent = title;
-          if (liveMeta) liveMeta.textContent = metaStr;
-
-          liveHeading.style.transition = 'none';
-          liveHeading.style.transform = 'translateY(10px)';
-          if (liveMeta) {
-            liveMeta.style.transition = 'none';
-            liveMeta.style.transform = 'translateY(6px)';
-          }
-
-          void liveHeading.offsetHeight; // reflow
-
-          liveHeading.style.transition = 'transform 150ms cubic-bezier(0, 0, 0.2, 1), opacity 150ms ease';
-          liveHeading.style.transform = 'translateY(0)';
-          liveHeading.style.opacity = '1';
-          if (liveMeta) {
-            liveMeta.style.transition = 'transform 150ms cubic-bezier(0, 0, 0.2, 1), opacity 150ms ease';
-            liveMeta.style.transform = 'translateY(0)';
-            liveMeta.style.opacity = '1';
-          }
-        }, 120);
-      }
-
-      function setActiveCard(index) {
-        if (index < 0 || index >= cards.length) return;
-        activeIndex = index;
-
-        // Card visual state
-        cards.forEach((c, idx) => {
-          c.classList.toggle('active-card', idx === index);
-        });
-
-        // Buttons disabled state
-        if (prevBtn) prevBtn.disabled = index === 0;
-        if (nextBtn) nextBtn.disabled = index === cards.length - 1;
-
-        // Counter
-        if (activeCountEl) activeCountEl.textContent = String(index + 1).padStart(2, '0');
-
-        // Dots
-        if (indicatorsContainer) {
-          const dots = indicatorsContainer.querySelectorAll('button');
-          dots.forEach((dot, idx) => {
-            dot.className = `h-2 sm:h-2.5 rounded-full transition-all duration-300 cursor-pointer ${idx === index ? 'bg-primary w-5 sm:w-6' : 'bg-surface-variant hover:bg-on-surface-variant/60 w-2 sm:w-2.5'}`;
-          });
-        }
-
-        // Live Heading
-        updateHeadingText(cards[index]);
-      }
-
-      function detectActiveCard() {
-        if (!cards.length) return;
-        const scrollerRect = scroller.getBoundingClientRect();
-        const scrollerCenter = scrollerRect.left + scrollerRect.width / 2;
-
-        let closestDist = Infinity;
-        let closestIndex = 0;
-
-        cards.forEach((card, idx) => {
-          const cardRect = card.getBoundingClientRect();
-          const cardCenter = cardRect.left + cardRect.width / 2;
-          const dist = Math.abs(cardCenter - scrollerCenter);
-          if (dist < closestDist) {
-            closestDist = dist;
-            closestIndex = idx;
-          }
-        });
-
-        if (closestIndex !== activeIndex) {
-          setActiveCard(closestIndex);
-        }
-      }
-
-      function scrollToCard(index) {
-        if (index < 0 || index >= cards.length) return;
-        const card = cards[index];
-        const scrollerRect = scroller.getBoundingClientRect();
-        const cardRect = card.getBoundingClientRect();
-        const targetScrollLeft = scroller.scrollLeft + (cardRect.left - scrollerRect.left) - (scrollerRect.width - cardRect.width) / 2;
-        const destination = Math.max(0, Math.min(reelDistance, Math.round(targetScrollLeft)));
-        if (rail.classList.contains('pinned-reel')) {
-          const railTop = rail.getBoundingClientRect().top + window.scrollY;
-          window.scrollTo({ top: railTop + destination, behavior: 'smooth' });
-        } else {
-          scroller.scrollTo({ left: destination, behavior: 'smooth' });
-        }
-      }
-
-      const rail = document.getElementById('stage-rail');
-      const pinQuery = window.matchMedia('(min-width: 1024px)');
-      let reelDistance = 0;
-
-      function moveReel() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          scroller.scrollLeft = reelTarget;
-          reelMotionRaf = null;
-          return;
-        }
-        const distance = reelTarget - scroller.scrollLeft;
-        if (Math.abs(distance) < 0.7) {
-          scroller.scrollLeft = reelTarget;
-          reelMotionRaf = null;
-          return;
-        }
-        scroller.scrollLeft += distance * 0.2;
-        reelMotionRaf = requestAnimationFrame(moveReel);
-      }
-
-      function syncReel() {
-        if (!rail.classList.contains('pinned-reel')) return;
-        const progress = Math.max(0, Math.min(reelDistance, -rail.getBoundingClientRect().top));
-        reelTarget = progress;
-        if (!reelMotionRaf) reelMotionRaf = requestAnimationFrame(moveReel);
-      }
-
-      function measureReel() {
-        if (rail.classList.contains('hidden')) return;
-        const pinned = pinQuery.matches;
-        rail.classList.toggle('pinned-reel', pinned);
-        rail.style.height = '';
-        scroller.style.scrollSnapType = pinned ? 'none' : 'x proximity';
-        reelDistance = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
-        if (pinned) {
-          rail.style.height = `calc(100dvh + ${reelDistance}px)`;
-          syncReel();
-        } else if (reelMotionRaf) {
-          cancelAnimationFrame(reelMotionRaf);
-          reelMotionRaf = null;
-        }
-      }
-
-      window.addEventListener('scroll', syncReel, { passive: true });
-      const reelResize = new ResizeObserver(measureReel);
-      reelResize.observe(scroller);
-      cards.forEach(card => reelResize.observe(card));
-
-      // Throttled scroll listener
-      scroller.addEventListener('scroll', () => {
-        if (scrollRaf) return;
-        scrollRaf = requestAnimationFrame(() => {
-          scrollRaf = null;
-          detectActiveCard();
-        });
-      }, { passive: true });
-
-      // Arrow buttons
-      prevBtn?.addEventListener('click', () => scrollToCard(activeIndex - 1));
-      nextBtn?.addEventListener('click', () => scrollToCard(activeIndex + 1));
-
-      // Keyboard Left/Right on scroller
-      scroller.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          scrollToCard(activeIndex - 1);
-        } else if (e.key === 'ArrowRight') {
-          e.preventDefault();
-          scrollToCard(activeIndex + 1);
-        }
-      });
-
-      // Window resize
-      window.addEventListener('resize', () => {
-        updateReelPadding();
-        measureReel();
-        detectActiveCard();
-      }, { passive: true });
-
-      // Initial setup
-      updateReelPadding();
-      measureReel();
-      setActiveCard(0);
-
-      setTimeout(() => {
-        updateReelPadding();
-        measureReel();
-        detectActiveCard();
-      }, 150);
-    })();
   </script>
-</div></main><aside class="fixed bottom-space-md left-gutter-mobile md:left-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)]"><span class="material-symbols-outlined text-secondary text-[16px] animate-pulse">sensors</span><div class="flex items-center gap-space-xs font-label-tag text-label-tag text-[11px] text-on-surface-variant"><span class="text-on-surface font-semibold">21°08'N 79°05'E</span><span class="opacity-40">•</span><span class="text-secondary font-medium">IST 02:44:19</span><span class="opacity-40">•</span><div class="flex items-center gap-[2px] h-3"><span class="w-[2px] h-2 bg-secondary/80 rounded-full animate-bounce"></span><span class="w-[2px] h-3 bg-secondary rounded-full animate-bounce [animation-delay:0.15s]"></span><span class="w-[2px] h-1.5 bg-secondary/60 rounded-full animate-bounce [animation-delay:0.3s]"></span></div></div></div></aside><aside class="fixed bottom-space-md right-gutter-mobile md:right-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)] group"><button class="font-label-caps text-label-caps text-[10px] text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" type="button">SKIP INTRO</button><div class="relative flex items-center justify-center w-7 h-7"><svg class="w-7 h-7 -rotate-90" viewbox="0 0 32 32"><circle class="text-surface-variant" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-width="2"></circle><circle class="text-primary" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-dasharray="81.68" stroke-dashoffset="54" stroke-width="2.5"></circle></svg><span class="absolute font-code-inline text-code-inline text-[9px] font-semibold text-on-surface">34%</span></div></div></aside><footer class="w-full bg-surface-container-lowest py-space-xl mt-space-2xl shadow-[0_-1px_16px_rgba(0,0,0,0.4)]"><div class="max-w-[1440px] mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md font-label-tag text-label-tag text-on-surface-variant"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-primary text-[20px]">YK</span><span>© 2026 Yash Khadgi. Building products. Building a legacy.</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps text-[11px]"><span class="text-secondary">OPEN TO INTERNSHIPS &amp; COLLABORATION</span><span class="opacity-30">|</span><span class="text-on-surface-variant">LAT 21.1458° N • LON 79.0882° E</span></div></div></footer></body></html>
+</div></main><aside class="fixed bottom-space-md left-gutter-mobile md:left-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)]"><span class="material-symbols-outlined text-secondary text-[16px] animate-pulse">sensors</span><div class="flex items-center gap-space-xs font-label-tag text-label-tag text-[11px] text-on-surface-variant"><span class="text-on-surface font-semibold">21°08'N 79°05'E</span><span class="opacity-40">•</span><span class="text-secondary font-medium">IST 02:44:19</span><span class="opacity-40">•</span><div class="flex items-center gap-[2px] h-3"><span class="w-[2px] h-2 bg-secondary/80 rounded-full animate-bounce"></span><span class="w-[2px] h-3 bg-secondary rounded-full animate-bounce [animation-delay:0.15s]"></span><span class="w-[2px] h-1.5 bg-secondary/60 rounded-full animate-bounce [animation-delay:0.3s]"></span></div></div></div></aside><aside class="fixed bottom-space-md right-gutter-mobile md:right-gutter z-40 pointer-events-none"><div class="pointer-events-auto flex items-center gap-space-sm px-space-md py-space-xs rounded-full bg-surface-container-low/80 backdrop-blur-xl shadow-[0_1px_16px_rgba(0,0,0,0.6)] group"><button class="font-label-caps text-label-caps text-[10px] text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest" type="button">SKIP INTRO</button><div class="relative flex items-center justify-center w-7 h-7"><svg class="w-7 h-7 -rotate-90" viewbox="0 0 32 32"><circle class="text-surface-variant" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-width="2"></circle><circle class="text-primary" cx="16" cy="16" fill="none" r="13" stroke="currentColor" stroke-dasharray="81.68" stroke-dashoffset="54" stroke-width="2.5"></circle></svg><span class="absolute font-code-inline text-code-inline text-[9px] font-semibold text-on-surface">34%</span></div></div></aside><footer class="w-full bg-surface-container-lowest py-space-xl mt-space-2xl shadow-[0_-1px_16px_rgba(0,0,0,0.4)]"><div class="max-w-[1440px] mx-auto px-gutter flex flex-col md:flex-row items-center justify-between gap-space-md font-label-tag text-label-tag text-on-surface-variant"><div class="flex items-center gap-space-sm"><span class="font-headline-md text-headline-md text-primary text-[20px] brand-mark">YK</span><span>© 2026 Yash Khadgi. Building products. Building a legacy.</span></div><div class="flex items-center gap-space-md font-label-caps text-label-caps text-[11px]"><span class="text-secondary">OPEN TO INTERNSHIPS &amp; COLLABORATION</span><span class="opacity-30">|</span><span class="text-on-surface-variant">LAT 21.1458° N • LON 79.0882° E</span></div></div></footer></body></html>

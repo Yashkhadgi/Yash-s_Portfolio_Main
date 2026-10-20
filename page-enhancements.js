@@ -7,9 +7,9 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
   });
   const style = doc.createElement('style');
   style.textContent = `
-    :focus-visible{outline:2px solid #c3b2ff!important;outline-offset:4px}
+    :focus-visible{outline:2px solid #55b7ff!important;outline-offset:4px}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
-    .portfolio-motion-reveal{opacity:0;transform:translate3d(0,24px,0) scale(.985);filter:blur(8px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1),filter .75s ease}
+    .portfolio-motion-reveal{opacity:0;transform:translate3d(0,24px,0) scale(.985);filter:blur(8px);transition:opacity 1.05s cubic-bezier(.22,1,.36,1),transform 1.05s cubic-bezier(.22,1,.36,1),filter 1.05s ease}
     .portfolio-motion-reveal.is-visible{opacity:1;transform:none;filter:none}
     .portfolio-motion-tilt{transform-style:preserve-3d;will-change:transform;transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease}
     .portfolio-motion-tilt:hover{box-shadow:0 24px 70px rgba(0,0,0,.28)}
@@ -17,20 +17,75 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
     .portfolio-motion-reveal h1,.portfolio-motion-reveal h2,.portfolio-motion-reveal h3{text-wrap:balance}
     .portfolio-motion-reveal.is-visible h1,.portfolio-motion-reveal.is-visible h2,.portfolio-motion-reveal.is-visible h3{animation:portfolio-title-focus .9s cubic-bezier(.22,1,.36,1) both}
     @keyframes portfolio-title-focus{from{opacity:.2;filter:blur(10px);letter-spacing:.08em;transform:translateY(12px)}to{opacity:1;filter:none;letter-spacing:0;transform:none}}
-    .portfolio-cursor{position:fixed;z-index:9999;width:10px;height:10px;border:1px solid rgba(195,178,255,.9);border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%);transition:width .22s ease,height .22s ease,background .22s ease,opacity .22s ease;mix-blend-mode:screen}
+    .portfolio-cursor{position:fixed;z-index:9999;width:10px;height:10px;border:1px solid rgba(85,183,255,.9);border-radius:50%;pointer-events:none;opacity:0;transform:translate(-50%,-50%);transition:width .22s ease,height .22s ease,background .22s ease,opacity .22s ease;mix-blend-mode:screen}
     .portfolio-cursor.is-active{opacity:1}
-    .portfolio-cursor.is-hovering{width:34px;height:34px;background:rgba(195,178,255,.16)}
+    .portfolio-cursor.is-hovering{width:34px;height:34px;background:rgba(85,183,255,.16)}
     .portfolio-cinema-bar{position:fixed;left:0;right:0;height:18px;background:#07080b;z-index:9998;pointer-events:none;transition:transform .9s cubic-bezier(.22,1,.36,1)}
     .portfolio-cinema-bar.top{top:0}.portfolio-cinema-bar.bottom{bottom:0}
     .portfolio-cinema-bar.settled.top{transform:translateY(-100%)}.portfolio-cinema-bar.settled.bottom{transform:translateY(100%)}
     @media (pointer:coarse),(prefers-reduced-motion:reduce){.portfolio-cursor,.portfolio-cinema-bar{display:none}.portfolio-motion-reveal{opacity:1;transform:none;filter:none}}
-    #portfolio-command{background:#171a20;color:#ebe9ef;border:1px solid #49434f;border-radius:8px;padding:24px;width: min(540px,90vw);max-height:80vh;overflow:auto}
+    #portfolio-command{background:#171a20;color:#ebe9ef;border:1px solid #434a4f;border-radius:8px;padding:24px;width: min(540px,90vw);max-height:80vh;overflow:auto}
     #portfolio-command::backdrop{background:rgba(0,0,0,.7)}
-    #portfolio-command input{width:100%;padding:12px;background:#0c0e12;color:inherit;border:1px solid #49434f;border-radius:4px;margin:16px 0}
+    #portfolio-command input{width:100%;padding:12px;background:#0c0e12;color:inherit;border:1px solid #434a4f;border-radius:4px;margin:16px 0}
     #portfolio-command button{display:block;text-align:left;width:100%;padding:12px;background:transparent;color:inherit;border:0;cursor:pointer}
-    #portfolio-command button:hover{background:#30303a}
+    #portfolio-command button:hover{background:#30363a}
     #project-modal>div{max-width:calc(100vw - 24px)}
     .modal-tab-btn{flex-shrink:0}
+    @media(max-width:640px){
+      html,body{max-width:100%;overflow-x:hidden}
+      body{padding-bottom:calc(5rem + env(safe-area-inset-bottom))}
+      img,video,canvas,svg{max-width:100%}
+      button,a{touch-action:manipulation}
+      .portfolio-motion-reveal{filter:none;transform:translate3d(0,12px,0);transition-duration:.45s}
+      .portfolio-motion-reveal.is-visible{transform:none}
+      .portfolio-cinema-bar{height:8px}
+      #portfolio-command{width:calc(100vw - 24px);max-height:80dvh;padding:18px}
+      #portfolio-command input,#portfolio-command button{min-height:44px}
+      #scene-arrival h1{font-size:clamp(2.35rem,10vw,3.5rem)!important;line-height:.98!important;overflow-wrap:anywhere}
+      #scene-arrival .min-h-\\[780px\\]{min-height:0!important;padding-top:5.5rem;padding-bottom:2.5rem}
+      #scene-arrival blockquote{font-size:clamp(1.55rem,7vw,2rem);line-height:1.25}
+      #scene-arrival .aspect-\\[4\\/5\\]{aspect-ratio:4/4.5}
+      #scene-arrival .font-label-caps,#scene-arrival .font-label-tag{overflow-wrap:anywhere}
+      #scene-arrival .p-space-sm.flex.items-center.justify-between{display:flex!important;flex-wrap:wrap;align-items:flex-start;gap:.4rem}
+      #scene-arrival .p-space-sm.flex.items-center.justify-between>div:first-child{min-width:0;flex:1 1 100%;display:flex;align-items:flex-start;gap:.35rem}
+      #scene-arrival .p-space-sm.flex.items-center.justify-between>div:first-child>span:last-child{min-width:0;font-size:10px;line-height:1.35;white-space:normal;overflow-wrap:anywhere}
+      #scene-arrival .p-space-sm.flex.items-center.justify-between>span:last-child{max-width:100%;margin-left:28px;white-space:normal;text-align:left;line-height:1.35;overflow-wrap:anywhere}
+      #scene-transform h2,#scene-discovery h2{font-size:clamp(2rem,9vw,2.8rem);line-height:1.08}
+      .profile-section{padding:52px 0}
+      .profile-wrap{width:calc(100% - 36px)}
+      .profile-intro img{width:min(100%,280px);height:auto;aspect-ratio:4/4.7}
+      .profile-grid{grid-template-columns:1fr}
+      .profile-row{grid-template-columns:1fr;gap:7px}
+      .profile-skills{grid-template-columns:minmax(0,1fr);gap:16px}
+      .skill-categories{display:flex;flex-direction:row;overflow-x:auto;overscroll-behavior-inline:contain}
+      .skill-category{flex:0 0 auto;min-height:44px;padding:10px 12px}
+      .skill-tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .profile-section-header{display:block}
+      .profile-section-header p{margin-top:12px}
+      .profile-end{align-items:flex-start;flex-direction:column}
+      .contact-hero{padding-top:54px;padding-bottom:50px}
+      .contact-hero h1{font-size:clamp(2.65rem,11vw,4rem);line-height:1.02;overflow-wrap:anywhere}
+      .contact-hero p{font-size:16px;line-height:1.65}
+      .contact-grid{padding-top:48px;padding-bottom:56px;gap:48px}
+      .links>a{min-height:76px;gap:12px}
+      .links strong{font-size:15px;overflow-wrap:anywhere}
+      .message input,.message textarea{font-size:16px;min-height:48px}
+      .message textarea{min-height:140px}
+      .message button{min-height:48px}
+      .footer{flex-direction:column;align-items:flex-start;padding-top:28px;padding-bottom:calc(34px + env(safe-area-inset-bottom))}
+      .section{padding-top:64px;padding-bottom:64px}
+      .section-head{grid-template-columns:minmax(0,1fr);gap:12px;margin-bottom:30px}
+      .section-head p{justify-self:start;margin:0}
+      .paper-title{font-size:clamp(1.8rem,7vw,2.5rem);overflow-wrap:anywhere}
+      .patent{padding:22px}
+      .patent-top{flex-wrap:wrap;gap:10px}
+      .patent h3{font-size:25px}
+      .certificate-info{padding:16px}
+      .certificate-info h3{font-size:20px}
+      .flow{min-height:0}
+      .documents{grid-template-columns:1fr}
+      body>aside{display:none!important}
+    }
   `;
   doc.head.append(style);
   doc.documentElement.classList.add('portfolio-motion-enabled');
@@ -53,18 +108,6 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
 
   // Desktop-only pointer depth: this is intentionally limited to framed content cards.
   if (win.matchMedia('(hover: hover) and (pointer: fine)').matches && !win.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const tiltItems = [...doc.querySelectorAll('.filmstrip-card, .paper, .patent, .answer, .evidence, .interest, .portrait-frame, .interactive-fragment')];
-    tiltItems.forEach(el => {
-      el.classList.add('portfolio-motion-tilt');
-      el.addEventListener('pointermove', event => {
-        const rect = el.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width - .5;
-        const y = (event.clientY - rect.top) / rect.height - .5;
-        el.style.transform = `perspective(900px) rotateX(${(-y * 3.5).toFixed(2)}deg) rotateY(${(x * 4.5).toFixed(2)}deg) translateZ(0)`;
-      });
-      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
-    });
-
     const cursor = doc.createElement('div'); cursor.className = 'portfolio-cursor'; cursor.setAttribute('aria-hidden', 'true'); doc.body.append(cursor);
     let cursorX = -40, cursorY = -40, targetX = -40, targetY = -40, cursorFrame = 0;
     const drawCursor = () => {
@@ -82,18 +125,7 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
       el.addEventListener('pointerleave', () => cursor.classList.remove('is-hovering'));
     });
 
-    // Spring-like magnetic feedback for primary actions without changing their layout.
-    const magneticItems = [...doc.querySelectorAll('.cta, [data-path="universe"], .stage-nav-btn, #reel-prev-btn, #reel-next-btn, .tool')];
-    magneticItems.forEach(el => {
-      el.classList.add('portfolio-magnetic');
-      el.addEventListener('pointermove', event => {
-        const rect = el.getBoundingClientRect();
-        const x = event.clientX - rect.left - rect.width / 2;
-        const y = event.clientY - rect.top - rect.height / 2;
-        el.style.translate = `${(x * .12).toFixed(1)}px ${(y * .12).toFixed(1)}px`;
-      });
-      el.addEventListener('pointerleave', () => { el.style.translate = ''; });
-    });
+
   }
 
   // Gentle pointer parallax on the existing hero focal points; no layout or content changes.
@@ -276,5 +308,6 @@ window.enhancePortfolioPage = (doc, win, navigate) => {
     const original=win[name];
     win[name]=(...args)=>{original(...args);if(!win.matchMedia('(prefers-reduced-motion: reduce)').matches)doc.querySelector(selector)?.animate([{opacity:.4},{opacity:1}],{duration:240,easing:'ease-out'});};
   }
+  window.installPortfolioMotion?.(doc, win);
   doc.addEventListener('keydown',e=>{if(e.key==='Escape'){doc.querySelector('#arch-drawer')?.classList.add('translate-x-full');doc.querySelector('#close-hud')?.click();}});
 };

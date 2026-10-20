@@ -1,0 +1,50 @@
+:root{--motion-ease:cubic-bezier(.22,1,.36,1);--motion-reveal:1050ms;--motion-hover:700ms}
+html{scroll-behavior:auto}
+.motion-surface{position:relative;isolation:isolate;transform-origin:50% 50%;transition:transform var(--motion-hover) var(--motion-ease),box-shadow 800ms ease,border-color 650ms ease!important}
+.motion-surface::after{content:"";position:absolute;inset:0;z-index:2;border-radius:inherit;pointer-events:none;opacity:0;background:radial-gradient(ellipse at var(--light-x,50%) var(--light-y,50%),#b8a4f820,transparent 62%);box-shadow:inset 0 0 0 1px #85ccff30;transition:opacity 650ms ease}
+.motion-surface.motion-hovered::after,.motion-surface:focus-within::after{opacity:1}
+.motion-surface.motion-hovered{box-shadow:0 28px 80px #0006,0 0 35px #b8a4f80a}
+.motion-section-intro{transition:opacity var(--motion-reveal) var(--motion-ease),translate var(--motion-reveal) var(--motion-ease)}
+.motion-section-intro:not(.motion-entered){opacity:.2;translate:0 22px}
+.motion-section-intro.motion-entered{opacity:1;translate:none}
+.project-visual .restored-project-image,.project-visual .project-artwork,.project-visual .generated-artwork{transition:transform 1500ms var(--motion-ease)!important}
+.catalog-card:hover .restored-project-image,.catalog-card:hover .project-artwork,.catalog-card:hover .generated-artwork{transform:scale(1.045)}
+.catalog-card .project-copy,.catalog-card .project-visual{transition-duration:1100ms!important}
+.catalog-actions a,.catalog-actions button,.reel-controls button,.catalog-nav a{transition:background 350ms ease,border-color 400ms ease,color 300ms ease,box-shadow 600ms ease,translate 500ms var(--motion-ease)!important}
+.catalog-actions a:hover,.catalog-actions button:hover,.reel-controls button:hover{box-shadow:0 0 24px #55b7ff15;border-color:#85ccff88;color:#bce5ff;translate:0 -2px}
+.catalog-actions button:active,.reel-controls button:active{translate:0 0;box-shadow:none}
+.catalog-actions a::after{content:"";height:1px;position:absolute;bottom:3px;left:0;right:0;transform:scaleX(0);transform-origin:left;background:#55b7ff;transition:transform 550ms var(--motion-ease)}
+.catalog-actions a{position:relative}.catalog-actions a:hover::after,.catalog-actions a:focus-visible::after{transform:scaleX(1)}
+header nav a{transition:background-color 400ms ease,color 300ms ease,box-shadow 600ms ease!important}
+#telemetry-hud{transition-duration:500ms!important}
+.generated-artwork{position:absolute;width:100%;aspect-ratio:16/9;top:50%;left:0;translate:0 -50%;background-image:url('assets/project-concepts-atlas.png');background-size:300% 300%;background-repeat:no-repeat}
+.generated-scene{background:#0c0e16}
+.generated-label{position:absolute;z-index:1;bottom:12px;right:12px;border:1px solid #ffffff24;border-radius:20px;padding:5px 8px;background:#0c0e12b3;color:#bfc4d3;font:8px/1.4 "JetBrains Mono",monospace;letter-spacing:.06em;pointer-events:none}
+@media(hover:none),(pointer:coarse){.motion-surface{transform:none!important}.motion-surface::after{display:none}}
+@media(prefers-reduced-motion:reduce){.motion-surface,.motion-surface *,.motion-section-intro,.catalog-card .project-copy,.catalog-card .project-visual{animation:none!important;transition:none!important;transform:none!important;translate:none!important;opacity:1!important}.motion-surface::after{display:none}.portfolio-motion-reveal,.portfolio-motion-reveal *{animation:none!important;filter:none!important}.motion-section-intro:not(.motion-entered){opacity:1}}
+.motion-surface.motion-hovered{transition:transform 90ms linear,box-shadow 800ms ease,border-color 650ms ease!important}
+@media(prefers-reduced-motion:reduce){#telemetry-hud{transition:none!important}}
+#experimental-project-grid .generated-scene{background:radial-gradient(ellipse at center,#242039,#10131e 70%)}
+#experimental-project-grid .generated-artwork{width:auto;height:100%;aspect-ratio:16/9;left:50%;translate:-50% -50%}
+@media(max-width:899px){#experimental-project-grid .generated-scene{height:auto;aspect-ratio:16/9}#experimental-project-grid .generated-artwork{width:100%;height:100%}}
+.supplied-scene{background:#111319}
+.supplied-project-image{object-fit:contain!important;opacity:1!important}
+/* The name keeps its original lavender/white identity, with one light pass on hover. */
+.interactive-name{transition:text-shadow 850ms cubic-bezier(.22,1,.36,1);position:relative}
+.arrival-name-y{--name-ink:#d2c3ff}.arrival-name-ash{--name-ink:#e2e2e8}.arrival-name-last{--name-ink:#cdbdff}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ .interactive-name:hover{text-shadow:0 0 26px #c3b2ff24,0 0 64px #55b7ff14}
+ .interactive-name:hover .name-letter{background-image:linear-gradient(110deg,var(--name-ink) 38%,#fff 48%,#dcefff 51%,var(--name-ink) 62%);background-size:300% 100%;background-clip:text;-webkit-background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent!important;animation:name-light-pass 1900ms cubic-bezier(.22,1,.36,1) both,name-letter-drift 2400ms ease-in-out infinite;animation-delay:calc(var(--letter-order) * 65ms),calc(var(--letter-order) * -140ms)}
+ @keyframes name-letter-drift{0%,100%{transform:translateY(0) rotate(0deg)}35%{transform:translateY(-2px) rotate(-.6deg)}70%{transform:translateY(1px) rotate(.5deg)}}
+ @keyframes name-light-pass{from{background-position:140% 0}to{background-position:-40% 0}}
+ header a:hover .brand-mark{text-shadow:0 0 15px #c3b2ff66;transition:text-shadow 650ms ease}
+}
+@media(forced-colors:active){.interactive-name:hover .name-letter{background:none!important;-webkit-text-fill-color:CanvasText!important;color:CanvasText!important}}
+.catalog-card:not([data-group="experimental"]) .supplied-scene{height:auto;aspect-ratio:16/9}
+
+.interactive-name .name-line{display:block;white-space:nowrap;line-height:1.04}
+.interactive-name .name-letter{display:inline-block;transform-origin:center 75%;transition:transform 650ms cubic-bezier(.22,1,.36,1)}
+.interactive-name .name-line+.name-line{margin-top:6px}
+#scene-arrival h1.interactive-name{font-size:clamp(76px,10vw,140px)!important;line-height:1.04!important;padding:5px 4px 8px 0;letter-spacing:-.045em}
+@media(max-width:640px){#scene-arrival h1.interactive-name{font-size:clamp(54px,13vw,82px)!important}.interactive-name .name-line+.name-line{margin-top:3px}}
+@media(prefers-reduced-motion:reduce){.interactive-name .name-letter{animation:none!important;transition:none!important;transform:none!important}}
