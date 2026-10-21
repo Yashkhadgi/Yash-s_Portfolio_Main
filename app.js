@@ -36,14 +36,30 @@
     navigate: (route, direction) => navigate(route, { scrollDirection: direction })
   });
 
-  function recordVisit(route) {
-    fetch('/api/visit', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ route: `#${route || 'arrival'}` }),
-      keepalive: true
-    }).catch(() => {});
-  }
+  let visitSessionId = null;
+  try {
+    visitSessionId = sessionStorage.getItem('portfolio-visit-session');
+    if (!visitSessionId) {
+      visitSessionId = crypto.randomUUID();
+      sessionStorage.setItem('portfolio-visit-session', visitSessionId);
+    }
+  } catch { /* Navigation still works if browser storage is blocked. */ }
+
+  const visitTracker = window.createPortfolioVisitTracker({
+    sessionId: visitSessionId,
+    send(payload) {
+      const body = JSON.stringify(payload);
+      if ((document.hidden || payload.ended) && navigator.sendBeacon) {
+        try { if (navigator.sendBeacon('/api/visit', new Blob([body], { type: 'application/json' }))) return; } catch { /* Use keepalive below. */ }
+      }
+      fetch('/api/visit', { method: 'POST', headers: { 'content-type': 'application/json' }, body, keepalive: true }).catch(() => {});
+    }
+  });
+  function recordVisit(route) { visitTracker.enter(route || 'arrival'); }
+  document.addEventListener('visibilitychange', () => visitTracker.checkpoint());
+  window.addEventListener('pagehide', () => visitTracker.checkpoint(true));
+  window.addEventListener('pageshow', event => { if (event.persisted) visitTracker.resume(); });
+  setInterval(() => { if (!document.hidden) visitTracker.checkpoint(); }, 15000);
 
   function parseHash() {
     const raw = location.hash.slice(1).trim();
@@ -194,6 +210,7 @@
     if (base === currentRoute) {
       if (sub !== currentSub) {
         currentSub = sub;
+        recordVisit(fullPath);
         notifySubroute(base, sub);
       }
       return;
@@ -259,6 +276,7 @@
       if (base !== currentRoute) return;
       currentSub = rest.join('/') || null;
       const hash = currentSub ? `${base}/${currentSub}` : base;
+      recordVisit(hash);
       if (location.hash !== `#${hash}`) history.pushState({ route: base, sub: currentSub }, '', `#${hash}`);
     } else if (event.data?.type === 'navigate') {
       navigate(event.data.hash);

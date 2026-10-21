@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+<title>Visitor history — Yash Khadgi</title><link rel="stylesheet" href="visitors.css"><script src="visitors.js" defer></script>
+</head><body><main>
+<header><div><p class="eyebrow">YASH KHADGI / PRIVATE</p><h1>Visitor history</h1><p>Choose a visit to explore its page-by-page journey. Times shown in IST.</p></div><a href="/">Portfolio ↗</a></header>
+<form id="login"><label for="token">Admin access token</label><div class="controls"><input id="token" type="password" required minlength="32" autocomplete="off" placeholder="Enter your private access token"><button>Open table</button></div><p>Your token stays in memory until you lock or close this page.</p></form>
+<p id="status" role="status" aria-live="polite">Unlock to view visitor records.</p>
+<section id="history" hidden>
+<div class="toolbar"><span id="summary"></span><div class="controls"><label><input type="checkbox" id="auto" checked> Refresh every 15s</label><button id="refresh">Refresh</button><button id="lock">Lock</button></div></div>
+<div class="table-wrap"><table><caption>Visits — one row per browser-tab session, most recently active first. Select a visit ID to open its journey below.</caption><thead><tr><th>Visit ID</th><th>Visitor name / email</th><th>IP address</th><th>Date / day</th><th>First seen (IST)</th><th>Last update (IST)</th><th>Country (approx.)</th><th>City (approx.)</th><th>Browser / device</th><th>Pages / sections viewed</th><th>Page views</th><th>Foreground time (approx.)</th><th>Source</th></tr></thead><tbody id="rows"></tbody></table></div>
+<div class="pagination"><button id="previous">← Newer</button><span id="page"></span><button id="next">Older →</button></div>
+<section id="detail" hidden aria-labelledby="detail-title"><div class="toolbar"><h2 id="detail-title">Visit journey</h2><button id="close-detail">Close journey</button></div><p id="detail-meta"></p>
+<div class="table-wrap"><table><caption>Pages opened in this session, in chronological order. Foreground time counts time while the portfolio tab is visible.</caption><thead><tr><th>Step</th><th>Date / day</th><th>Opened (IST)</th><th>Last update (IST)</th><th>Section / page</th><th>Foreground time (approx.)</th><th>Status</th><th>IP address</th></tr></thead><tbody id="detail-rows"></tbody></table></div>
+<div class="pagination"><button id="detail-previous">← Earlier</button><span id="detail-page"></span><button id="detail-next">Later →</button></div></section>
+<p class="note">Names/emails are unknown unless voluntarily provided; this tracker does not discover them. Visits are browser-tab sessions, not identified people. Shared IPs are kept separate. Returning in a new session creates another row. Foreground time excludes hidden tabs but does not prove someone was reading. Updates are sent every 15 seconds and on page changes/hiding; closing/crashing the browser or network failures can lose the final interval. Old records may have unknown timing. Browser/device detection is approximate.</p>
+</section></main></body></html>
