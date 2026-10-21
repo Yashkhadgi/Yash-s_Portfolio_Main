@@ -1,6 +1,7 @@
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 module.exports = async function handler(request, response) {
+  response.setHeader('Cache-Control', 'no-store');
   if (request.method !== 'POST') return response.status(405).json({ error: 'Method not allowed' });
   const origin = request.headers?.origin;
   const host = request.headers?.['x-forwarded-host'] || request.headers?.host;
@@ -26,11 +27,15 @@ module.exports = async function handler(request, response) {
     return response.status(400).json({ error: 'Please check the form fields' });
   }
   const { RESEND_API_KEY, CONTACT_FROM_EMAIL, CONTACT_TO_EMAIL } = process.env;
-  if (!RESEND_API_KEY || !CONTACT_FROM_EMAIL) return response.status(503).json({ error: 'Contact delivery is not configured' });
+  if (!RESEND_API_KEY || !CONTACT_FROM_EMAIL) {
+    console.error('Contact email configuration missing:', [!RESEND_API_KEY && 'RESEND_API_KEY', !CONTACT_FROM_EMAIL && 'CONTACT_FROM_EMAIL'].filter(Boolean).join(', '));
+    return response.status(503).json({ code: 'CONTACT_NOT_CONFIGURED', error: 'Message delivery is currently unavailable. Please use the email link on this page.' });
+  }
   try {
     const delivery = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { Authorization: `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+      signal: AbortSignal.timeout(12000),
       body: JSON.stringify({
         from: CONTACT_FROM_EMAIL,
         to: [CONTACT_TO_EMAIL || 'yashkhadgi4@gmail.com'],
@@ -39,13 +44,15 @@ module.exports = async function handler(request, response) {
         text: `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}`
       })
     });
-    if (!delivery.ok) {
-      console.error('Portfolio contact delivery failed:', delivery.status);
-      return response.status(502).json({ error: 'Email delivery failed' });
+    const result = await delivery.json().catch(() => null);
+    if (!delivery.ok || !result?.id) {
+      const providerCode = typeof result?.name === 'string' && /^[a-z_]{1,80}$/.test(result.name) ? result.name : 'invalid_response';
+      console.error('Portfolio contact delivery failed:', delivery.status, providerCode);
+      return response.status(delivery.status === 429 ? 503 : 502).json({ code: 'CONTACT_DELIVERY_FAILED', error: 'Your message could not be submitted. Please try again later or use the email link on this page.' });
     }
     return response.status(200).json({ ok: true });
   } catch (error) {
-    console.error('Portfolio contact network error:', error.message);
-    return response.status(502).json({ error: 'Email delivery failed' });
+    console.error('Portfolio contact network error:', error.name);
+    return response.status(502).json({ code: 'CONTACT_DELIVERY_FAILED', error: 'Message submission could not be confirmed. Please use the email link on this page.' });
   }
 };
